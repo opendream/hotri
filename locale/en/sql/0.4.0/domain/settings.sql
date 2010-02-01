@@ -14,7 +14,7 @@ values (
   ,6
   ,'Y'
   ,'en'
-  ,'iso-8859-1'
+  ,'utf-8'
   ,null
 )
 ;
