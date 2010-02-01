@@ -32,7 +32,7 @@ class Layout_barcode_33up {
               'y-align'=>'center',
             ));
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Times-Roman', 10);
+                $lay->pushFont('arundina', 10);
                   if (strlen($row['title']) > 30) {
                     $row['title'] = substr($row['title'], 0, 30)."...";
                   }

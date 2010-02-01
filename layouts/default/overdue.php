@@ -16,7 +16,7 @@ class Layout_overdue {
     $mbrQ = new MemberQuery;
     
     $lay = new Lay;
-      $lay->pushFont('Helvetica', 10);
+      $lay->pushFont('arundina', 15);
         $lay->container('Columns', array(
           'margin-left'=>'1in', 'margin-right'=>'1in',
           'margin-top'=>'1in', 'margin-bottom'=>'1in',
@@ -82,7 +82,7 @@ class Layout_overdue {
                 $lay->text('The library staff at '.OBIB_LIBRARY_NAME);
               $lay->close();
               $lay->element('Spacer', array('height'=>14));
-              $lay->pushFont('Times-Italic', 12);
+              $lay->pushFont('arundina_i', 16);
                 $lay->container('Line');
                   $lay->container('TextLine', array('width'=>'1.5in', 'underline'=>1));
                     $lay->text('Title');

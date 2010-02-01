@@ -34,13 +34,13 @@ class Layout_list {
         'margin-top'=>'0.5in', 'margin-bottom'=>'0.5in',
       ));
         if ($rpt->title()) {
-          $lay->pushFont('Times-Bold', 18);
+          $lay->pushFont('arundina_b', 22);
             $lay->container('TextLine', array('x-align'=>'center'));
               $lay->text($rpt->title());
             $lay->close();
           $lay->popFont();
         }
-        $lay->pushFont('Times-Italic', 12);
+        $lay->pushFont('arundina_i', 16);
           $lay->container('Line', array('x-spacing'=>$colspacing.'in'));
             foreach ($cols as $col) {
               if (isset($col['hidden'])) {
@@ -52,6 +52,8 @@ class Layout_list {
             }
           $lay->close();
         $lay->popFont();
+        // Additional pushFont
+        $lay->pushFont('arundina', 16);
         while ($row = $rpt->each()) {
           $lay->container('Line', array('x-spacing'=>$colspacing.'in'));
             foreach ($cols as $col) {
@@ -64,6 +66,7 @@ class Layout_list {
             }
           $lay->close();
         }
+        $lay->popFont(); // Addition pushFont
       $lay->close();
     $lay->close();
   }
