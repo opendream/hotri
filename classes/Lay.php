@@ -692,7 +692,6 @@ class Lay {
     return $this->fonts[0];
   }
   function text($text) {
-    $text = iconv('utf-8', 'tis-620', $text);
     foreach (preg_split('/\s+/', $text) as $word) {
       if ($word == '') {
         continue;
