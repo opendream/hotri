@@ -33,7 +33,7 @@ class Layout_labels {
             'height'=>'16.9mm', 'width'=>'145mm',
           ));
             $lay->container('Column', array('width'=>'29mm', 'y-align'=>'center'));
-              $lay->pushFont('arundina_b', 16);
+              $lay->pushFont('Helvetica-Bold', 11);
                 $lay->text($row['callno']);
               $lay->popFont();
             $lay->close();
@@ -50,7 +50,7 @@ class Layout_labels {
               $lay->close();
             $lay->close();
             $lay->container('Column', array('width'=>'58mm', 'y-align'=>'center'));
-              $lay->pushFont('arundina', 14);
+              $lay->pushFont('Helvetica', 9);
               $lay->container('TextLine');
                 $lay->text($row['author']);
               $lay->close();
