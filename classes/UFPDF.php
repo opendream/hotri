@@ -2,7 +2,7 @@
 
 include_once('PDF.php');
 
-define('UFPDF_FONTPATH', './font/');
+define('UFPDF_FONTPATH', '../font/');
 define('FPDF_VERSION', 1.53);
 
 class UFPDF extends PDF
