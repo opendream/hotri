@@ -3,7 +3,7 @@
  * See the file COPYRIGHT.html for more details.
  */
  
-require_once("../classes/PDF.php");
+require_once("../classes/UFPDF.php");
 
 /*** Elements ***/
 class Lay_Spacer {
@@ -649,7 +649,7 @@ class Lay {
       assert('!$err');	# FIXME
       $paper[1] = $l;
     }
-    $this->display = new PDF($paper, $orientation);
+    $this->display = new UFPDF($paper, $orientation);
     $this->current = new Lay_Top_Container($this->display);
     $this->fonts = array(array('Times-Roman', 12));
   }
