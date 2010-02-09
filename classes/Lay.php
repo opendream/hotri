@@ -651,7 +651,7 @@ class Lay {
     }
     $this->display = new UFPDF($paper, $orientation);
     $this->current = new Lay_Top_Container($this->display);
-    $this->fonts = array(array('Times-Roman', 12));
+    $this->fonts = array(array('Garuda', 12));
   }
   function container($name, $params=array()) {
     # FIXME should assert that $name names a container class

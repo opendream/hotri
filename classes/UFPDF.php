@@ -14,17 +14,18 @@ class UFPDF extends PDF
   /**
   * Public Methods ------------------------------------------------------------
   */
-
   function text($p, $txt) {
     // Output a string
     $bbox = $this->currentFont['desc']['FontBBox']; // '[-659 -589 1090 1288]'
-    $bbox = split(' ', $bbox); // get last member if array (is '1288]')
+    $bbox = split(' ', $bbox); // split each member and get the last
     $bbox = substr($bbox[3], 0, -1); // strip ']' from '1288]'
     $y_base = $bbox * $this->fontSize / 1000.0;
-    $s=sprintf('BT %.2f %.2f Td %s Tj ET',
-      $p['x'], $p['y'] - $y_base, $this->_escapetext($txt));
-    if($this->ColorFlag)
-      $s='q '.$this->TextColor.' '.$s.' Q';
+    $s = sprintf('BT %.2f %.2f Td %s Tj ET',
+                 $p['x'], $p['y'] - $y_base, $this->_escapetext($txt));
+
+    if ($this->ColorFlag)
+      $s = 'q '.$this->TextColor.' '.$s.' Q';
+
     $this->_out($s);
   }
 
@@ -76,12 +77,12 @@ class UFPDF extends PDF
       $compressed = (substr($file, -2) == '.z');
       if (!$compressed && isset($info['length2'])) {
         $header = (ord($font{0}) == 128);
-        if($header) {
+        if ($header) {
           //Strip first binary header
-          $font=substr($font,6);
+          $font = substr($font, 6);
         }
 
-        if($header && ord($font{$info['length1']}) == 128) {
+        if ($header && ord($font{$info['length1']}) == 128) {
           //Strip second binary header
           $font = substr($font,0,$info['length1']).substr($font,$info['length1']+6);
         }
@@ -104,7 +105,7 @@ class UFPDF extends PDF
 
     set_magic_quotes_runtime($mqr);
 
-    foreach($this->fonts as $name => $font) {
+    foreach ($this->fonts as $name => $font) {
       //Font objects
       $this->fonts[$name]['n'] = $this->n + 1;
       $type = $font['type'];
@@ -114,12 +115,14 @@ class UFPDF extends PDF
         $this->_out('<</Type /Font');
         $this->_out('/BaseFont /'.$name);
         $this->_out('/Subtype /Type1');
-        if($name!='Symbol' && $name!='ZapfDingbats')
+
+        if ($name != 'Symbol' && $name != 'ZapfDingbats')
           $this->_out('/Encoding /WinAnsiEncoding');
+
         $this->_out('>>');
         $this->_out('endobj');
       }
-      elseif($type=='Type1' || $type=='TrueType') {
+      elseif ($type == 'Type1' || $type == 'TrueType') {
         //Additional Type1 or TrueType font
         $this->_newobj();
         $this->_out('<</Type /Font');
@@ -128,9 +131,8 @@ class UFPDF extends PDF
         $this->_out('/FirstChar 32 /LastChar 255');
         $this->_out('/Widths '.($this->n+1).' 0 R');
         $this->_out('/FontDescriptor '.($this->n+2).' 0 R');
-        if($font['enc'])
-        {
-          if(isset($font['diff']))
+        if ($font['enc']) {
+          if (isset($font['diff']))
             $this->_out('/Encoding '.($nf+$font['diff']).' 0 R');
           else
             $this->_out('/Encoding /WinAnsiEncoding');
@@ -139,19 +141,19 @@ class UFPDF extends PDF
         $this->_out('endobj');
         //Widths
         $this->_newobj();
-        $cw=&$font['cw'];
-        $s='[';
-        for($i=32;$i<=255;$i++)
+        $cw = &$font['cw'];
+        $s = '[';
+        for ($i=32; $i<=255; $i++)
           $s.=$cw[chr($i)].' ';
         $this->_out($s.']');
         $this->_out('endobj');
         //Descriptor
         $this->_newobj();
         $s='<</Type /FontDescriptor /FontName /'.$name;
-        foreach($font['desc'] as $k=>$v)
+        foreach ($font['desc'] as $k=>$v)
           $s.=' /'.$k.' '.$v;
         $file=$font['file'];
-        if($file)
+        if ($file)
           $s.=' /FontFile'.($type=='Type1' ? '' : '2').' '.$this->FontFiles[$file]['n'].' 0 R';
         $this->_out($s.'>>');
         $this->_out('endobj');
@@ -161,7 +163,6 @@ class UFPDF extends PDF
         $mtd = '_put'.strtolower($type);
         if (!method_exists($this, $mtd))
           $this->Error('Unsupported font type: '.$type);
-
         $this->$mtd($font);
       }
     }
