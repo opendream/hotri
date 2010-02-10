@@ -45,6 +45,9 @@ class Query {
                                        "Cannot select database.",
                                        mysql_error($link)));
       }
+
+      // UTF-8 support.
+      @mysql_query("SET NAMES utf8");
     }
     return array($link, NULL);
   }
