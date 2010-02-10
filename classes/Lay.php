@@ -32,7 +32,7 @@ class Lay_Word {
   var $p;
   function paramTypes() {
     return array(
-      array('font-name', 'font-name', 'Times'),
+      array('font-name', 'font-name', 'Garuda'),
       array('font-size', 'font-size', 12),
       array('text', 'string', ''),
     );

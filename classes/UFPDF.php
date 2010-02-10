@@ -29,6 +29,27 @@ class UFPDF extends PDF
     $this->_out($s);
   }
 
+  function textDim($s) {
+    //Get width of a string in the current font
+    $s = (string)$s;
+    $codepoints = $this->utf8_to_codepoints($s);
+    $cw =& $this->currentFont['cw'];
+    $w = 0;
+    foreach ($codepoints as $cp)
+      $w += $cw[$cp];
+
+    # array(x-min, y-min, x-max, y-max) -- LOWER-LEFT ORIGIN
+    $bbox = $this->currentFont['desc']['FontBBox']; // '[-659 -589 1090 1288]'
+    $bbox = split(' ', $bbox); // split each member with space
+    $bbox = array(substr($bbox[0], 1), $bbox[1], $bbox[2], substr($bbox[3], 0, -1));
+    $dim = array();
+    $dim['x'] = $w * $this->fontSize / 1000.0;
+    $dim['y'] = ($bbox[3] - $bbox[1]) * $this->fontSize / 1000.0;
+    $dim['x-base'] = (-1 * $bbox[0]) * $this->fontSize / 1000.0;
+    $dim['y-base'] = $bbox[3] * $this->fontSize / 1000.0;
+    return $dim;
+  }
+
   /**
   * Protected Methods ---------------------------------------------------------
   */
