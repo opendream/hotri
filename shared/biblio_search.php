@@ -47,23 +47,43 @@
       return false;
     }
     echo $loc->getText("biblioSearchResultPages").": ";
-    $maxPg = OBIB_SEARCH_MAXPAGES + 1;
-    if ($currPage > 1) {
-      echo "<a href=\"javascript:changePage(".H(addslashes($currPage-1)).",'".H(addslashes($sort))."')\">&laquo;".$loc->getText("biblioSearchPrev")."</a> ";
+    $maxPg = OBIB_SEARCH_MAXPAGES;
+    if ($maxPg % 2 == 0) $maxPg++;
+    $borderPg = ($maxPg - 1) / 2;
+    
+    if ($maxPg > $pageCount) {
+      $startPg = 1;
+      $endPg = $pageCount;
     }
-    for ($i = 1; $i <= $pageCount; $i++) {
-      if ($i < $maxPg) {
-        if ($i == $currPage) {
-          echo "<b>".H($i)."</b> ";
-        } else {
-          echo "<a href=\"javascript:changePage(".H(addslashes($i)).",'".H(addslashes($sort))."')\">".H($i)."</a> ";
-        }
-      } elseif ($i == $maxPg) {
-        echo "... ";
+    else {
+      if ($currPage - $borderPg < 1) {
+        $startPg = 1;
+        $endPg = $maxPg;
+      }
+      elseif ($currPage + $borderPg > $pageCount) {
+        $endPg = $pageCount;
+        $startPg = $endPg - $maxPg + 1;
+      }
+      else {
+        $startPg = $currPage - $borderPg;
+        $endPg = $currPage + $borderPg;
+      }
+    }
+
+    if ($currPage > 1) {
+      echo "<a href=\"javascript:changePage(1,'".H(addslashes($sort))."')\">&laquo;".$loc->getText("biblioSearchFirst")."</a> ";
+      echo "<a href=\"javascript:changePage(".H(addslashes($currPage-1)).",'".H(addslashes($sort))."')\">&lsaquo;".$loc->getText("biblioSearchPrev")."</a> ";
+    }
+    for ($i = $startPg; $i <= $endPg; $i++) {
+      if ($i == $currPage) {
+        echo "<b>".H($i)."</b> ";
+      } else {
+        echo "<a href=\"javascript:changePage(".H(addslashes($i)).",'".H(addslashes($sort))."')\">".H($i)."</a> ";
       }
     }
     if ($currPage < $pageCount) {
-      echo "<a href=\"javascript:changePage(".($currPage+1).",'".$sort."')\">".$loc->getText("biblioSearchNext")."&raquo;</a> ";
+      echo "<a href=\"javascript:changePage(".($currPage+1).",'".$sort."')\">".$loc->getText("biblioSearchNext")."&rsaquo;</a> ";
+      echo "<a href=\"javascript:changePage(".$pageCount.",'".$sort."')\">".$loc->getText("biblioSearchLast")."&raquo;</a> ";
     }
   }
 

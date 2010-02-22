@@ -64,6 +64,7 @@ $trans["biblioViewNewCopy"]        = "\$text = 'Add New Copy';";
 $trans["biblioViewNeweCopy"]       = "\$text = 'Add New Electronic Copy';";
 $trans["biblioViewYes"]            = "\$text = 'yes';";
 $trans["biblioViewNo"]             = "\$text = 'no';";
+$trans["biblioViewPictureHeader"]  = "\$text = 'Bibliograhy Picture';";
 
 #****************************************************************************
 #*  Translation text for page biblio_search.php
@@ -71,6 +72,8 @@ $trans["biblioViewNo"]             = "\$text = 'no';";
 $trans["biblioSearchNoResults"]    = "\$text = 'No results found.';";
 $trans["biblioSearchResults"]      = "\$text = 'Search Results';";
 $trans["biblioSearchResultPages"]  = "\$text = 'Result Pages';";
+$trans["biblioSearchFirst"]        = "\$text = 'first';";
+$trans["biblioSearchLast"]         = "\$text = 'last';";
 $trans["biblioSearchPrev"]         = "\$text = 'prev';";
 $trans["biblioSearchNext"]         = "\$text = 'next';";
 $trans["biblioSearchResultTxt"]    = "if (%items% == 1) {

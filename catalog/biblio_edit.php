@@ -20,6 +20,7 @@ if (!isset($_REQUEST['posted'])) {
   $postVars = bibidToPostVars($_REQUEST['bibid']);
   showForm($postVars);
 } else {
+  if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");
@@ -41,6 +42,7 @@ if (!isset($_REQUEST['posted'])) {
     }
     $pageErrors = array_merge($pageErrors, customFieldErrors($biblio));
     if (!empty($pageErrors)) {
+      unset($postVars["values"]["902a"]);
       showForm($postVars, $pageErrors);
     } else {
       updateBiblio($biblio);
@@ -160,7 +162,7 @@ function showForm($postVars, $pageErrors=array()) {
       }
     //-->
   </script>
-  <form name="editbiblioform" method="POST" action="../catalog/biblio_edit.php">
+  <form name="editbiblioform" method="POST" action="../catalog/biblio_edit.php" enctype="multipart/form-data">
   <input type="hidden" name="bibid" value="<?php echo H($postVars["bibid"]);?>">
 <?php
   include("../catalog/biblio_fields.php");

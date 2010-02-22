@@ -5,6 +5,7 @@
  
 define("OBIB_TEXT_CNTRL", "0");
 define("OBIB_TEXTAREA_CNTRL", "1");
+define("OBIB_FILE_CNTRL", "2");
 
 /*********************************************************************************
  * Draws input html tag of type text.
@@ -74,10 +75,26 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   if ($cntrlType == OBIB_TEXTAREA_CNTRL) {
     echo "<textarea name=\"values[".H($formIndex)."]\" cols=\"".H($cols)."\" rows=\"".H($rows)."\">";
     echo H($value)."</textarea>";
-  } else {
+  } 
+  elseif ($cntrlType == OBIB_TEXT_CNTRL) {
     echo "<input type=\"text\"";
     echo " name=\"values[".H($formIndex)."]\" size=\"".H($size)."\" maxlength=\"".H($maxLen)."\" ";
     echo "value=\"".H($value)."\" >";
+  }
+  elseif ($cntrlType == OBIB_FILE_CNTRL) {
+    echo "<input type=\"file\"";
+    echo " name=\"values[".H($formIndex)."]\" size=\"28\" />";
+    if ($value) {
+      $title = $postVars["values"]["245a"];
+      $filepath = "../pictures/$value";
+      $thumbpath = make_thumbnail($filepath, array('width' => 200));
+      if (file_exists($thumbpath)) {
+        echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$alt\" /></a>";
+      }
+      else {
+        echo "<div class=\"error\">File does not exists.</div>";
+      }
+    }
   }
   if ($error != "") {
     echo "<br><font class=\"error\">";

@@ -640,3 +640,5 @@ insert into %prfx%usmarc_indicator_dm values (886,1,'2','Variable data fields (0
 insert into %prfx%usmarc_indicator_dm values (886,2,'#','Undefined');
 insert into %prfx%usmarc_indicator_dm values (887,1,'#','Undefined');
 insert into %prfx%usmarc_indicator_dm values (887,2,'#','Undefined');
+insert into %prfx%usmarc_indicator_dm values (902,1,'#','Undefined');
+insert into %prfx%usmarc_indicator_dm values (902,2,'#','Undefined');

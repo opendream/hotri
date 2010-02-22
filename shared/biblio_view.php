@@ -197,7 +197,33 @@
 
 
 
-
+<?php
+  #***************************************************************************
+  #*  Show picture
+  #***************************************************************************
+  if (isset($biblioFlds["902a"])):
+    $filepath = "../pictures/". $biblioFlds["902a"]->getFieldData();
+    $title = H($biblioFlds["245a"]->getFieldData());
+    //$info = _image_resize($filepath, 200);
+    //if (is_array($info)): 
+    if ($thumbpath = make_thumbnail($filepath, array('width' => 200))):
+?>
+<table class="primary">
+  <tr>
+    <th align="left" nowrap="yes">
+      <?php echo $loc->getText("biblioViewPictureHeader"); ?>
+    </th>
+  </tr>
+  <tr>
+    <td valign="top" class="primary">
+      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
+    </td>
+  </tr>
+</table>
+<?php
+    endif;
+  endif;
+?>
 
 <?php
   #****************************************************************************
@@ -314,7 +340,8 @@
         && ($key != "245a")
         && ($key != "245b")
         && ($key != "245c")
-        && ($key != "100a")) {
+        && ($key != "100a")
+        && ($key != "902a")) {
         $displayCount = $displayCount + 1;
   ?>
         <tr>

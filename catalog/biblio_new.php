@@ -15,6 +15,7 @@ if (!isset($_REQUEST['posted'])) {
   require_once("../shared/logincheck.php");
   showForm(array('opacFlg'=>'CHECKED'));
 } else {
+  if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");
@@ -29,7 +30,8 @@ if (!isset($_REQUEST['posted'])) {
     }
     $pageErrors = array_merge($pageErrors, customFieldErrors($biblio));
     if (!empty($pageErrors)) {
-     showForm($postVars, $pageErrors);
+      unset($postVars["values"]["902a"]);
+      showForm($postVars, $pageErrors);
     } else {
       $bibid = insertBiblio($biblio);
       $msg = $loc->getText("biblioNewSuccess");
@@ -131,7 +133,7 @@ function showForm($postVars, $pageErrors=array()) {
       }
     //-->
   </script>
-  <form name="newbiblioform" method="POST" action="../catalog/biblio_new.php">
+  <form name="newbiblioform" method="POST" action="../catalog/biblio_new.php" enctype="multipart/form-data">
 <?php
   include("../catalog/biblio_fields.php");
   include("../shared/footer.php");

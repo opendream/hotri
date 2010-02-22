@@ -107,4 +107,94 @@
     }
   }
 
+  #*****************************************************
+  #  Get image resize
+  #*****************************************************
+  function _image_resize($filepath, $width = NULL, $height = NULL) {
+    if (!file_exists($filepath)) return 0;
+    if ($info = getimagesize($filepath)) {
+      if ($width > 0 && $height > 0) {
+        $info[0] = $width;
+        $info[1] = $height;
+      }
+      elseif ($width > 0) {
+        $height = $width * $info[1] / $info[0];
+        $info[0] = $width;
+        $info[1] = $height;
+      }
+      elseif ($height > 0) {
+        $width = $height * $info[0] / $info[1];
+        $info[0] = $width;
+        $info[1] = $height;
+      }
+      else {
+        return 1;
+      }
+      $info[3] = "width=\"$width\" height=\"$height\"";
+      return $info;
+    }
+    return 2;
+  }
+
+  #******************************************************
+  #  Make image thumbnail
+  #******************************************************
+  function make_thumbnail($filepath, $info = array()) {
+    if (!file_exists($filepath)) return FALSE;
+    if (count($info) == 0) return FALSE;
+    $paths = explode('/', $filepath);
+    $fileparts = explode('.', array_pop($paths));
+    // remove ext
+    array_pop($fileparts);
+    // combine filename
+    $filename = implode('.', $fileparts);
+    // get image info
+    $image_info = getimagesize($filepath);
+    $image_width = $image_info[0];
+    $image_height = $image_info[1];
+    $image_mime = $image_info['mime'];
+    // get image extension
+    $ext = image_type_to_extension($image_info[2]);
+    // combine thumbpath
+    $paths[] = 'thumb_'.$filename.$ext;
+    $thumbpath = implode('/', $paths);
+    if (!file_exists($thumbpath)) {
+      if (is_numeric($info['width']) && is_numeric($info['height'])) {
+        $thumb_width = $info['width'];
+        $thumb_height = $info['height'];
+      }
+      elseif (is_numeric($info['width'])) {
+        $thumb_width = $info['width'];
+        $thumb_height = ceil($thumb_width * $image_height / $image_width);
+      }
+      elseif (is_numeric($info['height'])) {
+        $thumb_height = $info['height'];
+        $thumb_width = ceil($image_width * $thumb_height / $image_height);
+      }
+
+      switch ($image_mime) {
+        case 'image/jpeg':
+          $create_func = 'imagecreatefromjpeg';
+          $output_func = 'imagejpeg';
+        break;
+        case 'image/png':
+          $create_func = 'imagecreatefrompng';
+          $output_func = 'imagepng';
+        break;
+        case 'image/gif':
+          $create_func = 'imagecreatefromgif';
+          $output_func = 'imagegif';
+        break;
+      }
+      $src = $create_func($filepath);
+      $dst = imagecreatetruecolor($thumb_width, $thumb_height);
+      imagecopyresampled($dst, $src, 0, 0, 0, 0, $thumb_width, $thumb_height, $image_width, $image_height);
+      $output_func($dst, $thumbpath);
+      imagedestroy($src);
+      imagedestroy($dst);
+    }
+    return $thumbpath;
+  }
+  
+
 ?>

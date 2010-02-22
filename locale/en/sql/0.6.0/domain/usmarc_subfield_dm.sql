@@ -1673,3 +1673,4 @@ insert into %prfx%usmarc_subfield_dm values (886,'b','Content of the foreign MAR
 insert into %prfx%usmarc_subfield_dm values (886,'2','Source of data','N');
 insert into %prfx%usmarc_subfield_dm values (887,'a','Content of non-MARC field','N');
 insert into %prfx%usmarc_subfield_dm values (887,'2','Source of data','N');
+insert into %prfx%usmarc_subfield_dm values (902,'a','Bibliography Picture','N');

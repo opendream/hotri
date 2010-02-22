@@ -173,3 +173,4 @@ insert into %prfx%usmarc_tag_dm values (8,856,'Electronic location and access','
 insert into %prfx%usmarc_tag_dm values (8,880,'Alternate graphic representation','Same as associated field','Same as associated field','Y');
 insert into %prfx%usmarc_tag_dm values (8,886,'Foreign marc information field','Type of field','Undefined','Y');
 insert into %prfx%usmarc_tag_dm values (8,887,'Non-marc information field','Undefined','Undefined','Y');
+insert into %prfx%usmarc_tag_dm values (9,902,'Additional Fields','Undefiniert','Undefiniert','Y');
