@@ -36,6 +36,7 @@
   }
   require_once("../classes/BiblioSearch.php");
   require_once("../classes/BiblioSearchQuery.php");
+  require_once("../classes/BiblioFieldQuery.php");
   require_once("../functions/searchFuncs.php");
   require_once("../classes/DmQuery.php");
 
@@ -259,6 +260,21 @@ function changePage(page,sort)
       <?php echo H($biblioQ->getCurrentRowNmbr());?>.<br />
       <a href="../shared/biblio_view.php?bibid=<?php echo HURL($biblio->getBibid());?>&amp;tab=<?php echo HURL($tab);?>">
       <img src="../images/<?php echo HURL($materialImageFiles[$biblio->getMaterialCd()]);?>" width="20" height="20" border="0" align="bottom" alt="<?php echo H($materialTypeDm[$biblio->getMaterialCd()]);?>"></a>
+    </td>
+    <td nowrap="true" class="primary" valign="top" align="center" rowspan="2">
+      <?php
+      $bfq = new BiblioFieldQuery();
+      $bfq->execSelect($biblio->getBibid());
+      $flds = $bfq->fetchField();
+      if ($flds->_fieldData):
+        $filepath = "../pictures/". $flds->_fieldData;
+        $title = H($biblio->getTitle());
+        if ($thumbpath = make_thumbnail($filepath, array('width' => 200))): 
+      ?>
+      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" style="padding: 3px;" /></a>
+      <?php 
+        endif;
+      endif; ?>
     </td>
     <td class="primary" valign="top" colspan="2">
       <table class="primary" width="100%">
