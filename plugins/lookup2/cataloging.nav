@@ -1,0 +1,9 @@
+<!-- ---------------------------------------- --->
+<!-- added for Fred LaPlante's Lookup2 Function -->
+<?php if ($nav == "lookup") { ?>
+&raquo; <?php echo $navLoc->getText("lookup");?>
+<?php } else { ?>
+<br> <a href="../lookup2/lookup.php" class="alt1"><?php echo $navLoc->getText("lookup");?></a>
+<?php } ?>
+<!-- ---------------------------------------- --->
+<!-- ---------------------------------------- --->

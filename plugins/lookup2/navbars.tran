@@ -1,0 +1,8 @@
+<?php
+#****************************************************************************
+#*  Translation text for page lookup.php for lookup2
+#****************************************************************************
+$trans["lookup"]                = "\$text = 'On-line Search v2';";
+$trans["lookup_opts"]       		= "\$text = 'Lookup Options';";
+$trans["lookup_hosts"]       		= "\$text = 'Lookup Hosts';";
+?>

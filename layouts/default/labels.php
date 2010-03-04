@@ -33,24 +33,24 @@ class Layout_labels {
             'height'=>'16.9mm', 'width'=>'145mm',
           ));
             $lay->container('Column', array('width'=>'29mm', 'y-align'=>'center'));
-              $lay->pushFont('Helvetica-Bold', 11);
+              $lay->pushFont('Garuda-Bold', 11);
                 $lay->text($row['callno']);
               $lay->popFont();
             $lay->close();
             $lay->container('Column', array('width'=>'58mm', 'y-spacing'=>'1mm', 'y-align'=>'center'));
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Code39JK', 20);
+                $lay->pushFont('Free3of9', 20);
                   $lay->text('*'.strtoupper($row['barcode_nmbr']).'*');
                 $lay->popFont();
               $lay->close();
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Courier', 10);
+                $lay->pushFont('Garuda', 10);
                   $lay->text(strtoupper($row['barcode_nmbr']));
                 $lay->popFont();
               $lay->close();
             $lay->close();
             $lay->container('Column', array('width'=>'58mm', 'y-align'=>'center'));
-              $lay->pushFont('Helvetica', 9);
+              $lay->pushFont('Garuda', 9);
               $lay->container('TextLine');
                 $lay->text($row['author']);
               $lay->close();

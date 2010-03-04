@@ -139,7 +139,12 @@
 <?php } else { ?>
  <a href="../catalog/biblio_new.php" class="alt1"><?php echo $navLoc->getText("catalogBibNew");?></a><br>
 <?php } ?>
-
+<?php
+	$list = getPlugIns('cataloging.nav');
+	for ($x=0; $x<count($list); $x++) {
+		include_once ($list[$x]);
+	}
+	?>
 <?php if ($nav == "upload_usmarc") { ?>
  &raquo; <?php echo $navLoc->getText("Upload Marc Data");?><br>
 <?php } else { ?>

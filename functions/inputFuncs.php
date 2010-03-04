@@ -128,6 +128,28 @@ function printInputText($fieldName,$size,$max,&$postVars,&$pageErrors,$visibilit
 }
 
 /*********************************************************************************
+ * Custom printInputText for lookup2
+ * @param string $fieldName name of input field
+ * @param string $size size of text box
+ * @param string $max max input length of text box
+ * @param array_reference &$postVars reference to array containing all input values
+ * @param array_reference &$pageErrors reference to array containing all input errors
+ * @return void
+ * @access public
+ *********************************************************************************
+ */
+function printMyInputText($fieldName,$size,$max,&$postVars,&$pageErrors,$visibility = "visible") {
+  $_SESSION['postVars'] = $postVars;
+  $_SESSION['pageErrors'] = $pageErrors;
+  $attrs = array('size'=>$size,
+                 'maxlength'=>$max,
+                 'style'=>"visibility: $visibility",
+                 'id'=>$fieldName
+                 );
+  echo inputField('text', $fieldName, '', $attrs);
+}
+
+/*********************************************************************************
  * DEPRECATED, use dmSelect.
  * @param string $fieldName name of input field
  * @param string $domainTable name of domain table to get values from

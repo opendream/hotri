@@ -1,0 +1,45 @@
+<?php
+#****************************************************************************
+#*  Translation text for page lookupOptsForm.php
+#****************************************************************************
+$trans["lookup_opts"]       			     = "\$text = 'Lookup Options.';";
+$trans["lookup_optsUpdated"]           = "\$text = 'Lookup Settings have been updated.';";
+$trans["lookup_optsSettings"]      		 = "\$text = 'Edit Lookup Options:';";
+$trans["lookup_optsProtocol"]          = "\$text = 'Protocol:';";
+$trans["lookup_optsMaxHits"]           = "\$text = 'Maximum no of hits:';";
+$trans["lookup_optsKeepDashes"]        = "\$text = 'Keep Dashes:';";
+$trans["lookup_optsCallNmbrType"]      = "\$text = 'Call Number Type:';";
+$trans["lookup_optsAutoDewey"]         = "\$text = 'Use Default Dewey:';";
+$trans["lookup_optsDefaultDewey"]      = "\$text = 'Default Dewey Code:';";
+$trans["lookup_optsAutoCutter"]        = "\$text = 'Generate Cutter if none:';";
+$trans["lookup_optsCutterType"]        = "\$text = 'Cutter Type to create:';";
+$trans["lookup_optsCutterWord"]        = "\$text = 'Dewey Cutter Word No.:';";
+$trans["lookup_optsAutoCollection"]    = "\$text = 'Use Auto Collection:';";
+$trans["lookup_optsFictionName"]       = "\$text = 'Fiction Collection Name:';";
+$trans["lookup_optsFictionCode"]       = "\$text = 'Index no. of Fiction Code to use:';";
+$trans["lookup_optsLocFictionCodes"]   = "\$text = 'LoC Fiction Codes';";
+$trans["lookup_optsDewFictionCodes"]   = "\$text = 'Dewey Fiction codes:';";
+$trans["lookup_callNmbrType"]          = "\$text = 'Your call Number Type is invalid!';";
+$trans["lookup_optsUpdtBtn"]           = "\$text = 'Update';";
+#****************************************************************************
+#****************************************************************************
+#*  Translation text for page lookupHostsForm.php
+#****************************************************************************
+$trans["lookup_hosts"]       			     = "\$text = 'Lookup Hosts.';";
+$trans["lookup_rqdNote"]       			 	 = "\$text = ' - required fields.';";
+$trans["lookup_hostsUpdated"]          = "\$text = 'Lookup Settings have been updated.';";
+$trans["lookup_hostsConfirmDelete"]    = "\$text = 'Are you sure you want to delete this host?';";
+$trans["lookup_hostsListFunction"]   	 = "\$text = 'Function:';";
+$trans["lookup_hostsListHeader"]       = "\$text = 'View Lookup Hosts:';";
+$trans["lookup_hostsEditHeader"]       = "\$text = 'Edit Host Properrties:';";
+$trans["lookup_hostsNewHeader"]        = "\$text = 'Enter New Host Properrties:';";
+$trans["lookup_hostsSeqNo"]    	     	 = "\$text = 'Order:';";
+$trans["lookup_hostsActive"]           = "\$text = 'Use:';";
+$trans["lookup_hostsHost"]       			 = "\$text = 'URL:port';";
+$trans["lookup_hostsName"]     				 = "\$text = 'Name:';";
+$trans["lookup_hostsDb"]        			 = "\$text = 'Database:';";
+$trans["lookup_hostsUser"]      			 = "\$text = 'User Id:';";
+$trans["lookup_hostsPw"]        			 = "\$text = 'Password:';";
+$trans["lookup_hostsUpdtBtn"]          = "\$text = 'Update';";
+#****************************************************************************
+?>

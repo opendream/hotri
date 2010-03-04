@@ -73,13 +73,12 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   echo ":\n</td>\n";
   echo "<td valign=\"top\" class=\"primary\">\n";
   if ($cntrlType == OBIB_TEXTAREA_CNTRL) {
-    echo "<textarea name=\"values[".H($formIndex)."]\" cols=\"".H($cols)."\" rows=\"".H($rows)."\">";
-    echo H($value)."</textarea>";
+    $attrs= array('cols'=>H($cols),'rows'=>H($rows));
+    echo inputField('textarea', "values[".H($formIndex)."]", H($value), $attrs);
   } 
   elseif ($cntrlType == OBIB_TEXT_CNTRL) {
-    echo "<input type=\"text\"";
-    echo " name=\"values[".H($formIndex)."]\" size=\"".H($size)."\" maxlength=\"".H($maxLen)."\" ";
-    echo "value=\"".H($value)."\" >";
+    $attrs= array('size'=>H($size),'maxlength'=>H($maxLen));
+    echo inputField('text', "values[".H($formIndex)."]", H($value), $attrs);
   }
   elseif ($cntrlType == OBIB_FILE_CNTRL) {
     echo "<input type=\"file\"";
