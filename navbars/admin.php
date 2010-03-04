@@ -73,10 +73,4 @@
 -->
 
 <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("help");?></a>
-<?php
-	$list = getPlugIns('admin.nav');
-	for ($x=0; $x<count($list); $x++) {
-		include_once ($list[$x]);
-	}
-	?>
 
