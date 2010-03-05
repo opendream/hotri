@@ -13,19 +13,20 @@
  *
  * @package WordPress
  */
-
+// Include OpenBiblio database configurations in frontend
+require_once(dirname(__FILE__) . '/../database_constants.php');
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'putyourdbnamehere');
+define('DB_NAME', OBIB_DATABASE);
 
 /** MySQL database username */
-define('DB_USER', 'usernamehere');
+define('DB_USER', OBIB_USERNAME);
 
 /** MySQL database password */
-define('DB_PASSWORD', 'yourpasswordhere');
+define('DB_PASSWORD', OBIB_PWD);
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', OBIB_HOST);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -54,7 +55,7 @@ define('NONCE_KEY', 'put your unique phrase here');
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'home_';
 
 /**
  * WordPress Localized Language, defaults to English.

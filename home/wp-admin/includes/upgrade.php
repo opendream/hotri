@@ -104,15 +104,26 @@ function wp_install_defaults($user_id) {
 	$wpdb->insert( $wpdb->term_taxonomy, array('term_id' => '1', 'taxonomy' => 'category', 'description' => '', 'parent' => 0, 'count' => 1));
 
 	// Default link category
-	$cat_name = __('Blogroll');
+	$cat_name = __('Library');
 	/* translators: Default link category slug */
-	$cat_slug = sanitize_title(_x('Blogroll', 'Default link category slug'));
+	$cat_slug = sanitize_title(_x('Library', 'Default link category slug'));
 
 	$wpdb->insert( $wpdb->terms, array('name' => $cat_name, 'slug' => $cat_slug, 'term_group' => 0) );
 	$wpdb->insert( $wpdb->term_taxonomy, array('term_id' => '2', 'taxonomy' => 'link_category', 'description' => '', 'parent' => 0, 'count' => 7));
 
 	// Now drop in some default links
 	$default_links = array();
+	$default_links[] = array(	'link_url' => get_option('home') . '/../opac',
+								'link_name' => 'OPAC',
+								'link_rss' => '',
+								'link_notes' => '');
+	
+	$default_links[] = array(	'link_url' => get_option('home') . '/../circ',
+								'link_name' => 'Manage Library',
+								'link_rss' => '',
+								'link_notes' => '');
+	
+	/*
 	$default_links[] = array(	'link_url' => 'http://codex.wordpress.org/',
 								'link_name' => 'Documentation',
 								'link_rss' => '',
@@ -147,6 +158,8 @@ function wp_install_defaults($user_id) {
 								'link_name' => 'WordPress Planet',
 								'link_rss' => '',
 								'link_notes' =>'');
+	*/
+	
 
 	foreach ( $default_links as $link ) {
 		$wpdb->insert( $wpdb->links, $link);
