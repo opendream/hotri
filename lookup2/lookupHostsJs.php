@@ -92,7 +92,7 @@ hed = {
 	  $('#hostForm tfoot #updtBtn').hide();
 	  $('#hostForm tfoot #addBtn').show();
 	  $('#hostForm tbody #name').focus();
-	  
+	  hed.doClearForm();
 		$('#listDiv').hide();
 		$('#editDiv').show();
 	},
@@ -100,10 +100,16 @@ hed = {
 	  var theHostId = $(this).next().val();
 		//console.log('you wish to edit host #'+theHostId);
 		for (nHost in hed.hostJSON) {
-		  if (hed.hostJSON[nHost]['id'] == theHostId) {
+		  if (hed.hostJSON[nHost]['id'] == theHostId) {  
+		    //hed.doClearForm();
 				hed.showHost(hed.hostJSON[nHost]);
 			}
 		}
+	},
+	doClearForm: function () {
+	  // Clear previous values.
+    $('#editTbl td #id, #editTbl td #host, #editTbl td #name, #editTbl td #db, #editTbl td #seq, #editTbl td #pw, #editTbl td #user').val('');
+    $('#editTbl td #active').attr('checked', '');
 	},
 	
 	doValidate: function () {
@@ -179,7 +185,7 @@ hed = {
 	  $('#hostForm tfoot #addBtn').hide();
 	  $('#hostForm tfoot #updtBtn').show();
 	  $('#hostForm tbody #name').focus();
-
+	  
 		$('#editTbl td #id').val(host['id']);
 		$('#editTbl td #host').val(host['host']);
 		$('#editTbl td #name').val(host['name']);

@@ -211,7 +211,7 @@ lkup = {
 					$('#retryDiv').show(1000);
 				}
 
-				else if (rslts.ttlHits >= rslts.maxHits) {
+				else if (parseInt(rslts.ttlHits) >= parseInt(rslts.maxHits)) {
 					//console.log('too many hits');
 		  		//{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]',
 					// 'msg':'$msg1', 'msg2':'$msg2'}

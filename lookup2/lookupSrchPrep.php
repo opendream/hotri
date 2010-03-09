@@ -54,8 +54,8 @@
 			$msg2 = $lookLoc->getText('lookup_RefineSearch');
 			 # JSON object follows
 		  $s =  "{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]','protocol':'$postVars[protocol]',".
-						"'msg':'$msg1', 'msg2':'$msg2' ".
-						"}";
+						"'msg':'$msg1', 'msg2':'$msg2', ".
+						"'data':{}}";
 		}
 		## GOOD COUNT
 		else if ($ttlHits > 0) {
