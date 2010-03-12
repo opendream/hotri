@@ -253,7 +253,7 @@ lkup = {
 						} // if (lkup.hostJason[hostIndex])
 					}); // $.each(rslts.data...
 					$('#ttlHits').html(nHits+' hits found.')
-					console.log('all choices drawn')
+					//console.log('all choices drawn')
 					//$('#choiceSpace').append(response);
 					$('#biblioBtn').bind('click',null,lkup.doBackToChoice);
 					$('#biblioBtn2').bind('click',null,lkup.doBackToChoice);
@@ -285,6 +285,7 @@ lkup = {
 	},
 	doShowOne: function (data){
 		// setting defaults
+		//console.log(data);
   	$('input[name=callNmbr1]').val('call nmbr required');
   	$('input[name=callNmbr1]').css('color','red');
   	$('input[name=values[245a]').val('title required');

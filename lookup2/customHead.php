@@ -147,6 +147,9 @@ else if (ereg('/lookup2/lookupHostsForm.php', $_SERVER['PHP_SELF'])) {
 else if (ereg('/lookup2/lookupOptsForm.php', $_SERVER['PHP_SELF'])) {
   require_once(REL(__FILE__, "lookupOptsJs.php"));
 }
+else if (ereg('/lookup2/BulkLookup.php', $_SERVER['PHP_SELF'])) {
+  
+}
 else {
   // for debug only. You should never get here. If you do
   // one or more of the above directories is incorrect for your system

@@ -35,7 +35,8 @@ getOpts();
  	$s = $Q->getDefault();
  	$Q->close();
 	//print_r($s);
- 	$postVars['defaultCollect'] = $s['description'];
+ 	//$postVars['defaultCollect'] = $s['description'];
+ 	$postVars['defaultCollect'] = $s['code'];
 
 	## set protocol flag
 	if ($postVars[protocol] == 'YAZ') {

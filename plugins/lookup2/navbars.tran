@@ -5,4 +5,5 @@
 $trans["lookup"]                = "\$text = 'On-line Search v2';";
 $trans["lookup_opts"]       		= "\$text = 'Lookup Options';";
 $trans["lookup_hosts"]       		= "\$text = 'Lookup Hosts';";
+$trans["lookup_bulk"]       		= "\$text = 'Bulk ISBN Lookup';";
 ?>
