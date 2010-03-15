@@ -26,56 +26,81 @@ class BulkLookup {
     if (!$fp) return array('error'=>'unable to open uploaded files');
     
     $bl = new BulkLookupQuery();
+    $isbnList = array();
     while (!feof($fp)) {
       $line = trim(fgets($fp));
-      $isbn = $this->_verifyISBN($line);
+      $isbn = $this->verifyISBN($line);
       if (strlen($isbn) == 10) {
-        $bl->queue($isbn);
-        //$isbnList[] = $line;
+        $isbnList[$isbn]++;
       }
     }
+
+    // 
+    $bl->queue($isbnList);
     
     // Enable cron.
-    file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'ON');
+    if (ereg('OFF', file_get_contents(dirname(__FILE__) . '/../cron/cronrun.txt'))) 
+      file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'ON');
+    $bl->clearDoneQueue();
   }
   
   function search($isbnList) {
     $bl = new BulkLookupQuery();
+
+    if (!is_array($isbnList)) return false;
     
-    foreach ($isbnList as $isbn) {
+    foreach ($isbnList as $one) {
+      // Check existing ISBN.
+      $existBibid = $bl->getExistBiblio($one['isbn']);
+      if ($existBibid > 0) {
+        for ($i = 0; $i < $one['amount']; $i++)
+          $bl->addCopy($existBibid);
+        $bl->setLookupStatus('copy', $one['isbn']);
+        continue;
+      }
+    
       $list = $this->_getLookupServers();
       $retry = false;
+      if (!is_array($list) || count($list) < 1) {
+        $bl->setLookupStatus('manual', $one['isbn'], $one['amount']);
+      }
+        
       foreach ($list as $server) {
-        $result = $this->_getLookupResult($server, $isbn);
+        $result = $this->_getLookupResult($server, $one['isbn']);
         if (!$result || isset($result['error'])) {
           if (ereg('not connect', $result['error']) || ereg('response error', $result['error'])) {
             $retry = true;
           }
           continue;
         }
-        $this->_addResult(array('isbn'=>$isbn, 'data'=>$result));
+        $this->_addResult(array('isbn'=>$one['isbn'], 'data'=>$result, 'amount'=>$one['amount']));
         break;
       }
       
       if (isset($result['error'])) {
-        $this->_addResult(array('isbn'=>$isbn, 'data'=>NULL));
+        $this->_addResult(array('isbn'=>$one['isbn'], 'data'=>NULL));
         
         if ($retry) 
-          $bl->setLookupStatus('retry', $isbn);
-        else 
-          $bl->setLookupStatus('manual', $isbn);
+          $bl->setLookupStatus('retry', $one['isbn']);
+        else {
+          $bl->setLookupStatus('manual', $one['isbn'], $one['amount']);
+        }
       }
     }
     $bl->saveResults($this->_results);
   }
   
-  private function _verifyISBN($isbn,$keepDashes = false) {
+  function verifyISBN($isbn,$keepDashes = false) {
 			## remove any "-" char user may have entered
 			if (!$keepDashes) {
 				$isbn = str_replace("-", "", $isbn);
 			}
 			## remove any space char user may have entered
 			$isbn = str_replace(" ", "", $isbn);
+
+			// When isbn is not number (3 first characters), return false
+			if (!is_numeric(substr($isbn, 0, 9)))
+			  return false;
 
 			## test if its a scanned EAN code
 			## '978' & '979' per Cristoph Lange of Germany
@@ -139,8 +164,13 @@ class BulkLookup {
   
   private function _addResult($result) {
     if (!is_array($result) || !isset($result['isbn'])) return false;
+
+    if (empty($result['amount']))
+      $result['amount'] = 1;
+    else
+      $result['amount'] = 0 + $result['amount'];
     
-    $this->_results[$result['isbn']] = $result['data'];
+    $this->_results[$result['isbn']] = array('data'=>$result['data'], 'amount'=>$result['amount']);
     
     return true;
   }
@@ -148,16 +178,42 @@ class BulkLookup {
 }
 
 class BulkLookupQuery extends Query {
-  function queue($isbn) {
-    return $this->_query("INSERT INTO lookup_queue (isbn) VALUES ('$isbn')", false);
+  function queue($isbn, $amount=1, $mode = 'default') {
+    // Manual mode need one isbn (string).
+    if ($mode == 'manual') {
+      $this->_query("SELECT qmid FROM lookup_manual WHERE isbn = '$isbn'", false);
+      $data = $this->fetch();
+      if ($data['qmid'] > 0 && 0 + $amount > 0) {
+        $this->_query("UPDATE lookup_manual SET hits=hits+" . (0 + $amount) . " WHERE qmid={$data['qmid']}", false);
+      }
+      else 
+        $this->_query("INSERT INTO lookup_manual (isbn, hits) VALUES ('$isbn', " . (0 + $amount) . ")", false);
+      
+    }
+    // Default mode need isbn list (array : key = ISBN, value = amount).
+    else {
+      if (!is_array($isbn)) return false;
+
+      foreach ($isbn as $key => $amount) {
+        if (0 + $amount > 0) {
+          $this->_query("INSERT INTO lookup_queue (isbn, amount) VALUES ('$key', $amount)", false);
+        }
+      } 
+    }
+  }
+
+  function getManualList($limit = 100) {
+    $limit = 0 + $limit;
+    $this->_query("SELECT * FROM lookup_manual WHERE hits != 0 LIMIT $limit", false);
   }
   
   function getQueue($status = 'queue', $limit = 100) {
     $limit = 0 + $limit;
     switch ($status) {
+      case 'manual':
       case 'queue':
       case 'publish':
-      case 'manual':
+      case 'copy':
         $cond = "WHERE status='$status'";
         break;
       
@@ -167,6 +223,15 @@ class BulkLookupQuery extends Query {
     $this->_query("SELECT * FROM lookup_queue $cond LIMIT $limit", false);
     
   }
+
+  function clearDoneQueue($type = 'default') {
+    if ($type == 'manual_list') {
+      return $this->_query("DELETE FROM lookup_manual WHERE hits=0", false);
+    }
+    else {
+      return $this->_query("DELETE FROM lookup_queue WHERE status!='queue'", false);
+    }
+  }
   
   function fetch() {
     return $this->_conn->fetchRow();
@@ -174,11 +239,17 @@ class BulkLookupQuery extends Query {
   
   function countQueue($status = 'queue') {
     switch ($status) {
+      case 'manual':  
       case 'queue':
-      case 'publish':
-      case 'manual':
+      case 'publish':    
+      case 'copy':
         $cond = "WHERE status='$status'";
         break;
+
+      case 'manual_list':
+        $this->_query("SELECT COUNT(*) AS c FROM lookup_manual WHERE hits=0", false);
+        $res = $this->fetch();
+        return $res[c];
       
       default:
         $cond = '';
@@ -190,35 +261,67 @@ class BulkLookupQuery extends Query {
     return $res[c];
   }
   
-  function setLookupStatus($status, $isbn) {
+  function setLookupStatus($status, $isbn, $amount = 1) {
     if (0 + $isbn < 1) return false;
     switch ($status) {
+      case 'manual':
+        $this->queue($isbn, 0 + $amount, 'manual');
       case 'publish':
       case 'queue':
-      case 'manual':
-        $this->_query("UPDATE lookup_queue SET status='$status' WHERE isbn='$isbn'", false);
+      case 'copy':
+        $this->_query("UPDATE lookup_queue SET status='$status' WHERE isbn='$isbn' AND status='queue' LIMIT 1", false);
         break;
       case 'retry':
-        $this->_query("UPDATE lookup_queue SET tries=tries+1 WHERE isbn='$isbn'", false);
+        $this->_query("UPDATE lookup_queue SET tries=tries+1 WHERE isbn='$isbn' AND status='queue' LIMIT 1", false);
+        break;
     }
   }
   
   function saveResults(&$results) {
     if (!is_array($results)) return false;
-    foreach ($results as $isbn=>$data) {
-      if (isset($data)) {
-        $this->_formatResults($data);
-        $bib = $this->_getBiblio($data);
+    foreach ($results as $isbn=>$info) {
+      if (isset($info['data'])) {
+        $this->_formatResults($info['data']);
+        $bib = $this->_getBiblio($info['data']);
         $results[$isbn]['bibid'] = 0 + $this->_insertBiblio($bib);
         if ($results[$isbn]['bibid'] > 0) {
-          $this->_addCopy($results[$isbn]['bibid']);
+          $amount = 0 + $info['amount'];
+          if ($amount < 1) $amount = 1;
+
+          for ($i = 0; $i < $amount; $i++) {
+            $this->addCopy($results[$isbn]['bibid']);
+          }
+          
           $this->setLookupStatus('publish', $isbn);
         }
       }
     }
   }
+
+  function getExistBiblio($isbn) {
+    $isbn = mysql_escape_string($isbn);
+    if (strlen($isbn) != 10) return 0;
+
+    $this->_query("SELECT bibid FROM biblio_field WHERE tag=20 AND field_data='$isbn' LIMIT 1", false); // 020 = ISBN
+    $data = $this->fetch();
+    return 0 + $data['bibid'];
+  }
+
+  function clearManualItem($isbn, $hits) {
+    $hits = 0 + $hits;
+    $isbn = mysql_escape_string($isbn);
+    if (strlen($isbn) != 10) return 0;
+
+    $this->_query("UPDATE lookup_manual SET hits=hits-$hits WHERE isbn='$isbn' LIMIT 1", false); // 020 = ISBN
+  }
+
+  function removeManualItem($isbn) {
+    $isbn = mysql_escape_string($isbn);
+    if (strlen($isbn) != 10) return 0;
+    $this->_query("DELETE FROM lookup_manual WHERE isbn='$isbn' LIMIT 1", false);
+  }
   
-  private function _addCopy($bibid) {
+  function addCopy($bibid) {
     $bibid = 0 + $bibid;
     if ($bibid < 1) return false;
     
@@ -353,6 +456,7 @@ class BulkLookupQuery extends Query {
     $biblio->setLastChangeUserid($_SESSION["userid"]);
     $biblio->setOpacFlg(true);
     unset($post['callNmbr1'], $post['callNmbr2'], $post['callNmbr3'], $post['collectionCd'], $post['materialCd']);
+    $post['020a'] = BulkLookup::verifyISBN($post['020a']);
     foreach($post as $index=>$val) {
       $value = $val;
       $fieldid = '';

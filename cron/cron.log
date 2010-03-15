@@ -1,0 +1,1706 @@
+2010-03-12 18:12:11Array
+(
+    [0] => 
+    [1] => 
+    [2] => 
+    [3] => 
+)
+2010-03-12 18:16:15Array
+(
+    [0] => 
+    [1] => 
+    [2] => 
+)
+2010-03-12 18:17:01Array
+(
+    [0] => 
+    [1] => 
+)
+2010-03-12 18:18:01Array
+(
+    [0] => 
+)
+2010-03-12 18:19:012010-03-12 21:01:01Array
+(
+    [0] => 1934356174
+    [1] => 1934356174
+    [2] => 1934356174
+)
+2010-03-12 21:03:01Array
+(
+    [0] => 
+    [1] => 
+)
+2010-03-12 21:11:01Array
+(
+    [0] => 1934356174
+    [1] => 1934356174
+    [2] => 1934356174
+)
+2010-03-12 21:12:01Array
+(
+    [0] => 
+    [1] => 
+)
+2010-03-12 21:13:01Array
+(
+    [0] => 1934356174
+    [1] => 1934356174
+)
+2010-03-12 21:14:01Array
+(
+    [0] => 1934356174
+    [1] => 1934356174
+)
+2010-03-12 21:15:01Array
+(
+    [0] => 
+)
+2010-03-12 21:16:01Array
+(
+    [0] => 1934356174
+)
+2010-03-12 21:17:01Array
+(
+    [0] => 1934356174
+)
+2010-03-12 21:18:01Array
+(
+    [0] => 1934356174
+)
+2010-03-12 21:19:012010-03-15 09:47:02Array
+(
+    [0] => 1934356174
+)
+2010-03-15 09:51:01Array
+(
+    [0] => 1934356174
+)
+2010-03-15 10:41:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1934356174
+            [amount] => 3
+        )
+
+)
+2010-03-15 10:44:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1934356174
+            [amount] => 3
+        )
+
+)
+2010-03-15 10:44:07Array
+(
+    [isbn] => 1934356174
+    [amount] => 3
+)
+2010-03-15 10:48:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1934356174
+            [amount] => 3
+        )
+
+)
+2010-03-15 10:48:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:48:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:48:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:48:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:48:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:50:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1934356174
+            [amount] => 3
+        )
+
+)
+2010-03-15 10:50:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:50:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:50:07ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:50:08ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 10:50:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 11:07:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 4
+        )
+
+)
+2010-03-15 11:11:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 4
+        )
+
+)
+2010-03-15 11:23:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9743002987
+            [amount] => 1
+        )
+
+)
+2010-03-15 11:49:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9748177173
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9748627497
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 9747846888
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:15:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:15:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:15:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:15:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:16:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:16:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:16:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:17:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:17:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:17:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:18:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:18:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:18:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:19:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:19:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:19:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:20:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:20:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:20:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:21:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:21:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:21:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:22:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:22:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:22:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:23:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:23:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:23:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:24:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:24:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:24:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:25:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:25:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:25:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:26:01Array
+(
+    [0] => Array
+        (
+            [isbn] => dasfm,e1df
+            [amount] => 1
+        )
+
+)
+2010-03-15 12:26:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:26:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:27:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:36:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:36:01ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 12:39:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:39:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 12:40:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:40:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 12:41:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 12:41:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 12:42:012010-03-15 13:47:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 13:47:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 13:48:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 13:48:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 13:49:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742126593
+            [amount] => 4
+        )
+
+)
+2010-03-15 13:49:16ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 13:50:012010-03-15 13:52:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9747220202
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 1
+        )
+
+    [3] => Array
+        (
+            [isbn] => 6160800094
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 9743002987
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 0136135609
+            [amount] => 1
+        )
+
+    [6] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [7] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [8] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+)
+2010-03-15 13:52:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:19ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:19ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:21ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:21ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:21ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:21ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:22ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:22ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:22ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:22ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:22ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 13:52:23ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:20:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1934356174
+            [amount] => 3
+        )
+
+)
+2010-03-15 14:20:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:20:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:20:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:20:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:20:19ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9749280105
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 14:52:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:06ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:25ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 14:52:26ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:52:26ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+)
+2010-03-15 14:53:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:16ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:21ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:53:36ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 14:54:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+)
+2010-03-15 14:54:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:54:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:54:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:54:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:54:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 14:54:20ON BulkLookup.class.phpArray
+(
+    [error] => lookup response error (10007) : 
+)
+2010-03-15 14:55:022010-03-15 15:16:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 6117097050
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:16:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:16:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:16:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:16:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:16:05ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:19:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9742121249
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:23:02Array
+(
+    [0] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9749280105
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 9747220202
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 1
+        )
+
+    [6] => Array
+        (
+            [isbn] => 6160800094
+            [amount] => 1
+        )
+
+    [7] => Array
+        (
+            [isbn] => 0136135609
+            [amount] => 1
+        )
+
+    [8] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [9] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [10] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:23:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:07ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:07ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:07ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:08ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:14ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:14ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:23:15ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9749280105
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 9747220202
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [6] => Array
+        (
+            [isbn] => 6160800094
+            [amount] => 1
+        )
+
+    [7] => Array
+        (
+            [isbn] => 0136135609
+            [amount] => 1
+        )
+
+    [8] => Array
+        (
+            [isbn] => 9743002987
+            [amount] => 1
+        )
+
+    [9] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [10] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [11] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:28:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:08ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:08ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:09ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:10ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:11ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:12ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:28:13ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 9743002987
+            [amount] => 1
+        )
+
+    [3] => Array
+        (
+            [isbn] => 0136135609
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6160800094
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [6] => Array
+        (
+            [isbn] => 9747220202
+            [amount] => 1
+        )
+
+    [7] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [8] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [9] => Array
+        (
+            [isbn] => 9749280105
+            [amount] => 1
+        )
+
+    [10] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+    [11] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:32:02ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:03ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:32:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 15:41:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 9744723645
+            [amount] => 1
+        )
+
+    [3] => Array
+        (
+            [isbn] => 9743002987
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 0136135609
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 6160800094
+            [amount] => 1
+        )
+
+    [6] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [7] => Array
+        (
+            [isbn] => 9747220202
+            [amount] => 1
+        )
+
+    [8] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [9] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [10] => Array
+        (
+            [isbn] => 9749280105
+            [amount] => 1
+        )
+
+    [11] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:42:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:43:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:44:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:45:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:46:02Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:47:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 15:48:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 0521514541
+            [amount] => 1
+        )
+
+    [1] => Array
+        (
+            [isbn] => 1843190672
+            [amount] => 1
+        )
+
+    [2] => Array
+        (
+            [isbn] => 6117119062
+            [amount] => 2
+        )
+
+    [3] => Array
+        (
+            [isbn] => 184319161X
+            [amount] => 1
+        )
+
+    [4] => Array
+        (
+            [isbn] => 6167265119
+            [amount] => 1
+        )
+
+    [5] => Array
+        (
+            [isbn] => 9748327841
+            [amount] => 1
+        )
+
+)
+2010-03-15 17:23:01Array
+(
+    [0] => Array
+        (
+            [isbn] => 9740203906
+            [amount] => 3
+        )
+
+)
+2010-03-15 17:23:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)
+2010-03-15 17:23:04ON BulkLookup.class.phpArray
+(
+    [error] => no result
+)

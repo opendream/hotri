@@ -70,9 +70,10 @@
 			if (!empty($error)) {
 			  ## NO
 				//trigger_error("Z39.50 error <br />", E_USER_ERROR);
-				echo $lookLoc->getText("lookup_YAZerror").$error." (";
-				echo yaz_errno($id[$ptr]) . ') ' . yaz_addinfo($id[$ptr]);
-				echo "<br />";
+				// Ignored because of break results on multiple servers situation.
+				//echo $lookLoc->getText("lookup_YAZerror").$error." (";
+				//echo yaz_errno($id[$ptr]) . ') ' . yaz_addinfo($id[$ptr]);
+				//echo "<br />";
 			} else {
 			  ## YES, we got a response!!
 				$hits[$ptr] = yaz_hits($id[$ptr]);

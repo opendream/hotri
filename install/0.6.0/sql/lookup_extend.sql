@@ -12404,11 +12404,11 @@ INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`,
 (10, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', ''),
 (11, 99, 'n', 'intanin.lib.ku.ac.th:210', 'มหาวิทยาลัยเกษตรศาสตร์ (TIS-620)', 'INNOPAC', '', ''),
 (12, 99, 'n', '202.28.4.10:210', 'มจธ. (frequent rejected)', 'INNOPAC', '', ''),
-(13, 0, 'n', '202.28.199.29:1111', 'thailis (TH)', 'default', '', ''),
-(14, 0, 'n', '202.28.17.2:210', 'พระนครเหนือ (TH)', 'innopac', '', ''),
-(15, 0, 'n', 'www.nlt.go.th:210', 'หอสมุด แหงชาติ (TH)', 'horizon', '', ''),
-(16, 0, 'n', 'www.tlc.or.th:1111', 'TLC (TH)', 'default', '', ''),
-(17, 0, 'n', 'vtls.mcu.ac.th:1111', 'มหาจุฬาลงกรราชวิทยาลัย (TH)', 'Default', '', '');
+(13, 0, 'y', '202.28.199.29:1111', 'thailis (TH)', 'default', '', ''),
+(14, 0, 'y', '202.28.17.2:210', 'พระนครเหนือ (TH)', 'innopac', '', ''),
+(15, 0, 'y', 'www.nlt.go.th:210', 'หอสมุด แหงชาติ (TH)', 'horizon', '', ''),
+(16, 0, 'y', 'www.tlc.or.th:1111', 'TLC (TH)', 'default', '', ''),
+(17, 0, 'y', 'vtls.mcu.ac.th:1111', 'มหาจุฬาลงกรราชวิทยาลัย (TH)', 'Default', '', '');
 
 -- --------------------------------------------------------
 
@@ -12449,8 +12449,24 @@ INSERT INTO `lookup_settings` (`protocol`, `max_hits`, `keep_dashes`, `callNmbr_
 CREATE TABLE IF NOT EXISTS `lookup_queue` (
   `qid` int(11) NOT NULL AUTO_INCREMENT,
   `isbn` varchar(10) NOT NULL,
-  `status` enum('queue','manual','publish') NOT NULL DEFAULT 'queue',
+  `status` enum('queue','manual','publish','copy') NOT NULL DEFAULT 'queue',
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tries` tinyint(4) NOT NULL DEFAULT '0',
+  `amount` smallint(6) NOT NULL DEFAULT '1',
   PRIMARY KEY (`qid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lookup_manual`
+--
+
+CREATE TABLE IF NOT EXISTS `lookup_manual` (
+  `qmid` int(11) NOT NULL AUTO_INCREMENT,
+  `isbn` varchar(10) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `hits` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`qmid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+

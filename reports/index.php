@@ -65,5 +65,8 @@
     echo '</ul></li>';
   }
 ?>
+<li class"report_category"><strong>Bulk summary</strong><ul>
+<li><a href="../reports/bulk_report.php?type=manual">View failed items</a></li>
+</ul></li>
 </ul>
 <?php include("../shared/footer.php"); ?>

@@ -346,7 +346,7 @@
   ?>
         <tr>
           <td valign="top" class="primary">
-            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, FALSE);?>:
+            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, TRUE);?>:
           </td>
           <td valign="top" class="primary"><?php echo H($field->getFieldData()); ?></td>
         </tr>      

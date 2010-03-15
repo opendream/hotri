@@ -7,17 +7,34 @@ require_once(dirname(__FILE__) . '/../lookup2/BulkLookup.class.php');
 $limit = 30;
 $q = new BulkLookupQuery();
 $remain = $q->countQueue();
-$q->getQueue('queue', $limit);
 
-for ($i = 0; $i < $remain && $i < $limit; $i++) {
-  $row = $q->fetch();
-  if ($row['tries'] < 3) {
-    $isbnList[] = $row['isbn'];
+file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'LOCK');
+
+if ($remain < 1) {
+  // Disable cron.
+  file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'OFF');
+  die();
+}
+else {
+  $q->getQueue('queue', $limit);
+  for ($i = 0; $i < $remain && $i < $limit; $i++) {
+    $row = $q->fetch();
+    if ($row['tries'] < 3) {
+      //$isbnList[] = $row['isbn'];
+      $isbnList[] = array('isbn'=>$row['isbn'], 'amount'=>$row['amount']);
+    }
+    else {
+      $q->setLookupStatus('manual', $row['isbn'], $row['amount']);
+    }
   }
-  else {
-    $q->setLookupStatus('manual', $row['isbn']);
-  }
+
+  $fp = fopen(dirname(__FILE__) . '/../cron/cron.log', 'a');
+  fwrite($fp, date('Y-m-d H:i:s'));
+  fwrite($fp, print_r($isbnList, true));
+  fclose($fp);
+
+  $lookup = new BulkLookup();
+  $lookup->search($isbnList);
 }
 
-$lookup = new BulkLookup();
-$lookup->search($isbnList);
+file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'ON');

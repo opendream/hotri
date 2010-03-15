@@ -20,6 +20,7 @@
 <br /><br />
 <?php
 Nav::node('reportlist', 'Report List', '../reports/index.php');
+Nav::node('BulkLookup', 'Bulk Summary', '../reports/bulk_report.php');
 if (isset($_SESSION['rpt_Report'])) {
   Nav::node('results', "Report Results",
            '../reports/run_report.php?type=previous');

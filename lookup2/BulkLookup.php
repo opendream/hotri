@@ -49,9 +49,19 @@ else {
   require_once("../shared/header.php");
 
   $cancelLocation = "../catalog/index.php";
+
+  // Find host.
+  require_once(dirname(__FILE__) . '/../lookup2/LookupHostsQuery.php');
+  getHosts('active');
+  $list = $postVars['hosts'];
+
+  if (!is_array($list) || count($list) < 1) {
+    $warning = "<h5 id=\"updateMsg\">No hosts found, import always be in the failed list.</h5>";
+  }
   
   echo <<<INNERHTML
 <h1>Bulk ISBN Lookup</h1>
+$warning
 <form method="post" enctype="multipart/form-data" action="{$_SERVER["SCRIPT_NAME"]}">
   <label for="upload">Choose the ISBN list file (.txt, one per line):</label> <br />
   <input type="file" name="upload" />
