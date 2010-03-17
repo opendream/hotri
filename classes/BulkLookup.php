@@ -1,7 +1,7 @@
 <?php
 
 require_once("../shared/common.php");
-require_once(dirname(__FILE__) . '/../lookup2/LookupHostsQuery.php');
+require_once("../lookup2/LookupHostsQuery.php");
 
 class BulkLookup {
   private $_results;
@@ -39,8 +39,8 @@ class BulkLookup {
     $bl->queue($isbnList);
     
     // Enable cron.
-    if (ereg('OFF', file_get_contents(dirname(__FILE__) . '/../cron/cronrun.txt'))) 
-      file_put_contents(dirname(__FILE__) . '/../cron/cronrun.txt', 'ON');
+    if (ereg('OFF', file_get_contents("../cron/cronrun.txt"))) 
+      file_put_contents("../cron/cronrun.txt", 'ON');
     $bl->clearDoneQueue();
   }
   
@@ -158,7 +158,7 @@ class BulkLookup {
       return array('error'=>'no result');
     }
     // For bulk actions, auto select first record
-    require_once(dirname(__FILE__) . '/../lookup2/lookupYazFunc.php');
+    require_once("../lookup2/lookupYazFunc.php");
     return extract_marc_fields(yaz_record($conn, 1, 'array'), true, 1, 1);
   }
   
@@ -292,7 +292,18 @@ class BulkLookupQuery extends Query {
             $this->addCopy($results[$isbn]['bibid']);
           }
           
-          $this->setLookupStatus('publish', $isbn);
+          // Cover lookup
+          require_once("BiblioCoverQuery.php");
+          $cq = new BiblioCoverQuery();
+          $img_path = $cq->lookup($isbn);
+          if ($img_path) {
+            if($cq->save($img_path, $results[$isbn]['bibid']))
+              $this->setLookupStatus('cover', $isbn);
+            else
+              $this->setLookupStatus('publish', $isbn);
+          }
+          else
+            $this->setLookupStatus('publish', $isbn);
         }
       }
     }
@@ -325,7 +336,7 @@ class BulkLookupQuery extends Query {
     $bibid = 0 + $bibid;
     if ($bibid < 1) return false;
     
-    require_once(dirname(__FILE__) . "/../classes/BiblioCopyQuery.php");
+    require_once("BiblioCopyQuery.php");
     $copyQ = new BiblioCopyQuery();
     $copyQ->connect();
     if ($copyQ->errorOccurred()) 
@@ -361,7 +372,7 @@ class BulkLookupQuery extends Query {
   }
   
   private function _insertBiblio($biblio) {
-    require_once(dirname(__FILE__) . "/../classes/BiblioQuery.php");
+    require_once("BiblioQuery.php");
     
     $biblioQ = new BiblioQuery();
     $biblioQ->connect();
@@ -444,8 +455,8 @@ class BulkLookupQuery extends Query {
   }
   
   private function _getBiblio($post) {
-    require_once(dirname(__FILE__) . "/../classes/Biblio.php");
-    require_once(dirname(__FILE__) . "/../classes/BiblioField.php");
+    require_once("Biblio.php");
+    require_once("BiblioField.php");
     
     $biblio = new Biblio();
     $biblio->setMaterialCd($post["materialCd"]);

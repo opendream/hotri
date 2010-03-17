@@ -9,7 +9,7 @@ require_once("../shared/logincheck.php");
 // Bulk Lookup Test
 if (isset($_POST['submit'])) {
   
-  require_once('BulkLookup.class.php');
+  require_once('../classes/BulkLookup.php');
   $lookup = new BulkLookup();
   $lookup->importISBN($_FILES['upload'], $isbnList);
   //$lookup->search($isbnList); // Done

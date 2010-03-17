@@ -2,7 +2,7 @@
 if ($_SERVER['REMOTE_ADDR'] !== $_SERVER['SERVER_ADDR']) 
   die('Access denied.');
 require_once(dirname(__FILE__) . "/../shared/common.php");
-require_once(dirname(__FILE__) . '/../lookup2/BulkLookup.class.php');
+require_once(dirname(__FILE__) . '/../classes/BulkLookup.php');
 // Process ISBN lookup
 $limit = 30;
 $q = new BulkLookupQuery();
@@ -27,11 +27,6 @@ else {
       $q->setLookupStatus('manual', $row['isbn'], $row['amount']);
     }
   }
-
-  $fp = fopen(dirname(__FILE__) . '/../cron/cron.log', 'a');
-  fwrite($fp, date('Y-m-d H:i:s'));
-  fwrite($fp, print_r($isbnList, true));
-  fclose($fp);
 
   $lookup = new BulkLookup();
   $lookup->search($isbnList);

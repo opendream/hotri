@@ -76,14 +76,14 @@
       $i++;
     } while ($i < 0 + $_GET['hits']);
     
-    require_once("../lookup2/BulkLookup.class.php");
+    require_once("../classes/BulkLookup.php");
     $bl = new BulkLookupQuery();
     $bl->clearManualItem($_GET['isbn'], $_GET['hits']);
   }
   else {
     insertCopy();
     if (isset($_GET['isbn'], $_GET['hits'])) {
-      require_once("../lookup2/BulkLookup.class.php");
+      require_once("../classes/BulkLookup.php");
       $bl = new BulkLookupQuery();
       $bl->clearManualItem($_GET['isbn'], $_GET['hits']);
     }

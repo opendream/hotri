@@ -6,7 +6,7 @@ $cancelLocation = "../admin/index.php";
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
 
-require_once("../lookup2/BulkLookup.class.php");
+require_once("../classes/BulkLookup.php");
 
 require_once("../shared/header.php");
 

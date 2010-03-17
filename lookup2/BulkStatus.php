@@ -7,7 +7,7 @@ $cancelLocation = "../admin/index.php";
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
 
-require_once('BulkLookup.class.php');
+require_once('../classes/BulkLookup.php');
 $q = new BulkLookupQuery();
 $queued = $q->countQueue();
 $done = $q->countQueue('publish');
