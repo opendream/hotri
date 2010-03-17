@@ -243,6 +243,7 @@ class BulkLookupQuery extends Query {
       case 'queue':
       case 'publish':    
       case 'copy':
+      case 'cover':
         $cond = "WHERE status='$status'";
         break;
 
@@ -269,6 +270,7 @@ class BulkLookupQuery extends Query {
       case 'publish':
       case 'queue':
       case 'copy':
+      case 'cover':
         $this->_query("UPDATE lookup_queue SET status='$status' WHERE isbn='$isbn' AND status='queue' LIMIT 1", false);
         break;
       case 'retry':
