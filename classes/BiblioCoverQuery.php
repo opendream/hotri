@@ -6,6 +6,10 @@ class BiblioCoverQuery extends Query {
   function lookup($isbn) {
     // Lookup amazon first.
     require_once('cloudfusion/cloudfusion.class.php');
+
+    // remove trail data from isbn
+    $isbn = explode(' ', $isbn);
+    $isbn = $isbn[0];
     
     $pas = new AmazonPAS();
     $response = $pas->item_lookup($isbn, array(
@@ -85,11 +89,16 @@ class BiblioCoverQuery extends Query {
     if (!$file_saved) return false;
     
     // Save to field
-    if( !$this->_query("INSERT INTO biblio_field 
-     (bibid, tag, ind1_cd, ind2_cd, subfield_cd, field_data) 
-     VALUES ($bibid, 902, 'N', 'N', 'a', '$name');", false) ) {
-      unlink($path_local);
-      return false;
+    if (0 + $bibid > 0) {
+      if( !$this->_query("INSERT INTO biblio_field 
+       (bibid, tag, ind1_cd, ind2_cd, subfield_cd, field_data) 
+       VALUES (" . (0 + $bibid) . ", 902, 'N', 'N', 'a', '$name');", false) ) {
+        unlink($path_local);
+        return false;
+      }
+    }
+    else {
+      return $name; // bibid = 0 then return filename for save to db later.
     }
     return true;
   }
@@ -100,22 +109,24 @@ class BiblioCoverQuery extends Query {
     $conn = yaz_connect($server['host'], 
      array('user'=>$server['user'], 'password'=>$server['pw']));
     
-    if (!$conn) return array('error' => 'could not connect lookup');
+    if (!$conn) return false; //array('error' => 'could not connect lookup');
     yaz_database($conn, $server['db']);
     yaz_syntax($conn, "usmarc");
     yaz_element($conn, "F");
 
     //echo "sending: $qry <br />";
-    if (! yaz_search($conn, 'rpn', $query)) return array('error' => 'bad query');
+    if (! yaz_search($conn, 'rpn', $query)) return false; //array('error' => 'bad query');
     
     yaz_wait();
     $error = yaz_error($conn);
     if (!empty($error)) {
-      return array('error'=>'lookup response error (' . yaz_errno($conn) . ') : ' . yaz_addinfo($conn));
+      return false;
+      //return array('error'=>'lookup response error (' . yaz_errno($conn) . ') : ' . yaz_addinfo($conn));
     }
     
     if (yaz_hits($conn) < 1) {
-      return array('error'=>'no result');
+      return false;
+      //return array('error'=>'no result');
     }
     // For bulk actions, auto select first record
     require_once("../lookup2/lookupYazFunc.php");

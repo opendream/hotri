@@ -67,6 +67,7 @@
 ?>
 <li class"report_category"><strong>Bulk summary</strong><ul>
 <li><a href="../reports/bulk_report.php?type=manual">View failed items</a></li>
+<li><a href="../reports/bulk_report.php?type=cover">View no-cover items</a></li>
 </ul></li>
 </ul>
 <?php include("../shared/footer.php"); ?>

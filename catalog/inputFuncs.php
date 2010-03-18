@@ -74,15 +74,16 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   echo "<td valign=\"top\" class=\"primary\">\n";
   if ($cntrlType == OBIB_TEXTAREA_CNTRL) {
     $attrs= array('cols'=>H($cols),'rows'=>H($rows));
-    echo inputField('textarea', "values[".H($formIndex)."]", H($value), $attrs);
+    echo inputField('textarea', "values[".H($formIndex)."]", $value, $attrs);
   } 
   elseif ($cntrlType == OBIB_TEXT_CNTRL) {
     $attrs= array('size'=>H($size),'maxlength'=>H($maxLen));
-    echo inputField('text', "values[".H($formIndex)."]", H($value), $attrs);
+    echo inputField('text', "values[".H($formIndex)."]", $value, $attrs);
   }
   elseif ($cntrlType == OBIB_FILE_CNTRL) {
     echo "<input type=\"file\"";
     echo " name=\"values[".H($formIndex)."]\" size=\"28\" />";
+    echo "<input type=\"hidden\" name=\"old[" . H($formIndex) . "]\" value=\"$value\" />";
     if ($value) {
       $title = $postVars["values"]["245a"];
       $filepath = "../pictures/$value";

@@ -21,7 +21,8 @@ if (!isset($_REQUEST['posted'])) {
   
   showForm($param);
 } else {
-  if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
+  if ($_POST['uselookup'] == 'yes') $_POST['values']['902a'] = array('uselookup'=>true, 'isbn'=>$_POST['values']['020a']);
+  else if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");

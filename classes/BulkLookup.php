@@ -206,6 +206,15 @@ class BulkLookupQuery extends Query {
     $limit = 0 + $limit;
     $this->_query("SELECT * FROM lookup_manual WHERE hits != 0 LIMIT $limit", false);
   }
+
+  function getNoCoverList($limit = 100) {
+    $limit = 0 + $limit;
+    // synchronize
+    $this->_query("UPDATE biblio SET cover='no'", false);
+    $this->_query("UPDATE biblio, biblio_field SET biblio.cover='yes' WHERE biblio.bibid=biblio_field.bibid AND tag='902' AND subfield_cd='a'", false);
+
+    $this->_query("SELECT * FROM biblio WHERE cover = 'no' ORDER by bibid LIMIT $limit", false);
+  }
   
   function getQueue($status = 'queue', $limit = 100) {
     $limit = 0 + $limit;
@@ -309,6 +318,14 @@ class BulkLookupQuery extends Query {
         }
       }
     }
+  }
+
+  function getExistCover($bibid) {
+    $bibid = 0 + $bibid;
+
+    $this->_query("SELECT cover FROM biblio WHERE bibid=$bibid", false);
+    $data = $this->fetch();
+    return $data['cover'] == 'yes' ? true : false;
   }
 
   function getExistBiblio($isbn) {

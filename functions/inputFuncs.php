@@ -70,7 +70,7 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
     break;
   default:
     $s .= '<input type="'.H($type).'" ';
-    $s .= 'name="'.H($name).'" ';
+    $s .= 'id="' . str_replace(array('[',']'),array(''), H($name)).'" name="'.H($name).'" ';
     if ($value != "") {
       $s .= 'value="'.H($value).'" ';
     }

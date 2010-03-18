@@ -12470,3 +12470,7 @@ CREATE TABLE IF NOT EXISTS `lookup_manual` (
   PRIMARY KEY (`qmid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Add cover check
+--
+ALTER TABLE `biblio` ADD `cover` ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'no'
