@@ -20,7 +20,12 @@ if (!isset($_REQUEST['posted'])) {
   $postVars = bibidToPostVars($_REQUEST['bibid']);
   showForm($postVars);
 } else {
-  if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
+  if (!empty($_FILES["values"]["tmp_name"]["902a"])) {
+    $_POST["values"]["902a"] = $_FILES["values"];
+  }
+  else {
+    $_POST["values"]["902a"] = $_POST["old"]["902a"];
+  }
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");

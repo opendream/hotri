@@ -84,6 +84,7 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   elseif ($cntrlType == OBIB_FILE_CNTRL) {
     echo "<input type=\"file\"";
     echo " name=\"values[".H($formIndex)."]\" size=\"28\" />";
+    echo "<input type=\"hidden\" name=\"old[".H($formIndex)."]\" value=\"$value\" />";
     if ($value) {
       $title = $postVars["values"]["245a"];
       $filepath = "../pictures/$value";
