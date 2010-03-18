@@ -202,18 +202,20 @@ class BulkLookupQuery extends Query {
     }
   }
 
-  function getManualList($limit = 100) {
+  function getManualList($limit = 100, $start = 0) {
     $limit = 0 + $limit;
-    $this->_query("SELECT * FROM lookup_manual WHERE hits != 0 LIMIT $limit", false);
+    $start = 0 + $start;
+    $this->_query("SELECT * FROM lookup_manual WHERE hits != 0 LIMIT $start, $limit", false);
   }
 
-  function getNoCoverList($limit = 100) {
+  function getNoCoverList($limit = 100, $start = 0) {
     $limit = 0 + $limit;
+    $start = 0 + $start;
     // synchronize
     $this->_query("UPDATE biblio SET cover='no'", false);
     $this->_query("UPDATE biblio, biblio_field SET biblio.cover='yes' WHERE biblio.bibid=biblio_field.bibid AND tag='902' AND subfield_cd='a'", false);
 
-    $this->_query("SELECT * FROM biblio WHERE cover = 'no' ORDER by bibid LIMIT $limit", false);
+    $this->_query("SELECT * FROM biblio WHERE cover = 'no' ORDER by bibid LIMIT $start, $limit", false);
   }
   
   function getQueue($status = 'queue', $limit = 100) {
@@ -257,10 +259,17 @@ class BulkLookupQuery extends Query {
         break;
 
       case 'manual_list':
+        $this->_query("SELECT COUNT(*) AS c FROM lookup_manual WHERE hits!=0", false);
+        $res = $this->fetch();
+        return $res[c];
+      case 'manual_list_zero':
         $this->_query("SELECT COUNT(*) AS c FROM lookup_manual WHERE hits=0", false);
         $res = $this->fetch();
         return $res[c];
-      
+      case 'cover_list':
+        $this->_query("SELECT COUNT(*) AS c FROM biblio WHERE cover='no'", false);
+        $res = $this->fetch();
+        return $res[c];
       default:
         $cond = '';
       

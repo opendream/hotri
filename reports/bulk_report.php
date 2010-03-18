@@ -24,7 +24,14 @@ switch ($_GET['type']) {
 <th>BibID</th><th>Name</th><th>Actions</th></tr>
 <?php
 $bl = new BulkLookupQuery();
-$bl->getNoCoverList();
+
+// Paging
+$limit = 50;
+$total = $bl->countQueue('cover_list');
+if (0 + $_GET['page'] < 1 || ($p-1) * $limit >= $total) $p = 1;
+else $p = 0 + $_GET['page'];
+$bl->getNoCoverList($limit, ($p-1) * $limit);
+
 $rows = array();
 while ($row = $bl->fetch()) {
   $rows[] = $row;
@@ -40,6 +47,13 @@ foreach ($rows as $row) {
 }
 ?>
 </table>
+<?php
+// Paging link
+if ($p > 1) $prev = "<a href=\"?type=cover&page=".($p-1)."\">Previous</a>";
+if ($p * $limit < $total) $next = "<a href=\"?type=cover&page=".($p+1)."\">Next</a>";
+
+echo $prev . ($prev && $next ? ' | ' : '') . $next;
+?>
 <?
     break;
   case 'manual':
@@ -63,7 +77,14 @@ foreach ($rows as $row) {
 <th>ISBN</th><th>Hits</th><th>Created</th><th colspan="3">Actions</th><th>Exist in catalog?</th></tr>
 <?php
 $bl = new BulkLookupQuery();
-$bl->getManualList();
+
+// Paging
+$limit = 50;
+$total = $bl->countQueue('manual_list');
+if (0 + $_GET['page'] < 1 || ($p-1) * $limit >= $total) $p = 1;
+else $p = 0 + $_GET['page'];
+$bl->getManualList($limit, ($p-1) * $limit);
+
 $rows = array();
 while ($row = $bl->fetch()) {
   $rows[] = $row;
@@ -83,7 +104,13 @@ foreach ($rows as $row) {
 ?>
 </table>
 <?php
-  $zero_hits = $bl->countQueue('manual_list');
+// Paging link
+if ($p > 1) $prev = "<a href=\"?type=manual&page=".($p-1)."\">Previous</a>";
+if ($p * $limit < $total) $next = "<a href=\"?type=manual&page=".($p+1)."\">Next</a>";
+
+echo $prev . ($prev && $next ? ' | ' : '') . $next;
+
+  $zero_hits = $bl->countQueue('manual_list_zero');
   if ($zero_hits > 0) {
     echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?act=cleartemp">clear now.</a></p>';
   }
