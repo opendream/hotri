@@ -56,6 +56,9 @@ oed = {
 			$('#fictionCode').val(data.fictionCode);
 			$('#fictionLoC').val(data.fictionLoC);
 			$('#fictionDew').val(data.fictionDew);
+			$('#awsKey').val(data.awsKey);
+			$('#awsSecretKey').val(data.awsSecretKey);
+			$('#awsAccountId').val(data.awsAccountId);
 		});
 	},
 

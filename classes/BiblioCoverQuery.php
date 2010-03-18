@@ -6,6 +6,24 @@ class BiblioCoverQuery extends Query {
   function lookup($isbn) {
     // Lookup amazon first.
     require_once('cloudfusion/cloudfusion.class.php');
+    // Load configurations.
+    require_once('LookupOptsQuery.php');
+    $optQ = new LookupOptsQuery();
+    $optQ->connect();
+    if ($optQ->errorOccurred()) {
+      $optQ->close();
+      displayErrorPage($optQ);
+    }
+    $optQ->execSelect();
+    if ($optQ->errorOccurred()) {
+      $optQ->close();
+      displayErrorPage($optQ);
+    }
+    $opt = $optQ->fetchRow();
+    
+    define('AWS_KEY', $opt->getAWSKey());
+    define('AWS_SECRET_KEY', $opt->getAWSSecretKey());
+    define('AWS_ACCOUNT_ID', $opt->getAWSAccountId());
 
     // remove trail data from isbn
     $isbn = explode(' ', $isbn);

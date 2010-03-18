@@ -54,6 +54,13 @@
   $set->setFictionDew($_POST["fictionDew"]);
   $_POST["fictionDew"] = $set->getFictionDew();
 
+  $set->setAWSKey($_POST["awsKey"]);
+  $_POST["aws"] = $set->getAWSKey();
+  $set->setAWSSecretKey($_POST["awsSecretKey"]);
+  $_POST["aws"] = $set->getAWSSecretKey();
+  $set->setAWSAccountId($_POST["awsAccountId"]);
+  $_POST["aws"] = $set->getAWSAccountId();
+
   if (!$set->validateData()) {
     //$pageErrors["sessionTimeout"] = $set->getSessionTimeoutError();
     //$pageErrors["itemsPerPage"] = $set->getItemsPerPageError();

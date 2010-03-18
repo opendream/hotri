@@ -21,19 +21,19 @@
  * Constant: AWS_KEY
  * 	Amazon Web Services Key. <http://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key>
  */
-define('AWS_KEY', 'AKIAJEIH3L73PETICHFA');
+//define('AWS_KEY', 'AKIAJEIH3L73PETICHFA');
 
 /**
  * Constant: AWS_SECRET_KEY
  * 	Amazon Web Services Secret Key. <http://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key>
  */
-define('AWS_SECRET_KEY', 'aOqCdHt3S2OponNgdXJYCEBFjzIxMs/RawKZplWK');
+//define('AWS_SECRET_KEY', 'aOqCdHt3S2OponNgdXJYCEBFjzIxMs/RawKZplWK');
 
 /**
  * Constant: AWS_ACCOUNT_ID
  * 	Amazon Account ID without dashes. Used for identification with Amazon EC2. <http://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key>
  */
-define('AWS_ACCOUNT_ID', '007727010348');
+//define('AWS_ACCOUNT_ID', '007727010348');
 
 /**
  * Constant: AWS_ASSOC_ID

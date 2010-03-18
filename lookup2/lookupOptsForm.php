@@ -157,6 +157,30 @@
       <?php printMyInputText("fictionDew",30,50,$postVars,$pageErrors); ?>
     </td>
   </tr>
+  <tr>
+    <td class="primary" valign="top">
+      <label for="awsKey">Amazon AWS Key:</label>
+    </td>
+    <td valign="top" class="primary">
+      <?php printMyInputText("awsKey",30,50,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td class="primary" valign="top">
+      <label for="awsSecretKey">AWS Secret Key:</label>
+    </td>
+    <td valign="top" class="primary">
+      <?php printMyInputText("awsSecretKey",30,50,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td class="primary" valign="top">
+      <label for="awsAccountId">AWS Account ID:</label>
+    </td>
+    <td valign="top" class="primary">
+      <?php printMyInputText("awsAccountId",30,50,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
   </tbody>
   <tfoot>
   <tr>
@@ -172,5 +196,4 @@
 </table>
 </form>
 <div id="msgDiv"><fieldSet id="msgArea"></fieldset></div>
-
 <?php include("../shared/footer.php"); ?>
