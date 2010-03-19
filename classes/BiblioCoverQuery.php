@@ -7,7 +7,7 @@ class BiblioCoverQuery extends Query {
     // Lookup amazon first.
     require_once('cloudfusion/cloudfusion.class.php');
     // Load configurations.
-    require_once('LookupOptsQuery.php');
+    require_once('../lookup2/LookupOptsQuery.php');
     $optQ = new LookupOptsQuery();
     $optQ->connect();
     if ($optQ->errorOccurred()) {
