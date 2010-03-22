@@ -253,6 +253,9 @@ class BulkLookupQuery extends Query {
   
   function countQueue($status = 'queue') {
     switch ($status) {
+      case 'queue_try':
+        $cond = "WHERE status='queue' AND tries > 0";
+        break;
       case 'manual':  
       case 'queue':
       case 'publish':    
