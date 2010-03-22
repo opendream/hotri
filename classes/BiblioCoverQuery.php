@@ -3,7 +3,7 @@ require_once("../shared/common.php");
 require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
-  function lookup($isbn) {
+  function lookup($isbn, $debug = false) {
     // Lookup amazon first.
     require_once('cloudfusion/cloudfusion.class.php');
     // Load configurations.
@@ -34,6 +34,9 @@ class BiblioCoverQuery extends Query {
       'IdType'=>'ISBN',
       'SearchIndex'=>'Books',
       'ResponseGroup'=>'Images'));
+
+    if ($debug) 
+      return $response;
     
     if (!empty($response->body->Items->Item->MediumImage)) {
       return ''.$response->body->Items->Item->MediumImage->URL;

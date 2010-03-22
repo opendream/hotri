@@ -20,14 +20,14 @@
 <br /><br />
 <?php
 Nav::node('reportlist', 'Report List', '../reports/index.php');
-Nav::node('BulkLookupManual', 'Failed Imports', '../reports/bulk_report.php?type=manual');
-Nav::node('BulkLookupCover', 'No-Cover Items', '../reports/bulk_report.php?type=cover');
 
 if (isset($_SESSION['rpt_Report'])) {
   Nav::node('results', "Report Results",
            '../reports/run_report.php?type=previous');
 }
 
+Nav::node('BulkLookupManual', 'Failed Imports', '../reports/bulk_report.php?type=manual');
+Nav::node('BulkLookupCover', 'No-Cover Items', '../reports/bulk_report.php?type=cover');
 $helpurl = "javascript:popSecondary('../shared/help.php";
 if (isset($helpPage)) {
   $helpurl .= "?page=".$helpPage;

@@ -12430,7 +12430,10 @@ CREATE TABLE IF NOT EXISTS `lookup_settings` (
   `fiction_name` varchar(10) NOT NULL DEFAULT 'Fiction',
   `fiction_code` tinyint(4) NOT NULL DEFAULT '1',
   `fiction_loc` varchar(255) NOT NULL DEFAULT 'PQ PR PS PT PU PV PW PX PY PZ',
-  `fiction_dewey` varchar(255) NOT NULL DEFAULT '813 823'
+  `fiction_dewey` varchar(255) NOT NULL DEFAULT '813 823',
+  `aws_key` varchar(20) NOT NULL,
+  `aws_secret_key` varchar(40) NOT NULL,
+  `aws_account_id` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --

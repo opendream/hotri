@@ -4,7 +4,7 @@ if ($_SERVER['REMOTE_ADDR'] !== $_SERVER['SERVER_ADDR'])
 require_once(dirname(__FILE__) . "/../shared/common.php");
 require_once(dirname(__FILE__) . '/../classes/BulkLookup.php');
 // Process ISBN lookup
-$limit = 30;
+$limit = 100;
 $q = new BulkLookupQuery();
 $remain = $q->countQueue();
 
@@ -17,8 +17,10 @@ if ($remain < 1) {
 }
 else {
   $q->getQueue('queue', $limit);
-  for ($i = 0; $i < $remain && $i < $limit; $i++) {
-    $row = $q->fetch();
+  while ($row = $q->fetch()) 
+    $rows[] = $row;
+  
+  foreach ($rows as $row) {
     if ($row['tries'] < 3) {
       //$isbnList[] = $row['isbn'];
       $isbnList[] = array('isbn'=>$row['isbn'], 'amount'=>$row['amount']);

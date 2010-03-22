@@ -87,6 +87,7 @@ class BulkLookup {
         }
       }
     }
+    
     $bl->saveResults($this->_results);
   }
   
@@ -147,8 +148,9 @@ class BulkLookup {
 
     //echo "sending: $qry <br />";
     if (! yaz_search($conn, 'rpn', $query)) return array('error' => 'bad query');
-    
-    yaz_wait();
+
+    $param = array('timeout'=>10);
+    yaz_wait($param);
     $error = yaz_error($conn);
     if (!empty($error)) {
       return array('error'=>'lookup response error (' . yaz_errno($conn) . ') : ' . yaz_addinfo($conn));
@@ -221,8 +223,9 @@ class BulkLookupQuery extends Query {
   function getQueue($status = 'queue', $limit = 100) {
     $limit = 0 + $limit;
     switch ($status) {
-      case 'manual':
       case 'queue':
+        $order = "ORDER BY tries";
+      case 'manual':
       case 'publish':
       case 'copy':
         $cond = "WHERE status='$status'";
@@ -231,7 +234,7 @@ class BulkLookupQuery extends Query {
       default:
         $cond = '';
     }
-    $this->_query("SELECT * FROM lookup_queue $cond LIMIT $limit", false);
+    $this->_query("SELECT * FROM lookup_queue $cond $order LIMIT $limit", false);
     
   }
 
@@ -299,6 +302,7 @@ class BulkLookupQuery extends Query {
   
   function saveResults(&$results) {
     if (!is_array($results)) return false;
+      
     foreach ($results as $isbn=>$info) {
       if (isset($info['data'])) {
         $this->_formatResults($info['data']);
