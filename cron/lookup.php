@@ -4,7 +4,7 @@ if ($_SERVER['REMOTE_ADDR'] !== $_SERVER['SERVER_ADDR'])
 require_once(dirname(__FILE__) . "/../shared/common.php");
 require_once(dirname(__FILE__) . '/../classes/BulkLookup.php');
 // Process ISBN lookup
-$limit = 30;
+$limit = 10;
 $q = new BulkLookupQuery();
 $remain = $q->countQueue();
 

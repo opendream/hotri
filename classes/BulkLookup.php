@@ -150,7 +150,7 @@ class BulkLookup {
     //echo "sending: $qry <br />";
     if (! yaz_search($conn, 'rpn', $query)) return array('error' => 'bad query');
 
-    $param = array('timeout'=>10);
+    $param = array('timeout'=>5);
     yaz_wait($param);
     $error = yaz_error($conn);
     if (!empty($error)) {
@@ -203,6 +203,12 @@ class BulkLookupQuery extends Query {
         }
       } 
     }
+  }
+
+  function getStartTime() {
+    $this->_query("SELECT UNIX_TIMESTAMP() - UNIX_TIMESTAMP(updated) AS u FROM lookup_queue LIMIT 1", false);
+    $data = $this->fetch();
+    return $data['u'];
   }
 
   function getManualList($limit = 100, $start = 0) {
