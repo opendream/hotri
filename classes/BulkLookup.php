@@ -48,7 +48,6 @@ class BulkLookup {
     $bl = new BulkLookupQuery();
 
     if (!is_array($isbnList)) return false;
-    
     foreach ($isbnList as $one) {
       // Check existing ISBN.
       $existBibid = $bl->getExistBiblio($one['isbn']);
@@ -73,12 +72,14 @@ class BulkLookup {
           }
           continue;
         }
-        $this->_addResult(array('isbn'=>$one['isbn'], 'data'=>$result, 'amount'=>$one['amount']));
+        $book = array('isbn'=>$one['isbn'], 'data'=>$result, 'amount'=>$one['amount']);
+        $this->_addResult($book);
         break;
       }
       
       if (isset($result['error'])) {
-        $this->_addResult(array('isbn'=>$one['isbn'], 'data'=>NULL));
+        $book = array('isbn'=>$one['isbn'], 'data'=>NULL);
+        $this->_addResult($book);
         
         if ($retry) 
           $bl->setLookupStatus('retry', $one['isbn']);
@@ -303,20 +304,20 @@ class BulkLookupQuery extends Query {
     }
   }
   
-  function saveResults(&$results) {
+  function saveResults($results) {
     if (!is_array($results)) return false;
-      
     foreach ($results as $isbn=>$info) {
       if (isset($info['data'])) {
         $this->_formatResults($info['data']);
         $bib = $this->_getBiblio($info['data']);
-        $results[$isbn]['bibid'] = 0 + $this->_insertBiblio($bib);
-        if ($results[$isbn]['bibid'] > 0) {
+        $insert_bib[$isbn]['bibid'] = 0 + $this->_insertBiblio($bib);
+        
+        if ($insert_bib[$isbn]['bibid'] > 0) {
           $amount = 0 + $info['amount'];
           if ($amount < 1) $amount = 1;
 
           for ($i = 0; $i < $amount; $i++) {
-            $this->addCopy($results[$isbn]['bibid']);
+            $this->addCopy($insert_bib[$isbn]['bibid']);
           }
           
           // Cover lookup
@@ -324,7 +325,7 @@ class BulkLookupQuery extends Query {
           $cq = new BiblioCoverQuery();
           $img_path = $cq->lookup($isbn);
           if ($img_path) {
-            if($cq->save($img_path, $results[$isbn]['bibid']))
+            if($cq->save($img_path, $insert_bib[$isbn]['bibid']))
               $this->setLookupStatus('cover', $isbn);
             else
               $this->setLookupStatus('publish', $isbn);
