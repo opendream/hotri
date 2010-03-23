@@ -4,7 +4,7 @@
  */
 
 	##-----------
-	function extract_marc_fields($ar, $postit, $hit, $host) {
+	function extract_marc_fields($ar, $postit, $hit, $host, $charset='') {
 		global $my_callNmbrType;
     $nl = "";
     reset($ar);
@@ -13,6 +13,11 @@
 		$rslt = array();
 		
     while(list($key,list($tagpath,$data))=each($ar)) {
+      if (!empty($charset)) {
+        // Correct data character set.
+        $data = iconv($charset, 'UTF-8', $data);
+      }
+      
       if (preg_match("/^\(3,([^)]*)\)\(3,([^)]*)\)$/",$tagpath,$res)) {
 				if (!empty($theTag)) {
 					$marcFlds["$theTag"] = $subFlds;	// store previous data

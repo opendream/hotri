@@ -50,6 +50,9 @@
      <th valign="top" nowrap="yes">
       <?php echo $loc->getText("lookup_hostsPw"); ?>
     </th>
+    <th valign="top" nowrap="yes">
+      Charset:
+    </th>
   </tr>
 	</thead>
 	<tbody>
@@ -60,7 +63,7 @@
     <td><input type="hidden" id="xxx" name="xxx" value=""></td>
   </tr>
 	<tr>
-	  <td colspan="8" class="primary" align="center">
+	  <td colspan="9" class="primary" align="center">
 				<input type="button" id="newBtn" value="Add New Host" class="button" />
 		</td>
 	</tr>
@@ -135,6 +138,14 @@
     </td>
     <td valign="top" class="primary">
       <?php printMyInputText("pw",10,10,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <label for="charset">Character Set:
+    </td>
+    <td valign="top" class="primary">
+      <?php printMyInputText("charset",10,10,$postVars,$pageErrors); ?> <font class="small">default: leave empty</font>
     </td>
   </tr>
   <tr>

@@ -78,6 +78,7 @@ hed = {
     		html += '<td valign="top" class="primary">'+hed.hostJSON[nHost]['user']+'</td>\n';
     		if (hed.hostJSON[nHost]['pw'] == null) hed.hostJSON[nHost]['pw'] = '';
     		html += '<td valign="top" class="primary">'+hed.hostJSON[nHost]['pw']+'</td>\n';
+    		html += '<td valign="top" class="primary">'+hed.hostJSON[nHost]['charset']+'</td>\n';
 				html += '</tr>\n';
 			}
 			$('#showList tBody').html(html);
@@ -197,7 +198,7 @@ hed = {
     $('#editTbl td #active').val([host['active']]);
 		$('#editTbl td #user').val(host['user']);
 		$('#editTbl td #pw').val(host['pw']);
-
+		$('#editTbl td #charset').val(host['charset']);
 		$('#listDiv').hide();
 		$('#editDiv').show();
 	}

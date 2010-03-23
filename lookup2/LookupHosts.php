@@ -20,6 +20,7 @@ class LookupHosts {
   var $_db = "";
   var $_user = "";
   var $_pw = "";
+  var $_charset = "";
 
   /****************************************************************************
    * @return boolean true if data is valid, otherwise false.
@@ -61,6 +62,9 @@ class LookupHosts {
   function getPw() {
     return $this->_pw;
   }
+  function getCharset() {
+    return $this->_charset;
+  }
 
   /****************************************************************************
    * Setter methods for all fields
@@ -92,6 +96,9 @@ class LookupHosts {
   }
   function setPw($value) {
     $this->_pw = $value;
+  }
+  function setCharset($value) {
+    $this->_charset = $value;
   }
 }
 

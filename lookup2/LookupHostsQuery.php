@@ -18,6 +18,10 @@ class lookupHostQuery extends Query {
 		$sql = "select * from `lookup_hosts` ORDER BY seq";
 	  return $this->_query($sql, "Error accessing the host table.");
 	}
+	function execSelectOne($host_id) {
+		$sql = "select * from `lookup_hosts` WHERE id=" . (0 + $host_id);
+	  return $this->_query($sql, "Error accessing the host table.");
+	}
 
   function fetchRow() {
     global $postVars;
@@ -35,6 +39,7 @@ class lookupHostQuery extends Query {
     $set->setDb($array["db"]);
     $set->setUser($array["user"]);
     $set->setPw($array["pw"]);
+    $set->setCharset($array["charset"]);
 
     return $set;
 	}
@@ -43,10 +48,10 @@ class lookupHostQuery extends Query {
     $sql = $this->mkSQL("insert into lookup_hosts set "
                         . "seq=%Q, active=%Q,"
                         . "host=%Q, name=%Q, db=%Q, "
-                        . "user=%Q, pw=%Q ",
+                        . "user=%Q, pw=%Q, charset=%Q ",
                         $set->getSeq(), $set->getActive()?"y":"n",
                         $set->getHost(), $set->getName(), $set->getDb(),
-                        $set->getUser(), $set->getPw()
+                        $set->getUser(), $set->getPw(), $set->getCharset()
                         );
 			//echo "sql=$sql <br />";
     return $this->_query($sql, "Error inserting host information");
@@ -56,11 +61,11 @@ class lookupHostQuery extends Query {
     $sql = $this->mkSQL("update lookup_hosts set "
                         . "seq=%Q, active=%Q,"
                         . "host=%Q, name=%Q, db=%Q, "
-                        . "user=%Q, pw=%Q "
+                        . "user=%Q, pw=%Q, charset=%Q "
                         . "where id=%N ",
                         $set->getSeq(), $set->getActive()?"y":"n",
                         $set->getHost(), $set->getName(), $set->getDb(),
-                        $set->getUser(), $set->getPw(), $set->getId()
+                        $set->getUser(), $set->getPw(), $set->getCharset(), $set->getId()
                         );
 			//echo "sql=$sql <br />";
     return $this->_query($sql, "Error updating host information");
@@ -107,6 +112,7 @@ function makeHostDataSet($array) {
   $set->setDb($array["db"]);
   $set->setUser($array["user"]);
   $set->setPw($array["pw"]);
+  $set->setCharset($array["charset"]);
   
   return $set;
 }
@@ -165,6 +171,7 @@ function getHosts ($mode) {
 		$hosts[$n]['db']=$row->getDb();
 		$hosts[$n]['user']=$row->getUser();
 		$hosts[$n]['pw']=$row->getPw();
+		$hosts[$n]['charset']=$row->getCharset();
 		$n++;
 	}
 	$postVars['hosts'] = $hosts;

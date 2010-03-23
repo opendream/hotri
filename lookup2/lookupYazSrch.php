@@ -38,6 +38,10 @@
 			$aUser = $postVars[hosts][$ptr][user];
 			$aPw   = $postVars[hosts][$ptr][pw];
 			$connOK = yaz_connect($aHost, array("user"=>$aUser,"password"=>$aPw) );
+
+			// Handle host character set.
+			$host_charset[$ptr] = $postVars[hosts][$ptr]['charset'];
+			
 			if (! $connOK) {
 				echo 'yaz setup not successful! <br />';
 				trigger_error($lookLoc->getText("lookup_yaz_setup_failed").$postVars[hosts][$ptr][name]."<br />", E_USER_ERROR);

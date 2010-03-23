@@ -12384,31 +12384,31 @@ CREATE TABLE IF NOT EXISTS `lookup_hosts` (
   `db` varchar(20) NOT NULL,
   `user` varchar(20) DEFAULT NULL,
   `pw` varchar(20) DEFAULT NULL,
+  `charset` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `lookup_hosts`
 --
 
-INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`, `pw`) VALUES
-(1, 1, 'n', 'z3950.loc.gov:7090', 'U.S. Library of Congress', 'voyager', '', ''),
-(2, 2, 'n', 'z3950.copac.ac.uk:3000', 'COPAC', 'copac', '', ''),
-(3, 3, 'n', 'catalogue.nla.gov.au:7090', 'National Library of Australia', 'voyager', '', ''),
-(4, 4, 'n', 'z3950.gbv.de:20010', 'German Library Group', 'gvk', '', 'abc'),
-(5, 5, 'n', 'groar.bne.es:2210', 'Biblioteca Nacional', 'bimo', '', ''),
-(6, 6, 'n', 'z3950.bcl.jcyl.es:2109', 'Biblioteca de Castilla y Leon', 'AbsysBCL', NULL, NULL),
-(7, 7, 'n', 'bcr1.larioja.org:210', 'Biblioteca de La Rioja (ESP)', 'AbsysE', '', ''),
-(8, 8, 'n', 'zed.natlib.govt.nz', 'National Library of New Zealand', 'pinz', '', ''),
-(9, 9, 'n', 'pino.csic.es:9909', 'Red de bibliotecas del CSIC', 'MAD01', NULL, NULL),
-(10, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', ''),
-(11, 99, 'n', 'intanin.lib.ku.ac.th:210', 'มหาวิทยาลัยเกษตรศาสตร์ (TIS-620)', 'INNOPAC', '', ''),
-(12, 99, 'n', '202.28.4.10:210', 'มจธ. (frequent rejected)', 'INNOPAC', '', ''),
-(13, 0, 'y', '202.28.199.29:1111', 'thailis (TH)', 'default', '', ''),
-(14, 0, 'y', '202.28.17.2:210', 'พระนครเหนือ (TH)', 'innopac', '', ''),
-(15, 0, 'y', 'www.nlt.go.th:210', 'หอสมุด แหงชาติ (TH)', 'horizon', '', ''),
-(16, 0, 'y', 'www.tlc.or.th:1111', 'TLC (TH)', 'default', '', ''),
-(17, 0, 'y', 'vtls.mcu.ac.th:1111', 'มหาจุฬาลงกรราชวิทยาลัย (TH)', 'Default', '', '');
+INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`, `pw`, `charset`) VALUES
+(1, 0, 'y', '202.28.17.2:210', 'พระนครเหนือ (TH)', 'innopac', '', '', ''),
+(2, 0, 'y', 'vtls.mcu.ac.th:1111', 'มหาจุฬาลงกรราชวิทยาลัย (TH)', 'Default', '', '', ''),
+(3, 0, 'y', 'www.tlc.or.th:1111', 'TLC (TH)', 'default', '', '', ''),
+(4, 0, 'y', 'intanin.lib.ku.ac.th:210', 'มหาวิทยาลัยเกษตรศาสตร์ (TIS-620)', 'INNOPAC', '', '', 'tis-620'),
+(5, 0, 'y', 'www.nlt.go.th:210', 'หอสมุด แหงชาติ (TH)', 'horizon', '', '', ''),
+(6, 0, 'y', '202.28.199.29:1111', 'thailis (TH)', 'default', '', '', ''),
+(7, 1, 'y', 'z3950.loc.gov:7090', 'U.S. Library of Congress', 'voyager', '', '', ''),
+(8, 2, 'n', 'z3950.copac.ac.uk:3000', 'COPAC', 'copac', '', '', ''),
+(9, 3, 'n', 'catalogue.nla.gov.au:7090', 'National Library of Australia', 'voyager', '', '', ''),
+(10, 4, 'n', 'z3950.gbv.de:20010', 'German Library Group', 'gvk', '', 'abc', ''),
+(11, 5, 'n', 'groar.bne.es:2210', 'Biblioteca Nacional', 'bimo', '', '', ''),
+(12, 6, 'n', 'z3950.bcl.jcyl.es:2109', 'Biblioteca de Castilla y Leon', 'AbsysBCL', NULL, NULL, ''),
+(13, 7, 'n', 'bcr1.larioja.org:210', 'Biblioteca de La Rioja (ESP)', 'AbsysE', '', '', ''),
+(14, 8, 'n', 'zed.natlib.govt.nz', 'National Library of New Zealand', 'pinz', '', '', ''),
+(15, 9, 'n', 'pino.csic.es:9909', 'Red de bibliotecas del CSIC', 'MAD01', NULL, NULL, ''),
+(16, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', '', '');
 
 -- --------------------------------------------------------
 

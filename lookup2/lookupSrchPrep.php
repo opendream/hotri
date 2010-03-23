@@ -67,7 +67,7 @@
 				$rslt = array();
 				for ($h=0; $h<$numHosts; $h++) {
 					if ($postVars[protocol] == 'YAZ') {
-						$rslt[$h] = doOneHost($h, $hits, $id); // build an array of host data
+						$rslt[$h] = doOneHost($h, $hits, $id, $host_charset[$h]); // build an array of host data
 					}
 					else if ($postVars[protocol] == 'SRU'){
 					  $rslt[$h] = $marc[$h];

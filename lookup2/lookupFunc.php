@@ -111,7 +111,7 @@
 	}
 
 	##-----------
-	function doOneHost($host, $hits, $id) {
+	function doOneHost($host, $hits, $id, $charset='') {
 		global $gotISBN;
 		global $gotLCCN;
 		global $gotLoc;
@@ -133,7 +133,7 @@
 				$rec = yaz_record($id[$host],$hit,'string');
 				
 				## make sense of the received MARC records
-				$rslt[$hit] = extract_marc_fields($ar, true, $hit, $host); // an array of hits
+				$rslt[$hit] = extract_marc_fields($ar, true, $hit, $host, $charset); // an array of hits
 				
 				//## deal with local opts like call numbers, etc.
 				//$rslt[$hit] = postProcess($rslt[$hit]);
