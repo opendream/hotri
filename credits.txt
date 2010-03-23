@@ -4,3 +4,7 @@ Fonts:
 Frameworks:
  CloudFusion - http://getcloudfusion.com
  License: Simplified BSD License - http://opensource.org/licenses/bsd-license.php
+
+OpenURL features:
+ function from Zotero > OpenURL COinS support
+ http://www.zotero.org/support/dev/making_coins

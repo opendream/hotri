@@ -116,6 +116,53 @@
 ?>
 
 <?php echo $msg ?>
+<?php
+// OpenURL support.
+$doc_title = $biblioFlds["245a"]->getFieldData();
+if (isset($biblioFlds["245b"]))
+  $doc_title .= ' : ' . $biblioFlds["245b"]->getFieldData();
+
+$doc_title = trim($doc_title);
+$doc_author = trim(str_replace('.', '', $biblioFlds["100a"]->getFieldData()));
+$doc_publisher = trim(str_replace(array(':',',',';'), '', $biblioFlds["260b"]->getFieldData()));
+$doc_pubplace = trim(str_replace(array(':',',',';'), '', $biblioFlds["260a"]->getFieldData()));
+$doc_pubyear = trim(str_replace(array('c','.'), '', $biblioFlds["260c"]->getFieldData()));
+$doc_isbn = trim($biblioFlds["020a"]->getFieldData());
+
+if (strpos($doc_author, ',')) {
+  $author_ex = explode(',', $doc_author);
+  $doc_author_fname = trim($author_ex[1]);
+  $doc_author_lname = trim($author_ex[0]);
+}
+else {
+  $author_ex = explode(' ', $doc_author);
+  $doc_author_fname = trim($author_ex[0]);
+  $doc_author_lname = trim($author_ex[1]);
+}
+
+$Document->fields = array(
+  'DocType' => 3, // Book, other types read in openUrl.php
+  'DocTitle' => $doc_title,
+  'JournalTitle' => false,
+  'BookTitle' => $doc_title,
+  'BookPublisher' => $doc_publisher,
+  'PubPlace' => $doc_pubplace,
+  'ISBN' => $doc_isbn,
+  'StartPage' => false,
+  'EndPage' => false,
+  'DocYear' => $doc_pubyear
+);
+
+$People[]->fields = array(
+  'DocRelationship' => 0,
+  'FirstName' => $doc_author_fname,
+  'LastName' => $doc_author_lname
+);
+
+require_once("../functions/openUrl.php");
+
+?>
+<span class="Z3988" title="<?php print OpenURL($Document, $People) ?>">Content of your choice goes here</span>
 <table class="primary">
   <tr>
     <th align="left" colspan="2" nowrap="yes">

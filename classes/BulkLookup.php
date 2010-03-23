@@ -510,6 +510,10 @@ class BulkLookupQuery extends Query {
     $biblio->setOpacFlg(true);
     unset($post['callNmbr1'], $post['callNmbr2'], $post['callNmbr3'], $post['collectionCd'], $post['materialCd']);
     $post['020a'] = BulkLookup::verifyISBN($post['020a']);
+    $title_trail = substr($post['245a'], strlen($post['245a']) - 1);
+
+    if ($title_trail == '/' || $title_trail == ':')
+      $post['245a'] = substr($post['245a'], 0, -1);
     foreach($post as $index=>$val) {
       $value = $val;
       $fieldid = '';
