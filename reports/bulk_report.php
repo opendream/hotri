@@ -14,6 +14,7 @@ require_once("../shared/logincheck.php");
 
 require_once("../classes/BulkLookup.php");
 
+if (!($_GET['type'] == 'manual' && $_GET['act'] == "export")) 
 require_once("../shared/header.php");
 
 switch ($_GET['type']) {
@@ -62,6 +63,19 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
       $bl->clearDoneQueue('manual_list');
       $msg = '<h5 id="updateMsg">Hidden items (no copy) has been removed from failed list.</h5>';
     }
+    else if ($_GET['act'] == 'export') {
+      $bl = new BulkLookupQuery();
+      $total = $bl->countQueue('manual_list');
+      $bl->getManualList($total);
+      while ($row = $bl->fetch()) {
+        for ($i = 0; $i < $row['hits']; $i++) 
+          $f .= $row['isbn'] . "\n";
+      }
+      header("Content-Type: plain/text");
+      header("Content-Disposition: attachment; filename=isbn_export_".date('Ymd_his').".txt");
+      header("Content-Length: " . strlen($f));
+      die($f);
+    }
 
     if (!empty($_GET['del'])) { // Action: del
       $isbn = $_GET['del'];
@@ -109,7 +123,7 @@ if ($p > 1) $prev = "<a href=\"?type=manual&page=".($p-1)."\">Previous</a>";
 if ($p * $limit < $total) $next = "<a href=\"?type=manual&page=".($p+1)."\">Next</a>";
 
 echo $prev . ($prev && $next ? ' | ' : '') . $next;
-
+echo '<p><a href="?type=manual&act=export">Export to file</a></p>';
   $zero_hits = $bl->countQueue('manual_list_zero');
   if ($zero_hits > 0) {
     echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?act=cleartemp">clear now.</a></p>';
