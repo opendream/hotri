@@ -19,6 +19,7 @@ create table %prfx%biblio (
   ,topic4 text null
   ,topic5 text null
   ,opac_flg char(1) not null
+  ,cover ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'no' -- Add cover checker --
   )
   TYPE=MyISAM
 ;

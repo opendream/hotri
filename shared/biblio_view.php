@@ -118,16 +118,32 @@
 <?php echo $msg ?>
 <?php
 // OpenURL support.
-$doc_title = $biblioFlds["245a"]->getFieldData();
-if (isset($biblioFlds["245b"]))
+$doc_title = '';
+$doc_author = '';
+$doc_publisher = '';
+$doc_pubplace = '';
+$doc_pubyear = '';
+$doc_isbn = '';
+
+if (isset($biblioFlds["245aa"])) 
+  $doc_title = $biblioFlds["245a"]->getFieldData();
+if (isset($biblioFlds["245b"])) 
   $doc_title .= ' : ' . $biblioFlds["245b"]->getFieldData();
 
 $doc_title = trim($doc_title);
-$doc_author = trim(str_replace('.', '', $biblioFlds["100a"]->getFieldData()));
-$doc_publisher = trim(str_replace(array(':',',',';'), '', $biblioFlds["260b"]->getFieldData()));
-$doc_pubplace = trim(str_replace(array(':',',',';'), '', $biblioFlds["260a"]->getFieldData()));
-$doc_pubyear = trim(str_replace(array('c','.'), '', $biblioFlds["260c"]->getFieldData()));
-$doc_isbn = trim($biblioFlds["020a"]->getFieldData());
+
+if (isset($biblioFlds["100a"])) 
+  $doc_author = trim(str_replace('.', '', $biblioFlds["100a"]->getFieldData()));
+
+if (isset($biblioFlds["260b"])) 
+  $doc_publisher = trim(str_replace(array(':',',',';'), '', $biblioFlds["260b"]->getFieldData()));
+if (isset($biblioFlds["260a"])) 
+  $doc_pubplace = trim(str_replace(array(':',',',';'), '', $biblioFlds["260a"]->getFieldData()));
+if (isset($biblioFlds["260c"])) 
+  $doc_pubyear = trim(str_replace(array('c','.'), '', $biblioFlds["260c"]->getFieldData()));
+
+if (isset($biblioFlds["020a"])) 
+  $doc_isbn = trim($biblioFlds["020a"]->getFieldData());
 
 if (strpos($doc_author, ',')) {
   $author_ex = explode(',', $doc_author);
@@ -253,7 +269,7 @@ require_once("../functions/openUrl.php");
     $title = H($biblioFlds["245a"]->getFieldData());
     //$info = _image_resize($filepath, 200);
     //if (is_array($info)): 
-    if ($thumbpath = make_thumbnail($filepath, array('width' => 200))):
+    if ($thumbpath = make_thumbnail($filepath, array('height' => 120))):
 ?>
 <table class="primary">
   <tr>
@@ -263,7 +279,7 @@ require_once("../functions/openUrl.php");
   </tr>
   <tr>
     <td valign="top" class="primary">
-      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
+      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $filepath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
     </td>
   </tr>
 </table>

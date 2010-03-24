@@ -87,7 +87,7 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
     if ($value) {
       $title = $postVars["values"]["245a"];
       $filepath = "../pictures/$value";
-      $thumbpath = make_thumbnail($filepath, array('width' => 200));
+      $thumbpath = make_thumbnail($filepath, array('height' => 120));
       if (file_exists($thumbpath)) {
         echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$alt\" /></a>";
       }

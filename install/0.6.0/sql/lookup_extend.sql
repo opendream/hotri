@@ -12386,29 +12386,32 @@ CREATE TABLE IF NOT EXISTS `lookup_hosts` (
   `pw` varchar(20) DEFAULT NULL,
   `charset` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `lookup_hosts`
 --
 
 INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`, `pw`, `charset`) VALUES
-(1, 0, 'y', '202.28.17.2:210', 'พระนครเหนือ (TH)', 'innopac', '', '', ''),
-(2, 0, 'y', 'vtls.mcu.ac.th:1111', 'มหาจุฬาลงกรราชวิทยาลัย (TH)', 'Default', '', '', ''),
-(3, 0, 'y', 'www.tlc.or.th:1111', 'TLC (TH)', 'default', '', '', ''),
-(4, 0, 'y', 'intanin.lib.ku.ac.th:210', 'มหาวิทยาลัยเกษตรศาสตร์ (TIS-620)', 'INNOPAC', '', '', 'tis-620'),
-(5, 0, 'y', 'www.nlt.go.th:210', 'หอสมุด แหงชาติ (TH)', 'horizon', '', '', ''),
-(6, 0, 'y', '202.28.199.29:1111', 'thailis (TH)', 'default', '', '', ''),
-(7, 1, 'y', 'z3950.loc.gov:7090', 'U.S. Library of Congress', 'voyager', '', '', ''),
-(8, 2, 'n', 'z3950.copac.ac.uk:3000', 'COPAC', 'copac', '', '', ''),
-(9, 3, 'n', 'catalogue.nla.gov.au:7090', 'National Library of Australia', 'voyager', '', '', ''),
-(10, 4, 'n', 'z3950.gbv.de:20010', 'German Library Group', 'gvk', '', 'abc', ''),
-(11, 5, 'n', 'groar.bne.es:2210', 'Biblioteca Nacional', 'bimo', '', '', ''),
-(12, 6, 'n', 'z3950.bcl.jcyl.es:2109', 'Biblioteca de Castilla y Leon', 'AbsysBCL', NULL, NULL, ''),
-(13, 7, 'n', 'bcr1.larioja.org:210', 'Biblioteca de La Rioja (ESP)', 'AbsysE', '', '', ''),
-(14, 8, 'n', 'zed.natlib.govt.nz', 'National Library of New Zealand', 'pinz', '', '', ''),
-(15, 9, 'n', 'pino.csic.es:9909', 'Red de bibliotecas del CSIC', 'MAD01', NULL, NULL, ''),
-(16, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', '', '');
+(1, 0, 'y', '202.28.17.2:210', '[TH] ม.พระจอมเกล้าพระนครเหนือ', 'innopac', '', '', ''),
+(2, 0, 'y', '161.246.37.11:210', '[TH] สถาบันพระจอมเกล้าเจ้าคุณทหารลาดกระบัง', 'innopac', '', '', 'tis-620'),
+(3, 0, 'y', 'kkulib.kku.ac.th:210', '[Th] ม.ขอนแก่น', 'innopac', '', '', 'tis-620'),
+(4, 0, 'y', 'intanin.lib.ku.ac.th:210', '[TH] ม.เกษตรศาสตร์', 'INNOPAC', '', '', 'tis-620'),
+(5, 0, 'y', 'library.lib.ru.ac.th:210', '[TH] ม.รามคำแหง', 'innopac', '', '', 'tis-620'),
+(6, 0, 'y', 'vtls.mcu.ac.th:1111', '[TH] มหาจุฬาลงกรราชวิทยาลัย', 'Default', '', '', ''),
+(7, 0, 'y', 'www.tlc.or.th:1111', '[TH] โครงการสหบรรณานุกรม', 'default', '', '', ''),
+(8, 0, 'y', 'www.nlt.go.th:210', '[TH] หอสมุดแหงชาติ', 'horizon', '', '', ''),
+(9, 0, 'y', '202.28.199.29:1111', '[TH] โครงการพัฒนาเครือข่ายระบบห้องสมุดในประเทศไทย', 'default', '', '', ''),
+(10, 1, 'y', 'z3950.loc.gov:7090', 'U.S. Library of Congress', 'voyager', '', '', ''),
+(11, 2, 'n', 'z3950.copac.ac.uk:3000', 'COPAC', 'copac', '', '', ''),
+(12, 3, 'n', 'catalogue.nla.gov.au:7090', 'National Library of Australia', 'voyager', '', '', ''),
+(13, 4, 'n', 'z3950.gbv.de:20010', 'German Library Group', 'gvk', '', 'abc', ''),
+(14, 5, 'n', 'groar.bne.es:2210', 'Biblioteca Nacional', 'bimo', '', '', ''),
+(15, 6, 'n', 'z3950.bcl.jcyl.es:2109', 'Biblioteca de Castilla y Leon', 'AbsysBCL', NULL, NULL, ''),
+(16, 7, 'n', 'bcr1.larioja.org:210', 'Biblioteca de La Rioja (ESP)', 'AbsysE', '', '', ''),
+(17, 8, 'n', 'zed.natlib.govt.nz', 'National Library of New Zealand', 'pinz', '', '', ''),
+(18, 9, 'n', 'pino.csic.es:9909', 'Red de bibliotecas del CSIC', 'MAD01', NULL, NULL, ''),
+(19, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -12431,17 +12434,18 @@ CREATE TABLE IF NOT EXISTS `lookup_settings` (
   `fiction_code` tinyint(4) NOT NULL DEFAULT '1',
   `fiction_loc` varchar(255) NOT NULL DEFAULT 'PQ PR PS PT PU PV PW PX PY PZ',
   `fiction_dewey` varchar(255) NOT NULL DEFAULT '813 823',
-  `aws_key` varchar(20) NOT NULL,
-  `aws_secret_key` varchar(40) NOT NULL,
-  `aws_account_id` varchar(20) NOT NULL
+  `aws_key` varchar(20) DEFAULT NULL,
+  `aws_secret_key` varchar(40) DEFAULT NULL,
+  `aws_account_id` varchar(20) DEFAULT NULL,
+  `cron_url` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lookup_settings`
 --
 
-INSERT INTO `lookup_settings` (`protocol`, `max_hits`, `keep_dashes`, `callNmbr_type`, `auto_dewey`, `default_dewey`, `auto_cutter`, `cutter_type`, `cutter_word`, `auto_collect`, `fiction_name`, `fiction_code`, `fiction_loc`, `fiction_dewey`) VALUES
-('YAZ', 25, 'n', 'LoC', 'n', '813.52', 'y', 'LoC', 1, 'y', 'Fiction', 1, 'PQ PR PS PT PU PV PW PX PY PZ', '813 823');
+INSERT INTO `lookup_settings` (`protocol`, `max_hits`, `keep_dashes`, `callNmbr_type`, `auto_dewey`, `default_dewey`, `auto_cutter`, `cutter_type`, `cutter_word`, `auto_collect`, `fiction_name`, `fiction_code`, `fiction_loc`, `fiction_dewey`, `aws_key`, `aws_secret_key`, `aws_account_id`, `cron_url`) VALUES
+('YAZ', 25, 'n', 'LoC', 'n', '813.52', 'y', 'LoC', 1, 'y', 'Fiction', 1, 'PQ PR PS PT PU PV PW PX PY PZ', '813 823', '', '', '', '%domain%');
 
 -- --------------------------------------------------------
 
@@ -12472,8 +12476,3 @@ CREATE TABLE IF NOT EXISTS `lookup_manual` (
   `hits` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`qmid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Add cover check
---
-ALTER TABLE `biblio` ADD `cover` ENUM( 'yes', 'no' ) NOT NULL DEFAULT 'no'

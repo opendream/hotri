@@ -77,7 +77,7 @@ class BiblioCoverQuery extends Query {
     $ext = image_type_to_extension($img_info[2]);
     $hash = md5($path.session_id().time());
     if ($ext == '.jpeg') $ext = '.jpg';
-    $name = substr($name_full, 0, strrpos($name_full, '.')) . "_" . substr($hash, strlen($hash) - 7) . $ext;
+    $name = str_replace('%', '', substr($name_full, 0, strrpos($name_full, '.')) . "_" . substr($hash, strlen($hash) - 7) . $ext);
     $path_local = '../pictures/' . $name;
     
     switch ($img_info['mime']) {

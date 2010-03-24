@@ -145,7 +145,7 @@
       <label for="charset">Character Set:
     </td>
     <td valign="top" class="primary">
-      <?php printMyInputText("charset",10,10,$postVars,$pageErrors); ?> <font class="small">default: leave empty</font>
+      <?php printMyInputText("charset",10,20,$postVars,$pageErrors); ?> <font class="small">default: leave empty</font>
     </td>
   </tr>
   <tr>
