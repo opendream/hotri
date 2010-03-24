@@ -77,11 +77,14 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
       die($f);
     }
 
-    if (!empty($_GET['del'])) { // Action: del
+    if (isset($_GET['del'])) { // Action: del
       $isbn = $_GET['del'];
       $bl = new BulkLookupQuery();
       $bl->removeManualItem($isbn);
-      $msg = '<h5 id="updateMsg">ISBN ' . $isbn . ' has been removed from failed list.</h5>';
+      if (empty($_GET['del']))
+        $msg = '<h5 id="updateMsg">All items has been purged from failed list.</h5>';
+      else 
+        $msg = '<h5 id="updateMsg">ISBN ' . $isbn . ' has been removed from failed list.</h5>';
     }
   default:
 ?>
@@ -123,7 +126,7 @@ if ($p > 1) $prev = "<a href=\"?type=manual&page=".($p-1)."\">Previous</a>";
 if ($p * $limit < $total) $next = "<a href=\"?type=manual&page=".($p+1)."\">Next</a>";
 
 echo $prev . ($prev && $next ? ' | ' : '') . $next;
-echo '<p><a href="?type=manual&act=export">Export to file</a></p>';
+echo '<p><a href="?type=manual&act=export">Export to file</a> | <a href="?del=0&type=manual" onclick="return confirm(\'Are you sure to purge ISBN list?\')">Purge all items</a></p>';
   $zero_hits = $bl->countQueue('manual_list_zero');
   if ($zero_hits > 0) {
     echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?act=cleartemp">clear now.</a></p>';

@@ -370,9 +370,14 @@ class BulkLookupQuery extends Query {
   }
 
   function removeManualItem($isbn) {
-    $isbn = mysql_escape_string($isbn);
-    if (strlen($isbn) != 10) return 0;
-    $this->_query("DELETE FROM lookup_manual WHERE isbn='$isbn' LIMIT 1", false);
+    if (empty($isbn)) {
+      $this->_query("DELETE FROM lookup_manual", false);
+    }
+    else {
+      $isbn = mysql_escape_string($isbn);
+      if (strlen($isbn) != 10) return 0;
+      $this->_query("DELETE FROM lookup_manual WHERE isbn='$isbn' LIMIT 1", false);
+    }
   }
   
   function addCopy($bibid) {
