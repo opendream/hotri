@@ -28,10 +28,10 @@ $bl = new BulkLookupQuery();
 
 // Paging
 $limit = 50;
-$total = $bl->countQueue('cover_list');
 if (0 + $_GET['page'] < 1 || ($p-1) * $limit >= $total) $p = 1;
 else $p = 0 + $_GET['page'];
 $bl->getNoCoverList($limit, ($p-1) * $limit);
+$total = $bl->countQueue('cover_list');
 
 $rows = array();
 while ($row = $bl->fetch()) {
