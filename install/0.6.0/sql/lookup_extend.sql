@@ -12386,7 +12386,7 @@ CREATE TABLE IF NOT EXISTS `lookup_hosts` (
   `pw` varchar(20) DEFAULT NULL,
   `charset` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `lookup_hosts`
@@ -12411,7 +12411,8 @@ INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`,
 (16, 7, 'n', 'bcr1.larioja.org:210', 'Biblioteca de La Rioja (ESP)', 'AbsysE', '', '', ''),
 (17, 8, 'n', 'zed.natlib.govt.nz', 'National Library of New Zealand', 'pinz', '', '', ''),
 (18, 9, 'n', 'pino.csic.es:9909', 'Red de bibliotecas del CSIC', 'MAD01', NULL, NULL, ''),
-(19, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', '', '');
+(19, 10, 'n', 'opac.sbn.it:3950', 'SBN - Sistema Bibliotecario Nazi', 'nopac', '', '', ''),
+(20, 0, 'y', '61.90.249.71:210', '[TH] ม.รังสิต', 'Default', '', '', '');
 
 -- --------------------------------------------------------
 

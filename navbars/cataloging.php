@@ -145,6 +145,11 @@
 		include_once ($list[$x]);
 	}
 	?>
+<?php if ($nav == 'CsvImport') : ?>
+ &raquo; <?php echo $navLoc->getText("CSV Import");?><br>
+<?php else : ?>
+ <a href="../catalog/csv_import.php" class="alt1"><?php echo $navLoc->getText("CSV Import");?></a><br>
+<?php endif; ?>
 <?php if ($nav == "upload_usmarc") { ?>
  &raquo; <?php echo $navLoc->getText("Upload Marc Data");?><br>
 <?php } else { ?>
