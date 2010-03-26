@@ -33,6 +33,8 @@ else {
   <input type="submit" name="submit" class="button" value="Import" />
 </form>
 
+<p><strong>Note: </strong> สำหรับช่อง "ชื่อไฟล์ภาพปก" ใส่ชื่อไฟล์ภาพ และนำภาพขึ้นไปเก็บใน directory 'pictures' ของระบบด้วยตนเอง</p>
+
 INNERHTML;
 }
 
