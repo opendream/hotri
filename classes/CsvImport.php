@@ -12,22 +12,59 @@ class CsvImport {
     $fp = $this->fopen_utf8($file['tmp_name'], 'r');
     if (!$fp) return array('error'=>'unable to open uploaded files');
     
-    // Skip first line that is header row.
+    // Make sure first row must have no changes. (Missing header issue)
     $s = fgets($fp);
+    $arr = $this->_string2Array($s);
+    $required_header = array('ISBN', 'ชื่อผู้แต่ง', 'ชื่อเรื่อง', 'ชื่อเรื่องย่อย', 'ผู้รับผิดชอบ',
+     'Call Number', 'Call Number (2)', 'หัวเรื่อง', 'LCCN', 
+     'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์', 'จำนวนหน้า', 'ชื่อไฟล์ภาพปก');
+
+    $i = 0;
+    foreach ($arr as $field) {
+      if (trim($field) != $required_header[$i]) {
+        return array('error' => 'Missing header', 'pos' => $required_header[$i] . '(' . strlen($required_header[$i]) . ') != ' . $field . '(' . strlen($field) . ')');
+      }
+      $i++;
+    }
+    if ($i != count($required_header)) 
+      return array('error' => 'Incorrect header');
     
     $copy = 0;
     $done = 0;
     $failed = 0;
     
+    $importQ = new CsvImportQuery();
+
+    $line = 0;
     while (!feof($fp)) {
       $s = fgets($fp);
-      $importQ = new CsvImportQuery();
+      $line++;
+      $formatted = $this->_string2Array($s);
+      if ($formatted['quote_incorrect']) {
+        return array('error' => 'Incorrect double quote formatting');
+      }
+      else if (empty ($formatted['020a']) || empty($formatted['100a']) || empty($formatted['245a'])) {
+        return array('error' => 'Missing required fields (ISBN, ชื่อผู้แต่ง, ชื่อเรื่อง) @ line ' . $line);
+      }
+    }
+
+    fclose($fp);
+
+    // Reopen to save them.
+    $fp = $this->fopen_utf8($file['tmp_name'], 'r');
+    if (!$fp) return array('error'=>'unable to open uploaded files');
+
+    $s = fgets($fp); // Skip header line.
+
+    while (!feof($fp)) {
+      $s = fgets($fp);
       $import = $importQ->import($this->_string2Array($s));
-      //print_r($this->_string2Array($s));
       if ($import == 'copy') $copy++;
       else if ($import == 'done') $done++;
       else $failed++;
     }
+
+    fclose($fp);
     
     return array('done'=>$done, 'copy'=>$copy, 'failed'=>$failed);
   }
@@ -57,6 +94,9 @@ class CsvImport {
   private function _string2Array($str) {
     $str = str_replace('""', "%double_quote%", 
      str_replace('%', '%25', $str));
+
+    $status = str_replace('"', '', $str, $matches);
+    if ($matches % 2 != 0) return array('quote_incorrect' => true);
     
     $hasQuote = false;
     $i = 0;
@@ -65,13 +105,15 @@ class CsvImport {
         $hasQuote = false;
         $needle = $var[$i] = substr($str, $startPos, $qpos - $startPos);
         $str = str_replace( $needle . '"', '%var_'.$i.'%', $str);
+
+        // same value strings should be removed pre-quote.
+        $str = str_replace('"%var_'.$i.'%', '%var_'.$i.'%', $str);
         $i++;
       }
       else {
         $hasQuote = true;
         $startPos = $qpos;
         $str = substr($str, 0, $startPos) . substr($str, $startPos + 1);
-      
       }   
     }
     
@@ -79,7 +121,7 @@ class CsvImport {
     $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', '650a', '010a', '260a', '260b', '260c', '300a', '902a');
     
     foreach ($data as $key=>$field) {
-      if (ereg('%(var_[0-9]{0,1})%', $field, $reg)) {
+      if (ereg('%(var_[0-9]{1,2})%', $field, $reg)) {
         $index = substr($reg[1], strpos($reg[1], '_') + 1);
         $data[$header[$key]] = str_replace(
          array('%25', '%double_quote%'), 
@@ -103,8 +145,9 @@ class CsvImportQuery extends Query {
     $bl = new BulkLookupQuery();
     
     if (!isset($row['020a'], $row['100a'], $row['245a'])) return false;
-    $isbn = $row['020a'];
+    $isbn = $this->verifyISBN($row['020a']);
     $existBibid = $this->getExistBiblio($isbn);
+    
     if ($existBibid > 0) {
       $bl->addCopy($existBibid);
       return 'copy';
