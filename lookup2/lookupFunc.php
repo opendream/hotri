@@ -25,7 +25,7 @@
 	}
 
 	##-----------
-	function verifyLCCN () {
+	function verifyLCCN ($lookupVal,$keepIsbnDashes = false) {
 			## remove "-" and fill with "0" to make 8 char long
 			$pos = strPos($lookupVal, "-");
 			if ($pos > 0) {
