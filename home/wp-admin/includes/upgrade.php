@@ -219,6 +219,110 @@ function wp_install_defaults($user_id) {
 								'pinged' => '',
 								'post_content_filtered' => ''
 								));
+
+	// Openbiblio search page.
+	$first_post_guid = get_option('home') . '/?page_id=3';
+	$wpdb->insert( $wpdb->posts, array(
+								'post_author' => $user_id,
+								'post_date' => $now,
+								'post_date_gmt' => $now_gmt,
+								'post_content' => '',
+								'post_excerpt' => '',
+								'post_title' => 'OPAC Search Results',
+								/* translators: Default page slug */
+								'post_name' => _x('opac-search-results', 'Default page slug'),
+								'post_modified' => $now,
+								'post_modified_gmt' => $now_gmt,
+								'guid' => $first_post_guid,
+								'post_type' => 'page',
+								'to_ping' => '',
+								'pinged' => '',
+								'post_content_filtered' => ''
+								));
+
+  // Biblio page.
+	$first_post_guid = get_option('home') . '/?page_id=4';
+	$wpdb->insert( $wpdb->posts, array(
+								'post_author' => $user_id,
+								'post_date' => $now,
+								'post_date_gmt' => $now_gmt,
+								'post_content' => '',
+								'post_excerpt' => '',
+								'post_title' => 'OPAC Bibiliography',
+								/* translators: Default page slug */
+								'post_name' => _x('opac-bibliography', 'Default page slug'),
+								'post_modified' => $now,
+								'post_modified_gmt' => $now_gmt,
+								'guid' => $first_post_guid,
+								'post_type' => 'page',
+								'to_ping' => '',
+								'pinged' => '',
+								'post_content_filtered' => ''
+								));
+
+	// OpenBiblio meta for page template.
+	$wpdb->insert( $wpdb->postmeta, array(
+								'post_id' => 3,
+								'meta_key' => '_wp_page_template',
+								'meta_value' => 'opac.php'
+								));
+
+	$wpdb->insert( $wpdb->postmeta, array(
+								'post_id' => 4,
+								'meta_key' => '_wp_page_template',
+								'meta_value' => 'biblio.php'
+								));
+
+	$wpdb->insert( $wpdb->postmeta, array(
+								'post_id' => 3,
+								'meta_key' => 'custom_permalink',
+								'meta_value' => '?opac'
+								));
+
+	$wpdb->insert( $wpdb->postmeta, array(
+								'post_id' => 4,
+								'meta_key' => 'custom_permalink',
+								'meta_value' => '?opac&view'
+								));
+
+  // Enable default plugins & widgets.
+	$wpdb->update($wpdb->options, 
+	  array('option_value' => 'a:2:{i:0;s:39:"custom-permalinks/custom-permalinks.php";i:1;s:17:"obopac/obopac.php";}'), 
+	  array('option_name' => 'active_plugins') );
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'widget_obopac-widget',
+								'option_value' => 'a:2:{i:1;a:0:{}s:12:"_multiwidget";i:1;}'
+								));
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'widget_pages',
+								'option_value' => 'a:2:{i:1;a:3:{s:5:"title";s:0:"";s:6:"sortby";s:10:"post_title";s:7:"exclude";s:3:"3,4";}s:12:"_multiwidget";i:1;}'
+								));
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'widget_archives',
+								'option_value' => 'a:2:{i:1;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}'
+								));
+
+	$wpdb->update( $wpdb->options, 
+	  array('option_value' => 'a:2:{i:1;a:4:{s:5:"title";s:0:"";s:5:"count";i:0;s:12:"hierarchical";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}'),
+		array('option_name' => 'widget_categories') );
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'widget_links',
+								'option_value' => 'a:2:{i:1;a:5:{s:6:"images";i:1;s:4:"name";i:1;s:11:"description";i:0;s:6:"rating";i:0;s:8:"category";i:0;}s:12:"_multiwidget";i:1;}'
+								));
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'widget_meta',
+								'option_value' => 'a:2:{i:1;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}'
+								));
+
+	$wpdb->insert( $wpdb->options, array(
+								'option_name' => 'sidebars_widgets',
+								'option_value' => 'a:3:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:15:"obopac-widget-1";i:1;s:7:"pages-1";i:2;s:10:"archives-1";i:3;s:12:"categories-1";i:4;s:7:"links-1";i:5;s:6:"meta-1";}s:13:"array_version";i:3;}'
+								));
 }
 endif;
 

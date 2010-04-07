@@ -49,12 +49,9 @@ class ObOpac_Widget extends WP_Widget {
 
 	  /* Display search box */
 	  echo <<<INNERHTML
-<form method="post" action="../shared/biblio_search.php">
-  <input type="text" name="searchText" />
-  <input type="hidden" name="searchType" value="title" />
-  <input type="hidden" name="sortBy" value="default" />
-  <input type="hidden" name="tab" value="opac" />
-  <input type="hidden" name="lookup" value="N" />
+<form method="get" action="?">
+  <input type="text" name="opac" />
+  <input type="hidden" name="type" value="title" />
   <input type="submit" name="submit" value="Searh OPAC" />
 </form>
 INNERHTML;
