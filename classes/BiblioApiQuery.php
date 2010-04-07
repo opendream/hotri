@@ -7,16 +7,32 @@ class BiblioApiQuery extends Query {
   function search($keyword, $start = 0, $limit = 10, $type = 'title') {
     $words = explodeQuoted($keyword);
     $cond = '';
-    foreach ($words as $w) {
-      $cond .= "title LIKE '%{$w}%' OR title_remainder LIKE '%{$w}%' OR ";
+    if ($type == 'author') 
+      $sortBy = 'author';
+    else 
+      $sortBy = 'title';
+
+    if ($type == 'author') {
+      foreach ($words as $w) 
+        $cond .= "author LIKE '%$w%' OR ";
     }
+    else if ($type == 'subject') {
+      foreach ($words as $w) 
+        $cond .= "topic1 LIKE '%$w%' OR topic2 LIKE '%$w%' OR topic3 LIKE '%$w%' OR topic4 LIKE '%$w%' OR topic5 LIKE '%$w%' OR ";
+    }
+    else { // Others are default search by title   
+      foreach ($words as $w) {
+        $cond .= "title LIKE '%{$w}%' OR title_remainder LIKE '%{$w}%' OR ";
+      }
+    }
+    
     $q = "FROM biblio";
     $joined = 
       "LEFT JOIN collection_dm c ON collection_cd=c.code
       LEFT JOIN material_type_dm m ON material_cd=m.code 
       LEFT JOIN biblio_field f ON biblio.bibid=f.bibid AND tag=902 AND subfield_cd='a'";
     $where = "WHERE " .
-      substr($cond, 0, -4) . " ORDER BY " . mysql_real_escape_string($type);
+      substr($cond, 0, -4) . " ORDER BY " . mysql_real_escape_string($sortBy);
 
     $counter = $this->_query("SELECT count(*) c $q $where", false);
     $row = $this->_conn->fetchRow();

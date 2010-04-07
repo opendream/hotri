@@ -8,12 +8,14 @@ get_header();
   $_GET['opac'] = stripslashes($_GET['opac']);
 ?>
 	<div id="content" class="narrowcolumn" role="main">
-	  <div class="post" id="post-<?php the_ID(); ?>">
+	  <div class="post">
 	    <h2><?php the_title(); echo " - " . $_GET['opac']; ?></h2>
+	    <h4>Search by: <?=empty($_GET['type'])?'title':$_GET['type'] ?></h4>
 	    <?php
 	    $limit = 10; // Page limit
+	    $qpage = "&type=" . $_GET['type'];
 	    if (0 + $_GET['page'] > 0) 
-	      $qpage = "&start=" . ((-1 + $_GET['page']) * $limit) . "&items=$limit";
+	      $qpage .= "&start=" . ((-1 + $_GET['page']) * $limit) . "&items=$limit";
 	    $response = unserialize(file_get_contents('http://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/../api/opac.php?keyword=" . urlencode($_GET['opac']) . "{$qpage}"));
 	    
 	    if (!is_array($response['data'])) { // Failed or not found

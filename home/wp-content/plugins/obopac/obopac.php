@@ -47,11 +47,23 @@ class ObOpac_Widget extends WP_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
+    $options = array('title' => 'Title', 'author' => 'Author', 'subject' => 'Subject');
+    $option_form = '';
+    foreach ($options as $op=>$label) {
+      $option_form .= '<option value="' . $op . '"';
+		  if ($_GET['type'] == $op) 
+		    $option_form .= ' selected="selected"';
+
+		  $option_form .= ">$label</option>\n";
+		}
+
 	  /* Display search box */
 	  echo <<<INNERHTML
 <form method="get" action="?">
-  <input type="text" name="opac" />
-  <input type="hidden" name="type" value="title" />
+  <input type="text" name="opac" /> 
+  <select name="type">
+    $option_form
+  </select>
   <input type="submit" name="submit" value="Searh OPAC" />
 </form>
 INNERHTML;
