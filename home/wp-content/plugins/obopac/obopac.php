@@ -58,9 +58,10 @@ class ObOpac_Widget extends WP_Widget {
 		}
 
 	  /* Display search box */
+	  $opac = htmlspecialchars(urldecode($_GET[opac]));
 	  echo <<<INNERHTML
 <form method="get" action="?">
-  <input type="text" name="opac" /> 
+  <input type="text" name="opac" value="$opac" /> 
   <select name="type">
     $option_form
   </select>

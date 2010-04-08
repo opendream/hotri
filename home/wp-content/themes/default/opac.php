@@ -32,7 +32,7 @@ get_header();
 	        $paging = "<span class=\"paging-nav\">Page: ";
 
 	        if ($page > $page_range + 1) {
-	          $paging .= "<a href=\"?opac=" . urlencode($_GET['opac']) . "\"><<</a> .. ";
+	          $paging .= "<a href=\"?opac=" . urlencode($_GET['opac']) . "&type=" . urlencode($_GET['type']) . "\"><<</a> .. ";
 	        }
 	        // Start render from minimal page range
           if ($page - $page_range < 1) 
@@ -47,14 +47,14 @@ get_header();
             if ($page == $i) 
               $paging .= "$i . ";
             else
-              $paging .= "<a href=\"?opac=" . urlencode($_GET['opac']) . "&page=$i\">$i</a> . ";
+              $paging .= "<a href=\"?opac=" . urlencode($_GET['opac']) . "&type=" . urlencode($_GET['type']) . "&page=$i\">$i</a> . ";
           
 	        }
 	        
 	        $paging = substr($paging, 0, -3);
 
 	        if ($page + $page_range < $response['rows'] / $limit)
-	          $paging .= " .. <a href=\"?opac=" . urlencode($_GET['opac']) . "&page=" . ceil($response['rows'] / $limit) . "\"> >> </a>";
+	          $paging .= " .. <a href=\"?opac=" . urlencode($_GET['opac']) . "&type=" . urlencode($_GET['type']) . "&page=" . ceil($response['rows'] / $limit) . "\"> >> </a>";
 
 	        $paging .= "</span>";
 	      }

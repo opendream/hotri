@@ -5,13 +5,124 @@ require_once('Query.php');
 
 class BiblioApiQuery extends Query {
   function search($keyword, $start = 0, $limit = 10, $type = 'title') {
-    $words = explodeQuoted($keyword);
+    $words = explodeQuoted($keyword, $extended = true);
     $cond = '';
+
+    // Decode Arithmetric Clause
+    foreach ($words as $key=>$w) {
+      $words[$key] = str_replace('%space_bar%', ' ', $w);
+    }
     if ($type == 'author') 
       $sortBy = 'author';
     else 
       $sortBy = 'title';
 
+    if ($type == 'author') {
+      $field_cond = array('author');
+    }
+    else if ($type == 'subject') {
+      $field_cond = array('topic1', 'topic2', 'topic3', 'topic4', 'topic5');
+    }
+    else { // Otherwise set default search by title
+      $field_cond = array('title', 'title_remainder');
+    }
+
+    $exclusion = '';
+    
+    foreach ($words as $w) {
+      
+      if (strpos($w, '%') !== false) {
+        $buffer = '';
+        $endp = -1;
+        while (($p = strpos($w, '%', $endp + 1)) !== false) {
+          $endp = strpos($w, '%', $p + 1);
+          
+          if ($endp === false) break;
+
+          $pre_word = substr($w, 0, $p);
+          $word_end = strpos($w, '%', $endp + 1);
+          if ($word_end === false) 
+            $post_word = substr($w, $endp + 1);
+          else 
+            $post_word = substr($w, $endp + 1, $word_end  - ($endp + 1));
+
+          // c AND d OR e NOT f NOT g [c%and%d%or%e%not%f%not%g]
+          // Running left-to-right actions.
+          // ((field LIKE c AND field LIKE d) OR field LIKE e) AND field NOT LIKE f AND field NOT LIKE f
+
+          // a OR b OR c AND d NOT e AND f OR g
+          // (field LIKE a OR field LIKE b)
+          // ([1] OR field LIKE c)
+          // (((field LIKE a OR field LIKE b) OR field LIKE c) AND field LIKE d) AND 
+          // Step:
+          //   - buffer conditions ($buffer)
+          //   - $buffer = "($buffer [CONDITION] field LIKE $post_word)";
+          
+          switch ($condition = strtoupper(substr($w, $p+1, $endp - ($p + 1)))) {
+            case 'AND':
+            case 'OR':
+            case 'NOT':
+              break;
+            default:
+              $condition = 'OR';
+          }
+          if ($condition == 'NOT') {
+            if (empty($exclusion)) {
+              // Pre word in NOT clause should be default clause.
+              if (!empty($pre_word)) {
+                if (empty($buffer)) 
+                  $buffer = "(__FIELD__ LIKE '%$pre_word%')";
+                else 
+                  $buffer = "(__FIELD__ LIKE '%$pre_word%' OR ($buffer))";
+              }
+            }
+            $exclusion .= '(';
+            foreach ($field_cond as $f) {
+              $exclusion .= "$f NOT LIKE '%$post_word%' AND ";
+            }
+            $exclusion = substr($exclusion, 0, -4) . ") AND ";
+          }
+          else {
+            if (empty($buffer)) 
+              $buffer = "(__FIELD__ LIKE '%$pre_word%' $condition __FIELD__ LIKE '%$post_word%')";
+            else 
+              $buffer = "($buffer $condition __FIELD__ LIKE '%$post_word%')";
+          }
+        }
+        if (!empty($buffer)) {
+          foreach ($field_cond as $f) {
+            $cond .= str_replace('__FIELD__', $f, $buffer) . " OR ";
+          }
+        }
+      }
+      else {
+        // Decode some characters.
+        $w = str_replace('[percent_mrk]', '%', $w);
+        $w = str_replace("%space_bar%", " ", $w);
+
+        foreach ($field_cond as $f) {
+          $cond .= "$f LIKE '%$w%' OR ";
+        }
+      }
+    }
+    
+    $cond = substr($cond, 0, -4);
+    if (!empty($exclusion)) {
+      if (empty($cond)) 
+        $cond = substr($exclusion, 0, -5);
+      else 
+        $cond = "($cond) AND " . substr($exclusion, 0, -5);
+    }
+    
+    // Sample: a b OR "c d" e AND f NOT g
+    // Data: [a][bORc d] [eANDfNOTg]
+    // Current: 
+    // field LIKE a OR (field LIKE b OR field LIKE "c d") OR ((field LIKE e AND field LIKE f) AND field NOT LIKE g)
+    // Correction:
+    // (field LIKE a OR (field LIKE b OR field LIKE "c d") OR (field LIKE e AND field LIKE f) AND field NOT LIKE g
+    // $cond = "($cond) AND $exclusion"; 
+
+    /*
     if ($type == 'author') {
       foreach ($words as $w) 
         $cond .= "author LIKE '%$w%' OR ";
@@ -25,6 +136,7 @@ class BiblioApiQuery extends Query {
         $cond .= "title LIKE '%{$w}%' OR title_remainder LIKE '%{$w}%' OR ";
       }
     }
+    */
     
     $q = "FROM biblio";
     $joined = 
@@ -32,7 +144,9 @@ class BiblioApiQuery extends Query {
       LEFT JOIN material_type_dm m ON material_cd=m.code 
       LEFT JOIN biblio_field f ON biblio.bibid=f.bibid AND tag=902 AND subfield_cd='a'";
     $where = "WHERE " .
-      substr($cond, 0, -4) . " ORDER BY " . mysql_real_escape_string($sortBy);
+      $cond . " ORDER BY " . mysql_real_escape_string($sortBy);
+
+    //return "SELECT count(*) c $q $where";
 
     $counter = $this->_query("SELECT count(*) c $q $where", false);
     $row = $this->_conn->fetchRow();
