@@ -323,6 +323,11 @@ function wp_install_defaults($user_id) {
 								'option_name' => 'sidebars_widgets',
 								'option_value' => 'a:3:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:15:"obopac-widget-1";i:1;s:7:"pages-1";i:2;s:10:"archives-1";i:3;s:12:"categories-1";i:4;s:7:"links-1";i:5;s:6:"meta-1";}s:13:"array_version";i:3;}'
 								));
+
+	$wpdb->insert( $wpdb->options, array(
+	              'option_name' => 'obopac_api_path',
+	              'option_value' => dirname(get_option('home')) . '/'
+	              ));
 }
 endif;
 

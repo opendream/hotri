@@ -1,0 +1,8 @@
+<?php
+function myperm_install() {
+  // Process on 1st enable module.
+}
+
+function myperm_uninstall() {
+  // Process on uninstall module.
+}

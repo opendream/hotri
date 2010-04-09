@@ -1,0 +1,11 @@
+Recommended use with WordPress 2.9.2
+
+How to setup / use:
+- Enable obopac plugin.
+- Add 'Search OPAC Widget' to sidebar & set URL path to OpenBiblio directory, done.
+- Search with keywords:
+  * Space (eg. a b, a b c) results books which match least one keyword.
+  * OR (eg. a OR b) results as same as space words.
+  * AND (eg. a AND b) results books which match both sides keywords.
+  * NOT (eg. NOT c) results any books which not match following keyword.
+  * For complex keywords, search would be parse from left to right.
