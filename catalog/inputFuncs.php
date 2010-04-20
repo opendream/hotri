@@ -83,11 +83,7 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   elseif ($cntrlType == OBIB_FILE_CNTRL) {
     echo "<input type=\"file\"";
     echo " name=\"values[".H($formIndex)."]\" size=\"28\" />";
-<<<<<<< HEAD:catalog/inputFuncs.php
     echo "<input type=\"hidden\" name=\"old[".H($formIndex)."]\" value=\"$value\" />";
-=======
-    echo "<input type=\"hidden\" name=\"old[" . H($formIndex) . "]\" value=\"$value\" />";
->>>>>>> odlib_lookup:catalog/inputFuncs.php
     if ($value) {
       $title = $postVars["values"]["245a"];
       $filepath = "../pictures/$value";
