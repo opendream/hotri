@@ -64,6 +64,9 @@ class SettingsQuery extends Query {
     $set->setLocale($array["locale"]);
     $set->setCharset($array["charset"]);
     $set->setHtmlLangAttr($array["html_lang_attr"]);
+    $set->setFontNormal($array["font_normal"]);
+    $set->setFontBold($array["font_bold"]);
+    $set->setFontOblique($array["font_oblique"]);
 
     return $set;
   }
@@ -84,7 +87,8 @@ class SettingsQuery extends Query {
                         . "items_per_page=%N, purge_history_after_months=%N, "
                         . "block_checkouts_when_fines_due=%Q, "
                         . "hold_max_days=%N, "
-                        . "locale=%Q, charset=%Q, html_lang_attr=%Q ",
+                        . "locale=%Q, charset=%Q, html_lang_attr=%Q"
+                        . ", font_normal=%Q, font_bold=%Q, font_oblique=%Q",
                         $set->getLibraryName(), $set->getLibraryImageUrl(),
                         $set->isUseImageSet() ? "Y" : "N",
                         $set->getLibraryHours(), $set->getLibraryPhone(),
@@ -94,7 +98,8 @@ class SettingsQuery extends Query {
                         $set->isBlockCheckoutsWhenFinesDue() ? "Y" : "N",
                         $set->getHoldMaxDays(),
                         $set->getLocale(), $set->getCharset(),
-                        $set->getHtmlLangAttr());
+                        $set->getHtmlLangAttr(),
+                        $set->getFontNormal(), $set->getFontBold(), $set->getFontOblique());
 
     return $this->_query($sql, "Error updating library settings information");
   }

@@ -785,6 +785,30 @@ class Lay {
     }
     return array($length, false);
   }
+  function getFonts() {
+    /* Settings */
+    include_once("Settings.php");
+    include_once("SettingsQuery.php");
+    
+    $setQ = new SettingsQuery();
+    $setQ->connect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $setQ->execSelect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $set = $setQ->fetchRow();
+    $sets["fontNormal"] = $set->getFontNormal();
+    $sets["fontBold"] = $set->getFontBold();
+    $sets["fontOblique"] = $set->getFontOblique();
+    $setQ->close();
+
+    return $sets;
+  }
 }
 
 ?>

@@ -14,8 +14,11 @@ values (
   ,6
   ,'Y'
   ,14
-  ,'th'
+  ,'en'
   ,'utf-8'
   ,null
+  ,'Garuda'
+  ,'Garuda-Bold'
+  ,'Garuda-Oblique'
 )
 ;

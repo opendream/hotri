@@ -6,7 +6,9 @@
 require_once('../classes/Lay.php');
 
 class Layout_list {
+  var $sets;
   function render($rpt) {
+    $this->sets = Lay::getFonts();
     $cols = $rpt->columns();
     $colspacing = 0.125;
     $total = 0;
@@ -34,13 +36,13 @@ class Layout_list {
         'margin-top'=>'0.5in', 'margin-bottom'=>'0.5in',
       ));
         if ($rpt->title()) {
-          $lay->pushFont('Garuda-Bold', 18);
+          $lay->pushFont($this->sets['fontBold'], 18);
             $lay->container('TextLine', array('x-align'=>'center'));
               $lay->text($rpt->title());
             $lay->close();
           $lay->popFont();
         }
-        $lay->pushFont('Garuda-Oblique', 12);
+        $lay->pushFont($this->sets['fontOblique'], 12);
           $lay->container('Line', array('x-spacing'=>$colspacing.'in'));
             foreach ($cols as $col) {
               if (isset($col['hidden'])) {

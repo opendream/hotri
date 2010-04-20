@@ -32,6 +32,9 @@ class Settings {
   var $_locale = "";
   var $_charset = "";
   var $_htmlLangAttr = "";
+  var $_fontNormal = "";
+  var $_fontBold = "";
+  var $_fontOblique = "";
 
   /****************************************************************************
   * @return array with code and description of installed locales
@@ -151,6 +154,15 @@ class Settings {
   function getHtmlLangAttr() {
     return $this->_htmlLangAttr;
   }
+  function getFontNormal() {
+    return $this->_fontNormal;
+  }
+  function getFontBold() {
+    return $this->_fontBold;
+  }
+  function getFontOblique() {
+    return $this->_fontOblique;
+  }
 
   /****************************************************************************
    * Setter methods for all fields
@@ -239,7 +251,15 @@ class Settings {
   function setHtmlLangAttr($value) {
     $this->_htmlLangAttr = trim($value);
   }
-
+  function setFontNormal($value) {
+    $this->_fontNormal = trim($value);
+  }
+  function setFontBold($value) {
+    $this->_fontBold = trim($value);
+  }
+  function setFontOblique($value) {
+    $this->_fontOblique = trim($value);
+  }
 }
 
 ?>

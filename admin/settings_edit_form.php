@@ -62,6 +62,9 @@
     $postVars["locale"] = $set->getLocale();
     $postVars["charset"] = $set->getCharset();
     $postVars["htmlLangAttr"] = $set->getHtmlLangAttr();
+    $postVars["fontNormal"] = $set->getFontNormal();
+    $postVars["fontBold"] = $set->getFontBold();
+    $postVars["fontOblique"] = $set->getFontOblique();
     $setQ->close();
   } else {
     require("../shared/get_form_vars.php");
@@ -217,6 +220,30 @@
     </td>
     <td valign="top" class="primary">
       <?php printInputText("htmlLangAttr",8,8,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <?php echo $loc->getText("admin_settingsFontNormal"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php printInputText("fontNormal",20,20,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <?php echo $loc->getText("admin_settingsFontBold"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php printInputText("fontBold",20,20,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <?php echo $loc->getText("admin_settingsFontOblique"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php printInputText("fontOblique",20,20,$postVars,$pageErrors); ?>
     </td>
   </tr>
   <tr>

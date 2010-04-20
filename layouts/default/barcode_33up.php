@@ -7,6 +7,7 @@ require_once('../classes/Lay.php');
 
 class Layout_barcode_33up {
   var $p;
+  var $sets;
   function paramDefs() {
     return array(
       array('string', 'skip', array('title'=>'Skip Labels', 'default'=>'0')),
@@ -14,6 +15,7 @@ class Layout_barcode_33up {
   }
   function init($params) {
     $this->p = $params;
+    $this->sets = Lay::getFonts();
   }
   function render($rpt) {
     $lay = new Lay;
@@ -32,7 +34,7 @@ class Layout_barcode_33up {
               'y-align'=>'center',
             ));
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Times-Roman', 10);
+                $lay->pushFont($this->sets['fontNormal'], 10);
                   if (strlen($row['title']) > 30) {
                     $row['title'] = substr($row['title'], 0, 30)."...";
                   }
@@ -40,12 +42,12 @@ class Layout_barcode_33up {
                 $lay->popFont();
               $lay->close();
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Code39JK', 24);
+                $lay->pushFont('Free3of9', 24);
                   $lay->text('*'.strtoupper($row['barcode_nmbr']).'*');
                 $lay->popFont();
               $lay->close();
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Courier', 10);
+                $lay->pushFont($this->sets['fontNormal'], 10);
                   $lay->text(strtoupper($row['barcode_nmbr']));
                 $lay->popFont();
               $lay->close();

@@ -7,6 +7,7 @@ require_once('../classes/Lay.php');
 
 class Layout_labels {
   var $p;
+  var $sets;
   function paramDefs() {
     return array(
       array('string', 'skip', array('title'=>'Skip Labels', 'default'=>'0')),
@@ -14,6 +15,7 @@ class Layout_labels {
   }
   function init($params) {
     $this->p = $params;
+    $this->sets = Lay::getFonts();
   }
   function render($rpt) {
     $lay = new Lay('A4');
@@ -33,7 +35,7 @@ class Layout_labels {
             'height'=>'16.9mm', 'width'=>'145mm',
           ));
             $lay->container('Column', array('width'=>'29mm', 'y-align'=>'center'));
-              $lay->pushFont('Garuda-Bold', 11);
+              $lay->pushFont($this->sets['fontBold'], 11);
                 $lay->text($row['callno']);
               $lay->popFont();
             $lay->close();
@@ -44,13 +46,13 @@ class Layout_labels {
                 $lay->popFont();
               $lay->close();
               $lay->container('TextLine', array('x-align'=>'center'));
-                $lay->pushFont('Garuda', 10);
+                $lay->pushFont($this->sets['fontNormal'], 10);
                   $lay->text(strtoupper($row['barcode_nmbr']));
                 $lay->popFont();
               $lay->close();
             $lay->close();
             $lay->container('Column', array('width'=>'58mm', 'y-align'=>'center'));
-              $lay->pushFont('Garuda', 9);
+              $lay->pushFont($this->sets['fontNormal'], 9);
               $lay->container('TextLine');
                 $lay->text($row['author']);
               $lay->close();
