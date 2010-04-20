@@ -91,7 +91,11 @@ class Query {
     }
     $r = mysql_query($sql, $this->_link);
     if ($r === false) {
-      Fatal::dbError($sql, 'Database query failed', mysql_error());
+      if (mysql_errno() == 1146 && eregi(OBIB_DATABASE . '.settings', mysql_error())) {
+        // Settings not found
+        header("Location: ../install/");
+      }
+      Fatal::dbError($sql, 'Database query failed (' . mysql_errno() . ')', mysql_error());
     }
     return $r;
   }

@@ -34,13 +34,13 @@ class Layout_list {
         'margin-top'=>'0.5in', 'margin-bottom'=>'0.5in',
       ));
         if ($rpt->title()) {
-          $lay->pushFont('Garuda', 18);
+          $lay->pushFont('Garuda-Bold', 18);
             $lay->container('TextLine', array('x-align'=>'center'));
               $lay->text($rpt->title());
             $lay->close();
           $lay->popFont();
         }
-        $lay->pushFont('Garuda', 12);
+        $lay->pushFont('Garuda-Oblique', 12);
           $lay->container('Line', array('x-spacing'=>$colspacing.'in'));
             foreach ($cols as $col) {
               if (isset($col['hidden'])) {

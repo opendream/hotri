@@ -40,7 +40,12 @@
   
   # FIXME - Until I get around to fixing all the notices...
   error_reporting(E_ALL ^ E_NOTICE);
-  
+
+  /* Work around PHP's braindead include_path stuff. */
+	function REL($sf, $if) {
+		return dirname($sf)."/".$if;
+	}
+	
   # Escaping shorthands
   function H($s) {
     return htmlspecialchars($s, ENT_QUOTES);
@@ -196,5 +201,35 @@
     return $thumbpath;
   }
   
-
+###################################################################
+  ## plugin Support
+  ###################################################################
+  function getPlugIns($wanted) {
+		clearstatcache();
+		$lists = array();
+  	if (is_dir('../plugins')) {
+			//echo "Plugin Dir found: <br />";
+  	  ## find all plugin directories
+			if ($dirHndl = opendir('../plugins')) {
+		    # look at all plugin dirs
+		    while (false !== ($plug = readdir($dirHndl))) {
+		      if (($plug == '.') || ($plug == '..')) continue;
+  	      //echo "plugin => $plug<br />";
+  	      $plugPath = "../plugins/$plug";
+  	      if (is_dir($plugPath)) {
+						if ($filHndl = opendir($plugPath)) {
+		    			while (false !== ($file = readdir($filHndl))) {
+		    			  if (($file == '.') || ($file == '..')) continue;
+  	      			//echo "file => $file<br />";
+  	      			if ($file == $wanted) $list[] = "../plugins/$plugPath/$file";
+  	      		}
+  	      		closedir($filHndl);
+						}
+					}
+  		  }
+  		  closedir($dirHndl);
+			}
+		}
+		return $list;
+	}
 ?>

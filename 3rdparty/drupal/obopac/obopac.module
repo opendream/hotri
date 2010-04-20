@@ -1,0 +1,300 @@
+<?php
+// [hook] Set up permissions. 
+function obopac_perm() {
+  return array('access OpenBiblio OPAC','administer OpenBiblio OPAC');
+}
+
+function obopac_access($op, $node, $account) {
+  switch($op) {
+    case 'view':
+      return user_access('access OpenBiblio OPAC', $account) ? TRUE : NULL;
+    default:
+      return NULL;
+  }
+}
+
+function obopac_menu() {
+  return array(
+    'opac/result/%/%' => array(
+      'title' => 'OPAC Results',
+      'page callback' => 'obopac_result',
+      'access arguments' => array('access OpenBiblio OPAC'),
+    ),
+    'opac/view/%' => array(
+      'title' => 'OPAC Bibliography',
+      'page callback' => 'obopac_bib',
+      'type' => MENU_CALLBACK,
+      'access arguments' => array('access OpenBiblio OPAC'),
+    ),
+    'admin/opac/settings' => array(
+      'title' => 'OPAC Settings',
+      'page callback' => 'obopac_settings',
+      'type' => MENU_NORMAL_ITEM,
+      'access arguments' => array('administer OpenBiblio OPAC'),
+    ),
+  );
+}
+
+function obopac_settings($arg = NULL) {
+  if (empty($_POST)) {
+    return drupal_get_form('obopac_settings_form');
+  }
+  else {
+    drupal_validate_form('obopac_settings_form', obopac_settings_form($form_state), $_POST);
+    if (!empty($_POST['path']) && !form_get_errors()) {
+      $path = substr($_POST['path'], strlen($_POST['path']) - 1) == '/' || empty($_POST['path']) ? $_POST['path'] : $_POST['path'] . '/';
+      variable_set('obopac_path', db_escape_string($path));
+      variable_set('obopac_items_per_page', 0 + $_POST['items_per_page']);
+      drupal_set_message(t('Settings has been updated.'));
+      return drupal_get_form('obopac_settings_form');
+    }
+    else {
+      form_set_error('', t('Please set URL path.'));
+      return drupal_get_form('obopac_settings_form');
+    }
+  }
+}
+
+function obopac_settings_form(&$form_state) {
+  $form['path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('URL path of OpenBiblio'),
+    '#default_value' => variable_get('obopac_path', ''),
+    '#size' => 60,
+    '#maxlength' => 256,
+    '#required' => TRUE,
+  );
+  $form['items_per_page'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Items per page'),
+    '#default_value' => variable_get('obopac_items_per_page', 1),
+    '#size' => 10,
+    '#maxlength' => 10,
+    '#required' => TRUE,
+  );
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#default_value' => 'Save',
+    
+  );
+  return $form;
+}
+
+function obopac_result($arg = NULL) {
+  $output = '';
+  $keywords = arg(2);
+  $searchType = arg(3);
+  global $base_url;
+  $page = 0 + arg(4);
+  if ($page < 1) 
+    $page = 1;
+
+  $path = variable_get('obopac_path', '');
+  if (strlen($path) <= 1) {
+    form_set_error('', t('OPAC Settings are not configure yet, please ' . l('set them first', 'admin/opac/settings') . '.'));
+    return $output;
+  }
+  else {
+    $title = drupal_get_title();
+    drupal_set_title($title . ' - ' . $keywords);
+    $output .= "<h5>Search by: $searchType</h5>";
+    $limit = variable_get('obopac_items_per_page', 1); // Page limit
+    $qpage = "&type=" . $searchType;
+    if (0 + $page > 0) 
+      $qpage .= "&start=" . ((-1 + $page) * $limit) . "&items=$limit";
+    
+    $res = unserialize(file_get_contents($path . "api/opac.php?keyword=" . urlencode($keywords) . $qpage));
+    // Get results
+    if (!is_array($res['data'])) { // Failed or not found
+      $output .= "<div class=\"book-no-item\">Search with keyword '$keywords' get no results.</div>"; 
+    }
+    else {
+      // Paging
+      if ($res['rows'] > $limit) {
+        $page_range = 2;
+        
+        $paging = "<span class=\"item-list\">\n<ul class=\"pager\">\n";
+
+        if ($page > $page_range + 1) {
+          $paging .= "<li><a href=\"$base_root\"><<</a></li>\n<li>..</li>\n";
+        }
+        // Start render from minimal page range
+        if ($page - $page_range < 1) 
+          $start_paging = 1;
+        else 
+          $start_paging = $page - $page_range;
+        
+        for ($i = $start_paging; $i <= ceil($res['rows'] / $limit); $i++) {
+          if ($i > $page + $page_range) 
+            break;
+          
+          if ($page == $i) 
+            $paging .= "<li>$i</li>\n";
+          else
+            $paging .= "<li>" . l($i, "opac/result/$keywords/$searchType/$i") . "</li>\n";
+        
+        }
+        
+        $paging = substr($paging, 0, -3);
+
+        if ($page + $page_range < $res['rows'] / $limit)
+          $paging .= "<li>..</li>\n<li>" . l('>>', "opac/result/$keywords/$searchType/" . ceil($res['rows'] / $limit)) . "</li>\n";
+
+        $paging .= "</ul></span>\n";
+      }
+
+      $output .= $paging;
+      foreach ($res['data'] as $book) {
+        $view_link = l("<img src=\"../pictures/{$book['cover']}\" alt=\"{$book['title']}\" />", "opac/view/{$book['id']}", array('html' => TRUE));
+        $output .= "<div class=\"book-item\">
+        <style type=\"text/css\">
+          .book-info { width: auto; }
+        </style>
+    <div class=\"book-cover\">$view_link</div>
+    <table class=\"book-info\">
+      <tr><td>Title:</td><td>$view_link</td></tr>
+      <tr><td>Author:</td><td>{$book['author']}</td></tr>
+      <tr><td>Material:</td><td>{$book['material']}</td></tr>
+      <tr><td>Collection:</td><td>{$book['collection']}</td></tr>
+      <tr><td>Call Number:</td><td>{$book['call_no']}</td></tr>
+    </table>
+  </div>
+";
+      }
+    }
+    $output .= $paging;
+    return $output;
+  }  
+}
+
+function obopac_bib($arg = NULL) {
+  $output = '';
+  $path = variable_get('obopac_path', '');
+  if (empty($path)) {
+    form_set_error('', t('OPAC Settings are not configure yet, please ' . l('set them first', 'admin/opac/settings') . '.'));
+    return $output;
+  }
+  else {
+    $res = unserialize(file_get_contents($path . "api/opac.php?id=" . (0 + arg(2))));
+    if (!is_array($res)) {
+      $output .= '<p>Could not retrieve bibliography.</p>';
+    }
+    else {
+      drupal_set_title($res['title']);
+      if (!empty($res['subtitle'])) 
+	      $output .= "<h5>{$res['subtitle']}</h5>\n";
+
+	    $output .= "<p id=\"biblio-top-backlink\">
+	      <a href=\"#\" class=\"form-item\" onclick=\"javascript:history.back(); return false;\">Back to results</a>
+	    </p>";
+
+	    if (!empty($res['cover'])) 
+	        $output .= "<div class=\"book-cover\"><img src=\"../pictures/{$res['cover']}\" alt=\"{$res['title']}\"></div>\n";
+
+        $trans = array(
+          'responsibility' => 'คณะผู้จัดทำ',
+          'author' => 'ผู้แต่ง',
+          'call_no' => 'เลขเรียกหนังสือ',
+          'collection' => 'หมวด',
+          'material' => 'ประเภท',
+        );
+	      unset($res['title'], $res['subtitle'], $res['id'], $res['cover']);
+	      $output .= "<table class=\"book-info\">\n";
+  	    foreach ($res as $key=>$info) {
+  	      if (is_array($info)) continue;
+  	      if (empty($info)) continue;
+  	      $output .= "<tr><td class=\"label\">" . ($trans[$key] ? $trans[$key] : $key) . "</td><td class=\"info\">" . $info . "</td></tr>\n";
+  	    }
+  	    $output .= "</table>\n";
+
+        $output .= "<h5>Copy Informations</h5>\n";
+        if (is_array($res['copies']) && count($res['copies']) > 0) {
+          $output .= "<table class=\"book-copies\">\n";
+          $output .= "<tr>";
+	        foreach ($res['copies'][0] as $key=>$val) {
+	          $output .= "<th>$key</th>";
+	        }
+	        $output .= "</tr>\n";
+    	    foreach ($res['copies'] as $copy) {
+    	      if (is_array($copy)) {
+    	        $output .= "<tr>";
+    	        foreach ($copy as $val) {
+    	          $output .= "<td>$val</td>";
+    	        }
+    	        $output .= "</tr>\n";
+    	      }
+    	      else {
+    	        $output .= "<tr><td>Empty copy</td></tr>";
+    	      }
+    	    }
+  	      $output .= "</table>";
+  	    }
+  	    else {
+  	      $output .= "<p>No copy</p>";
+  	    }
+
+  	    $output .= "<h5>Book Descriptions</h5>";
+  	    $output .= "<div id=\"marc-info\">";
+  	    foreach ($res['marc'] as $key=>$vals) {
+  	      if (!empty($vals['label'])) 
+  	        $output .= "<div class=\"marc-label\"><em>{$vals['label']}</em></div><div class=\"marc-value\">{$vals['value']}</div>";
+  	    }
+  	    $output .= "</div>";
+
+	    $output .= "<table><tr><td><a class=\"form-item\" href=\"#\" onclick=\"javascript:history.back(); return false;\">Back</a></td></tr></table>\n";
+    }
+    return $output;
+  }
+}
+
+function obopac_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      return array(
+        array(
+          'info' => 'OPAC Search',
+        ),
+      );
+      break;
+
+    case 'view':
+      $options = array('title' => 'Title', 'author' => 'Author', 'subject' => 'Subject');
+      $option_form = '';
+      
+		  if (arg(0) == 'opac' & arg(1) == 'result') {
+		    $keyword = arg(2);
+		    $type = arg(3);
+		  }
+		  
+      foreach ($options as $op=>$label) {
+        $option_form .= '<option value="' . $op . '"';
+		    if ($type == $op) 
+		      $option_form .= ' selected="selected"';
+
+		    $option_form .= ">$label</option>\n";
+		  }
+		  
+      return array(
+        'subject' => '',
+        'content' => '
+<script type="text/javascript">
+function searchOpac() {
+  window.location.href = \'' . url('opac/result/') . '\' + 
+    document.getElementById(\'obopac_keyword\').value + \'/\' +
+    document.getElementById(\'obopac_type\').value;
+  return false;
+}
+</script>
+<form method="post" action="' . url('opac/result/') . '" onsubmit="return searchOpac()">
+  <input type="text" id="obopac_keyword" name="opac" value="' . $keyword . '" /> 
+  <select id="obopac_type" name="type">
+    ' . $option_form . '
+  </select>
+  <input type="submit" name="submit" value="Searh OPAC" />
+</form>'
+      );
+      break;
+  }
+  return NULL;
+}

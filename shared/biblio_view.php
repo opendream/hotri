@@ -116,6 +116,69 @@
 ?>
 
 <?php echo $msg ?>
+<?php
+// OpenURL support.
+$doc_title = '';
+$doc_author = '';
+$doc_publisher = '';
+$doc_pubplace = '';
+$doc_pubyear = '';
+$doc_isbn = '';
+
+if (isset($biblioFlds["245aa"])) 
+  $doc_title = $biblioFlds["245a"]->getFieldData();
+if (isset($biblioFlds["245b"])) 
+  $doc_title .= ' : ' . $biblioFlds["245b"]->getFieldData();
+
+$doc_title = trim($doc_title);
+
+if (isset($biblioFlds["100a"])) 
+  $doc_author = trim(str_replace('.', '', $biblioFlds["100a"]->getFieldData()));
+
+if (isset($biblioFlds["260b"])) 
+  $doc_publisher = trim(str_replace(array(':',',',';'), '', $biblioFlds["260b"]->getFieldData()));
+if (isset($biblioFlds["260a"])) 
+  $doc_pubplace = trim(str_replace(array(':',',',';'), '', $biblioFlds["260a"]->getFieldData()));
+if (isset($biblioFlds["260c"])) 
+  $doc_pubyear = trim(str_replace(array('c','.'), '', $biblioFlds["260c"]->getFieldData()));
+
+if (isset($biblioFlds["020a"])) 
+  $doc_isbn = trim($biblioFlds["020a"]->getFieldData());
+
+if (strpos($doc_author, ',')) {
+  $author_ex = explode(',', $doc_author);
+  $doc_author_fname = trim($author_ex[1]);
+  $doc_author_lname = trim($author_ex[0]);
+}
+else {
+  $author_ex = explode(' ', $doc_author);
+  $doc_author_fname = trim($author_ex[0]);
+  $doc_author_lname = trim($author_ex[1]);
+}
+
+$Document->fields = array(
+  'DocType' => 3, // Book, other types read in openUrl.php
+  'DocTitle' => $doc_title,
+  'JournalTitle' => false,
+  'BookTitle' => $doc_title,
+  'BookPublisher' => $doc_publisher,
+  'PubPlace' => $doc_pubplace,
+  'ISBN' => $doc_isbn,
+  'StartPage' => false,
+  'EndPage' => false,
+  'DocYear' => $doc_pubyear
+);
+
+$People[]->fields = array(
+  'DocRelationship' => 0,
+  'FirstName' => $doc_author_fname,
+  'LastName' => $doc_author_lname
+);
+
+require_once("../functions/openUrl.php");
+
+?>
+<span class="Z3988" title="<?php print OpenURL($Document, $People) ?>">Content of your choice goes here</span>
 <table class="primary">
   <tr>
     <th align="left" colspan="2" nowrap="yes">
@@ -206,7 +269,7 @@
     $title = H($biblioFlds["245a"]->getFieldData());
     //$info = _image_resize($filepath, 200);
     //if (is_array($info)): 
-    if ($thumbpath = make_thumbnail($filepath, array('width' => 200))):
+    if ($thumbpath = make_thumbnail($filepath, array('height' => 120))):
 ?>
 <table class="primary">
   <tr>
@@ -216,7 +279,7 @@
   </tr>
   <tr>
     <td valign="top" class="primary">
-      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
+      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $filepath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
     </td>
   </tr>
 </table>
@@ -346,7 +409,7 @@
   ?>
         <tr>
           <td valign="top" class="primary">
-            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, FALSE);?>:
+            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, TRUE);?>:
           </td>
           <td valign="top" class="primary"><?php echo H($field->getFieldData()); ?></td>
         </tr>      

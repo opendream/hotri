@@ -13,9 +13,16 @@ $loc = new Localize(OBIB_LOCALE,$tab);
 
 if (!isset($_REQUEST['posted'])) {
   require_once("../shared/logincheck.php");
-  showForm(array('opacFlg'=>'CHECKED'));
+
+  $param = array('opacFlg'=>'CHECKED');
+  // Receive get parameter for ISBN.
+  if (!empty($_GET['isbn'])) 
+    $param['values']['020a'] = $_GET['isbn'];
+  
+  showForm($param);
 } else {
-  if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
+  if ($_POST['uselookup'] == 'yes') $_POST['values']['902a'] = array('uselookup'=>true, 'isbn'=>$_POST['values']['020a']);
+  else if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");
@@ -35,7 +42,10 @@ if (!isset($_REQUEST['posted'])) {
     } else {
       $bibid = insertBiblio($biblio);
       $msg = $loc->getText("biblioNewSuccess");
-      header("Location: ../shared/biblio_view.php?bibid=".U($bibid)."&msg=".U($msg));
+      //header("Location: ../shared/biblio_view.php?bibid=".U($bibid)."&msg=".U($msg));
+      //------following line auto transfers to new copy form (new function)
+      header("Location: ../catalog/biblio_copy_new_form.php?" . (empty($_GET['hits'])?'':'hits=' . $_GET['hits'] . '&' . (empty($_GET['isbn'])?'': 'isbn=' . $_GET['isbn'] . '&')) . "bibid=".$bibid."&msg=".$msg);
+  exit();
     }
   }
 }
@@ -133,7 +143,7 @@ function showForm($postVars, $pageErrors=array()) {
       }
     //-->
   </script>
-  <form name="newbiblioform" method="POST" action="../catalog/biblio_new.php" enctype="multipart/form-data">
+  <form name="newbiblioform" method="POST" action="../catalog/biblio_new.php<?=empty($_GET['hits'])?'':'?hits='.$_GET['hits'].(empty($_GET['isbn'])?'':'&isbn=' . $_GET['isbn']) ?>" enctype="multipart/form-data">
 <?php
   include("../catalog/biblio_fields.php");
   include("../shared/footer.php");

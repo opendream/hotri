@@ -20,12 +20,18 @@ if (!isset($_REQUEST['posted'])) {
   $postVars = bibidToPostVars($_REQUEST['bibid']);
   showForm($postVars);
 } else {
+<<<<<<< HEAD:catalog/biblio_edit.php
   if (!empty($_FILES["values"]["tmp_name"]["902a"])) {
     $_POST["values"]["902a"] = $_FILES["values"];
   }
   else {
     $_POST["values"]["902a"] = $_POST["old"]["902a"];
   }
+=======
+  if ($_POST['uselookup'] == 'yes') $_POST['values']['902a'] = array('uselookup'=>true, 'isbn'=>$_POST['values']['020a']);
+  else if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
+  else $_POST['values']['902a'] = $_POST['old']['902a'];
+>>>>>>> odlib_lookup:catalog/biblio_edit.php
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");
@@ -40,6 +46,8 @@ if (!isset($_REQUEST['posted'])) {
   } else {
     $restrictInDemo = true;
     require_once("../shared/logincheck.php");
+    if (empty($postVars['values']['902a']))
+      unset($postVars["values"]["902a"]);
     $biblio = postVarsToBiblio($postVars);
     $pageErrors = array();
     if (!$biblio->validateData()) {

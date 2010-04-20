@@ -73,22 +73,25 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   echo ":\n</td>\n";
   echo "<td valign=\"top\" class=\"primary\">\n";
   if ($cntrlType == OBIB_TEXTAREA_CNTRL) {
-    echo "<textarea name=\"values[".H($formIndex)."]\" cols=\"".H($cols)."\" rows=\"".H($rows)."\">";
-    echo H($value)."</textarea>";
+    $attrs= array('cols'=>H($cols),'rows'=>H($rows));
+    echo inputField('textarea', "values[".H($formIndex)."]", $value, $attrs);
   } 
   elseif ($cntrlType == OBIB_TEXT_CNTRL) {
-    echo "<input type=\"text\"";
-    echo " name=\"values[".H($formIndex)."]\" size=\"".H($size)."\" maxlength=\"".H($maxLen)."\" ";
-    echo "value=\"".H($value)."\" >";
+    $attrs= array('size'=>H($size),'maxlength'=>H($maxLen));
+    echo inputField('text', "values[".H($formIndex)."]", $value, $attrs);
   }
   elseif ($cntrlType == OBIB_FILE_CNTRL) {
     echo "<input type=\"file\"";
     echo " name=\"values[".H($formIndex)."]\" size=\"28\" />";
+<<<<<<< HEAD:catalog/inputFuncs.php
     echo "<input type=\"hidden\" name=\"old[".H($formIndex)."]\" value=\"$value\" />";
+=======
+    echo "<input type=\"hidden\" name=\"old[" . H($formIndex) . "]\" value=\"$value\" />";
+>>>>>>> odlib_lookup:catalog/inputFuncs.php
     if ($value) {
       $title = $postVars["values"]["245a"];
       $filepath = "../pictures/$value";
-      $thumbpath = make_thumbnail($filepath, array('width' => 200));
+      $thumbpath = make_thumbnail($filepath, array('height' => 120));
       if (file_exists($thumbpath)) {
         echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$alt\" /></a>";
       }

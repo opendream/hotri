@@ -42,15 +42,8 @@
   #* to be entered.  This can be fixed with a lock or by an atomic
   #* get-and-increment-sequence-value operation.  I'll fix it later. -- Micah
   #****************************************************************************
-  if (isset($_POST["autobarco"]) and $_POST["autobarco"]) {
-    $nzeros = "5";
-    $bibid=$_POST["bibid"];
-    $CopyNmbr = $copyQ->nextCopyid($bibid);
-    if ($copyQ->errorOccurred()) {
-      $copyQ->close();
-      displayErrorPage($copyQ);
-    }
-    $_POST["barcodeNmbr"] = sprintf("%0".$nzeros."s",$bibid).$CopyNmbr;
+  if ((isset($_POST["autobarco"]) and $_POST["autobarco"]) || 0 + $_GET['hits'] > 1) {
+    $_POST["barcodeNmbr"] = generateBarcode();
   }
 
   #****************************************************************************
@@ -68,23 +61,31 @@
     $pageErrors["barcodeNmbr"] = $copy->getBarcodeNmbrError();
     $_SESSION["postVars"] = $_POST;
     $_SESSION["pageErrors"] = $pageErrors;
-    header("Location: ../catalog/biblio_copy_new_form.php?bibid=".U($bibid));
+    header("Location: ../catalog/biblio_copy_new_form.php?bibid=".U($bibid).(empty($_GET['isbn'])?'':"&isbn={$_GET['isbn']}&hits={$_GET['hits']}"));
     exit();
   }
 
   #**************************************************************************
   #*  Insert new bibliography copy
   #**************************************************************************
-  if (!$copyQ->insert($copy)) {
-    $copyQ->close();
-    if ($copyQ->getDbErrno() == "") {
-      $pageErrors["barcodeNmbr"] = $copyQ->getError();
-      $_SESSION["postVars"] = $_POST;
-      $_SESSION["pageErrors"] = $pageErrors;
-      header("Location: ../catalog/biblio_copy_new_form.php?bibid=".U($bibid));
-      exit();
-    } else {
-      displayErrorPage($copyQ);
+  if (0 + $_GET['hits'] > 1) {
+    $i = 0;
+    do {
+      insertCopy();
+      $copy->setBarcodeNmbr(generateBarcode());
+      $i++;
+    } while ($i < 0 + $_GET['hits']);
+    
+    require_once("../classes/BulkLookup.php");
+    $bl = new BulkLookupQuery();
+    $bl->clearManualItem($_GET['isbn'], $_GET['hits']);
+  }
+  else {
+    insertCopy();
+    if (isset($_GET['isbn'], $_GET['hits'])) {
+      require_once("../classes/BulkLookup.php");
+      $bl = new BulkLookupQuery();
+      $bl->clearManualItem($_GET['isbn'], $_GET['hits']);
     }
   }
   $copyQ->close();
@@ -98,4 +99,32 @@
   $msg = $loc->getText("biblioCopyNewSuccess");
   header("Location: ../shared/biblio_view.php?bibid=".U($bibid)."&msg=".U($msg));
   exit();
+
+  function generateBarcode() {
+    global $copyQ;
+    $nzeros = "5";
+    $bibid=$_POST["bibid"];
+    $CopyNmbr = $copyQ->nextCopyid($bibid);
+    if ($copyQ->errorOccurred()) {
+      $copyQ->close();
+      displayErrorPage($copyQ);
+    }
+    return sprintf("%0".$nzeros."s",$bibid).$CopyNmbr;
+  }
+
+  function insertCopy() {
+    global $copyQ, $copy;
+    if (!$copyQ->insert($copy)) {
+      $copyQ->close();
+      if ($copyQ->getDbErrno() == "") {
+        $pageErrors["barcodeNmbr"] = $copyQ->getError();
+        $_SESSION["postVars"] = $_POST;
+        $_SESSION["pageErrors"] = $pageErrors;
+        header("Location: ../catalog/biblio_copy_new_form.php?bibid=".U($bibid));
+        exit();
+      } else {
+        displayErrorPage($copyQ);
+      }
+    }
+  }
 ?>

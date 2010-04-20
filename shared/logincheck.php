@@ -54,6 +54,8 @@
       displayErrorPage($sessQ);
     }
     $sessQ->close();
+    $_SESSION = array();
+    session_destroy();
     header("Location: ../shared/loginform.php?RET=".U($returnPage));
     exit();
   }

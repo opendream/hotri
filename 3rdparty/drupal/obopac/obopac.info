@@ -1,0 +1,5 @@
+; $Id$ 
+name = OpenBiblio OPAC
+description = "Enable OPAC sytem with OpenBiblio"
+version = 1.0 
+core = 6.x

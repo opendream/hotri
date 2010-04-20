@@ -8,7 +8,7 @@ body {
 /*********************************************************
  *  Font Styles
  *********************************************************/
-font.primary {
+font.primary, .primary td {
   color: <?php echo H(OBIB_PRIMARY_FONT_COLOR);?>;
   font-size: <?php echo H(OBIB_PRIMARY_FONT_SIZE);?>px;
   font-family: <?php echo H(OBIB_PRIMARY_FONT_FACE);?>;

@@ -22,6 +22,14 @@ class Localize {
   function Localize ($locale, $section) {
     $localePath = "../locale/".$locale."/".$section.".php";
     include($localePath);
+    ## ##################################
+    ## adds suport for plugins - fl, 2009
+    ## ##################################
+		$list = getPlugIns($section.'.tran');
+		for ($x=0; $x<count($list); $x++) {
+			include($list[$x]);
+		}
+    ## ##################################
     $this->_trans = $trans;
     return true;
   }

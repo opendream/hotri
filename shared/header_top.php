@@ -24,7 +24,6 @@ if (OBIB_CHARSET != "") { ?>
 </style>
 <meta name="description" content="OpenBiblio Library Automation System">
 <title><?php echo H(OBIB_LIBRARY_NAME);?></title>
-
 <script language="JavaScript">
 <!--
 function popSecondary(url) {
@@ -46,7 +45,17 @@ function backToMain(URL) {
 -->
 </script>
 
-
+<?php
+	## ---------------------------------------------------------------------
+	## --- added for Fred LaPlante's Lookup Function -----------------------
+	if (file_exists('customHead.php')) {
+		include ('customHead.php');
+	}
+	else {
+	  echo '<script src="../lookup2/jquery.js" type="text/javascript"></script>';
+	}
+	## ---------------------------------------------------------------------
+	?>
 </head>
 <body bgcolor="<?php echo H(OBIB_PRIMARY_BG);?>" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0" <?php
   if (isset($focus_form_name) && ($focus_form_name != "")) {

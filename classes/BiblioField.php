@@ -54,37 +54,57 @@ class BiblioField {
     // Check for image
     if ($this->getTag() == "902" && $this->getSubfieldCd() == "a") {
       $fieldData = $this->getFieldData();
-      $index = $this->getTag().$this->getSubfieldCd();
-      if (!empty($fieldData["tmp_name"][$index])) {
-        if ($info = getimagesize($fieldData["tmp_name"][$index])) {
-          $filename = $fieldData["name"][$index];
-          $filename_parts = explode(".", $filename);
-          unset($filename_parts[count($filename_parts) - 1]);
-          $filename = implode("-", $filename_parts);
-          $allow_types = array(
-            'image/jpeg',
-            'image/png',
-            'image/gif',
-          );
-          // If file type is allowed
-          if (in_array($info["mime"], $allow_types)) {
-            $ext = image_type_to_extension($info[2]);
-            $tmp = md5($filename.session_id().time());
-            $filename = $filename."_".substr($tmp, strlen($tmp) - 7, strlen($tmp)).$ext;
-            $filepath = "../pictures/$filename";
-            copy($fieldData["tmp_name"][$index], $filepath);
-            make_thumbnail($filepath, array('width' => 200));
-            $this->setFieldData($filename);
+      if (!empty($fieldData)) {
+        if ($fieldData['uselookup'] === true) { // Override with cover lookup
+          $isbn = $fieldData['isbn'];
+          require_once("BiblioCoverQuery.php");
+          $cq = new BiblioCoverQuery();
+          $path = $cq->lookup($isbn);
+          if (!$path) {
+            $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+            $valid = false;
           }
           else {
-            $valid = false;
-            $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+            $filename = $cq->save($path, 0);
+            $this->setFieldData($filename);
           }
         }
         else {
-          $valid = false;
-          $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+          $index = $this->getTag().$this->getSubfieldCd();
+          if (!empty($fieldData["tmp_name"][$index])) {
+            if ($info = getimagesize($fieldData["tmp_name"][$index])) {
+              $filename = $fieldData["name"][$index];
+              $filename_parts = explode(".", $filename);
+              unset($filename_parts[count($filename_parts) - 1]);
+              $filename = implode("-", $filename_parts);
+              $allow_types = array(
+                'image/jpeg',
+                'image/png',
+                'image/gif',
+              );
+              // If file type is allowed
+              if (in_array($info["mime"], $allow_types)) {
+                $ext = image_type_to_extension($info[2]);
+                $tmp = md5($filename.session_id().time());
+                $filename = $filename."_".substr($tmp, strlen($tmp) - 7, strlen($tmp)).$ext;
+                $filepath = "../pictures/$filename";
+                copy($fieldData["tmp_name"][$index], $filepath);
+                make_thumbnail($filepath, array('width' => 200));
+                $this->setFieldData($filename);
+              }
+              else {
+                $valid = false;
+                $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+              }
+            }
+            else {
+              $valid = false;
+              $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+            }
+          }
         }
+      }
+      else {
       }
     }
     unset($loc);

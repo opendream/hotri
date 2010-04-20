@@ -1,0 +1,13 @@
+Compatible with Drupal 6.x
+
+How to setup / use:
+- Copy obopac directory to modules (eg. sites/all/modules, sites/default/modules)
+- Enable 'OpenBiblio OPAC' module
+- Configure from Administer -> OPAC Settings
+- Enable 'OPAC Search' block, done.
+- Search with keywords:
+  * Space (eg. a b, a b c) results books which match least one keyword.
+  * OR (eg. a OR b) results as same as space words.
+  * AND (eg. a AND b) results books which match both sides keywords.
+  * NOT (eg. NOT c) results any books which not match following keyword.
+  * For complex keywords, search would be parse from left to right.

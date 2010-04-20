@@ -118,6 +118,7 @@ class InstallQuery extends Query {
           //want to override the required prefix (eg. during upgrade / conversion 
           //process)
           $sql = str_replace("%prfx%",$tablePrfx,$sqlStmt);
+          $sql = str_replace('%domain%', "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME'])) . "/cron/lookup.php", $sql);
           $this->exec($sql);
           $sqlStmt = "";
         } else {
