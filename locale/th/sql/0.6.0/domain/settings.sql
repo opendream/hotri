@@ -14,7 +14,7 @@ values (
   ,6
   ,'Y'
   ,14
-  ,'en'
+  ,'th'
   ,'utf-8'
   ,null
   ,'Garuda'
