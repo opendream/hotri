@@ -195,6 +195,9 @@ $trans["admin_settingsBlockCheckouts"]                 = "\$text = 'Block Checko
 $trans["admin_settingsLocale"]                 = "\$text = 'Locale:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'HTML Charset:';";
 $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'HTML Tag Lang Attribute:';";
+$trans["admin_settingsFontNormal"]                  = "\$text = 'Print Fonts (Normal):';";
+$trans["admin_settingsFontBold"]                  = "\$text = 'Print Fonts (Bold):';";
+$trans["admin_settingsFontOblique"]                  = "\$text = 'Print Fonts (Oblique):';";
 
 #****************************************************************************
 #*  Translation text for all staff pages
