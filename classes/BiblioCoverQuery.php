@@ -1,14 +1,15 @@
 <?php
+
 require_once("../shared/common.php");
 require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
   function lookup($isbn, $debug = false) {
-    // Hide warnings on results in safe mode.
+    // Hide warnings on results in safe mode
     error_reporting(0);
-    // Lookup amazon first.
+    // Lookup amazon first
     require_once('cloudfusion/cloudfusion.class.php');
-    // Load configurations.
+    // Load configurations
     require_once('../lookup2/LookupOptsQuery.php');
     $optQ = new LookupOptsQuery();
     $optQ->connect();
@@ -27,7 +28,7 @@ class BiblioCoverQuery extends Query {
     define('AWS_SECRET_KEY', $opt->getAWSSecretKey());
     define('AWS_ACCOUNT_ID', $opt->getAWSAccountId());
 
-    // remove trail data from isbn
+    // Remove trail data from ISBN
     $isbn = explode(' ', $isbn);
     $isbn = $isbn[0];
     
@@ -43,23 +44,12 @@ class BiblioCoverQuery extends Query {
     if (!empty($response->body->Items->Item->MediumImage)) {
       return ''.$response->body->Items->Item->MediumImage->URL;
     }
-    else { // Not found in amazon, use nlt.go.th service.
-      // Specific nlt server only.
-      $data = $this->_getLookupResult(array(
-        'host'=>'www.nlt.go.th:210',
-        'user'=>'',
-        'pw'=>'',
-        'db'=>'horizon'
-       ), $isbn);
-      
-      return $data;
-    }
     return false;
   }
   
   function save($path, $bibid) {
-    // Manipulate image (~160x160px) then save file.
-    // Don't forget to save MARC field with bibid.
+    // Manipulate image (~160x160px) then save file
+    // Don't forget to save MARC field with bibid
     
     // Save temporary file.
     if (!function_exists('imagecreatefromjpeg')) return false;
@@ -121,35 +111,32 @@ class BiblioCoverQuery extends Query {
       }
     }
     else {
-      return $name; // bibid = 0 then return filename for save to db later.
+      return $name; // bibid = 0 then return filename for save to db later
     }
     return true;
   }
   
   private function _getLookupResult($server, $isbn) {
-    // Now support YAZ only.
+    // Now support YAZ only
     $query = '@attr 1=7 ' . $isbn;
     $conn = yaz_connect($server['host'], 
      array('user'=>$server['user'], 'password'=>$server['pw']));
     
-    if (!$conn) return false; //array('error' => 'could not connect lookup');
+    if (!$conn) return false;
     yaz_database($conn, $server['db']);
     yaz_syntax($conn, "usmarc");
     yaz_element($conn, "F");
 
-    //echo "sending: $qry <br />";
-    if (! yaz_search($conn, 'rpn', $query)) return false; //array('error' => 'bad query');
+    if (! yaz_search($conn, 'rpn', $query)) return false;
     
     yaz_wait();
     $error = yaz_error($conn);
     if (!empty($error)) {
       return false;
-      //return array('error'=>'lookup response error (' . yaz_errno($conn) . ') : ' . yaz_addinfo($conn));
     }
     
     if (yaz_hits($conn) < 1) {
       return false;
-      //return array('error'=>'no result');
     }
     // For bulk actions, auto select first record
     require_once("../lookup2/lookupYazFunc.php");

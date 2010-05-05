@@ -1,10 +1,10 @@
 <?php
 class CsvImport {
   function importFromCsv($file) {
-    // Get uploaded file.
+    // Get uploaded file
     $path = $file['tmp_name'];
     
-    // Validations.
+    // Validations
     if (!is_uploaded_file($path)) {
       return array('error'=>'invalid upload files');
     }
@@ -12,7 +12,7 @@ class CsvImport {
       return array('error'=>'oversized files');
     }
     
-    // Read CSV.
+    // Read CSV
     $fp = $this->fopen_utf8($file['tmp_name'], 'r');
     if (!$fp) {
       return array('error'=>'unable to open uploaded files');
@@ -52,12 +52,12 @@ class CsvImport {
     }
     fclose($fp);
 
-    // Reopen to save them.
+    // Reopen to save them
     $fp = $this->fopen_utf8($file['tmp_name'], 'r');
     if (!$fp) {
       return array('error'=>'unable to open uploaded files');
     }
-    $s = fgets($fp); // Skip header line.
+    $s = fgets($fp); // Skip header line
     while (!feof($fp)) {
       $s = fgets($fp);
       $import = $importQ->import($this->_string2Array($s));
@@ -85,7 +85,7 @@ class CsvImport {
       // UTF16 Byte Order Mark present
       $encoding = 'UTF-16';
     } else {
-      $file_sample = fread($handle, 1000) + 'e'; //read first 1000 bytes
+      $file_sample = fread($handle, 1000) + 'e'; // Read first 1000 bytes
       // + e is a workaround for mb_string bug
       rewind($handle);
       $encoding = mb_detect_encoding($file_sample , 'UTF-8, UTF-7, ASCII, EUC-JP,SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP');

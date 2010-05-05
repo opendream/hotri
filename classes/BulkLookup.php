@@ -163,7 +163,12 @@ class BulkLookup {
     
     // For bulk actions, auto select first record
     require_once("../lookup2/lookupYazFunc.php");
-    return extract_marc_fields(yaz_record($conn, 1, 'array'), true, 1, 1, $server['charset']);
+    $data = extract_marc_fields(yaz_record($conn, 1, 'array'), true, 1, 1, $server['charset']);
+    if ((empty($data['callNmbr1']) && empty($data['050a'])) || empty($data['100a'])) {
+      // Require callNmbr1, continue search
+      return array('error'=>'no result');
+    }
+    return $data;
   }
   
   private function _addResult($result) {

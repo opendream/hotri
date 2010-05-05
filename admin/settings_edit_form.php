@@ -70,19 +70,21 @@
     require("../shared/get_form_vars.php");
   }
 
-  /* Fonts selections */
+  // Generate font selections
   function getFontSelections($name, $postVars) {
     $options = '<select name="' . $name . '">';
     if ($handle = opendir('../font')) {
       while(false !== ($file = readdir($handle))) {
         $f = explode('.', $file);
-        if ($f[1] == 'php') { // implemented font files
+        
+        // Implemented font files
+        if ($f[1] == 'php') {
           $options .= "<option value=\"{$f[0]}\" " . ($f[0] == $postVars[$name] ? 'selected="selected"' : '') . ">{$f[0]}</option>\n";
         }
       }
     }
     else {
-      $options = "<option value=\"\">-- No fonts installed --</option>\n";
+      $options = "<option value=\"\">-- No font installed --</option>\n";
     }
     
     return $options . "</select>\n";
