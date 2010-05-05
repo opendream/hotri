@@ -71,7 +71,7 @@
   }
 
   /* Fonts selections */
-  function getOptions($name, $postVars) {
+  function getFontSelections($name, $postVars) {
     $options = '<select name="' . $name . '">';
     if ($handle = opendir('../font')) {
       while(false !== ($file = readdir($handle))) {
@@ -245,7 +245,7 @@
       <?php echo $loc->getText("admin_settingsFontNormal"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php echo getOptions('fontNormal', $postVars) ?>
+      <?php echo getFontSelections('fontNormal', $postVars) ?>
     </td>
   </tr>
   <tr>
@@ -253,7 +253,7 @@
       <?php echo $loc->getText("admin_settingsFontBold"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php echo getOptions('fontBold', $postVars) ?>
+      <?php echo getFontSelections('fontBold', $postVars) ?>
     </td>
   </tr>
   <tr>
@@ -261,7 +261,7 @@
       <?php echo $loc->getText("admin_settingsFontOblique"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php echo getOptions('fontOblique', $postVars) ?>
+      <?php echo getFontSelections('fontOblique', $postVars) ?>
     </td>
   </tr>
   <tr>
