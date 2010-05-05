@@ -70,6 +70,24 @@
     require("../shared/get_form_vars.php");
   }
 
+  /* Fonts selections */
+  function getOptions($name, $postVars) {
+    $options = '<select name="' . $name . '">';
+    if ($handle = opendir('../font')) {
+      while(false !== ($file = readdir($handle))) {
+        $f = explode('.', $file);
+        if ($f[1] == 'php') { // implemented font files
+          $options .= "<option value=\"{$f[0]}\" " . ($f[0] == $postVars[$name] ? 'selected="selected"' : '') . ">{$f[0]}</option>\n";
+        }
+      }
+    }
+    else {
+      $options = "<option value=\"\">-- No fonts installed --</option>\n";
+    }
+    
+    return $options . "</select>\n";
+  }
+
   #****************************************************************************
   #*  Display update message if coming from settings_edit with a successful update.
   #****************************************************************************
@@ -222,35 +240,12 @@
       <?php printInputText("htmlLangAttr",8,8,$postVars,$pageErrors); ?>
     </td>
   </tr>
-  <?php
-  /* Fonts selections */
-  function getOptions($name, $postVars) {
-    $options = '<select name="' . $name . '">';
-    if ($handle = opendir('../font')) {
-      while(false !== ($file = readdir($handle))) {
-        $f = explode('.', $file);
-        if ($f[1] == 'php') { // implemented font files
-          $options .= "<option value=\"{$f[0]}\" " . ($f[0] == $postVars[$name] ? 'selected="selected"' : '') . ">{$f[0]}</option>\n";
-        }
-      }
-    }
-    else {
-      $options = "<option value=\"\">-- No fonts installed --</option>\n";
-    }
-    
-    return $options . "</select>\n";
-  }
-  ?>
   <tr>
     <td nowrap="true" class="primary">
       <?php echo $loc->getText("admin_settingsFontNormal"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php //printInputText("fontNormal",20,20,$postVars,$pageErrors); ?>
-      <?=getOptions('fontNormal', $postVars) ?>
-      
-        
-      </select>
+      <?php echo getOptions('fontNormal', $postVars) ?>
     </td>
   </tr>
   <tr>
@@ -258,8 +253,7 @@
       <?php echo $loc->getText("admin_settingsFontBold"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php //printInputText("fontBold",20,20,$postVars,$pageErrors); ?>
-      <?=getOptions('fontBold', $postVars) ?>
+      <?php echo getOptions('fontBold', $postVars) ?>
     </td>
   </tr>
   <tr>
@@ -267,8 +261,7 @@
       <?php echo $loc->getText("admin_settingsFontOblique"); ?>
     </td>
     <td valign="top" class="primary">
-      <?php //printInputText("fontOblique",20,20,$postVars,$pageErrors); ?>
-      <?=getOptions('fontOblique', $postVars) ?>
+      <?php echo getOptions('fontOblique', $postVars) ?>
     </td>
   </tr>
   <tr>

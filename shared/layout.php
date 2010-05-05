@@ -33,7 +33,10 @@
   assert('$rpt != NULL');
   
   // Rendering a large layout can take a while.
-  set_time_limit(90);
+  // Note: this couldn't work in safe mode.
+  if(ini_get('safe_mode') != '1') {
+    set_time_limit(90);
+  }
 
   $l = new $classname;
   if (method_exists($l, 'paramDefs')) {
@@ -89,4 +92,3 @@
 <input type="submit" value="Submit" class="button" />
 </form>
 <?php include("../shared/footer.php"); ?>
-?>

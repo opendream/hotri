@@ -4,6 +4,8 @@ require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
   function lookup($isbn, $debug = false) {
+    // Hide warnings on results in safe mode.
+    error_reporting(0);
     // Lookup amazon first.
     require_once('cloudfusion/cloudfusion.class.php');
     // Load configurations.

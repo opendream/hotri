@@ -24,7 +24,7 @@
 <?php } else { ?>
  <a href="../home/index.php" class="alt1"><?php echo $navLoc->getText("homeHomeLink");?></a><br>
 <?php } ?>
-
+ <a href="../front/" class="alt1"><?php echo $navLoc->getText("Front Page"); ?></a><br />
 <?php if ($nav == "license") { ?>
  &raquo; <?php echo $navLoc->getText("homeLicenseLink");?><br>
 <?php } else { ?>
