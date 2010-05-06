@@ -86,7 +86,7 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
     echo "<input type=\"hidden\" name=\"old[".H($formIndex)."]\" value=\"$value\" />";
     if ($value) {
       $title = $postVars["values"]["245a"];
-      $filepath = "../pictures/$value";
+      $filepath = "../media/covers/$value";
       $thumbpath = make_thumbnail($filepath, array('height' => 120));
       if (file_exists($thumbpath)) {
         echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$alt\" /></a>";

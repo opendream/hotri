@@ -23,7 +23,7 @@ get_header();
 	    <?php
 
 	      if (!empty($response['cover'])) 
-	        echo "<div class=\"book-cover\"><img src=\"../pictures/{$response['cover']}\" alt=\"{$response['title']}\"></div>\n";
+	        echo "<div class=\"book-cover\"><img src=\"../media/covers/{$response['cover']}\" alt=\"{$response['title']}\"></div>\n";
 
         $trans = array(
           'responsibility' => 'คณะผู้จัดทำ',

@@ -64,7 +64,7 @@ get_header();
 	      echo $paging;
 	      foreach ($response['data'] as $book) {
 	        echo "<div class=\"book-item\">
-      <div class=\"book-cover\"><a href=\"?opac&view={$book['id']}\"><img src=\"../pictures/{$book['cover']}\" alt=\"{$book['title']}\" /></a></div>
+      <div class=\"book-cover\"><a href=\"?opac&view={$book['id']}\"><img src=\"../media/covers/{$book['cover']}\" alt=\"{$book['title']}\" /></a></div>
       <table class=\"book-info\">
         <tr><td>Title:</td><td><a href=\"?opac&view={$book['id']}\">{$book['title']}</a></td></tr>
         <tr><td>Author:</td><td>{$book['author']}</td></tr>

@@ -267,7 +267,7 @@ function changePage(page,sort)
       $bfq->execSelect($biblio->getBibid());
       $flds = $bfq->fetchField();
       if ($flds->_fieldData):
-        $filepath = "../pictures/". $flds->_fieldData;
+        $filepath = "../media/covers/". $flds->_fieldData;
         $title = H($biblio->getTitle());
         if ($thumbpath = make_thumbnail($filepath, array('width' => 200))): 
       ?>

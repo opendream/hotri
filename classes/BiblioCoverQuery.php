@@ -61,7 +61,7 @@ class BiblioCoverQuery extends Query {
     // result: file.name
     // 
     $name_full = substr($path, strrpos($path, '/') + 1); // file.name.ext
-    $path_tmp = '../pictures/tmp/' . substr($hash, strlen($hash) - 7) . '_' . $name_full;
+    $path_tmp = '../media/covers/tmp/' . substr($hash, strlen($hash) - 7) . '_' . $name_full;
     
     if (!file_put_contents($path_tmp, $img_bin)) return false;
     
@@ -70,7 +70,7 @@ class BiblioCoverQuery extends Query {
     $hash = md5($path.session_id().time());
     if ($ext == '.jpeg') $ext = '.jpg';
     $name = str_replace('%', '', substr($name_full, 0, strrpos($name_full, '.')) . "_" . substr($hash, strlen($hash) - 7) . $ext);
-    $path_local = '../pictures/' . $name;
+    $path_local = '../media/covers/' . $name;
     
     switch ($img_info['mime']) {
       case 'image/jpeg':
