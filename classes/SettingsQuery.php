@@ -87,8 +87,8 @@ class SettingsQuery extends Query {
                         . "items_per_page=%N, purge_history_after_months=%N, "
                         . "block_checkouts_when_fines_due=%Q, "
                         . "hold_max_days=%N, "
-                        . "locale=%Q, charset=%Q, html_lang_attr=%Q"
-                        . ", font_normal=%Q, font_bold=%Q, font_oblique=%Q",
+                        . "locale=%Q, charset=%Q, html_lang_attr=%Q, "
+                        . "font_normal=%Q, font_bold=%Q, font_oblique=%Q",
                         $set->getLibraryName(), $set->getLibraryImageUrl(),
                         $set->isUseImageSet() ? "Y" : "N",
                         $set->getLibraryHours(), $set->getLibraryPhone(),

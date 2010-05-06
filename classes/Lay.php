@@ -31,8 +31,9 @@ class Lay_Word {
   var $display;
   var $p;
   function paramTypes() {
+    $fontsets = Lay::getFonts();
     return array(
-      array('font-name', 'font-name', 'Garuda'),
+      array('font-name', 'font-name', $fontsets['fontNormal']),
       array('font-size', 'font-size', 12),
       array('text', 'string', ''),
     );
@@ -651,7 +652,9 @@ class Lay {
     }
     $this->display = new UFPDF($paper, $orientation);
     $this->current = new Lay_Top_Container($this->display);
-    $this->fonts = array(array('Garuda', 12));
+
+    $fontsets = Lay::getFonts();
+    $this->fonts = array(array($fontsets['fontNormal'], 12));
   }
   function container($name, $params=array()) {
     # FIXME should assert that $name names a container class
