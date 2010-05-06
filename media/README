@@ -1,0 +1,2 @@
+Don't forget set covers directory & tmp subdirectory with chmod 777
+(tmp is used for cover lookup)
