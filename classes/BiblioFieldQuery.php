@@ -57,11 +57,18 @@ class BiblioFieldQuery extends Query {
    * @access public
    ****************************************************************************
    */
-  function execSelect($bibid) {
+  function execSelect($bibid, $fulltag = '') {
+    // Add ability to specific tag
+    $tag_filter = '';
+    if (!empty($fulltag)) {
+      $tag = substr($fulltag, 0, 3);
+      $subfield_cd = substr($fulltag, 3);
+      $tag_filter = " and biblio_field.tag = '$tag' and biblio_field.subfield_cd='$subfield_cd' ";
+    }
     # setting query that will return all the data in biblio
     $sql = $this->mkSQL("select biblio_field.* "
                         . "from biblio_field "
-                        . "where biblio_field.bibid = %N "
+                        . "where biblio_field.bibid = %N $tag_filter"
                         . "order by tag, subfield_cd ",
                         $bibid);
     if (!$this->_query($sql, $this->_loc->getText("biblioFieldQueryErr2"))) {

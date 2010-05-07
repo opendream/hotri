@@ -1,3 +1,7 @@
+<?php
+
+require_once("../../../shared/common.php");
+?>
 <h1>CSV Formats For Import to OpenBiblio:</h1>
 <p>CSV template which available on OpenBiblio is in tab-seperated value (TSV) format.</p>
 
@@ -9,7 +13,7 @@ and enable tab seperators to open CSV template. In OpenOffice, make sure you sel
   <li>Download template file.</li>
   <li>Open with CSV editing software eg. Microsoft Office, OpenOffice.</li>
   <li>Append book information eg. ISBN<font color="red">*</font>, Author<font color="red">*</font>, Title<font color="red">*</font>, etc. (Note: first 3 columns are required)</li>
-  <li>Column 'Book cover filename' require filename link to cover image in media/covers/ directory.</li>
+  <li>Column 'Book cover filename' require filename link to cover image in <? echo COVER_PATH; ?> directory.</li>
   <li>Don't change any first row columns in template file, it would be rejected when uploading.</li>
   <li>Save, then upload in CSV Import page. (Catalog > CSV Import)</li>
 </ul>

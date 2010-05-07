@@ -146,7 +146,7 @@ function obopac_result($arg = NULL) {
 
       $output .= $paging;
       foreach ($res['data'] as $book) {
-        $view_link = l("<img src=\"../media/covers/{$book['cover']}\" alt=\"{$book['title']}\" />", "opac/view/{$book['id']}", array('html' => TRUE));
+        $view_link = l("<img src=\"{$book['cover']}\" alt=\"{$book['title']}\" />", "opac/view/{$book['id']}", array('html' => TRUE));
         $output .= "<div class=\"book-item\">
         <style type=\"text/css\">
           .book-info { width: auto; }
@@ -190,7 +190,7 @@ function obopac_bib($arg = NULL) {
 	    </p>";
 
 	    if (!empty($res['cover'])) 
-	        $output .= "<div class=\"book-cover\"><img src=\"../media/covers/{$res['cover']}\" alt=\"{$res['title']}\"></div>\n";
+	        $output .= "<div class=\"book-cover\"><img src=\"{$res['cover']}\" alt=\"{$res['title']}\"></div>\n";
 
         $trans = array(
           'responsibility' => 'คณะผู้จัดทำ',

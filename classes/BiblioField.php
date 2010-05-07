@@ -87,7 +87,7 @@ class BiblioField {
                 $ext = image_type_to_extension($info[2]);
                 $tmp = md5($filename.session_id().time());
                 $filename = $filename."_".substr($tmp, strlen($tmp) - 7, strlen($tmp)).$ext;
-                $filepath = "../media/covers/$filename";
+                $filepath = ".." . COVER_PATH . "/$filename";
                 copy($fieldData["tmp_name"][$index], $filepath);
                 make_thumbnail($filepath, array('width' => 200));
                 $this->setFieldData($filename);

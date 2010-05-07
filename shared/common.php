@@ -38,6 +38,10 @@
     $_REQUEST = array_map("magicSlashes", $_REQUEST);
   }
   
+  // Setup book cover path
+  const COVER_PATH = '/media/covers';
+  const COVER_PATH_TMP = '/media/tmp';
+  
   # FIXME - Until I get around to fixing all the notices...
   error_reporting(E_ALL ^ E_NOTICE);
 

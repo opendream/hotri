@@ -122,6 +122,7 @@ class BiblioApiQuery extends Query {
       c.description collection, m.description material";
     $handler = $this->_query("SELECT $field $q $joined $where LIMIT " . (0 + $start) . "," . (0 + $limit), false);
     while ($row = $this->_conn->fetchRow()) {
+      $row['cover'] = "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME'])) . COVER_PATH . '/' . $row['cover'];
       $result['data'][] = $row;
     }
     return serialize($result);
@@ -150,7 +151,7 @@ class BiblioApiQuery extends Query {
       WHERE bibid=$id", false);
     while ($row = $this->_conn->fetchRow()) {
       if ($row['tag']==902 && $row['subfield_cd']='a') {
-        $result['cover'] = $row['field_data'];
+        $result['cover'] = "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME'])) . COVER_PATH . '/' . $row['field_data'];
       }
       else {
         $result['marc'][$row['tag'] . $row['subfield_cd']] = 

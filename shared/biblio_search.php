@@ -224,7 +224,7 @@ function changePage(page,sort)
     ************************************************************************** -->
 <table class="primary">
   <tr>
-    <th valign="top" nowrap="yes" align="left" colspan="3">
+    <th valign="top" nowrap="yes" align="left" colspan="4">
       <?php echo $loc->getText("biblioSearchResults"); ?>:
     </th>
   </tr>
@@ -264,10 +264,11 @@ function changePage(page,sort)
     <td nowrap="true" class="primary" valign="top" align="center" rowspan="2">
       <?php
       $bfq = new BiblioFieldQuery();
-      $bfq->execSelect($biblio->getBibid());
+      $bfq->execSelect($biblio->getBibid(), '902a');
       $flds = $bfq->fetchField();
+      
       if ($flds->_fieldData):
-        $filepath = "../media/covers/". $flds->_fieldData;
+        $filepath = '..' . COVER_PATH . '/'. $flds->_fieldData;
         $title = H($biblio->getTitle());
         if ($thumbpath = make_thumbnail($filepath, array('width' => 200))): 
       ?>
