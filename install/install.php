@@ -68,6 +68,42 @@
   
   $installQ->freshInstall($locale, $installTestData);
   $installQ->close();
+  
+  // Create directories for book cover / cover lookup
+  $cover_path = @mkdir('..' . COVER_PATH, 0777, TRUE);
+  $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777, TRUE);
+  
+  if ($cover_path) {
+    echo 'Create book cover directory successfully.<br />';
+  }
+  else if (is_dir('..' . COVER_PATH)) {
+    $force_chmod = @chmod('..' . COVER_PATH, 0777);
+    if ($force_chmod) {
+      echo 'Book cover directory is exists, force read/write access to exists one.<br />';
+    }
+    else {
+      echo '<span style="color: red">Could not change access to exist cover directory! You may change chmod to 777 with ' . COVER_PATH . ' manually.</span><br />';
+    }
+  }
+  else {
+    echo '<span style="color: red">Could not create book cover directory!</span><br />';
+  }
+  
+  if ($tmp_path) {
+    echo 'Create temporary cover lookup directory successfully.<br />';
+  }
+  else if (is_dir('..' . COVER_PATH_TMP)) {
+    $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+    if ($force_chmod) {
+      echo 'Temporary cover lookup directory is exists, force read/write access to exists one.<br />';
+    }
+    else {
+      echo '<span style="color: red">Could not change access to exist temporary cover lookup directory! You may change chmod to 777 with ' . COVER_PATH_TMP . ' manually.</span><br />';
+    }
+  }
+  else {
+    echo '<span style="color: red">Could not create temporary cover lookup directory!</span><br />';
+  }
 
 ?>
 <br>
