@@ -57,6 +57,49 @@ class BiblioCoverQuery extends Query {
     $img_bin = file_get_contents($path);
     if (!$img_bin || strlen($img_bin) < 1) return false;
     
+    // Create directory when necessary, raise error when failed to create "not exist" one.
+    if (!(is_dir('..' . COVER_PATH) || is_dir('..', COVER_PATH_TMP))) {
+      $dir_error = FALSE;
+      if (is_dir('..' . dirname(COVER_PATH)) {
+        // Create new one.
+        $cover_path = @mkdir('..' . COVER_PATH, 0777);
+        $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777);
+        
+        if (!$cover_path) {
+          if (is_dir('..' . COVER_PATH)) {
+            if (decoct(fileperms('..' . COVER_PATH)) != 0777) {
+              $force_chmod = @chmod('..' . COVER_PATH, 0777);
+              if (!$force_chmod) {
+                $dir_error = TRUE;
+              }
+            }
+          }
+          else {
+            $dir_error = TRUE;
+          }
+        }
+        
+        if (!$tmp_path) {
+          if (is_dir('..' . COVER_PATH_TMP)) {
+            if (decoct(fileperms('..' . COVER_PATH_TMP)) != 0777) {
+              $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+              if (!$force_chmod) {
+                $dir_error = TRUE;
+              }
+            }
+          }
+          else {
+            $dir_error = TRUE;
+          }
+        }
+        
+        if ($dir_error) {
+          print_r('<span style="color: red"><strong>Error:</strong> Failed to save book cover! please set chmod 777 to /media directory.</span><br />');
+          return false;
+        }
+      }
+    }
+    
     // http://somewhere/path/to/file.name.ext
     // result: file.name
     // 

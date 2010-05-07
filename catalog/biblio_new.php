@@ -42,8 +42,6 @@ if (!isset($_REQUEST['posted'])) {
     } else {
       $bibid = insertBiblio($biblio);
       $msg = $loc->getText("biblioNewSuccess");
-      //header("Location: ../shared/biblio_view.php?bibid=".U($bibid)."&msg=".U($msg));
-      //------following line auto transfers to new copy form (new function)
       header("Location: ../catalog/biblio_copy_new_form.php?" . (empty($_GET['hits'])?'':'hits=' . $_GET['hits'] . '&' . (empty($_GET['isbn'])?'': 'isbn=' . $_GET['isbn'] . '&')) . "bibid=".$bibid."&msg=".$msg);
   exit();
     }
