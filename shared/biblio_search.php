@@ -118,7 +118,7 @@
   }
   $searchText = trim($_POST["searchText"]);
   # remove redundant whitespace
-  $searchText = eregi_replace("[[:space:]]+", " ", $searchText);
+  $searchText = preg_replace("/[[:space:]]+/i", " ", $searchText);
   if ($searchType == "barcodeNmbr") {
     $sType = OBIB_SEARCH_BARCODE;
     $words[] = $searchText;
