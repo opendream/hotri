@@ -57,6 +57,11 @@
 <?php } else { ?>
  <a href="../admin/checkout_privs_list.php" class="alt1"><?php echo $navLoc->getText("Checkout Privs");?></a><br>
 <?php } ?>
+<?php if ($nav == 'cover_opts') { ?>
+ &raquo; <?php echo $navLoc->getText("Cover Lookup Options");?><br>
+<?php } else { ?>
+ <a href="../admin/cover_opts.php" class="alt1"><?php echo $navLoc->getText("Cover Lookup Options");?></a><br>
+<?php } ?>
 <?php
 	$list = getPlugIns('admin.nav');
 	for ($x=0; $x<count($list); $x++) {

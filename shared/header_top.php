@@ -52,7 +52,7 @@ function backToMain(URL) {
 		include ('customHead.php');
 	}
 	else {
-	  echo '<script src="../lookup2/jquery.js" type="text/javascript"></script>';
+	  echo '<script src="../scripts/jquery.js" type="text/javascript"></script>';
 	}
 	## ---------------------------------------------------------------------
 	?>

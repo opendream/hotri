@@ -2,8 +2,8 @@
 #****************************************************************************
 #*  Translation text for page lookup.php for lookup2
 #****************************************************************************
-$trans["lookup"]                = "\$text = 'On-line Search v2';";
-$trans["lookup_opts"]       		= "\$text = 'Lookup Options';";
-$trans["lookup_hosts"]       		= "\$text = 'Lookup Hosts';";
+$trans["lookup"]                = "\$text = 'Online Search';";
+$trans["lookup_opts"]       		= "\$text = 'Z39.50 Options';";
+$trans["lookup_hosts"]       		= "\$text = 'Z39.50 Servers';";
 $trans["lookup_bulk"]       		= "\$text = 'Bulk ISBN Lookup';";
 ?>

@@ -26,9 +26,6 @@ class LookupOpts {
   var $_fictionCode = "";
   var $_fictionLoC = "";
   var $_fictionDew = "";
-  var $_awsKey = "";
-  var $_awsSecretKey = "";
-  var $_awsAccountId = "";
 
   /****************************************************************************
    * @return boolean true if data is valid, otherwise false.
@@ -88,15 +85,6 @@ class LookupOpts {
   function getFictionDew() {
     return $this->_fictionDew;
   }
-  function getAWSKey() {
-    return $this->_awsKey;
-  }
-  function getAWSSecretKey() {
-    return $this->_awsSecretKey;
-  }
-  function getAWSAccountId() {
-    return $this->_awsAccountId;
-  }
 
   /****************************************************************************
    * Setter methods for all fields
@@ -146,15 +134,6 @@ class LookupOpts {
   }
   function setFictionDew($value) {
     $this->_fictionDew = trim($value);
-  }
-  function setAWSKey($value) {
-    $this->_awsKey = trim($value);
-  }
-  function setAWSSecretKey($value) {
-    $this->_awsSecretKey = trim($value);
-  }
-  function setAWSAccountId($value) {
-    $this->_awsAccountId = trim($value);
   }
 }
 

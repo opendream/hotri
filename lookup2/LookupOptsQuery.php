@@ -56,9 +56,6 @@ class LookupOptsQuery extends Query {
     $set->setFictionCode($array["fiction_code"]);
     $set->setFictionLoC($array["fiction_loc"]);
     $set->setFictionDew($array["fiction_dewey"]);
-    $set->setAWSKey($array["aws_key"]);
-    $set->setAWSSecretKey($array["aws_secret_key"]);
-    $set->setAWSAccountId($array["aws_account_id"]);
 
     return $set;
   }
@@ -78,8 +75,7 @@ class LookupOptsQuery extends Query {
                         . "auto_cutter=%Q, cutter_type=%Q, "
                         . "cutter_word=%Q, auto_collect=%Q, "
                         . "fiction_name=%Q, fiction_code=%Q, "
-                        . "fiction_loc=%Q, fiction_dewey=%Q,  "
-                        . "aws_key=%Q, aws_secret_key=%Q, aws_account_id=%Q",
+                        . "fiction_loc=%Q, fiction_dewey=%Q  ",
                         $set->getProtocol(), $set->getMaxHits(),
                         $set->getKeepDashes()?"y":"n", $set->getCallNmbrType(),
                         $set->getAutoDewey()?"y":"n", $set->getDefaultDewey(),
@@ -87,9 +83,7 @@ class LookupOptsQuery extends Query {
                         $set->getCutterWord(),
                         $set->getAutoCollect()?"y":"n",
                         $set->getFictionName(), $set->getFictionCode(),
-                        $set->getFictionLoC(), $set->getFictionDew(),
-                        $set->getAWSKey(), $set->getAWSSecretKey(),
-                        $set->getAWSAccountId()
+                        $set->getFictionLoC(), $set->getFictionDew()
                         );
 		//echo "sql=$sql <br />";
     return $this->_query($sql, "Error updating lookup settings information");
@@ -113,9 +107,6 @@ function makeOptsDataSet($array) {
   $set->setFictioncode($array["fictionCode"]);
   $set->setFictionLoC($array["fictionLoC"]);
   $set->setFictionDew($array["fictionDew"]);
-  $set->setAWSKey($array["awsKey"]);
-  $set->setAWSSecretKey($array["awsSecretKey"]);
-  $set->setAWSAccountId($array["awsAccountId"]);
 
   return $set;
 }
@@ -165,9 +156,6 @@ function getOpts() {
     $postVars["fictionCode"] = $opt->getFictioncode();
     $postVars["fictionLoC"] = $opt->getFictionLoC();
     $postVars["fictionDew"] = $opt->getFictionDew();
-    $postVars["awsKey"] = $opt->getAWSKey();
-    $postVars["awsSecretKey"] = $opt->getAWSSecretKey();
-    $postVars["awsAccountId"] = $opt->getAWSAccountId();
 
     ## not yet in database or user opts screens, but should be!!!!
     $postVars["timeout"] = 60;

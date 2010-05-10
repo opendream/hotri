@@ -12435,9 +12435,6 @@ CREATE TABLE IF NOT EXISTS `lookup_settings` (
   `fiction_code` tinyint(4) NOT NULL DEFAULT '1',
   `fiction_loc` varchar(255) NOT NULL DEFAULT 'PQ PR PS PT PU PV PW PX PY PZ',
   `fiction_dewey` varchar(255) NOT NULL DEFAULT '813 823',
-  `aws_key` varchar(20) DEFAULT NULL,
-  `aws_secret_key` varchar(40) DEFAULT NULL,
-  `aws_account_id` varchar(20) DEFAULT NULL,
   `cron_url` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -12445,8 +12442,8 @@ CREATE TABLE IF NOT EXISTS `lookup_settings` (
 -- Dumping data for table `lookup_settings`
 --
 
-INSERT INTO `lookup_settings` (`protocol`, `max_hits`, `keep_dashes`, `callNmbr_type`, `auto_dewey`, `default_dewey`, `auto_cutter`, `cutter_type`, `cutter_word`, `auto_collect`, `fiction_name`, `fiction_code`, `fiction_loc`, `fiction_dewey`, `aws_key`, `aws_secret_key`, `aws_account_id`, `cron_url`) VALUES
-('YAZ', 25, 'n', 'LoC', 'n', '813.52', 'y', 'LoC', 1, 'y', 'Fiction', 1, 'PQ PR PS PT PU PV PW PX PY PZ', '813 823', '', '', '', '%domain%');
+INSERT INTO `lookup_settings` (`protocol`, `max_hits`, `keep_dashes`, `callNmbr_type`, `auto_dewey`, `default_dewey`, `auto_cutter`, `cutter_type`, `cutter_word`, `auto_collect`, `fiction_name`, `fiction_code`, `fiction_loc`, `fiction_dewey`, `cron_url`) VALUES
+('YAZ', 25, 'n', 'LoC', 'n', '813.52', 'y', 'LoC', 1, 'y', 'Fiction', 1, 'PQ PR PS PT PU PV PW PX PY PZ', '813 823', '%domain%');
 
 -- --------------------------------------------------------
 

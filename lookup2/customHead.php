@@ -47,7 +47,7 @@ td.btnFld {
 </style>
 
 <!-- load common jQuery library -->
-<script src="jquery.js" type="text/javascript"></script>
+<script src="../scripts/jquery.js" type="text/javascript"></script>
 
 <script language="JavaScript1.4" >
 //console.log('js file loaded');

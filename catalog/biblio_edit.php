@@ -166,6 +166,7 @@ function showForm($postVars, $pageErrors=array()) {
       }
     //-->
   </script>
+  <script type="text/javascript" src="../scripts/cover_lookup.js"></script>
   <form name="editbiblioform" method="POST" action="../catalog/biblio_edit.php" enctype="multipart/form-data">
   <input type="hidden" name="bibid" value="<?php echo H($postVars["bibid"]);?>">
 <?php

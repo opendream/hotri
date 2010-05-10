@@ -9,24 +9,13 @@ class BiblioCoverQuery extends Query {
     error_reporting(0);
     // Lookup amazon first
     require_once('cloudfusion/cloudfusion.class.php');
-    // Load configurations
-    require_once('../lookup2/LookupOptsQuery.php');
-    $optQ = new LookupOptsQuery();
-    $optQ->connect();
-    if ($optQ->errorOccurred()) {
-      $optQ->close();
-      displayErrorPage($optQ);
-    }
-    $optQ->execSelect();
-    if ($optQ->errorOccurred()) {
-      $optQ->close();
-      displayErrorPage($optQ);
-    }
-    $opt = $optQ->fetchRow();
     
-    define('AWS_KEY', $opt->getAWSKey());
-    define('AWS_SECRET_KEY', $opt->getAWSSecretKey());
-    define('AWS_ACCOUNT_ID', $opt->getAWSAccountId());
+    // Load cover options
+    require_once('../classes/CoverOptsQuery.php');
+    $opt = CoverOptsQuery::getAWS();
+    define('AWS_KEY', $opt['aws_key']);
+    define('AWS_SECRET_KEY', $opt['aws_secret_key']);
+    define('AWS_ACCOUNT_ID', $opt['aws_account_id']);
 
     // Remove trail data from ISBN
     $isbn = explode(' ', $isbn);
@@ -60,7 +49,7 @@ class BiblioCoverQuery extends Query {
     // Create directory when necessary, raise error when failed to create "not exist" one.
     if (!(is_dir('..' . COVER_PATH) || is_dir('..', COVER_PATH_TMP))) {
       $dir_error = FALSE;
-      if (is_dir('..' . dirname(COVER_PATH)) {
+      if (is_dir('..' . dirname(COVER_PATH))) {
         // Create new one.
         $cover_path = @mkdir('..' . COVER_PATH, 0777);
         $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777);

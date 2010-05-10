@@ -141,35 +141,12 @@
   <?php printUsmarcInputText(650,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_TEXT_CNTRL,"4");?>
   <?php printUsmarcInputText(250,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_TEXT_CNTRL);?>
   <?php printUsmarcInputText(902,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_FILE_CNTRL);?>
-  <tr><td class="primary">&nbsp;</td><td id="lookup_field" class="primary">No bibliography picture? <input type="button" class="button" id="cover_lookup" name="cover_lookup" onclick="coverLook()" value="search for this one" /></td></tr>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    img_look = '';
-    coverLook = function() {
-      if ($('#values020a').val() != '') {
-        $('#lookup_field').html('looking up..');
-        $.get('../lookup2/coverLookup.php',  { isbn: $('#values020a').val() }, function(data) {
-          if (data == '') {
-            alert('Cover lookup not found!');
-            cancelLook();
-          }
-          else {
-            img_look = data;
-            $('#lookup_field').html('Found: <br><img src="' + data + '"><br><a href="#" onclick="saveLook();return false;">Save</a> | <a href="#lookup_anchor" onclick="cancelLook(); return false;">Cancel</a>');
-          }
-        });
-      }
-    };
-    cancelLook = function() {
-      $('#lookup_field').html('No bibliography picture? <input type="button" class="button" id="cover_lookup" name="cover_lookup" onclick="coverLook()" value="search for this one">');
-    };
-    saveLook = function(data) {
-      if ($('#values020a').val() != '') {
-        $('#lookup_field').html('<img src="' + img_look + '"><br><input type="checkbox" name="uselookup" value="yes" checked="checked"> Use this image for bibliography picture');
-      }
-    };
-  });
-  </script>
+  <tr>
+    <td class="primary">&nbsp;</td>
+    <td id="lookup_field" class="primary">No bibliography picture? 
+      <input type="button" class="button" id="cover_lookup" name="cover_lookup" value="search for this one" />
+    </td>
+  </tr>
   <?php printUsmarcInputText(10,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_TEXT_CNTRL);?>
   <?php printUsmarcInputText(20,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_TEXT_CNTRL);?>
   <?php printUsmarcInputText(50,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, TRUE,OBIB_TEXT_CNTRL);?>
