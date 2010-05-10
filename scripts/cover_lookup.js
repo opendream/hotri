@@ -5,8 +5,7 @@ $(document).ready(function() {
       $('#lookup_field').html('looking up..');
       $.get('../catalog/cover_lookup.php',  { isbn: $('#values020a').val() }, function(data) {
         if (data == '') {
-          alert('Cover lookup not found!');
-          cancelLook();
+          $('#lookup_field').html('<font class="warning" style="color:red">Book cover not found!</font> <a id="lookup_back" href="#" onclick="cancelLook(); return false;">Back</a>');
         }
         else {
           img_look = data;
