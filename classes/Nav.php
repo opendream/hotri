@@ -42,7 +42,7 @@ class Nav {
   }
   function &_getParent($path) {
     global $_Nav_menu;
-    if (ereg('^(.*)/([^/]*)?$', $path, $m)) {
+    if (preg_match('/^(.*)\/([^\/]*)?$/', $path, $m)) {
       $path = $m[1];
     } else {
       $path = "";

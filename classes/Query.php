@@ -91,7 +91,7 @@ class Query {
     }
     $r = mysql_query($sql, $this->_link);
     if ($r === false) {
-      if (mysql_errno() == 1146 && eregi(OBIB_DATABASE . '.settings', mysql_error())) {
+      if (mysql_errno() == 1146 && preg_match('/' . OBIB_DATABASE . '.settings/i', mysql_error())) {
         // Settings not found
         header("Location: ../install/");
       }

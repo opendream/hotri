@@ -266,7 +266,7 @@ class Params {
       case 'order_by':
         $rawval = $val;
         $desc = ' ';
-        if (ereg('!r$', $val)) {
+        if (preg_match('/!r$/', $val)) {
           $desc = ' desc ';
           $val = substr($val, 0, -2);
         }

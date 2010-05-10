@@ -39,7 +39,7 @@ class BulkLookup {
     $bl->queue($isbnList);
     
     // Enable cron.
-    if (ereg('OFF', file_get_contents("../cron/cronrun.txt"))) 
+    if (preg_match('/OFF/', file_get_contents("../cron/cronrun.txt"))) 
       file_put_contents("../cron/cronrun.txt", 'ON');
     $bl->clearDoneQueue();
   }
@@ -67,7 +67,7 @@ class BulkLookup {
       foreach ($list as $server) {
         $result = $this->_getLookupResult($server, $one['isbn']);
         if (!$result || isset($result['error'])) {
-          if (ereg('not connect', $result['error']) || ereg('response error', $result['error'])) {
+          if (preg_match('/not connect/', $result['error']) || ereg('response error', $result['error'])) {
             $retry = true;
           }
           continue;

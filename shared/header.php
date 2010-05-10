@@ -3,7 +3,7 @@
  * See the file COPYRIGHT.html for more details.
  */
  
- if (ereg('[^a-zA-Z0-9_]', $tab)) {
+ if (preg_match('/[^a-zA-Z0-9_]/', $tab)) {
    Fatal::internalError("Possible security violation: bad tab name");
    exit(); # just in case
  }

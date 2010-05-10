@@ -329,7 +329,7 @@ class PDF {
   
   function _loadFont($name) {
     global $PDF_font;
-    assert('ereg("^[-_/A-Za-z0-9]+\$", $name)');
+    assert('preg_match("^[-_/A-Za-z0-9]+\$", $name)');
     $fname = $this->_getfontpath().$name.'.php';
     $PDF_font = false;
     @include_once($fname);
@@ -504,7 +504,7 @@ class PDF {
       }
       $path = $a[0];
       @$query = $a[1];
-      if (!eregi('\.pdf$', $path)) {
+      if (!preg_match('/\.pdf$/i', $path)) {
         $path .= '/dummy.pdf';
         # Whatever's making this PDF had better be using only GET params
         header('Location: '.$path.'?'.$query);

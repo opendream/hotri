@@ -125,7 +125,7 @@ class CsvImport {
     $data = explode("\t", $str);
     $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', '650a', '010a', '260a', '260b', '260c', '300a', '902a');
     foreach ($data as $key=>$field) {
-      if (ereg('%(var_[0-9]{1,2})%', $field, $reg)) {
+      if (preg_match('%(var_[0-9]{1,2})%', $field, $reg)) {
         $index = substr($reg[1], strpos($reg[1], '_') + 1);
         $data[$header[$key]] = str_replace(
          array('%25', '%double_quote%'), 

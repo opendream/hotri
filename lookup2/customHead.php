@@ -138,16 +138,16 @@ flos = {
 
 <?php
 
-if (ereg('/lookup2/lookup.php', $_SERVER['PHP_SELF'])) {
+if (preg_match('/\/lookup2\/lookup.php/', $_SERVER['PHP_SELF'])) {
   require_once(REL(__FILE__, "lookupJs.php"));
 }
-else if (ereg('/lookup2/lookupHostsForm.php', $_SERVER['PHP_SELF'])) {
+else if (preg_match('/\/lookup2\/lookupHostsForm.php/', $_SERVER['PHP_SELF'])) {
   require_once(REL(__FILE__, "lookupHostsJs.php"));
 }
-else if (ereg('/lookup2/lookupOptsForm.php', $_SERVER['PHP_SELF'])) {
+else if (preg_match('/\/lookup2\/lookupOptsForm.php/', $_SERVER['PHP_SELF'])) {
   require_once(REL(__FILE__, "lookupOptsJs.php"));
 }
-else if (ereg('/lookup2/BulkLookup.php', $_SERVER['PHP_SELF'])) {
+else if (preg_match('/\/lookup2\/BulkLookup.php/', $_SERVER['PHP_SELF'])) {
   
 }
 else {

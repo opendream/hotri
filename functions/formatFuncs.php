@@ -11,7 +11,7 @@
  *********************************************************************************
  */
 function ctypeAlnum($text){
-  ereg("[a-zA-Z0-9]+",$text,$regs);
+  preg_match("/[a-zA-Z0-9]+/",$text,$regs);
   if (count($regs) == 0) {
     return false;
   }
