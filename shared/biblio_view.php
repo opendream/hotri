@@ -269,7 +269,7 @@ require_once("../functions/openUrl.php");
     $title = H($biblioFlds["245a"]->getFieldData());
     //$info = _image_resize($filepath, 200);
     //if (is_array($info)): 
-    if ($thumbpath = make_thumbnail($filepath, array('height' => 120))):
+    if ($thumbpath = make_thumbnail($filepath, array('height' => 160))):
 ?>
 <table class="primary">
   <tr>
