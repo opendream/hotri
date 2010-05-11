@@ -131,7 +131,7 @@ class BiblioField {
                 $filename = $filename."_".substr($tmp, strlen($tmp) - 7, strlen($tmp)).$ext;
                 $filepath = ".." . COVER_PATH . "/$filename";
                 copy($fieldData["tmp_name"][$index], $filepath);
-                make_thumbnail($filepath, array('width' => 200));
+                make_thumbnail($filepath, array('height' => 160));
                 $this->setFieldData($filename);
               }
               else {

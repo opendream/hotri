@@ -270,7 +270,7 @@ function changePage(page,sort)
       if ($flds->_fieldData):
         $filepath = '..' . COVER_PATH . '/'. $flds->_fieldData;
         $title = H($biblio->getTitle());
-        if ($thumbpath = make_thumbnail($filepath, array('width' => 200))): 
+        if ($thumbpath = make_thumbnail($filepath, array('height' => 160))): 
       ?>
       <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" style="padding: 3px;" /></a>
       <?php 
