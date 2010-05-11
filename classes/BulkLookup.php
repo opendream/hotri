@@ -67,7 +67,7 @@ class BulkLookup {
       foreach ($list as $server) {
         $result = $this->_getLookupResult($server, $one['isbn']);
         if (!$result || isset($result['error'])) {
-          if (preg_match('/not connect/', $result['error']) || ereg('response error', $result['error'])) {
+          if (preg_match('/not connect/', $result['error']) || preg_match('/response error/', $result['error'])) {
             $retry = true;
           }
           continue;
