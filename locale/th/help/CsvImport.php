@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../../shared/common.php");
+require_once("../shared/common.php");
 ?>
 <h1>CSV Formats For Import to OpenBiblio:</h1>
 <p>CSV template which available on OpenBiblio is in tab-seperated value (TSV) format.</p>
