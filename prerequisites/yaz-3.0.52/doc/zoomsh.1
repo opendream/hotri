@@ -1,0 +1,139 @@
+'\" t
+.\"     Title: zoomsh
+.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
+.\" Generator: DocBook XSL Stylesheets v1.75.1 <http://docbook.sf.net/>
+.\"      Date: 12/03/2009
+.\"    Manual: [FIXME: manual]
+.\"    Source: YAZ 3.0.52
+.\"  Language: English
+.\"
+.TH "ZOOMSH" "1" "12/03/2009" "YAZ 3.0.52" "[FIXME: manual]"
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+zoomsh \- ZOOM shell
+.SH "SYNOPSIS"
+.HP \w'\fBzoomsh\fR\ 'u
+\fBzoomsh\fR [commands...]
+.SH "DESCRIPTION"
+.PP
+
+\fBzoomsh\fR
+is a ZOOM client with a simple command line interface\&. The client demonstrates the ZOOM API and is useful for testing targets\&.
+.PP
+You may pass one or more commands to
+\fBzoomsh\fR\&. These commands are invoked first\&.
+.SH "EXAMPLES"
+.PP
+If you start the
+\fByaz\-ztest\fR
+in one console you can use the ZOOM shell as follows:
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+$ zoomsh
+ZOOM>connect localhost:9999
+ZOOM>search computer
+localhost:9999: 7 hits
+ZOOM>show 0 1
+1 Default USmarc
+001    11224466 
+003 DLC
+005 00000000000000\&.0
+008 910710c19910701nju           00010 eng  
+010    $a    11224466 
+040    $a DLC $c DLC
+050 00 $a 123\-xyz
+100 10 $a Jack Collins
+245 10 $a How to program a computer
+260 1  $a Penguin
+263    $a 8710
+300    $a p\&. cm\&.
+ZOOM>quit
+
+    
+.fi
+.if n \{\
+.RE
+.\}
+.PP
+You can also achieve the same result by passing the commands as arguments on a single command line:
+.PP
+
+$ zoomsh "connect localhost:9999" "search computer"
+"show 0 1" quit
+.SH "COMMANDS"
+.PP
+connect \fIzurl\fR
+.RS 4
+Connects to the target given by
+\fIzurl\fR\&.
+.RE
+.PP
+close [\fIzurl\fR]
+.RS 4
+Closes connection to target given by
+\fIzurl\fR
+or all targets if
+\fIzurl\fR
+was omitted\&.
+.RE
+.PP
+show [\fIstart\fR [\fIcount\fR]]
+.RS 4
+Displays
+count
+records starting at offset given by
+\fIstart\fR\&. First records has offset 0 (unlike the Z39\&.50 protocol)\&.
+.RE
+.PP
+quit
+.RS 4
+Quits
+\fBzoomsh\fR\&.
+.RE
+.PP
+set \fIname\fR [\fIvalue\fR]
+.RS 4
+Sets option
+\fIname\fR
+to
+\fIvalue\fR\&.
+.RE
+.PP
+get \fIname\fR
+.RS 4
+Prints value of option
+\fIname\fR\&.
+.RE
+.PP
+help
+.RS 4
+Prints list of available commands\&.
+.RE
+.SH "SEE ALSO"
+.PP
+
+\fByaz\fR(7),
+\fByaz-ztest\fR(8),
+.PP
+Section "Building clients with ZOOM" in the YAZ manual\&.
+.PP
+
+\m[blue]\fBZOOM home page\fR\m[]\&\s-2\u[1]\d\s+2\&.
+.SH "NOTES"
+.IP " 1." 4
+ZOOM home page
+.RS 4
+\%http://zoom.z3950.org/
+.RE

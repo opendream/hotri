@@ -1,0 +1,88 @@
+'\" t
+.\"     Title: yaz-config
+.\"    Author: [FIXME: author] [see http://docbook.sf.net/el/author]
+.\" Generator: DocBook XSL Stylesheets v1.75.1 <http://docbook.sf.net/>
+.\"      Date: 12/03/2009
+.\"    Manual: [FIXME: manual]
+.\"    Source: YAZ 3.0.52
+.\"  Language: English
+.\"
+.TH "YAZ\-CONFIG" "8" "12/03/2009" "YAZ 3.0.52" "[FIXME: manual]"
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+yaz-config \- Script to get information about YAZ\&.
+.SH "SYNOPSIS"
+.HP \w'\fByaz\-config\fR\ 'u
+\fByaz\-config\fR [\fB\-\-prefix[=\fR\fB\fIDIR\fR\fR\fB]\fR] [\fB\-\-version\fR] [\fB\-\-libs\fR] [\fB\-\-lalibs\fR] [\fB\-\-cflags\fR] [\fB\-\-comp\fR] [\fB\-V\fR] [libraries...]
+.SH "DESCRIPTION"
+.PP
+
+\fByaz\-config\fR
+is a script that returns information that your own software should use to build software that uses YAZ\&.
+.PP
+The following libraries are supported:
+.PP
+threads
+.RS 4
+Use the threaded version of YAZ\&.
+.RE
+.SH "OPTIONS"
+.PP
+\-\-prefix[=\fIDIR\fR]
+.RS 4
+Returns prefix of YAZ or assume a different one if DIR is specified\&.
+.RE
+.PP
+\-\-version
+.RS 4
+Returns version of YAZ\&.
+.RE
+.PP
+\-\-libs
+.RS 4
+Library specification be used when using YAZ\&.
+.RE
+.PP
+\-\-lalibs
+.RS 4
+Return library specification\&.
+.RE
+.PP
+\-\-cflags
+.RS 4
+Return C Compiler flags\&.
+.RE
+.PP
+\-\-comp
+.RS 4
+Returns full path to YAZ\' ASN\&.1 compiler: yaz\-asncomp\&.
+.RE
+.PP
+\-V
+.RS 4
+veturns YAZ SHA1 ID (from Git) and version\&.
+.RE
+.SH "FILES"
+.PP
+
+/usr/local/bin/yaz\-config
+.PP
+
+/usr/local/lib/libyaz*\&.a
+.PP
+
+/usr/local/include/yaz/*\&.h
+.SH "SEE ALSO"
+.PP
+yaz(7)
+.PP
+Section "How to make apps using YAZ on UNIX" in the YAZ manual\&.
