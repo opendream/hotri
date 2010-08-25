@@ -85,7 +85,7 @@ class BiblioField {
               // If file type is allowed
               if (in_array($info["mime"], $allow_types)) {
                 // Create directory when necessary, raise error when failed to create "not exist" one.
-                if (!(is_dir('..' . COVER_PATH) || is_dir('..', COVER_PATH_TMP))) {
+                if (!(is_dir('..' . COVER_PATH) || is_dir('..' . COVER_PATH_TMP))) {
                   $dir_error = FALSE;
                   if (is_dir('..' . dirname(COVER_PATH))) {
                     // Create new one.
