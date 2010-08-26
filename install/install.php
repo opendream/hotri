@@ -33,6 +33,63 @@
 
 <?php
 
+  // Create directories for book cover / cover lookup
+  $cover_path = @mkdir('..' . COVER_PATH, 0777, TRUE);
+  $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777, TRUE);
+  
+  if ($cover_path) {
+    echo 'Create book cover directory successfully.<br />';
+  }
+  else if (is_dir('..' . COVER_PATH)) {
+    if (is_writable('..' . COVER_PATH)) {
+      echo 'Book cover directory already exists & work properly.<br />';
+    }
+    else {
+      $force_chmod = @chmod('..' . COVER_PATH, 0777);
+      if ($force_chmod) {
+        echo 'Book cover directory is exists, force read/write access to exists one.<br />';
+      }
+      else {
+        echo '<span style="color: red">Could not change access to exist cover directory! You must change chmod to 777 with ' . COVER_PATH . ' manually.</span><br />';
+        $isFailedSomeDir = TRUE;
+      }
+    }
+  }
+  else {
+    echo '<span style="color: red">Could not create book cover directory!</span><br />';
+    $isFailedSomeDir = TRUE;
+  }
+  
+  if ($tmp_path) {
+    echo 'Create temporary cover lookup directory successfully.<br />';
+  }
+  else if (is_dir('..' . COVER_PATH_TMP)) {
+    if (is_writable('..' . COVER_PATH_TMP)) {
+      echo 'Temporay cover lookup directory already exists & work properly.<br />';
+    }
+    else {
+      $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+      if ($force_chmod) {
+        echo 'Temporary cover lookup directory is exists, force read/write access to exists one.<br />';
+      }
+      else {
+        echo '<span style="color: red">Could not change access to exist temporary cover lookup directory! You must change chmod to 777 with ' . COVER_PATH_TMP . ' manually.</span><br />';
+        $isFailedSomeDir = TRUE;
+      }
+    }
+  }
+  else {
+    echo '<span style="color: red">Could not create temporary cover lookup directory!</span><br />';
+    $isFailedSomeDir = TRUE;
+  }
+  
+  if ($isFailedSomeDir) {
+    echo '<hr />
+    <span style="color: red; font-weight: bold;">Installation has been interrupted, please fix issues above then try to <a href="./index.php">run installation again</a>.</span>';
+    include("../install/footer.php");
+    exit();
+  }
+
   # testing connection and current version
   $installQ = new InstallQuery();
   $err = $installQ->connect_e();
@@ -68,42 +125,6 @@
   
   $installQ->freshInstall($locale, $installTestData);
   $installQ->close();
-  
-  // Create directories for book cover / cover lookup
-  $cover_path = @mkdir('..' . COVER_PATH, 0777, TRUE);
-  $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777, TRUE);
-  
-  if ($cover_path) {
-    echo 'Create book cover directory successfully.<br />';
-  }
-  else if (is_dir('..' . COVER_PATH)) {
-    $force_chmod = @chmod('..' . COVER_PATH, 0777);
-    if ($force_chmod) {
-      echo 'Book cover directory is exists, force read/write access to exists one.<br />';
-    }
-    else {
-      echo '<span style="color: red">Could not change access to exist cover directory! You may change chmod to 777 with ' . COVER_PATH . ' manually.</span><br />';
-    }
-  }
-  else {
-    echo '<span style="color: red">Could not create book cover directory!</span><br />';
-  }
-  
-  if ($tmp_path) {
-    echo 'Create temporary cover lookup directory successfully.<br />';
-  }
-  else if (is_dir('..' . COVER_PATH_TMP)) {
-    $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
-    if ($force_chmod) {
-      echo 'Temporary cover lookup directory is exists, force read/write access to exists one.<br />';
-    }
-    else {
-      echo '<span style="color: red">Could not change access to exist temporary cover lookup directory! You may change chmod to 777 with ' . COVER_PATH_TMP . ' manually.</span><br />';
-    }
-  }
-  else {
-    echo '<span style="color: red">Could not create temporary cover lookup directory!</span><br />';
-  }
 
 ?>
 <br>
