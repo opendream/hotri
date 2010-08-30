@@ -96,8 +96,20 @@ if ($_POST["test"]=="true") {
     echo '</table>';
   }
   echo '<hr /><h3>'.$loc->getText("MarcUploadRawData").'</h3>';
+  // DEBUG
+  $data = file_get_contents($_FILES['usmarc_data']['tmp_name']);
+  $encoding = mb_detect_encoding($data);
+  if ($encoding != 'UTF-8') {
+    if ($_POST['lang'] == 'th') {
+      $data = iconv("TIS-620", "UTF-8", $data);
+    }
+    else {
+      $data = utf8_encode($data);
+    }
+  }
   echo '<pre>';
-  readfile($_FILES["usmarc_data"]["tmp_name"]);
+  //readfile($_FILES["usmarc_data"]["tmp_name"]);
+  echo $data;
   echo '</pre>';
 } else {
   $bq = new BiblioQuery();
