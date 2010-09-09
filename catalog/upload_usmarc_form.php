@@ -19,14 +19,27 @@
   require_once("../functions/inputFuncs.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  
+  // Encoding selection.
+  $encoding = array("ASCII", "CP1256", "ISO-8859-1", "ISO-8859-6", "ISO-8859-15", "TIS-620", "UTF-8", "Windows-1252");
+  $enc_selection = '<select name="encoding">';
+  foreach ($encoding as $i => $label) {
+    if ($label === 'TIS-620') {
+      $default = 'selected="selected"';
+    }
+    else {
+      $default = '';
+    }
+    $enc_selection .= '<option value="' . $i . '" ' . $default . '>' . $label . '</option>';
+  }
+  $enc_selection .= '</select>';
 
 ?>
 
 <form enctype="multipart/form-data" action="../catalog/upload_usmarc.php" method="post">
 <?php echo $loc->getText("MarcUploadTest"); ?>: <?php echo $loc->getText("MarcUploadTestTrue"); ?><input type="radio" value="true" name="test" checked>  <?php echo $loc->getText("MarcUploadTestFalse"); ?><input type="radio" value="false" name="test"><br />
-<?php echo $loc->getText("MarcUploadEncoding"); ?>: <input type="radio" name="lang" value="th" checked /> <?php echo $loc->getText("MarcUploadEncodingTh"); ?> 
-<input type="radio" name="lang" value="uni" /> <?php echo $loc->getText("MarcUploadEncodingUn"); ?><br />
-<?php echo $loc->getText("MarcUploadTestFileUpload"); ?>: <input type="file" name="usmarc_data">
+<?php echo $loc->getText("MarcUploadTestFileUpload"); ?>: <input type="file" name="usmarc_data"><br />
+<?php echo $loc->getText("MarcUploadEncoding"); ?>: <?=$enc_selection ?>
 <br /><br />
 
 <hr />
