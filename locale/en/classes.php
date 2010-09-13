@@ -45,6 +45,11 @@ $trans["biblioError1"]            = "\$text = 'Call number is required.';";
 $trans["biblioFieldError1"]       = "\$text = 'Field is required.';";
 $trans["biblioFieldError2"]       = "\$text = 'Tag must be numeric.';";
 
+$trans["biblioFieldErrorPictureType"]             = "\$text = 'This file type is not image (support jpeg, gif, png).';";
+$trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'Failed to load image informations.';";
+$trans["biblioFieldErrorCoverLookupFailed"] = "\$text = 'Failed to connect online cover lookup service.';";
+$trans["biblioFieldErrorDuplicatedISBN"]       = "\$text = 'This ISBN is already in used.';";
+
 #****************************************************************************
 #*  Translation text for class BiblioQuery
 #****************************************************************************

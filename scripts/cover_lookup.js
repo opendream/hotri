@@ -1,9 +1,12 @@
 $(document).ready(function() {
   img_look = '';
   coverLook = function() {
-    if ($('#values020a').val() != '') {
-      $('#lookup_field').html('looking up..');
-      $.get('../catalog/cover_lookup.php',  { isbn: $('#values020a').val() }, function(data) {
+    var isbn_parsed = validateISBN($('#values020a').val());
+    if (isbn_parsed != false) {
+      $('#isbn-error').remove();
+      
+      $('#lookup_field').html('Now searching, please wait..');
+      $.get('../catalog/cover_lookup.php',  { isbn: isbn_parsed }, function(data) {
         if (data == '') {
           $('#lookup_field').html('<font class="warning" style="color:red">Book cover not found!</font> <a id="lookup_back" href="#" onclick="cancelLook(); return false;">Back</a>');
         }
@@ -12,6 +15,13 @@ $(document).ready(function() {
           $('#lookup_field').html('Found: <br><img src="' + data + '"><br><a href="#" onclick="saveLook();return false;">Save</a> | <a href="#lookup_anchor" onclick="cancelLook(); return false;">Cancel</a>');
         }
       });
+    }
+    else {
+      form_row = $('#values020a').parent();
+      if ($('#isbn-error').length < 1) {
+        $('#values020a').parent().prepend('<div id="isbn-error"><font class="error">ISBN format not valid.</font></div>');
+      }
+      $('#isbn-error').hide().fadeIn();
     }
   };
   cancelLook = function() {
@@ -25,4 +35,21 @@ $(document).ready(function() {
   };
   
   $('#cover_lookup').click(function() { coverLook(); });
+  
+  var validateISBN = function(input) {
+    var val = input.replace(/[^x0-9]+/gi,'');
+    len = val.length;
+    var valid = true;
+    if (len < 10) {
+      valid = false;
+    }
+    else if (len > 10) {
+      val = val.replace(/x/gi, '');
+      if (val.length != 13) {
+        valid = false;
+      }
+    }
+    
+    return valid ? val : false;
+  };
 });

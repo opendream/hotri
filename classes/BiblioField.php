@@ -61,7 +61,7 @@ class BiblioField {
           $cq = new BiblioCoverQuery();
           $path = $cq->lookup($isbn);
           if (!$path) {
-            $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+            $this->_fieldDataError = $loc->getText("biblioFieldErrorCoverLookupFailed");
             $valid = false;
           }
           else {
@@ -141,12 +141,22 @@ class BiblioField {
             }
             else {
               $valid = false;
-              $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureType");
+              $this->_fieldDataError = $loc->getText("biblioFieldErrorPictureLoadFailed");
             }
           }
         }
       }
       else {
+      }
+    }
+    /* Check existing ISBN items */
+    else if ($this->getTag() == "20" && $this->getSubfieldCd() == "a") {
+      require_once("../classes/BiblioQuery.php");
+      $biblio = new BiblioQuery();
+      
+      if ($biblio->ISBNExists($this->getFieldData())) {
+        $valid = false;
+        $this->_fieldDataError = $loc->getText("biblioFieldErrorDuplicatedISBN");
       }
     }
     unset($loc);

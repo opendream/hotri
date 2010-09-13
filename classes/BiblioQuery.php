@@ -175,6 +175,29 @@ class BiblioQuery extends Query {
   }
 
 
+    /****************************************************************************
+   * Search existing ISBN
+   * @param string $isbn for search
+   * @return true when exists, or false if not exists / error occurs
+   * @access public
+   ****************************************************************************
+   */
+  function ISBNExists($isbn) {
+    if (empty($isbn)) {
+      return false;
+    }
+    
+    $sql = $this->mkSQL("select * from biblio_field "
+                        . "where tag='20' and subfield_cd='a' AND field_data=%Q ",
+                        $isbn);
+    if (!$this->_query($sql, $this->_loc->getText("usmarcSubfldDmQueryErr1"))) {
+      return false;
+    }
+    $result = $this->_conn->fetchRow();
+    return $result == false ? false : true;
+  }
+
+
   /****************************************************************************
    * Utility function to add a field to a Biblio object
    * @return void
