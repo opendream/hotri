@@ -187,14 +187,14 @@ class BiblioQuery extends Query {
       return false;
     }
     
-    $sql = $this->mkSQL("select * from biblio_field "
+    $sql = $this->mkSQL("select bibid from biblio_field "
                         . "where tag='20' and subfield_cd='a' AND field_data=%Q ",
                         $isbn);
     if (!$this->_query($sql, $this->_loc->getText("usmarcSubfldDmQueryErr1"))) {
       return false;
     }
     $result = $this->_conn->fetchRow();
-    return $result == false ? false : true;
+    return $result == false ? false : $result['bibid'];
   }
 
 

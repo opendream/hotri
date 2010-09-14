@@ -98,7 +98,10 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   }
   if ($error != "") {
     echo "<br><font class=\"error\">";
-    echo H($error)."</font>";
+    if ($formIndex == '020a') // Enable suggestion link for existing ISBN check.
+      echo $error."</font>";
+    else 
+      echo H($error)."</font>";
   }
   echo "<input type=\"hidden\" name=\"indexes[]\" value=\"".H($formIndex)."\" >\n";
   echo "<input type=\"hidden\" name=\"tags[".H($formIndex)."]\" value=\"".H($tag)."\" >\n";

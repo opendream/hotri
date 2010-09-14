@@ -154,9 +154,9 @@ class BiblioField {
       require_once("../classes/BiblioQuery.php");
       $biblio = new BiblioQuery();
       
-      if ($biblio->ISBNExists($this->getFieldData())) {
+      if ($existBibId = $biblio->ISBNExists($this->getFieldData())) {
         $valid = false;
-        $this->_fieldDataError = $loc->getText("biblioFieldErrorDuplicatedISBN");
+        $this->_fieldDataError = $loc->getText("biblioFieldErrorDuplicatedISBN") . ' <a href="../shared/biblio_view.php?bibid=' . $existBibId . '&tab=cataloging">' . $loc->getText("biblioFieldViewExistingISBN") . '</a>';
       }
     }
     unset($loc);
