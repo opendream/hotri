@@ -66,7 +66,7 @@
     header("Location: ../circ/mbr_view.php?mbrid=".U($mbrid));
     exit();
   } else if ($copy->getStatusCd() != OBIB_STATUS_OUT) {
-    $pageErrors["holdBarcodeNmbr"] = $loc->getText("This item is not checked out.");
+    $pageErrors["holdBarcodeNmbr"] = $loc->getText("placeHoldErrNotChkOut");
     $postVars["holdBarcodeNmbr"] = $barcode;
     $_SESSION["postVars"] = $postVars;
     $_SESSION["pageErrors"] = $pageErrors;
@@ -84,6 +84,21 @@
     $holdQ->close();
     displayErrorPage($holdQ);
   }
+  // Check existing holds, prevent member request to hold same book twice or more.
+  $holdQ->queryByMbrid($mbrid);
+  
+  $duplicated = false;
+  while ($hold = $holdQ->fetchRow()) {
+    if ($hold->getBarcodeNmbr() == $barcode) {
+      $pageErrors["holdBarcodeNmbr"] = $loc->getText("placeHoldErrDup");
+      $postVars["holdBarcodeNmbr"] = $barcode;
+      $_SESSION["postVars"] = $postVars;
+      $_SESSION["pageErrors"] = $pageErrors;
+      header("Location: ../circ/mbr_view.php?mbrid=".U($mbrid));
+      exit();
+    }
+  }
+
   $rc = $holdQ->insert($mbrid,$barcode);
   if (!$rc) {
     $holdQ->close();

@@ -197,6 +197,8 @@ $trans["holdMessageMsg2"]         = "\$text='Return to bibliography check in.';"
 $trans["placeHoldErr1"]           = "\$text='Barcode number must be numeric.';";
 $trans["placeHoldErr2"]           = "\$text='Barcode does not exist.';";
 $trans["placeHoldErr3"]           = "\$text='This member already has that item checked out -- not placing hold.';";
+$trans["placeHoldErrNotChkOut"]       = "\$text='This item is not checked out.';";
+$trans["placeHoldErrDup"]       = "\$text='This member already requested to hold this copy.';";
 
 #****************************************************************************
 #*  Translation text for page mbr_del_confirm.php
