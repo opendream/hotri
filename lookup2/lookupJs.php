@@ -51,7 +51,11 @@ lkup = {
 		lkup.srchBtn = $('#srchBtn');
 		lkup.resetForm();
 		//lkup.disableSrchBtn();
-		lkup.srchBtn.bind('click',null,lkup.doSearch);
+		//lkup.srchBtn.bind('click',null,lkup.doSearch);
+		$('#lookupForm').submit(function(e) {
+		  e.preventDefault();
+		  lkup.doSearch();
+		});
 
     //$('.criteria').bind('focus',null,lkup.enableSrchBtn);
 		$('#quitBtn').bind('click',null,lkup.doAbandon);

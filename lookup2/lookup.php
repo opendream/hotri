@@ -133,7 +133,7 @@
 		<tr>
 		  <td align="center" >
 				<input type="hidden" id="mode" name="mode" value="search" />
-				<input type="button" id="srchBtn" name="srchBtn"
+				<input type="submit" id="srchBtn" name="srchBtn"
 							 value="<?php echo $lookLoc->getText("lookup_search");?>"
 							 class="button" />
 			</td>
