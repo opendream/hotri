@@ -152,6 +152,8 @@ lkup = {
 	  //var srchBy = $('#srchBy').text();
 	  //var srchBy2 = $('#srchBy2').text();
 	  if ($('#lookupVal').val() != '' || $('#lookupVal2').val() != '') {
+	    $('.error').remove();
+		  
 	    var theTxt = '<h5>';
 		  theTxt += "Looking for "+srchBy+" '" + $('#lookupVal').val() + "'<br />";
 	    if ($('#lookupVal2').val() != '')
