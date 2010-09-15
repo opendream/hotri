@@ -4,15 +4,21 @@ require_once("../shared/common.php");
 require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
-  function lookup($isbn, $debug = false) {
+  private $_lastError;
+  function lookup($isbn) {
     // Hide warnings on results in safe mode
-    error_reporting(0);
+    //error_reporting(0);
     // Lookup amazon first
     require_once('cloudfusion/cloudfusion.class.php');
     
     // Load cover options
     require_once('../classes/CoverOptsQuery.php');
     $opt = CoverOptsQuery::getAWS();
+    if (empty($opt['aws_key']) || empty($opt['aws_secret_key'])) {
+      $this->_lastError = 'MissingKeyError: Missing AWS keys in Admin > Cover Lookup Options, please fill them.';
+      return false;
+    }
+    
     define('AWS_KEY', $opt['aws_key']);
     define('AWS_SECRET_KEY', $opt['aws_secret_key']);
     define('AWS_ACCOUNT_ID', $opt['aws_account_id']);
@@ -21,19 +27,33 @@ class BiblioCoverQuery extends Query {
     $isbn = explode(' ', $isbn);
     $isbn = $isbn[0];
     
-    $pas = new AmazonPAS();
-    $response = $pas->item_lookup($isbn, array(
-      'IdType'=>'ISBN',
-      'SearchIndex'=>'Books',
-      'ResponseGroup'=>'Images'));
+    try {
+      $pas = new AmazonPAS();
+      $response = $pas->item_lookup($isbn, array(
+        'IdType'=>'ISBN',
+        'SearchIndex'=>'Books',
+        'ResponseGroup'=>'Images'));
 
-    if ($debug) 
-      return $response;
-    
-    if (!empty($response->body->Items->Item->MediumImage)) {
-      return ''.$response->body->Items->Item->MediumImage->URL;
+      if (isset($response->body->Error)) {
+        $this->_lastError = $response->body->Error->Code . ': ' . $response->body->Error->Message;
+        return false;
+      }
+      
+      if (!empty($response->body->Items->Item->MediumImage)) {
+        return ''.$response->body->Items->Item->MediumImage->URL;
+      }
+      
+      $this->_lastError = 'ISBNNotFound: Couldn\'t find any information for this ISBN.';
+      return false;
     }
-    return false;
+    catch (Exception $e) {
+      $this->_lastError = 'ConnectionError: Couldn\'t connect to AWS service.';
+      return false;
+    }
+  }
+  
+  function getLookupError() {
+    return $this->_lastError;
   }
   
   function save($path, $bibid) {

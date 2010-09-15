@@ -7,8 +7,8 @@ $(document).ready(function() {
       
       $('#lookup_field').html('Now searching, please wait..');
       $.get('../catalog/cover_lookup.php',  { isbn: isbn_parsed }, function(data) {
-        if (data == '') {
-          $('#lookup_field').html('<font class="warning" style="color:red">Book cover not found!</font> <a id="lookup_back" href="#" onclick="cancelLook(); return false;">Back</a>');
+        if (data.substring(0,4) != 'http') {
+          $('#lookup_field').html('<font class="error">Book cover not found!</font> <a id="lookup_back" href="#" onclick="cancelLook(); return false;">Back</a><blockquote style="background: #ccc; margin: 5px; padding: 3px; width: 324px;">' + data + '</blockquote>');
         }
         else {
           img_look = data;

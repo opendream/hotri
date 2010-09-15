@@ -129,7 +129,7 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
 echo '<p><a href="?type=manual&act=export">Export to file</a> | <a href="?del=0&type=manual" onclick="return confirm(\'Are you sure to purge ISBN list?\')">Purge all items</a></p>';
   $zero_hits = $bl->countQueue('manual_list_zero');
   if ($zero_hits > 0) {
-    echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?act=cleartemp">clear now.</a></p>';
+    echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?type=manual&act=cleartemp">clear now.</a></p>';
   }
   break;
 }
