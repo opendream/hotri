@@ -10,7 +10,7 @@ class Layout_overdue {
   var $sets;
   function render($rpt) {
     $this->sets = Lay::getFonts();
-    list($rpt, $errs) = $rpt->variant_el(array('order_by'=>'member'));
+    list($rpt, $errs) = $rpt->variant_el(array('order_by'=>'member_bcode'));
     if (!empty($errs)) {
       Fatal::internalError('Unexpected report error');
     }
