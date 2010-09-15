@@ -2,6 +2,11 @@
 /* This file is part of a copyrighted work; it is distributed with NO WARRANTY.
  * See the file COPYRIGHT.html for more details.
  */
+ 
+// Check lookupVal should not empty.
+if ($_POST[mode] == 'search' && empty($_POST['lookupVal']) && empty($_POST['lookupVal2'])) {
+  exit('invalid parameters');
+}
 
 require_once("../shared/common.php");
 require_once(REL(__FILE__, "../classes/Localize.php"));

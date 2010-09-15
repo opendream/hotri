@@ -50,8 +50,8 @@
 		}
 		## TOO MANY
 		else if ($ttlHits > $postVars[maxHits]) {
-			$msg1 = $lookLoc->getText('lookup_TooManyHits');
-			$msg2 = $lookLoc->getText('lookup_RefineSearch');
+			$msg1 = $lookLoc->getText('lookup_tooManyHits');
+			$msg2 = $lookLoc->getText('lookup_refineSearch');
 			 # JSON object follows
 		  $s =  "{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]','protocol':'$postVars[protocol]',".
 						"'msg':'$msg1', 'msg2':'$msg2', ".

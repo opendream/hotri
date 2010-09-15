@@ -25,10 +25,12 @@ class Localize {
     ## ##################################
     ## adds suport for plugins - fl, 2009
     ## ##################################
+    /* Move all plugin/*.tran to locale directory for generalize $trans.
 		$list = getPlugIns($section.'.tran');
 		for ($x=0; $x<count($list); $x++) {
 			include($list[$x]);
 		}
+		*/
     ## ##################################
     $this->_trans = $trans;
     return true;

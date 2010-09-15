@@ -106,4 +106,14 @@ $trans["checkIn"]="\$text = 'Check In';";
 $trans["memberSearch"]= "\$text = 'Member Search';";
 $trans["newMember"]= "\$text = 'New Member';";
 //$trans["account"]        	= "\$text = 'Account';";
+
+
+#****************************************************************************
+#*  Translation text for page lookup.php for lookup2
+#****************************************************************************
+$trans["lookup"]                = "\$text = 'Online Search';";
+$trans["lookup_opts"]       		= "\$text = 'Z39.50 Options';";
+$trans["lookup_hosts"]       		= "\$text = 'Z39.50 Servers';";
+$trans["lookup_bulk"]       		= "\$text = 'Bulk ISBN Lookup';";
+
 ?>

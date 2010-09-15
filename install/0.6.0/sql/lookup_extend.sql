@@ -12395,7 +12395,7 @@ CREATE TABLE IF NOT EXISTS `lookup_hosts` (
 INSERT INTO `lookup_hosts` (`id`, `seq`, `active`, `host`, `name`, `db`, `user`, `pw`, `charset`) VALUES
 (1, 0, 'y', '202.28.17.2:210', '[TH] ม.พระจอมเกล้าพระนครเหนือ', 'innopac', '', '', ''),
 (2, 0, 'y', '161.246.37.11:210', '[TH] สถาบันพระจอมเกล้าเจ้าคุณทหารลาดกระบัง', 'innopac', '', '', 'tis-620'),
-(3, 0, 'y', 'kkulib.kku.ac.th:210', '[Th] ม.ขอนแก่น', 'innopac', '', '', 'tis-620'),
+(3, 0, 'y', 'kkulib.kku.ac.th:210', '[Th] ม.ขอนแก่น', 'innopac', '', '', ''),
 (4, 0, 'y', 'intanin.lib.ku.ac.th:210', '[TH] ม.เกษตรศาสตร์', 'INNOPAC', '', '', 'tis-620'),
 (5, 0, 'y', 'library.lib.ru.ac.th:210', '[TH] ม.รามคำแหง', 'innopac', '', '', 'tis-620'),
 (6, 0, 'y', 'vtls.mcu.ac.th:1111', '[TH] มหาจุฬาลงกรราชวิทยาลัย', 'Default', '', '', ''),

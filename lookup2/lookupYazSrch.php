@@ -44,7 +44,7 @@
 			
 			if (! $connOK) {
 				echo 'yaz setup not successful! <br />';
-				trigger_error($lookLoc->getText("lookup_yaz_setup_failed").$postVars[hosts][$ptr][name]."<br />", E_USER_ERROR);
+				trigger_error($lookLoc->getText("lookup_yazSetupFailed").$postVars[hosts][$ptr][name]."<br />", E_USER_ERROR);
 			} else {
 				//echo 'yaz setup successful! <br />';
 				$id[$ptr] = $connOK;

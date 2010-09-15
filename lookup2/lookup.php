@@ -124,7 +124,7 @@
 					<option value="0" selected>
 					<option value="31"><?php echo $lookLoc->getText("lookup_pubDate");?></option>
 					<option value="1018"><?php echo $lookLoc->getText("lookup_publisher");?></option>
-					<option value="59"><?php echo $lookLoc->getText("lookupPub_loc");?></option>
+					<option value="59"><?php echo $lookLoc->getText("lookup_pubLoc");?></option>
 					<option value="1016"><?php echo $lookLoc->getText("lookup_keyword");?></option>
 				</select>
 			</td>

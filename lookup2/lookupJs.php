@@ -53,7 +53,7 @@ lkup = {
 		//lkup.disableSrchBtn();
 		lkup.srchBtn.bind('click',null,lkup.doSearch);
 
-    $('.criteria').bind('change',null,lkup.enableSrchBtn);
+    //$('.criteria').bind('focus',null,lkup.enableSrchBtn);
 		$('#quitBtn').bind('click',null,lkup.doAbandon);
 		$('#retryBtn').bind('click',null,lkup.doBackToSrch);
 		$('#choiceBtn1').bind('click',null,lkup.doBackToSrch);
@@ -96,8 +96,8 @@ lkup = {
 		$('#selectionDiv').hide();
 
 		//lkup.form[0].reset();
-		$('#lookupVal').focus();
-		lkup.disableSrchBtn();
+		//$('#lookupVal').focus();
+		//lkup.disableSrchBtn();
 	},
 	
 	disableSrchBtn: function () {
@@ -147,133 +147,141 @@ lkup = {
 	  var srchBy2 = flos.getSelectBox($('#srchBy2'),'getText');
 	  //var srchBy = $('#srchBy').text();
 	  //var srchBy2 = $('#srchBy2').text();
-	  var theTxt = '<h5>';
-		theTxt += "Looking for "+srchBy+" '" + $('#lookupVal').val() + "'<br />";
-	  if ($('#lookupVal2').val() != '')
-			theTxt += "&nbsp;&nbsp;&nbsp;with "+srchBy2+" '"+$('#lookupVal2').val()+"'<br />";
-		theTxt += 'using the '+lkup.opts.protocol+' protocol at :<br />';
-		var n=1;
-		for (nHost in lkup.hostJSON) {
-			theTxt += '&nbsp;&nbsp;&nbsp;'+n+'. '+lkup.hostJSON[nHost].name+'<br />';
-			n++;
-		}
-		theTxt += '</h5>';
-	  $('#waitText').html(theTxt);
-	  
-		$('#searchDiv').hide('slow');
-		$('#waitDiv').show('slow');
+	  if ($('#lookupVal').val() != '' || $('#lookupVal2').val() != '') {
+	    var theTxt = '<h5>';
+		  theTxt += "Looking for "+srchBy+" '" + $('#lookupVal').val() + "'<br />";
+	    if ($('#lookupVal2').val() != '')
+			  theTxt += "&nbsp;&nbsp;&nbsp;with "+srchBy2+" '"+$('#lookupVal2').val()+"'<br />";
+		  theTxt += 'using the '+lkup.opts.protocol+' protocol at :<br />';
+		  var n=1;
+		  for (nHost in lkup.hostJSON) {
+			  theTxt += '&nbsp;&nbsp;&nbsp;'+n+'. '+lkup.hostJSON[nHost].name+'<br />';
+			  n++;
+		  }
+		  theTxt += '</h5>';
+	    $('#waitText').html(theTxt);
+	    
+		  $('#searchDiv').hide('slow');
+		  $('#waitDiv').show('slow');
 		
-		// note for this to work, all form fields MUST have a 'name' attribute
-		$('lookupForm #mode').val('search');
-		var srchParms = $('#lookupForm').serialize();
-		//console.log(srchParms);
-		$.post(lkup.url, srchParms, function(response) {
-			$('#waitDiv').hide(1000);
+		  // note for this to work, all form fields MUST have a 'name' attribute
+		  $('lookupForm #mode').val('search');
+		  var srchParms = $('#lookupForm').serialize();
+		  //console.log(srchParms);
+		  $.post(lkup.url, srchParms, function(response) {
+			  $('#waitDiv').hide(1000);
 			
-			if ($.trim(response).substr(0,1) != '{') {
-				$('#retryHead').empty();
-				$('#retryHead').html(lkup.searchError);
-				$('#retryMsg').empty();
-				$('#retryMsg').html(response);
-				$('#retryDiv').show(1000);
-			}
-			else {
+			  if ($.trim(response).substr(0,1) != '{') {
+				  $('#retryHead').empty();
+				  $('#retryHead').html(lkup.searchError);
+				  $('#retryMsg').empty();
+				  $('#retryMsg').html(response);
+				  $('#retryDiv').show(1000);
+			  }
+			  else {
 			
-				var rslts = eval('('+response+')'); // JSON 'interpreter'
-				//console.log('ttl hits = '+rslts.ttlHits);
-				if (rslts.ttlHits == 'none') {
-					//console.log(rslts.msg);
-		  		//{'ttlHits':'none','maxHits':'$postVars[maxHits]',
-					// 'msg':$lookLoc->getText('lookup_noResponse'),
-					// 'msg2':$lookLoc->getText('lookup_checkHostSpecifications')}
-					var str = rslts.msg+':<br />&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
-					$('#retryHead').empty();
-					$('#retryHead').html(rslts.msg);
-					$('#retryMsg').empty();
-					$('#retryMsg').html(rslts.msg2);
-					$('#retryDiv').show(1000);
-				}
+				  var rslts = eval('('+response+')'); // JSON 'interpreter'
+				  //console.log('ttl hits = '+rslts.ttlHits);
+				  if (rslts.ttlHits == 'none') {
+					  //console.log(rslts.msg);
+		    		//{'ttlHits':'none','maxHits':'$postVars[maxHits]',
+					  // 'msg':$lookLoc->getText('lookup_noResponse'),
+					  // 'msg2':$lookLoc->getText('lookup_checkHostSpecifications')}
+					  var str = rslts.msg+':<br />&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
+					  $('#retryHead').empty();
+					  $('#retryHead').html(rslts.msg);
+					  $('#retryMsg').empty();
+					  $('#retryMsg').html(rslts.msg2);
+					  $('#retryDiv').show(1000);
+				  }
 
-				if (rslts.ttlHits < 1) {
-					//console.log('nothing found');
-				  //{'ttlHits':$ttlHits,'maxHits':$postVars[maxHits],
-					// 'msg':".$lookLoc->getText('lookup_NothingFound'),
-					// 'srch1':['byName':$srchByName,'val':$lookupVal],
-					// 'srch2':['byName':$srchByName2,'val':$lookupVal2]}
-					var str = '&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
-					if (rslts.srch2.lookupVal != '')
-						str += '<br />&nbsp;&nbsp;&nbsp;'+rslts.srch2.byName+' = '+rslts.srch2.lookupVal;
-					$('#retryHead').empty();
-//					$('#retryHead').html(lkup.nothingFound);
-					$('#retryHead').html(rslts.msg);
-					$('#retryMsg').empty();
-					$('#retryMsg').html(str);
-					$('#retryDiv').show(1000);
-				}
+				  if (rslts.ttlHits < 1) {
+					  //console.log('nothing found');
+				    //{'ttlHits':$ttlHits,'maxHits':$postVars[maxHits],
+					  // 'msg':".$lookLoc->getText('lookup_NothingFound'),
+					  // 'srch1':['byName':$srchByName,'val':$lookupVal],
+					  // 'srch2':['byName':$srchByName2,'val':$lookupVal2]}
+					  var str = '&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
+					  if (rslts.srch2.lookupVal != '')
+						  str += '<br />&nbsp;&nbsp;&nbsp;'+rslts.srch2.byName+' = '+rslts.srch2.lookupVal;
+					  $('#retryHead').empty();
+  //					$('#retryHead').html(lkup.nothingFound);
+					  $('#retryHead').html(rslts.msg);
+					  $('#retryMsg').empty();
+					  $('#retryMsg').html(str);
+					  $('#retryDiv').show(1000);
+				  }
 
-				else if (parseInt(rslts.ttlHits) >= parseInt(rslts.maxHits)) {
-					//console.log('too many hits');
-		  		//{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]',
-					// 'msg':'$msg1', 'msg2':'$msg2'}
-					var str = rslts.msg+' ('+rslts.ttlHits+' ).<br />'+rslts.msg2;
-					$('#retryHead').empty();
-					$('#retryHead').html(lkup.tooMany);
-					$('#retryMsg').empty();
-					$('#retryMsg').html(str);
-					$('#retryDiv').show(1000);
-				}
+				  else if (parseInt(rslts.ttlHits) >= parseInt(rslts.maxHits)) {
+					  //console.log('too many hits');
+		    		//{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]',
+					  // 'msg':'$msg1', 'msg2':'$msg2'}
+					  var str = rslts.msg+' ('+rslts.ttlHits+' items).<br />'+rslts.msg2;
+					  $('#retryHead').empty();
+					  $('#retryHead').html(lkup.tooMany);
+					  $('#retryMsg').empty();
+					  $('#retryMsg').html(str);
+					  $('#retryDiv').show(1000);
+				  }
 			
-				else if (rslts.ttlHits > 1){
-					//console.log('more than one hit');
-					$('#choiceSpace').empty();
-					$('#choiceSpace').append('<h3>Success!  <span id="ttlHits"></span></h3>');
+				  else if (rslts.ttlHits > 1){
+					  //console.log('more than one hit');
+					  $('#choiceSpace').empty();
+					  $('#choiceSpace').append('<h3>Success!  <span id="ttlHits"></span></h3>');
 
-					var nHits = 0;
-					lkup.hostData = rslts.data;
-					$.each(rslts.data, function(hostIndex,hostData) {
-					  $('#choiceSpace').append('<hr width="50%">');
-					  if (typeof(hostData) != undefined) {
-					  $('#choiceSpace').append('<h4>Repository: '+lkup.hostJSON[hostIndex].name+'</h4>');
-					  $.each(hostData, function(hitIndex,hitData) {
-					    nHits++;
-					    var html = '<form class="hitForm"><table border="0">';
-					    html += '<tr><td class="primary">LCCN</th><td class="primary">'+hitData['010a']+'</td></tr>';
-					    html += '<tr><td class="primary">ISBN</th><td class="primary">'+hitData['020a']+'</td></tr>';
-					    html += '<tr><td class="primary">Title</th><td class="primary">'+hitData['245a']+'</td></tr>';
-					    html += '<tr><td class="primary">Author</th><td class="primary">'+hitData['100a']+'</td></tr>';
-					    html += '<tr><td class="primary">Publisher</th><td class="primary">'+hitData['260b']+'</td></tr>';
-					    html += '<tr><td class="primary">Location</th><td class="primary">'+hitData['260a']+'</td></tr>';
-					    html += '<tr><td class="primary">Date</th><td class="primary">'+hitData['260c']+'</td>';
-							var id = 'host'+hostIndex+'-hit'+hitIndex;
-					    html += '<td id="'+id+'" class="primary"><input type="button" value="This One" class="button" /></td></tr>';
-							html += '</table></form>';
-							$('#choiceSpace').append(html);
-							$('#'+id).bind('click',{host:hostIndex,hit:hitIndex,data:hitData},lkup.doSelectOne);
-						}); // $.each(hostData...
-						} // if (lkup.hostJason[hostIndex])
-					}); // $.each(rslts.data...
-					$('#ttlHits').html(nHits+' hits found.')
-					//console.log('all choices drawn')
-					//$('#choiceSpace').append(response);
-					$('#biblioBtn').bind('click',null,lkup.doBackToChoice);
-					$('#biblioBtn2').bind('click',null,lkup.doBackToChoice);
-					$('#choiceDiv').show('slow');
-				} // else if (rslts.ttlHits > 1)
-				else if (rslts.ttlHits == 1){
-				  var data;
-					//console.log('single hit found');
-					lkup.hostData = rslts.data;
-					$.each(rslts.data, function(hostIndex,hostData) {
-					  $.each(hostData, function(hitIndex,hitData) {
-					  	data = hitData;
+					  var nHits = 0;
+					  lkup.hostData = rslts.data;
+					  $.each(rslts.data, function(hostIndex,hostData) {
+					    $('#choiceSpace').append('<hr width="50%">');
+					    if (typeof(hostData) != undefined) {
+					    $('#choiceSpace').append('<h4>Repository: '+lkup.hostJSON[hostIndex].name+'</h4>');
+					    $.each(hostData, function(hitIndex,hitData) {
+					      nHits++;
+					      var html = '<form class="hitForm"><table border="0">';
+					      html += '<tr><td class="primary">LCCN</th><td class="primary">'+hitData['010a']+'</td></tr>';
+					      html += '<tr><td class="primary">ISBN</th><td class="primary">'+hitData['020a']+'</td></tr>';
+					      html += '<tr><td class="primary">Title</th><td class="primary">'+hitData['245a']+'</td></tr>';
+					      html += '<tr><td class="primary">Author</th><td class="primary">'+hitData['100a']+'</td></tr>';
+					      html += '<tr><td class="primary">Publisher</th><td class="primary">'+hitData['260b']+'</td></tr>';
+					      html += '<tr><td class="primary">Location</th><td class="primary">'+hitData['260a']+'</td></tr>';
+					      html += '<tr><td class="primary">Date</th><td class="primary">'+hitData['260c']+'</td>';
+							  var id = 'host'+hostIndex+'-hit'+hitIndex;
+					      html += '<td id="'+id+'" class="primary"><input type="button" value="This One" class="button" /></td></tr>';
+							  html += '</table></form>';
+							  $('#choiceSpace').append(html);
+							  $('#'+id).bind('click',{host:hostIndex,hit:hitIndex,data:hitData},lkup.doSelectOne);
+						  }); // $.each(hostData...
+						  } // if (lkup.hostJason[hostIndex])
+					  }); // $.each(rslts.data...
+					  $('#ttlHits').html(nHits+' hits found.')
+					  //console.log('all choices drawn')
+					  //$('#choiceSpace').append(response);
+					  $('#biblioBtn').bind('click',null,lkup.doBackToChoice);
+					  $('#biblioBtn2').bind('click',null,lkup.doBackToChoice);
+					  $('#choiceDiv').show('slow');
+				  } // else if (rslts.ttlHits > 1)
+				  else if (rslts.ttlHits == 1){
+				    var data;
+					  //console.log('single hit found');
+					  lkup.hostData = rslts.data;
+					  $.each(rslts.data, function(hostIndex,hostData) {
+					    $.each(hostData, function(hitIndex,hitData) {
+					    	data = hitData;
+					    });
 					  });
-					});
-					$('#biblioBtn').bind('click',null,lkup.doBackToSrch);
-					$('#biblioBtn2').bind('click',null,lkup.doBackToSrch);
-					lkup.doShowOne(data);
-				}
-			} // else
-		}); // .post
+					  $('#biblioBtn').bind('click',null,lkup.doBackToSrch);
+					  $('#biblioBtn2').bind('click',null,lkup.doBackToSrch);
+					  lkup.doShowOne(data);
+				  }
+			  } // else
+		  }); // .post
+		}
+		else {
+		  lookupVal_wrap = $('#lookupVal').parent();
+		  if (lookupVal_wrap.children('.error').length < 1) {
+		    $('#lookupVal').parent().append('<br /><font class="error"><?=$jsLoc->getText("lookup_EmptyKeyword") ?></font>');
+		  }
+		}
 	},
 	
 	doSelectOne: function (e) {
