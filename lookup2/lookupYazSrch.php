@@ -64,6 +64,8 @@
 		//echo "<br /> waiting $waitOpts[timeout] seconds for responses. <br />";
 		//yaz_wait($waitOpts);
 		yaz_wait();
+		
+		$error = yaz_error($connOK);
 
 		$ttlHits = 0;
 		for ($i=0; $i<$numHosts; $i++) {

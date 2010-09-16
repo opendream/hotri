@@ -4,7 +4,7 @@
  */
  
 // Check lookupVal should not empty.
-if ($_POST[mode] == 'search' && empty($_POST['lookupVal']) && empty($_POST['lookupVal2'])) {
+if ($_POST['mode'] == 'search' && empty($_POST['lookupVal']) && empty($_POST['lookupVal2'])) {
   exit('invalid parameters');
 }
 

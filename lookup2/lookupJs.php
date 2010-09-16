@@ -174,112 +174,126 @@ lkup = {
 		  $('lookupForm #mode').val('search');
 		  var srchParms = $('#lookupForm').serialize();
 		  //console.log(srchParms);
-		  $.post(lkup.url, srchParms, function(response) {
-			  $('#waitDiv').hide(1000);
+		  //$.post(lkup.url, srchParms, function(response) {
+		  $.ajax({
+		    type: 'POST',
+		    data: srchParms,
+		    url: lkup.url,
+		    success: function(response, textStatus) {
+			    $('#waitDiv').hide(1000);
 			
-			  if ($.trim(response).substr(0,1) != '{') {
-				  $('#retryHead').empty();
-				  $('#retryHead').html(lkup.searchError);
-				  $('#retryMsg').empty();
-				  $('#retryMsg').html(response);
-				  $('#retryDiv').show(1000);
-			  }
-			  else {
+			    if ($.trim(response).substr(0,1) != '{') {
+				    $('#retryHead').empty();
+				    $('#retryHead').html(lkup.searchError);
+				    $('#retryMsg').empty();
+				    $('#retryMsg').html(response);
+				    $('#retryDiv').show(1000);
+			    }
+			    else {
 			
-				  var rslts = eval('('+response+')'); // JSON 'interpreter'
-				  //console.log('ttl hits = '+rslts.ttlHits);
-				  if (rslts.ttlHits == 'none') {
-					  //console.log(rslts.msg);
-		    		//{'ttlHits':'none','maxHits':'$postVars[maxHits]',
-					  // 'msg':$lookLoc->getText('lookup_noResponse'),
-					  // 'msg2':$lookLoc->getText('lookup_checkHostSpecifications')}
-					  var str = rslts.msg+':<br />&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
-					  $('#retryHead').empty();
-					  $('#retryHead').html(rslts.msg);
-					  $('#retryMsg').empty();
-					  $('#retryMsg').html(rslts.msg2);
-					  $('#retryDiv').show(1000);
-				  }
+				    var rslts = eval('('+response+')'); // JSON 'interpreter'
+				    //console.log('ttl hits = '+rslts.ttlHits);
+				    if (rslts.ttlHits == 'none') {
+					    //console.log(rslts.msg);
+		      		//{'ttlHits':'none','maxHits':'$postVars[maxHits]',
+					    // 'msg':$lookLoc->getText('lookup_noResponse'),
+					    // 'msg2':$lookLoc->getText('lookup_checkHostSpecifications')}
+					    var str = rslts.msg+':<br />&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
+					    $('#retryHead').empty();
+					    $('#retryHead').html(rslts.msg);
+					    $('#retryMsg').empty();
+					    $('#retryMsg').html(rslts.msg2);
+					    $('#retryDiv').show(1000);
+				    }
 
-				  if (rslts.ttlHits < 1) {
-					  //console.log('nothing found');
-				    //{'ttlHits':$ttlHits,'maxHits':$postVars[maxHits],
-					  // 'msg':".$lookLoc->getText('lookup_NothingFound'),
-					  // 'srch1':['byName':$srchByName,'val':$lookupVal],
-					  // 'srch2':['byName':$srchByName2,'val':$lookupVal2]}
-					  var str = '&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
-					  if (rslts.srch2.lookupVal != '')
-						  str += '<br />&nbsp;&nbsp;&nbsp;'+rslts.srch2.byName+' = '+rslts.srch2.lookupVal;
-					  $('#retryHead').empty();
-  //					$('#retryHead').html(lkup.nothingFound);
-					  $('#retryHead').html(rslts.msg);
-					  $('#retryMsg').empty();
-					  $('#retryMsg').html(str);
-					  $('#retryDiv').show(1000);
-				  }
+				    if (rslts.ttlHits < 1) {
+					    //console.log('nothing found');
+				      //{'ttlHits':$ttlHits,'maxHits':$postVars[maxHits],
+					    // 'msg':".$lookLoc->getText('lookup_NothingFound'),
+					    // 'srch1':['byName':$srchByName,'val':$lookupVal],
+					    // 'srch2':['byName':$srchByName2,'val':$lookupVal2]}
+					    var str = '&nbsp;&nbsp;&nbsp;'+rslts.srch1.byName+' = '+rslts.srch1.lookupVal;
+					    if (rslts.srch2.lookupVal != '')
+						    str += '<br />&nbsp;&nbsp;&nbsp;'+rslts.srch2.byName+' = '+rslts.srch2.lookupVal;
+					    $('#retryHead').empty();
+    //					$('#retryHead').html(lkup.nothingFound);
+					    $('#retryHead').html(rslts.msg);
+					    $('#retryMsg').empty();
+					    $('#retryMsg').html(str);
+					    $('#retryDiv').show(1000);
+				    }
 
-				  else if (parseInt(rslts.ttlHits) >= parseInt(rslts.maxHits)) {
-					  //console.log('too many hits');
-		    		//{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]',
-					  // 'msg':'$msg1', 'msg2':'$msg2'}
-					  var str = rslts.msg+' ('+rslts.ttlHits+' items).<br />'+rslts.msg2;
-					  $('#retryHead').empty();
-					  $('#retryHead').html(lkup.tooMany);
-					  $('#retryMsg').empty();
-					  $('#retryMsg').html(str);
-					  $('#retryDiv').show(1000);
-				  }
+				    else if (parseInt(rslts.ttlHits) >= parseInt(rslts.maxHits)) {
+					    //console.log('too many hits');
+		      		//{'ttlHits':'$ttlHits','maxHits':'$postVars[maxHits]',
+					    // 'msg':'$msg1', 'msg2':'$msg2'}
+					    var str = rslts.msg+' ('+rslts.ttlHits+' items).<br />'+rslts.msg2;
+					    $('#retryHead').empty();
+					    $('#retryHead').html(lkup.tooMany);
+					    $('#retryMsg').empty();
+					    $('#retryMsg').html(str);
+					    $('#retryDiv').show(1000);
+				    }
 			
-				  else if (rslts.ttlHits > 1){
-					  //console.log('more than one hit');
-					  $('#choiceSpace').empty();
-					  $('#choiceSpace').append('<h3>Success!  <span id="ttlHits"></span></h3>');
+				    else if (rslts.ttlHits > 1){
+					    //console.log('more than one hit');
+					    $('#choiceSpace').empty();
+					    $('#choiceSpace').append('<h3>Success!  <span id="ttlHits"></span></h3>');
 
-					  var nHits = 0;
-					  lkup.hostData = rslts.data;
-					  $.each(rslts.data, function(hostIndex,hostData) {
-					    $('#choiceSpace').append('<hr width="50%">');
-					    if (typeof(hostData) != undefined) {
-					    $('#choiceSpace').append('<h4>Repository: '+lkup.hostJSON[hostIndex].name+'</h4>');
-					    $.each(hostData, function(hitIndex,hitData) {
-					      nHits++;
-					      var html = '<form class="hitForm"><table border="0">';
-					      html += '<tr><td class="primary">LCCN</th><td class="primary">'+hitData['010a']+'</td></tr>';
-					      html += '<tr><td class="primary">ISBN</th><td class="primary">'+hitData['020a']+'</td></tr>';
-					      html += '<tr><td class="primary">Title</th><td class="primary">'+hitData['245a']+'</td></tr>';
-					      html += '<tr><td class="primary">Author</th><td class="primary">'+hitData['100a']+'</td></tr>';
-					      html += '<tr><td class="primary">Publisher</th><td class="primary">'+hitData['260b']+'</td></tr>';
-					      html += '<tr><td class="primary">Location</th><td class="primary">'+hitData['260a']+'</td></tr>';
-					      html += '<tr><td class="primary">Date</th><td class="primary">'+hitData['260c']+'</td>';
-							  var id = 'host'+hostIndex+'-hit'+hitIndex;
-					      html += '<td id="'+id+'" class="primary"><input type="button" value="This One" class="button" /></td></tr>';
-							  html += '</table></form>';
-							  $('#choiceSpace').append(html);
-							  $('#'+id).bind('click',{host:hostIndex,hit:hitIndex,data:hitData},lkup.doSelectOne);
-						  }); // $.each(hostData...
-						  } // if (lkup.hostJason[hostIndex])
-					  }); // $.each(rslts.data...
-					  $('#ttlHits').html(nHits+' hits found.')
-					  //console.log('all choices drawn')
-					  //$('#choiceSpace').append(response);
-					  $('#biblioBtn').bind('click',null,lkup.doBackToChoice);
-					  $('#biblioBtn2').bind('click',null,lkup.doBackToChoice);
-					  $('#choiceDiv').show('slow');
-				  } // else if (rslts.ttlHits > 1)
-				  else if (rslts.ttlHits == 1){
-				    var data;
-					  //console.log('single hit found');
-					  lkup.hostData = rslts.data;
-					  $.each(rslts.data, function(hostIndex,hostData) {
-					    $.each(hostData, function(hitIndex,hitData) {
-					    	data = hitData;
+					    var nHits = 0;
+					    lkup.hostData = rslts.data;
+					    $.each(rslts.data, function(hostIndex,hostData) {
+					      $('#choiceSpace').append('<hr width="50%">');
+					      if (typeof(hostData) != undefined) {
+					      $('#choiceSpace').append('<h4>Repository: '+lkup.hostJSON[hostIndex].name+'</h4>');
+					      $.each(hostData, function(hitIndex,hitData) {
+					        nHits++;
+					        var html = '<form class="hitForm"><table border="0">';
+					        html += '<tr><td class="primary">LCCN</th><td class="primary">'+hitData['010a']+'</td></tr>';
+					        html += '<tr><td class="primary">ISBN</th><td class="primary">'+hitData['020a']+'</td></tr>';
+					        html += '<tr><td class="primary">Title</th><td class="primary">'+hitData['245a']+'</td></tr>';
+					        html += '<tr><td class="primary">Author</th><td class="primary">'+hitData['100a']+'</td></tr>';
+					        html += '<tr><td class="primary">Publisher</th><td class="primary">'+hitData['260b']+'</td></tr>';
+					        html += '<tr><td class="primary">Location</th><td class="primary">'+hitData['260a']+'</td></tr>';
+					        html += '<tr><td class="primary">Date</th><td class="primary">'+hitData['260c']+'</td>';
+							    var id = 'host'+hostIndex+'-hit'+hitIndex;
+					        html += '<td id="'+id+'" class="primary"><input type="button" value="This One" class="button" /></td></tr>';
+							    html += '</table></form>';
+							    $('#choiceSpace').append(html);
+							    $('#'+id).bind('click',{host:hostIndex,hit:hitIndex,data:hitData},lkup.doSelectOne);
+						    }); // $.each(hostData...
+						    } // if (lkup.hostJason[hostIndex])
+					    }); // $.each(rslts.data...
+					    $('#ttlHits').html(nHits+' hits found.')
+					    //console.log('all choices drawn')
+					    //$('#choiceSpace').append(response);
+					    $('#biblioBtn').bind('click',null,lkup.doBackToChoice);
+					    $('#biblioBtn2').bind('click',null,lkup.doBackToChoice);
+					    $('#choiceDiv').show('slow');
+				    } // else if (rslts.ttlHits > 1)
+				    else if (rslts.ttlHits == 1){
+				      var data;
+					    //console.log('single hit found');
+					    lkup.hostData = rslts.data;
+					    $.each(rslts.data, function(hostIndex,hostData) {
+					      $.each(hostData, function(hitIndex,hitData) {
+					      	data = hitData;
+					      });
 					    });
-					  });
-					  $('#biblioBtn').bind('click',null,lkup.doBackToSrch);
-					  $('#biblioBtn2').bind('click',null,lkup.doBackToSrch);
-					  lkup.doShowOne(data);
-				  }
-			  } // else
+					    $('#biblioBtn').bind('click',null,lkup.doBackToSrch);
+					    $('#biblioBtn2').bind('click',null,lkup.doBackToSrch);
+					    lkup.doShowOne(data);
+				    }
+			    } // else
+			  },
+			  error: function(xhr, textStatus, errorThrown) {
+			    $('#waitDiv').hide(1000);
+			    $('#retryHead').empty();
+			    $('#retryHead').html('AJAX error');
+			    $('#retryMsg').empty();
+			    $('#retryMsg').html('Library server is not response, please contact administrator.');
+			    $('#retryDiv').show(1000);
+			  }
 		  }); // .post
 		}
 		else {

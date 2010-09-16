@@ -31,7 +31,12 @@
 		//echo "ttl hits= $ttlHits<br />";
 		## TOO FEW
 		if ($ttlHits == 0) {
-		  $msg1 = $lookLoc->getText('lookup_nothingFound');
+		  if (empty($error)) {
+		    $msg1 = $lookLoc->getText('lookup_nothingFound');
+		  }
+		  else {
+		    $msg1 = $lookLoc->getText('lookup_yazError') . ' ' . $error;
+		  }
 		  # JSON object follows
 		  $s =  "{'ttlHits':'0','maxHits':'$postVars[maxHits]','protocol':'$postVars[protocol]',".
 						"'msg':'$msg1',".
