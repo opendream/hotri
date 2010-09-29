@@ -171,4 +171,16 @@ $trans["author"]                   = "\$text = 'Author';";
 $trans["due_back_dt"]              = "\$text = 'Due Back';";
 $trans["checkoutCount"]            = "\$text = 'Checkout Count';";
 
+$trans["reportDateMonth01"]   = "\$text = 'January';";
+$trans["reportDateMonth02"]   = "\$text = 'February';";
+$trans["reportDateMonth03"]   = "\$text = 'March';";
+$trans["reportDateMonth04"]   = "\$text = 'April';";
+$trans["reportDateMonth05"]   = "\$text = 'May';";
+$trans["reportDateMonth06"]   = "\$text = 'June';";
+$trans["reportDateMonth07"]   = "\$text = 'July';";
+$trans["reportDateMonth08"]   = "\$text = 'August';";
+$trans["reportDateMonth09"]   = "\$text = 'September';";
+$trans["reportDateMonth10"]   = "\$text = 'October';";
+$trans["reportDateMonth11"]   = "\$text = 'November';";
+$trans["reportDateMonth12"]   = "\$text = 'December';";
 ?>

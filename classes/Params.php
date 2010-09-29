@@ -141,8 +141,10 @@ class Params {
     echo '</label></td><td>';
     switch ($type) {
     case 'string':
-    case 'date':
       echo inputField('text', $name, $default);
+      break;
+    case 'date':
+      echo inputField('date', $name, $default);
       break;
     case 'select':
       $l = array();

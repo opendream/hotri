@@ -9,6 +9,7 @@ require_once("../classes/DmQuery.php");
 
 /* Returns HTML for a form input field with error handling. */
 function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
+  global $loc;
   $s = "";
   if (isset($_SESSION['postVars'])) {
     $postVars = $_SESSION['postVars'];
@@ -67,6 +68,30 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
       $s .= H($k).'="'.H($v).'" ';
     }
     $s .= "/>";
+    break;
+  case 'date':
+    $thisDate = explode(' ', date('d m Y'));
+    $dateInputName = H($name);
+    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_day" name="'.$dateInputName.'_day">' . "\n";
+    for ($i = 1; $i <= 31; $i++) {
+      $s .= '  <option value="' . $i . '" ' . ($i == 0 + $thisDate[0] ? ' selected="selected"':'') . '>' . $i . "</option>\n";
+    }
+    $s .= "</select>\n";
+    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_month" name="'.$dateInputName.'_month">' . "\n";
+    for ($i = 1; $i <= 12; $i++) {
+      $mon = str_pad($i, 2, '0', STR_PAD_LEFT); 
+      $s .= '  <option value="' . $mon . '"' . ($mon == $thisDate[1] ? ' selected="selected"':'') . '>' . $loc->getText('reportDateMonth' . $mon) . "</option>\n";
+    }
+    $s .= "</select>\n";
+    
+    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_year" name="'.$dateInputName.'_year">' . "\n";
+    
+    for ($i = -20; $i <= 20; $i++) {
+      $y = $thisDate[2] + $i;
+      $s .= '  <option value="' . $y . '" '. ($i == 0 ? 'selected="select"' : '') . '>' . $y . "</option>\n";
+    }
+    $s .= "</select>\n";
+    
     break;
   default:
     $s .= '<input type="'.H($type).'" ';
