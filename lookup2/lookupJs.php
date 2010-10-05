@@ -299,7 +299,7 @@ lkup = {
 		else {
 		  lookupVal_wrap = $('#lookupVal').parent();
 		  if (lookupVal_wrap.children('.error').length < 1) {
-		    $('#lookupVal').parent().append('<br /><font class="error"><?=$jsLoc->getText("lookup_EmptyKeyword") ?></font>');
+		    $('#lookupVal').parent().append('<br /><font class="error"><?php echo $jsLoc->getText("lookup_EmptyKeyword") ?></font>');
 		  }
 		}
 	},

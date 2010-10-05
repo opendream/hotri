@@ -89,7 +89,7 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
   default:
 ?>
 <h1>Failed Imports</h1>
-<?=$msg?>
+<?php print $msg ?>
 <table class="primary" border="1" cellpadding="3">
 <th>ISBN</th><th>Hits</th><th>Created</th><th colspan="3">Actions</th><th>Exist in catalog?</th></tr>
 <?php

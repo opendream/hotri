@@ -12,7 +12,7 @@ get_header();
 	    <?php if (!is_array($response)) { ?>
 	      <p>Could not retrieve bibliography.</p>
 	    <?php } else { ?>
-	    <h2><?=$response['title'] ?></h2>
+	    <h2><?php echo $response['title'] ?></h2>
       <?php
       if (!empty($response['subtitle'])) 
 	      echo "<h4>{$response['subtitle']}</h4>\n";

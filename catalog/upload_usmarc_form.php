@@ -39,7 +39,7 @@
 <form enctype="multipart/form-data" action="../catalog/upload_usmarc.php" method="post">
 <?php echo $loc->getText("MarcUploadTest"); ?>: <?php echo $loc->getText("MarcUploadTestTrue"); ?><input type="radio" value="true" name="test" checked>  <?php echo $loc->getText("MarcUploadTestFalse"); ?><input type="radio" value="false" name="test"><br />
 <?php echo $loc->getText("MarcUploadTestFileUpload"); ?>: <input type="file" name="usmarc_data"><br />
-<?php echo $loc->getText("MarcUploadEncoding"); ?>: <?=$enc_selection ?>
+<?php echo $loc->getText("MarcUploadEncoding"); ?>: <?php echo $enc_selection ?>
 <br /><br />
 
 <hr />

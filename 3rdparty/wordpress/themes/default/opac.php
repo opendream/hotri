@@ -10,7 +10,7 @@ get_header();
 	<div id="content" class="narrowcolumn" role="main">
 	  <div class="post">
 	    <h2><?php the_title(); echo " - " . $_GET['opac']; ?></h2>
-	    <h4>Search by: <?=empty($_GET['type'])?'title':$_GET['type'] ?></h4>
+	    <h4>Search by: <?php echo empty($_GET['type'])?'title':$_GET['type'] ?></h4>
 	    <?php
 	    $limit = 10; // Page limit
 	    $qpage = "&type=" . $_GET['type'];

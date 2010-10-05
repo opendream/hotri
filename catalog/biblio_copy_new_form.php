@@ -39,7 +39,7 @@
 <?php echo $loc->getText("catalogFootnote",array("symbol"=>"*")); ?>
 </font>
 
-<form name="newCopyForm" method="POST" action="../catalog/biblio_copy_new.php<?=empty($_GET['hits'])?'':'?hits='.$_GET['hits'].(empty($_GET['isbn'])?'':'&isbn='.$_GET['isbn']) ?>">
+<form name="newCopyForm" method="POST" action="../catalog/biblio_copy_new.php<?php echo empty($_GET['hits'])?'':'?hits='.$_GET['hits'].(empty($_GET['isbn'])?'':'&isbn='.$_GET['isbn']) ?>">
 <table class="primary">
   <tr>
     <th colspan="2" nowrap="yes" align="left">
