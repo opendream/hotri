@@ -68,35 +68,49 @@ class BiblioSearchQuery extends Query {
     $this->_pageCount = 0;
 
     # setting sql join clause
-    $join = "from biblio left join biblio_copy on biblio.bibid=biblio_copy.bibid ";
+    $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
 
     # setting sql where clause
     $criteria = "";
-    if ((sizeof($words) == 0) || ($words[0] == "")) {
-      if ($opacFlg) $criteria = "where opac_flg = 'Y' ";
-    } else {
+    if ((sizeof($words) == 0) || ($words[0] == "" && !is_array($words))) {
+      if ($opacFlg) $criteria = "WHERE opac_flg = 'Y' ";
+    }
+    else {
       if ($type == OBIB_SEARCH_BARCODE) {
-        $criteria = $this->_getCriteria(array("biblio_copy.barcode_nmbr"),$words);
-      } elseif ($type == OBIB_SEARCH_AUTHOR) {
-        $join .= "left join biblio_field on biblio_field.bibid=biblio.bibid "
-                 . "and biblio_field.tag='700' "
-                 . "and (biblio_field.subfield_cd='a' or biblio_field.subfield_cd='b') ";
-        $criteria = $this->_getCriteria(array("biblio.author","biblio.responsibility_stmt","biblio_field.field_data"),$words);
-      } elseif ($type == OBIB_SEARCH_SUBJECT) {
-        $criteria = $this->_getCriteria(array("biblio.topic1","biblio.topic2","biblio.topic3","biblio.topic4","biblio.topic5"),$words);
-      } else {
-        $criteria = $this->_getCriteria(array("biblio.title"),$words);
+        $criteria = $this->_getCriteria(array("biblio_copy.barcode_nmbr"), $words);
       }
-      if ($opacFlg) $criteria = $criteria."and opac_flg = 'Y' ";
+      elseif ($type == OBIB_SEARCH_AUTHOR) {
+        $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
+                 . "AND biblio_field.tag='700' "
+                 . "AND (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') ";
+        $criteria = $this->_getCriteria(array("biblio.author",
+                                              "biblio.responsibility_stmt",
+                                              "biblio_field.field_data"), $words);
+      }
+      elseif ($type == OBIB_SEARCH_SUBJECT) {
+        $criteria = $this->_getCriteria(array("biblio.topic1",
+                                              "biblio.topic2",
+                                              "biblio.topic3",
+                                              "biblio.topic4",
+                                              "biblio.topic5"), $words);
+      }
+      elseif ($type == OBIB_ADVANCED_SEARCH) {
+        $criteria = $this->_getCriteria(array_keys($words), array_values($words));
+      }
+      else {
+        $criteria = $this->_getCriteria(array("biblio.title"), $words);
+      }
+
+      if ($opacFlg) $criteria = $criteria ."AND opac_flg = 'Y' ";
     }
 
     # setting count query
-    $sqlcount = "select count(*) as rowcount ";
+    $sqlcount = "SELECT COUNT(*) AS rowcount ";
     $sqlcount = $sqlcount.$join;
     $sqlcount = $sqlcount.$criteria;
 
     # setting query that will return all the data
-    $sql = "select biblio.* ";
+    $sql = "SELECT biblio.* ";
     $sql .= ",biblio_copy.copyid ";
     $sql .= ",biblio_copy.barcode_nmbr ";
     $sql .= ",biblio_copy.status_cd ";
@@ -104,15 +118,12 @@ class BiblioSearchQuery extends Query {
     $sql .= ",biblio_copy.mbrid ";
     $sql .= $join;
     $sql .= $criteria;
-    $sql .= $this->mkSQL(" order by %C ", $sortBy);
+    $sql .= $this->mkSQL(" ORDER BY %C ", $sortBy);
 
     # setting limit so we can page through the results
     $offset = ($page - 1) * $this->_itemsPerPage;
     $limit = $this->_itemsPerPage;
-    $sql .= $this->mkSQL(" limit %N, %N", $offset, $limit);
-
-    //echo "sqlcount=[".$sqlcount."]<br>\n";
-    //exit("sql=[".$sql."]<br>\n");
+    $sql .= $this->mkSQL(" LIMIT %N, %N", $offset, $limit);
 
     # Running row count sql statement
     if (!$this->_query($sqlcount, $this->_loc->getText("biblioSearchQueryErr1"))) {
@@ -137,13 +148,13 @@ class BiblioSearchQuery extends Query {
    * @access private
    ****************************************************************************
    */
-  function _getCriteria($cols,&$words) {
+  function _getCriteria($cols, &$words) {
     # setting selection criteria sql
-    $prefix = "where ";
+    $prefix = "WHERE ";
     $criteria = "";
     for ($i = 0; $i < count($words); $i++) {
       $criteria .= $prefix.$this->_getLike($cols,$words[$i]);
-      $prefix = " and ";
+      $prefix = " AND ";
     }
     return $criteria;
   }
@@ -158,8 +169,8 @@ class BiblioSearchQuery extends Query {
     $like = "";
     for ($i = 0; $i < count($cols); $i++) {
       $like .= $prefix;
-      $like .= $this->mkSQL("%C like %Q ", $cols[$i], "%".$word."%");
-      $prefix = " or ";
+      $like .= $this->mkSQL("%C LIKE %Q ", $cols[$i], "%".$word."%");
+      $prefix = " OR ";
     }
     $like .= $suffix;
     return $like;
@@ -175,7 +186,7 @@ class BiblioSearchQuery extends Query {
    */
   function doQuery($statusCd,$mbrid="") {
 
-    $sql = "select biblio.* ";
+    $sql = "SELECT biblio.* ";
     $sql .= ",biblio_copy.copyid ";
     $sql .= ",biblio_copy.barcode_nmbr ";
     $sql .= ",biblio_copy.status_cd ";
@@ -184,13 +195,13 @@ class BiblioSearchQuery extends Query {
     $sql .= ",biblio_copy.mbrid ";
     $sql .= ",biblio_copy.renewal_count ";
     $sql .= ",greatest(0,to_days(sysdate()) - to_days(biblio_copy.due_back_dt)) days_late ";
-    $sql .= "from biblio, biblio_copy ";
-    $sql .= "where biblio.bibid = biblio_copy.bibid ";
+    $sql .= "FROM biblio, biblio_copy ";
+    $sql .= "WHERE biblio.bibid = biblio_copy.bibid ";
     if ($mbrid != "") {
-        $sql .= $this->mkSQL("and biblio_copy.mbrid = %N ", $mbrid);
+        $sql .= $this->mkSQL("AND biblio_copy.mbrid = %N ", $mbrid);
     }
-    $sql .= $this->mkSQL(" and biblio_copy.status_cd=%Q ", $statusCd);
-    $sql .= " order by biblio_copy.status_begin_dt desc";
+    $sql .= $this->mkSQL(" AND biblio_copy.status_cd=%Q ", $statusCd);
+    $sql .= " ORDER BY biblio_copy.status_begin_dt desc";
 
     if (!$this->_query($sql, $this->_loc->getText("biblioSearchQueryErr3"))) {
       return false;

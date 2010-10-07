@@ -100,6 +100,14 @@ $trans["biblioSearchBCode2Chk"]    = "\$text = 'Barcode to Check Out or Check In
 $trans["biblioSearchBCode2Hold"]   = "\$text = 'Barcode to Hold Form';";
 
 #****************************************************************************
+#*  Translation text for page advanced_search.php
+#****************************************************************************
+
+$trans["advsTitle"]                = "\$text = 'Advanced Search';"; 
+$trans["advsTypeOfMaterial"]       = "\$text = 'Type of Material';"; 
+$trans["advsSearch"]               = "\$text = 'Search';";
+
+#****************************************************************************
 #*  Translation text for page loginform.php
 #****************************************************************************
 $trans["loginFormTbleHdr"]         = "\$text = 'Staff Login';";

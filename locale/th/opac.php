@@ -47,5 +47,6 @@ $trans["opac_Title"]         = "\$text='Title';";
 $trans["opac_Author"]        = "\$text='Author';";
 $trans["opac_Subject"]       = "\$text='Subject';";
 $trans["opac_Search"]        = "\$text='Search';";
+$trans["opac_ISBN"]        = "\$text='ISBN';";
 
 ?>

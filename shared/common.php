@@ -102,7 +102,7 @@
   require_once('../classes/Error.php');
   require_once('../classes/Iter.php');
   require_once('../classes/Nav.php');
-  
+
   if (!isset($doing_install) or !$doing_install) {
     require_once("../shared/read_settings.php");
 

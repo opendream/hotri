@@ -18,6 +18,7 @@ if (OBIB_CHARSET != "") { ?>
 <META http-equiv="content-type" content="text/html; charset=<?php echo H(OBIB_CHARSET); ?>">
 <?php } ?>
 
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <style type="text/css">
   <?php include("../css/style.php");?>
 </style>

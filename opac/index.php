@@ -38,6 +38,7 @@
         <option value="title" selected><?php echo $loc->getText("opac_Title");?>
         <option value="author"><?php echo $loc->getText("opac_Author");?>
         <option value="subject"><?php echo $loc->getText("opac_Subject");?>
+        <option value="isbn"><?php echo $loc->getText("opac_ISBN");?>
       </select>
       <input type="text" name="searchText" size="30" maxlength="256">
       <input type="hidden" name="sortBy" value="default">
@@ -48,5 +49,7 @@
   </tr>
 </table>
 </form>
+
+<?php include("../shared/advanced_search.php") ?>
 
 <?php include("../shared/footer.php"); ?>

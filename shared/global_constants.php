@@ -21,11 +21,13 @@ define("OBIB_BOTH","3");
  * OBIB_SEARCH_SUBJECT
  ****************************************************************************
  */
-define("OBIB_SEARCH_BARCODE","1");
-define("OBIB_SEARCH_TITLE","2");
-define("OBIB_SEARCH_AUTHOR","3");
-define("OBIB_SEARCH_SUBJECT","4");
-define("OBIB_SEARCH_NAME","5");
+define("OBIB_SEARCH_BARCODE", "1");
+define("OBIB_SEARCH_TITLE", "2");
+define("OBIB_SEARCH_AUTHOR", "3");
+define("OBIB_SEARCH_SUBJECT", "4");
+define("OBIB_SEARCH_NAME", "5");
+define("OBIB_SEARCH_ISBN", "6");
+define("OBIB_ADVANCED_SEARCH", "9");
 
 /****************************************************************************
  *  Misc. system constants

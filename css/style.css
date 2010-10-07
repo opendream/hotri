@@ -34,3 +34,9 @@ a:link {
 a:visited {
   color: #0000aa;
 }
+
+/* Form */
+
+form td.label {
+	width: 200px;
+}
