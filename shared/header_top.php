@@ -56,8 +56,6 @@ function backToMain(URL) {
 	}
 	## ---------------------------------------------------------------------
 	?>
-
-  <link href="../stylesheets/style.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body bgcolor="<?php echo H(OBIB_PRIMARY_BG);?>" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0" <?php
   if (isset($focus_form_name) && ($focus_form_name != "")) {
