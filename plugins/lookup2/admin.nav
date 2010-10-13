@@ -1,10 +1,5 @@
 <!-- ---------------------------------------- --->
 <!-- added for Fred LaPlante's Lookup Function -->
-<?php if ($nav == "lookupOpts") { ?>
-&raquo; <?php echo $navLoc->getText("lookup_opts");?><br>
-<?php } else { ?>
-<a href="../lookup2/lookupOptsForm.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_opts");?></a><br>
-<?php } ?>
 <?php if ($nav == "lookupHosts") { ?>
 &raquo; <?php echo $navLoc->getText("lookup_hosts");?><br>
 <?php } else { ?>
