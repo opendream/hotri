@@ -96,7 +96,7 @@ class CsvImport {
     return $handle;
   } 
   
-  private function _string2Array($str) {
+  function _string2Array($str) {
     $str = str_replace('""', "%double_quote%", 
      str_replace('%', '%25', $str));
 
@@ -169,7 +169,7 @@ class CsvImportQuery extends Query {
     }
   }
   
-  private function _formatResults(&$data) {
+  function _formatResults(&$data) {
     
     switch ($this->_getCallNumberType()) {
       case 'loc':
@@ -183,19 +183,19 @@ class CsvImportQuery extends Query {
     $data['materialCd'] = $data['collectionCd'];
   }
   
-  private function _getDefaultCollection() {
+  function _getDefaultCollection() {
     $this->_query("SELECT code FROM collection_dm WHERE default_flg='Y'", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? '' : $array['code'];
   }
   
-  private function _getCallNumberType() {
+  function _getCallNumberType() {
     $this->_query("SELECT cutter_type FROM lookup_settings", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? false : strtolower($array['cutter_type']);
   }
   
-  private function _getBiblio($post) {
+  function _getBiblio($post) {
     require_once("Biblio.php");
     require_once("BiblioField.php");
     
@@ -232,7 +232,7 @@ class CsvImportQuery extends Query {
     return $biblio;
   }
   
-  private function _insertBiblio($biblio) {
+  function _insertBiblio($biblio) {
     require_once("BiblioQuery.php");
     
     $biblioQ = new BiblioQuery();

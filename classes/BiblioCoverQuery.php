@@ -4,7 +4,7 @@ require_once("../shared/common.php");
 require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
-  private $_lastError;
+  var $_lastError;
   function lookup($isbn) {
     // Hide warnings on results in safe mode
     //error_reporting(0);
@@ -168,7 +168,7 @@ class BiblioCoverQuery extends Query {
     return true;
   }
   
-  private function _getLookupResult($server, $isbn) {
+  function _getLookupResult($server, $isbn) {
     // Now support YAZ only
     $query = '@attr 1=7 ' . $isbn;
     $conn = yaz_connect($server['host'], 

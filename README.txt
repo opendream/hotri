@@ -32,3 +32,6 @@ Note:
 - For import book/biblio data from CSV, use 'Cataloging > CSV Import' and follow instruction guidelines in this page and so on.
 - For online search, you could configure servers for lookup on 'Admin > Z39.50 Servers'.
 - For online book cover lookup, configure on 'Admin > Cover Lookup Options'.
+
+Known issues:
+- Book cover lookup service doesn't work on PHP4 because of class & object issues.

@@ -62,6 +62,11 @@
 <?php } else { ?>
  <a href="../admin/cover_opts.php" class="alt1"><?php echo $navLoc->getText("Cover Lookup Options");?></a><br>
 <?php } ?>
+<?php if ($nav == "z3950_opts") { ?>
+&raquo; <?php echo $navLoc->getText("lookup_opts");?><br>
+<?php } else { ?>
+<a href="../admin/z3950_opts.php" class="alt1"><?php echo $navLoc->getText("lookup_opts");?></a><br>
+<?php } ?>
 <?php
 	$list = getPlugIns('admin.nav');
 	for ($x=0; $x<count($list); $x++) {

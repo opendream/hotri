@@ -4,7 +4,7 @@ require_once("../shared/common.php");
 require_once("../lookup2/LookupHostsQuery.php");
 
 class BulkLookup {
-  private $_results;
+  var $_results;
   function BulkLookup() {
     
   }
@@ -130,13 +130,13 @@ class BulkLookup {
 			return substr($isbn,0,10);
 	}
   
-  private function _getLookupServers() {
+  function _getLookupServers() {
     global $postVars;
     getHosts('active');
     return $postVars['hosts'];
   }
   
-  private function _getLookupResult($server, $isbn) {
+  function _getLookupResult($server, $isbn) {
     // Now support YAZ only.
     $query = '@attr 1=7 ' . $isbn;
     $conn = yaz_connect($server['host'], 
@@ -171,7 +171,7 @@ class BulkLookup {
     return $data;
   }
   
-  private function _addResult($result) {
+  function _addResult($result) {
     if (!is_array($result) || !isset($result['isbn'])) return false;
 
     if (empty($result['amount']))
@@ -424,7 +424,7 @@ class BulkLookupQuery extends Query {
     $copyQ->close();
   }
   
-  private function _insertBiblio($biblio) {
+  function _insertBiblio($biblio) {
     require_once("BiblioQuery.php");
     
     $biblioQ = new BiblioQuery();
@@ -444,19 +444,19 @@ class BulkLookupQuery extends Query {
     return $bibid;
   }
   
-  private function _getCallNumberType() {
+  function _getCallNumberType() {
     $this->_query("SELECT cutter_type FROM lookup_settings", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? false : strtolower($array['cutter_type']);
   }
   
-  private function _getDefaultCollection() {
+  function _getDefaultCollection() {
     $this->_query("SELECT code FROM collection_dm WHERE default_flg='Y'", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? '' : $array['code'];
   }
   
-  private function _formatResults(&$data) {
+  function _formatResults(&$data) {
     
     switch ($this->_getCallNumberType()) {
       case 'loc':
@@ -507,7 +507,7 @@ class BulkLookupQuery extends Query {
     $data['materialCd'] = $data['collectionCd'];
   }
   
-  private function _getBiblio($post) {
+  function _getBiblio($post) {
     require_once("Biblio.php");
     require_once("BiblioField.php");
     
