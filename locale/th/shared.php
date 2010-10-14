@@ -103,9 +103,15 @@ $trans["biblioSearchBCode2Hold"]   = "\$text = 'Barcode to Hold Form';";
 #*  Translation text for page advanced_search.php
 #****************************************************************************
 
-$trans["advsTitle"]                = "\$text = 'Advanced Search';"; 
-$trans["advsTypeOfMaterial"]       = "\$text = 'Type of Material';"; 
-$trans["advsSearch"]               = "\$text = 'Search';";
+$trans["or"]                       = "\$text = 'หรือ';";
+$trans["cancel"]                   = "\$text = 'ยกเลิก';";
+$trans["any"]                      = "\$text = 'ทุกประเภท';";
+$trans["advsTitle"]                = "\$text = 'การค้นหาขั้นสูง';"; 
+$trans["advsMaterialType"]         = "\$text = 'ชนิดของสื่อ';"; 
+$trans["advsCollectionType"]       = "\$text = 'Collection';";
+$trans["advsCallNumber"]           = "\$text = 'Call Number';";
+$trans["advsSearch"]               = "\$text = 'ค้นหา';";
+$trans["advsClear"]               = "\$text = 'ล้างเงื่อนไข';";
 
 #****************************************************************************
 #*  Translation text for page loginform.php

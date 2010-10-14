@@ -260,7 +260,7 @@ td.noborder {
 /*********************************************************
  *  Form Styles
  *********************************************************/
-input.button {
+/*input.button {
   background-color: <?php echo H(OBIB_ALT1_BG);?>;
   border-color: <?php echo H(OBIB_ALT1_BG);?>;
   border-left-color: <?php echo H(OBIB_ALT1_BG);?>;
@@ -318,7 +318,7 @@ select {
   scrollbar-base-color: <?php echo H(OBIB_ALT1_BG);?>;
   font-family: <?php echo H(OBIB_PRIMARY_FONT_FACE);?>;
   color: <?php echo H(OBIB_PRIMARY_FONT_COLOR);?>;
-}
+}*/
 
 ul.nav_main { list-style-type: none; padding-left: 0; margin-left: 0; }
 li.nav_selected:before { white-space: pre-wrap; content: "\bb  " }

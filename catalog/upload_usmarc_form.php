@@ -24,7 +24,7 @@
   $encoding = array("ASCII", "CP1256", "ISO-8859-1", "ISO-8859-6", "ISO-8859-15", "TIS-620", "UTF-8", "Windows-1252");
   $enc_selection = '<select name="encoding">';
   foreach ($encoding as $i => $label) {
-    if ($label === 'TIS-620') {
+    if ($label === 'UTF-8') {
       $default = 'selected="selected"';
     }
     else {
