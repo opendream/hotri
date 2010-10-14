@@ -64,14 +64,19 @@ $(document).ready(function() {
 
     $("input#btn-reset").click(function(e) {
         e.preventDefault();
-        window.location = "/opac/index.php";
+        var url = window.location.href;
+        if (url.match(/opac/)) {
+            window.location = "/opac/index.php";
+        } else if (url.match(/catalog/)) {
+            window.location = "/catalog/index.php";
+        }
     });
 
     /**
      * Working on page loads ----------------------------------------------------
      */
 
-    $("fieldset.collapsible").collapse({closed: false, callback: change_legend_icon});
+    $("fieldset.collapsible").collapse({closed: true, callback: change_legend_icon});
     change_legend_icon();
 
 

@@ -52,6 +52,7 @@
         <option value="title" selected><?php echo $loc->getText("indexTitle");?>
         <option value="author"><?php echo $loc->getText("indexAuthor");?>
         <option value="subject"><?php echo $loc->getText("indexSubject");?>
+        <option value="isbn"><?php echo $loc->getText("indexISBN");?>
       </select>
       <input type="text" name="searchText" size="30" maxlength="256">
       <input type="hidden" name="sortBy" value="default">
@@ -60,5 +61,7 @@
   </tr>
 </table>
 </form>
+
+<?php include("../shared/advanced_search.php"); ?>
 
 <?php include("../shared/footer.php"); ?>
