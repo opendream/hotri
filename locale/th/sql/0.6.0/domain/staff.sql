@@ -5,7 +5,7 @@ values (null
   ,1
   ,'admin'
   ,md5('admin')
-  ,'Root Administrator'
+  ,'ประสิทธิชัย เลิศรัตนเคหกาล'
   ,null
   ,'N'
   ,'Y'

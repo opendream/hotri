@@ -37,83 +37,88 @@
 #****************************************************************************
 #*  Translation text shared by various php files under the navbars dir
 #****************************************************************************
-$trans["login"]                    = "\$text = 'Login';";
-$trans["logout"]                   = "\$text = 'Logout';";
-$trans["help"]                     = "\$text = 'Help';";
+$trans["login"]                    = "\$text = 'ลงชื่อเข้าใช้';";
+$trans["logout"]                   = "\$text = 'ออกจากระบบ';";
+$trans["help"]                     = "\$text = 'แนะนำการใช้งาน';";
 
 #****************************************************************************
 #*  Translation text for page home.php
 #****************************************************************************
-$trans["homeHomeLink"]             = "\$text = 'Home';";
-$trans["homeLicenseLink"]          = "\$text = 'License';";
+$trans["homeHomeLink"]             = "\$text = 'หน้าหลัก';";
+$trans["homeLicenseLink"]          = "\$text = 'เกี่ยวกับสิทธิ';";
 
 #****************************************************************************
 #*  Translation text for page admin.php
 #****************************************************************************
-$trans["adminSummary"]             = "\$text = 'Admin Summary';";
-$trans["adminStaff"]               = "\$text = 'Staff Admin';";
-$trans["adminSettings"]            = "\$text = 'Library Settings';";
-$trans["adminMaterialTypes"]       = "\$text = 'Material Types';";
-$trans["adminCollections"]         = "\$text = 'Collections';";
-$trans["adminThemes"]              = "\$text = 'Themes';";
-$trans["adminTranslation"]         = "\$text = 'Translation';";
+$trans["adminSummary"]             = "\$text = 'ส่วนดูแลระบบ';";
+$trans["adminStaff"]               = "\$text = 'ผู้ใช้งานระบบ';";
+$trans["adminSettings"]            = "\$text = 'ตั้งค่าห้องสมุด';";
+$trans["adminMaterialTypes"]       = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
+$trans["adminCollections"]         = "\$text = 'สถานที่จัดเก็บทรัพยากรสารสนเทศ';";
+$trans["adminThemes"]              = "\$text = 'หน้าจอระบบ';";
+$trans["adminTranslation"]         = "\$text = 'การแปล';";
 
 #****************************************************************************
 #*  Translation text for page cataloging.php
 #****************************************************************************
-$trans["catalogSummary"]           = "\$text = 'Catalog Summary';";
-$trans["catalogSearch1"]           = "\$text = 'Biblio Search';";
-$trans["catalogSearch2"]           = "\$text = 'Bibliography Search';";
-$trans["catalogResults"]           = "\$text = 'Search Results';";
-$trans["catalogBibInfo"]           = "\$text = 'Biblio Info';";
-$trans["catalogBibEdit"]           = "\$text = 'Edit-Basic';";
-$trans["catalogBibEditMarc"]       = "\$text = 'Edit-MARC';";
-$trans["catalogBibMarcNewFld"]     = "\$text = 'New MARC Field';";
-$trans["catalogBibMarcNewFldShrt"] = "\$text = 'New MARC';";
-$trans["catalogBibMarcEditFld"]    = "\$text = 'Edit MARC Fld';";
-$trans["catalogCopyNew"]           = "\$text = 'New Copy';";
-$trans["catalogCopyEdit"]          = "\$text = 'Edit Copy';";
-$trans["catalogHolds"]             = "\$text = 'Hold Requests';";
-$trans["catalogDelete"]            = "\$text = 'Delete';";
-$trans["catalogBibNewLike"]        = "\$text = 'New Like';";
-$trans["catalogBibNew"]            = "\$text = 'New Bibliography';";
-$trans["Upload Marc Data"]         = "\$text = 'Upload Marc Data';";
+$trans["catalogSummary"]           = "\$text = 'สรุปรายการบรรณานุกรม';";
+$trans["catalogSearch1"]           = "\$text = 'ค้นหารายการบรรณานุกรม';";
+$trans["catalogSearch2"]           = "\$text = 'ค้นหารายการบรรณานุกรม';";
+$trans["catalogResults"]           = "\$text = 'ผลการสืบค้น';";
+$trans["catalogBibInfo"]           = "\$text = 'จัดการรายการบรรณานุกรม';";
+$trans["catalogBibEdit"]           = "\$text = 'แก้ไขข้อมูลรายการบรรณานุกรม';";
+$trans["catalogBibEditMarc"]       = "\$text = 'แก้ไขระเบียน MARC';";
+$trans["catalogBibMarcNewFld"]     = "\$text = 'เพิ่มระเบียน MARC ';";
+$trans["catalogBibMarcNewFldShrt"] = "\$text = 'เพิ่มระเบียน MARC่';";
+$trans["catalogBibMarcEditFld"]    = "\$text = 'แก้ไข MARC ';";
+$trans["catalogCopyNew"]           = "\$text = 'เพิ่มรายการตัวเล่ม';";
+$trans["catalogCopyEdit"]          = "\$text = 'แก้ไขรายการตัวเล่ม';";
+$trans["catalogHolds"]             = "\$text = 'รายการจอง';";
+$trans["catalogDelete"]            = "\$text = 'ลบรายการ';";
+$trans["catalogBibNewLike"]        = "\$text = 'คัดลอกรายการบรรณานุกรม';";
+$trans["catalogBibNew"]            = "\$text = 'เพิ่มรายการบรรณานุกรม';";
+$trans["Upload Marc Data"]         = "\$text = 'นำเข้ารายการ Marc ';";
 
 #****************************************************************************
 #*  Translation text for page reports.php
 #****************************************************************************
-$trans["reportsSummary"]           = "\$text = 'Reports Summary';";
-$trans["reportsReportListLink"]    = "\$text = 'Report List';";
-$trans["reportsLabelsLink"]        = "\$text = 'Print Labels';";
+$trans["reportsSummary"]           = "\$text = 'สรุปรายงาน';";
+$trans["reportsReportListLink"]    = "\$text = 'รายงาน';";
+$trans["reportsLabelsLink"]        = "\$text = 'พิมพ์รายการเลขเรียกหนังสือ';";
 $trans["reportsLettersLink"]        = "\$text = 'Print Letters';";
 
 #****************************************************************************
 #*  Translation text for page opac.php
 #****************************************************************************
-$trans["catalogSearch1"]           = "\$text = 'Search';";
-$trans["catalogSearch2"]           = "\$text = 'Bibliography Search';";
-$trans["catalogResults"]           = "\$text = 'Search Results';";
-$trans["catalogBibInfo"]           = "\$text = 'Biblio Info';";
+$trans["catalogSearch1"]           = "\$text = 'ค้นหา';";
+$trans["catalogSearch2"]           = "\$text = 'ค้นหาใหม่';";
+$trans["catalogResults"]           = "\$text = 'ผลการสืบค้น';";
+$trans["catalogBibInfo"]           = "\$text = 'จัดการบรรณานุกรม';";
 
 #Added
 
-$trans["memberInfo"]="\$text = 'Member Info';";
-$trans["memberSearch"]="\$text = 'Member Search';";
-$trans["editInfo"]="\$text = 'Edit Info';";
-$trans["checkoutHistory"]= "\$text = 'Checkout History';";
-$trans["account"]="\$text = 'Account';";
-$trans["checkIn"]="\$text = 'Check In';";
-$trans["memberSearch"]= "\$text = 'Member Search';";
-$trans["newMember"]= "\$text = 'New Member';";
+$trans["memberInfo"]="\$text = 'ข้อมูลสมาชิก';";
+$trans["memberSearch"]="\$text = 'ค้นหาสมาชิก';";
+$trans["editInfo"]="\$text = 'แก้ไขข้อมูลสมาชิก';";
+$trans["checkoutHistory"]= "\$text = 'ประวัติการยืม';";
+$trans["account"]="\$text = 'รายการค่าปรับ';";
+$trans["checkIn"]="\$text = 'คืนทรัพยากรสารสนเทศ';";
+$trans["memberSearch"]= "\$text = 'ค้นหาสมาชิก';";
+$trans["newMember"]= "\$text = 'เพิ่มสมาชิกใหม่';";
 //$trans["account"]        	= "\$text = 'Account';";
-
+#****************************************************************************
+#* Translation text for Amazon mod
+#****************************************************************************
+$trans["amazon_Search"]             = "\$text = 'ถ่ายโอนข้อมูลจาก Amazon';";
+   #****************************************************************************
+  #* Translation text for Library of Congress SRU module
+  #****************************************************************************
+  $trans["LOCsearch"]                 = "\$text = 'ถ่ายโอนข้อมูลจาก Library of Congress';";
 
 #****************************************************************************
 #*  Translation text for page lookup.php for lookup2
 #****************************************************************************
-$trans["lookup"]                = "\$text = 'Online Search';";
-$trans["lookup_opts"]       		= "\$text = 'Z39.50 Options';";
-$trans["lookup_hosts"]       		= "\$text = 'Z39.50 Servers';";
-$trans["lookup_bulk"]       		= "\$text = 'Bulk ISBN Lookup';";
-
-?>
+$trans["lookup"]                = "\$text = 'ค้นหาแบบออนไลน์';";
+$trans["lookup_opts"]       		= "\$text = 'ตัวเลือก Z39.50';";
+$trans["lookup_hosts"]       		= "\$text = 'เซิฟเวอร์ Z39.50';";
+$trans["lookup_bulk"]       		= "\$text = 'ค้นหาหนังสืเป็นชุดจาก ISBN';";

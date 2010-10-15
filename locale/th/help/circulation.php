@@ -1,31 +1,27 @@
-<h1>Member Search (Circulation index) Page:</h1>
+<h1>หน้าค้นหาสมาชิก (ยืม-คืน):</h1>
 <br><br>
 
-Help Sub Sections:
+คำแนะนำการใช้งาน:
 <ul>
-  <li><a href="#sec1"><font class="error">This help system is still under construction.</font></a></li>
-  <li><a href="#barc">Circulation with or without barcodes labeled</a></li>
-  <li><a href="#late">Late fee calculated, not notified</a></li>
+  <li><a href="#sec1"><font class="error">ช่วยจัดการระบบยังอยู่ระหว่างดำเนินการ.</font></a></li>
+  <li><a href="#barc">การยืม/คืนที่มีและไม่มีบาร์โค้ด</a></li>
+  <li><a href="#late">การคำนวณค่าปรับ (ไม่มีการแจ้งเตือน) </a></li>
 </ul>
 <br><br>
 
 <a name="barc">
-Circulation with or without barcodes labeled</a>:
+การคำนวณค่าปรับ (ไม่มีการแจ้งเตือน) </a>:
 <br>
-OpenBiblio circulation forms are designed to support efficient circulation when using a barcode scanner and 
-<a href="../shared/help.php?page=barcodes">barcodes</a> 
-printed on member cards and labeled to copies.
+แบบฟอร์มการยืม/คืนของโปรแกรม OpenBiblio ถูกออกแบบมาเพื่อสนับสนุนการยืม/คืนที่มีประสิทธิภาพเมื่อใช้เครื่องอ่านบาร์โค้ด และ 
+<a href="../shared/help.php?page=barcodes">บาร์โค้ด</a> 
+ถูกพิมพ์บนบัตรสมาชิกและ และพิมพ์สัน (เลขเรียกหนังสือ).
 <br>
-It is also possible to circulate when barcode numbers are not known; members can be searched by last 
-name and OPAC-based 
-<a href="../shared/help.php?page=opacLookup">Barcode Lookup</a> 
-retrieves a copy's barcode number for Check Out, Check In or Hold.
+ความเป็นไปได้ที่จะยืม/คืนเมื่อโปรแกรมไม่มีบาร์โค้ดนั้น สามารถค้นหาสมาชิกโดยใช้ชื่อนามสกุลและ จากการสืบค้น OPAC 
+<a href="../shared/help.php?page=opacLookup">ค้นหารหัสบาร์โค้ด</a> 
+เพื่อนำบาร์โค้ดขึ้นมาแสดงสำหรับยืม คืน หรือ จอง .
 <br><br><br>
 
 <a name="late">
-Late fee calculated, not notified</a>:
+การคำนวณค่าปรับ (ไม่มีการแจ้งเตือน): </a>:
 <br>
-OpenBiblio does not notify library staff when checking in overdue items and calculating late fee. 
-Depending on library rules and the way staff handles OpenBiblio this could lead to unjust late fee 
-calculated to a members account. To avoid this go to the Collections page (Admin tab) and set 
-Daily Late Fee for all collections to zero.
+โปรแกรม OpenBiblio ไม่มีการแจ้งบรรณารักษ์เมื่อสมาชิกยืมเกินกำหนดระยะเวลาและไม่มีการคำนวณค่าปรับ ทั้งนี้ขึ้นอยู่กับกฎระเบียบของห้องสมุดและการกำหนดโดยบรรณารักษ์ และเพื่อไม่ให้เกิดปัญหาการคำนวณค่าปรับที่ไม่เป็นธรรม ให้ไปที่หน้า ประเภทสถานที่จัดเก็บ และกำหนดค่าปรับ ให้เป็น 0 (ศูนย์) .

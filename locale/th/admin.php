@@ -37,137 +37,137 @@
 #****************************************************************************
 #*  Common translation text shared among multiple pages
 #****************************************************************************
-$trans["adminSubmit"]              = "\$text = 'Submit';";
-$trans["adminCancel"]              = "\$text = 'Cancel';";
-$trans["adminDelete"]              = "\$text = 'Delete';";
-$trans["adminUpdate"]              = "\$text = 'Update';";
-$trans["adminFootnote"]            = "\$text = 'Fields marked with %symbol% are required.';";
+$trans["adminSubmit"]              = "\$text = 'บันทึก';";
+$trans["adminCancel"]              = "\$text = 'ยกเลิก';";
+$trans["adminDelete"]              = "\$text = 'ลบ';";
+$trans["adminUpdate"]              = "\$text = 'ปรับปรุง';";
+$trans["adminFootnote"]            = "\$text = 'เครื่องหมาย %symbol% บังคับใส่ข้อมูล';";
 
 #****************************************************************************
 #*  Translation text for page index.php
 #****************************************************************************
-$trans["indexHdr"]                 = "\$text = 'Admin';";
-$trans["indexDesc"]                = "\$text = 'Use the functions located in the left hand navigation area to manage your library\'s staff and administrative records.';";
+$trans["indexHdr"]                 = "\$text = 'งานดูแลระบบ';";
+$trans["indexDesc"]                = "\$text = 'ใช้เมนูด้านซ้ายสำหรับการาตั้งค่าระบบห้องสมุด';";
 
 #****************************************************************************
 #*  Translation text for page collections*.php
 #****************************************************************************
-$trans["adminCollections_delReturn"]                 = "\$text = 'return to collection list';";
-$trans["adminCollections_delStart"]                 = "\$text = 'Collection, ';";
+$trans["adminCollections_delReturn"]                 = "\$text = 'กลับสู่รายการสถานที่จัดเก็บ';";
+$trans["adminCollections_delStart"]                 = "\$text = 'สถานที่จัดเก็บ, ';";
 
 #****************************************************************************
 #*  Translation text for page collections_del.php
 #****************************************************************************
-$trans["adminCollections_delEnd"]                 = "\$text = ', has been deleted.';";
+$trans["adminCollections_delEnd"]                 = "\$text = ', ถูกลบ.';";
 
 #****************************************************************************
 #*  Translation text for page collections_del_confirm.php
 #****************************************************************************
-$trans["adminCollections_del_confirmText"]                 = "\$text = 'Are you sure you want to delete collection, ';";
+$trans["adminCollections_del_confirmText"]                 = "\$text = 'ยืนยันในการลบสถานที่จัดเก็บ ';";
 
 #****************************************************************************
 #*  Translation text for page collections_edit.php
 #****************************************************************************
-$trans["adminCollections_editEnd"]                 = "\$text = ', has been updated.';";
+$trans["adminCollections_editEnd"]                 = "\$text = ',ถูกแก้ไข';";
 
 #****************************************************************************
 #*  Translation text for page collections_edit_form.php
 #****************************************************************************
-$trans["adminCollections_edit_formEditcollection"]                 = "\$text = 'Edit Collection:';";
-$trans["adminCollections_edit_formDescription"]                 = "\$text = 'Description:';";
-$trans["adminCollections_edit_formDaysdueback"]                 = "\$text = 'Days Due Back:';";
-$trans["adminCollections_edit_formDailyLateFee"]                 = "\$text = 'Daily Late Fee:';";
-$trans["adminCollections_edit_formNote"]                 = "\$text = '*Note:';";
-$trans["adminCollections_edit_formNoteText"]                 = "\$text = 'Setting the days due back to zero makes the entire collection unavailable for checkout.';";
+$trans["adminCollections_edit_formEditcollection"]                 = "\$text = 'แก้ไขสถานที่จัดเก็บ:';";
+$trans["adminCollections_edit_formDescription"]                 = "\$text = 'รายระเอียด:';";
+$trans["adminCollections_edit_formDaysdueback"]                 = "\$text = 'จำนวนวันที่ยืมได้:';";
+$trans["adminCollections_edit_formDailyLateFee"]                 = "\$text = 'ค่าปรับเกินกำหนดต่อวัน:';";
+$trans["adminCollections_edit_formNote"]                 = "\$text = '*หมายเหตุ:';";
+$trans["adminCollections_edit_formNoteText"]                 = "\$text = 'ตั้งค่าวันที่ยืมได้เป็น 0 ไม่สามารถยืมได้';";
 
 #****************************************************************************
 #*  Translation text for page collections_list.php
 #****************************************************************************
-$trans["adminCollections_listAddNewCollection"]                 = "\$text = 'Add New Collection';";
-$trans["adminCollections_listCollections"]                 = "\$text = 'Collections:';";
-$trans["adminCollections_listFunction"]                 = "\$text = 'Function';";
-$trans["adminCollections_listDescription"]                 = "\$text = 'Description';";
-$trans["adminCollections_listDaysdueback"]                 = "\$text = 'Days<br>Due Back';";
-$trans["adminCollections_listDailylatefee"]                 = "\$text = 'Daily<br>Late Fee';";
-$trans["adminCollections_listBibliographycount"]                 = "\$text = 'Bibliography<br>Count';";
-$trans["adminCollections_listEdit"]                 = "\$text = 'Edit';";
-$trans["adminCollections_listDel"]                 = "\$text = 'del';";
-$trans["adminCollections_ListNote"]                 = "\$text = '*Note:';";
-$trans["adminCollections_ListNoteText"]                 = "\$text = 'The delete function is only available on collections that have a bibliography count of zero.<br>If you wish to delete a collection with a bibliography count greater than zero you will first need to change the material type on those bibliographies to another material type.';";
+$trans["adminCollections_listAddNewCollection"]                 = "\$text = 'เพิ่มสถานที่จัดเก็บ';";
+$trans["adminCollections_listCollections"]                 = "\$text = 'สถานที่จัดเก็บ:';";
+$trans["adminCollections_listFunction"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminCollections_listDescription"]                 = "\$text = 'รายละเอียด';";
+$trans["adminCollections_listDaysdueback"]                 = "\$text = 'จำนวนวันที่ยืมได้';";
+$trans["adminCollections_listDailylatefee"]                 = "\$text = 'ค่าปรับเกินกำหนดต่อวัน';";
+$trans["adminCollections_listBibliographycount"]                 = "\$text = 'จำนวนทรัพยากรสารสนเทศทั้งหมด';";
+$trans["adminCollections_listEdit"]                 = "\$text = 'แก้ไข';";
+$trans["adminCollections_listDel"]                 = "\$text = 'ลบ';";
+$trans["adminCollections_ListNote"]                 = "\$text = '*หมายเหตุ:';";
+$trans["adminCollections_ListNoteText"]                 = "\$text = 'ถ้าต้องการลบสถานที่จัดเก็บจะต้องไม่มีรายการทรัพยากรอยู่สำหรับสถานที่จัดเก็บที่ต้องการลบ';";
 
 #****************************************************************************
 #*  Translation text for page collections_new.php
 #****************************************************************************
-$trans["adminCollections_newAdded"]                 = "\$text = ', has been added.';";
+$trans["adminCollections_newAdded"]                 = "\$text = ', ถูกเพิ่มเรียบร้อย';";
 
 #****************************************************************************
 #*  Translation text for page collections_new_form.php
 #****************************************************************************
-$trans["adminCollections_new_formAddnewcollection"]                 = "\$text = 'Add New Collection:';";
-$trans["adminCollections_new_formDescription"]                 = "\$text = 'Description:';";
-$trans["adminCollections_new_formDaysdueback"]                 = "\$text = 'Days Due Back:';";
-$trans["adminCollections_new_formDailylatefee"]                 = "\$text = 'Daily Late Fee:';";
-$trans["adminCollections_new_formNote"]                 = "\$text = '*Note:';";
-$trans["adminCollections_new_formNoteText"]                 = "\$text = 'Setting the days due back to zero makes the entire collection unavailable for checkout.';";
+$trans["adminCollections_new_formAddnewcollection"]                 = "\$text = 'เพิ่มสถานที่จัดเก็บ:';";
+$trans["adminCollections_new_formDescription"]                 = "\$text = 'รายละเอียด:';";
+$trans["adminCollections_new_formDaysdueback"]                 = "\$text = 'จำนวนวันที่ยืมได้:';";
+$trans["adminCollections_new_formDailylatefee"]                 = "\$text = 'ค่าปรับเกินกำหนด:';";
+$trans["adminCollections_new_formNote"]                 = "\$text = '*หมายเหตุ:';";
+$trans["adminCollections_new_formNoteText"]                 = "\$text = 'ตั้งค่าวันที่ยืมได้เป็น 0 ไม่สามารถยืมได้';";
 
 #****************************************************************************
 #*  Translation text for page materials_del.php
 #****************************************************************************
-$trans["admin_materials_delMaterialType"]                 = "\$text = 'Material type, ';";
-$trans["admin_materials_delMaterialdeleted"]                 = "\$text = ', has been deleted.';";
-$trans["admin_materials_Return"]                 = "\$text = 'return to material type list';";
+$trans["admin_materials_delMaterialType"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ, ';";
+$trans["admin_materials_delMaterialdeleted"]                 = "\$text = ', ถูกลบเรียบร้อย';";
+$trans["admin_materials_Return"]                 = "\$text = 'กลับสู่รายการประเภททรัพยากรสารสนเทศ';";
 
 #****************************************************************************
 #*  Translation text for page materials_del_form.php
 #****************************************************************************
-$trans["admin_materials_delAreyousure"]                 = "\$text = 'Are you sure you want to delete material type, ';";
+$trans["admin_materials_delAreyousure"]                 = "\$text = 'ยืนยันในการลบประเภททรัพยากรสารสนเทศ ';";
 
 #****************************************************************************
 #*  Translation text for page materials_edit_form.php
 #****************************************************************************
-$trans["admin_materials_delEditmaterialtype"]                 = "\$text = 'Edit Material Type:';";
-$trans["admin_materials_delDescription"]                 = "\$text = 'Description:';";
-$trans["admin_materials_delunlimited"]                 = "\$text = '(enter 0 for unlimited)';";
-$trans["admin_materials_delImagefile"]                 = "\$text = 'Image File:';";
-$trans["admin_materials_delNote"]                 = "\$text = '*Note:';";
-$trans["admin_materials_delNoteText"]                 = "\$text = 'Image files must be located in the openbiblio/images directory.';";
+$trans["admin_materials_delEditmaterialtype"]                 = "\$text = 'แก้ไขประเภททรัพยากรสารสนเทศ:';";
+$trans["admin_materials_delDescription"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ:';";
+$trans["admin_materials_delunlimited"]                 = "\$text = '(ใส่ 0 ไม่จำกัด)';";
+$trans["admin_materials_delImagefile"]                 = "\$text = 'ไฟล์รูปภาพ:';";
+$trans["admin_materials_delNote"]                 = "\$text = '*หมายเหตุ:';";
+$trans["admin_materials_delNoteText"]                 = "\$text = 'ต้องระบุชื่อไฟล์รูปภาพใน Directoty ชื่อ openbiblio/images';";
 
 #****************************************************************************
 #*  Translation text for page materials_edit.php
 #****************************************************************************
-$trans["admin_materials_editEnd"]                 = "\$text = ', has been updated.';";
+$trans["admin_materials_editEnd"]                 = "\$text = ', ถูกแก้ไข';";
 
 #****************************************************************************
 #*  Translation text for page materials_list.php
 #****************************************************************************
-$trans["admin_materials_listAddmaterialtypes"]                 = "\$text = 'Add New Material Type';";
-$trans["admin_materials_listMaterialtypes"]                 = "\$text = 'Material Types:';";
-$trans["admin_materials_listFunction"]                 = "\$text = 'Function';";
-$trans["admin_materials_listDescription"]                 = "\$text = 'Description';";
-$trans["admin_materials_listLimits"]                 = "\$text = 'Limits';";
-$trans["admin_materials_listCheckoutlimit"]                 = "\$text = 'Checkout';";
-$trans["admin_materials_listRenewallimit"]                 = "\$text = 'Renewal';";
-$trans["admin_materials_listImageFile"]                 = "\$text = 'Image<br>File';";
-$trans["admin_materials_listBibcount"]                 = "\$text = 'Bibliography<br>Count';";
-$trans["admin_materials_listEdit"]                 = "\$text = 'edit';";
-$trans["admin_materials_listDel"]                 = "\$text = 'del';";
-$trans["admin_materials_listNote"]                 = "\$text = '*Note:';";
-$trans["admin_materials_listNoteText"]                 = "\$text = 'The delete function is only available on material types that have a bibliography count of zero.  If you wish to delete a material type with a bibliography count greater than zero you will first need to change the material type on those bibliographies to another material type.';";
+$trans["admin_materials_listAddmaterialtypes"]                 = "\$text = 'เพิ่มประเภททรัพยากรสารสนเทศ';";
+$trans["admin_materials_listMaterialtypes"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
+$trans["admin_materials_listFunction"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["admin_materials_listDescription"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
+$trans["admin_materials_listLimits"]                 = "\$text = 'จำกัด';";
+$trans["admin_materials_listCheckoutlimit"]                 = "\$text = 'ยืมออก';";
+$trans["admin_materials_listRenewallimit"]                 = "\$text = 'ยืมต่อ';";
+$trans["admin_materials_listImageFile"]                 = "\$text = 'ชื่อไฟล์รูปภาพ';";
+$trans["admin_materials_listBibcount"]                 = "\$text = 'รายการทรัพยากรสารสนเทศทั้งหมด';";
+$trans["admin_materials_listEdit"]                 = "\$text = 'แก้ไข';";
+$trans["admin_materials_listDel"]                 = "\$text = 'ลบ';";
+$trans["admin_materials_listNote"]                 = "\$text = '*หมายเหตุ:';";
+$trans["admin_materials_listNoteText"]                 = "\$text = 'ถ้าต้องการลบรายการประเภททรัพยากรสารสนเทศจะต้องไม่มีรายการทรัพยากรอยู่สำหรับประเภททรัพยากรที่ต้องการลบ';";
 
 #****************************************************************************
 #*  Translation text for page materials_new.php
 #****************************************************************************
-$trans["admin_materials_listNewadded"]                 = "\$text = ', has been added.';";
+$trans["admin_materials_listNewadded"]                 = "\$text = ', ถูกเพิ่มเรียบร้อย';";
 
 #****************************************************************************
 #*  Translation text for page materials_new_form.php
 #****************************************************************************
-$trans["admin_materials_new_formNoteText"]                 = "\$text = 'Image files must be located in the openbiblio/images directory.';";
+$trans["admin_materials_new_formNoteText"]                 = "\$text = 'ต้องระบุชื่อไฟล์รูปภาพใน Directoty ชื่อ openbiblio/images.';";
 
 #****************************************************************************
 #*  Translation text for page noauth.php
 #****************************************************************************
-$trans["admin_noauth"]                 = "\$text = 'You are not authorized to use the Admin tab.';";
+$trans["admin_noauth"]                 = "\$text = 'คุณไม่มีสิทธิ์สำหรับการใช้งานส่วนนี้';";
 
 #****************************************************************************
 #*  Translation text for page settings_edit.php
@@ -176,171 +176,171 @@ $trans["admin_noauth"]                 = "\$text = 'You are not authorized to us
 #****************************************************************************
 #*  Translation text for page settings_edit_form.php
 #****************************************************************************
-$trans["admin_settingsUpdated"]                 = "\$text = 'Data has been updated.';";
-$trans["admin_settingsEditsettings"]                 = "\$text = 'Edit Library Settings:';";
-$trans["admin_settingsLibName"]                 = "\$text = 'Library Name:';";
-$trans["admin_settingsLibimageurl"]                 = "\$text = 'Library Image URL:';";
-$trans["admin_settingsOnlyshowimginheader"]                 = "\$text = 'Only Show Image in Header:';";
-$trans["admin_settingsLibhours"]                 = "\$text = 'Library Hours:';";
-$trans["admin_settingsLibphone"]                 = "\$text = 'Library Phone:';";
-$trans["admin_settingsLibURL"]                 = "\$text = 'Library URL:';";
-$trans["admin_settingsOPACURL"]                 = "\$text = 'OPAC URL:';";
-$trans["admin_settingsSessionTimeout"]                 = "\$text = 'Session Timeout:';";
-$trans["admin_settingsMinutes"]                 = "\$text = 'minutes';";
-$trans["admin_settingsSearchResults"]                 = "\$text = 'Search Results:';";
-$trans["admin_settingsItemsperpage"]                 = "\$text = 'items per page';";
-$trans["admin_settingsPurgebibhistory"]                 = "\$text = 'Purge Bibliography History After:';";
-$trans["admin_settingsmonths"]                 = "\$text = 'months';";
-$trans["admin_settingsBlockCheckouts"]                 = "\$text = 'Block Checkouts When Fines Due:';";
-$trans["admin_settingsLocale"]                 = "\$text = 'Locale:';";
-$trans["admin_settingsHTMLChar"]                 = "\$text = 'HTML Charset:';";
-$trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'HTML Tag Lang Attribute:';";
-$trans["admin_settingsFontNormal"]                  = "\$text = 'Print Fonts (Normal):';";
-$trans["admin_settingsFontBold"]                  = "\$text = 'Print Fonts (Bold):';";
-$trans["admin_settingsFontOblique"]                  = "\$text = 'Print Fonts (Oblique):';";
+$trans["admin_settingsUpdated"]                 = "\$text = 'ข้อมูลถูกปรับปรุงเรียบร้อยแล้ว';";
+$trans["admin_settingsEditsettings"]                 = "\$text = 'แก้ไขการตั้งค่าห้องสมุด:';";
+$trans["admin_settingsLibName"]                 = "\$text = 'ชื่อห้องสมุด:';";
+$trans["admin_settingsLibimageurl"]                 = "\$text = 'ชื่อนามสกุลไฟล์รูปภาพส่วนหัวของระบบ:';";
+$trans["admin_settingsOnlyshowimginheader"]                 = "\$text = 'แสดงรูปภาพส่วนหัวเท่านั้น:';";
+$trans["admin_settingsLibhours"]                 = "\$text = 'เวลาเปิดทำการ:';";
+$trans["admin_settingsLibphone"]                 = "\$text = 'ติดต่อ:';";
+$trans["admin_settingsLibURL"]                 = "\$text = 'เว็บไซต์ห้องสมุด:';";
+$trans["admin_settingsOPACURL"]                 = "\$text = 'URL ระบบ OPAC:';";
+$trans["admin_settingsSessionTimeout"]                 = "\$text = 'เวลาอยู่ในระบบ:';";
+$trans["admin_settingsMinutes"]                 = "\$text = 'นาที';";
+$trans["admin_settingsSearchResults"]                 = "\$text = 'ผลการสืบค้น:';";
+$trans["admin_settingsItemsperpage"]                 = "\$text = 'รายการต่อหน้า';";
+$trans["admin_settingsPurgebibhistory"]                 = "\$text = 'ลบประวัติรายการบรรณานุกรมหลังจาก:';";
+$trans["admin_settingsmonths"]                 = "\$text = 'เดือน';";
+$trans["admin_settingsBlockCheckouts"]                 = "\$text = 'มีค่าปรับไม่สามารถยืมออกได้:';";
+$trans["admin_settingsLocale"]                 = "\$text = 'ภาษา:';";
+$trans["admin_settingsHTMLChar"]                 = "\$text = 'ชุดอักขระ HTML:';";
+$trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'ค่าภาษาในแท็ก HTML:';";
+$trans["admin_settingsFontNormal"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ทั่วไป):';";
+$trans["admin_settingsFontBold"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวหนา):';";
+$trans["admin_settingsFontOblique"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวเอียง):';";
 
 #****************************************************************************
 #*  Translation text for all staff pages
 #****************************************************************************
-$trans["adminStaff_Staffmember"]                 = "\$text = 'Staff member,';";
-$trans["adminStaff_Return"]                 = "\$text = 'return to staff list';";
-$trans["adminStaff_Yes"]                 = "\$text = 'Yes';";
-$trans["adminStaff_No"]                 = "\$text = 'No';";
+$trans["adminStaff_Staffmember"]                 = "\$text = 'จัดการผู้ใช้งานระบบ,';";
+$trans["adminStaff_Return"]                 = "\$text = 'กลับสู่รายการผู้ใช้งานระบบ;";
+$trans["adminStaff_Yes"]                 = "\$text = 'อนุญาต';";
+$trans["adminStaff_No"]                 = "\$text = 'ไม่อนุญาต';";
 
 
 #****************************************************************************
 #*  Translation text for page staff_del.php
 #****************************************************************************
-$trans["adminStaff_delDeleted"]                 = "\$text = ', has been deleted.';";
+$trans["adminStaff_delDeleted"]                 = "\$text = ', ถูกลบ';";
 
 #****************************************************************************
 #*  Translation text for page staff_delete_confirm.php
 #****************************************************************************
-$trans["adminStaff_del_confirmConfirmText"]                 = "\$text = 'Are you sure you want to delete staff member, ';";
+$trans["adminStaff_del_confirmConfirmText"]                 = "\$text = 'ยืนยันลบรายการผู้ใช้งานระบบ ';";
 
 #****************************************************************************
 #*  Translation text for page staff_edit.php
 #****************************************************************************
-$trans["adminStaff_editUpdated"]                 = "\$text = ', has been updated.';";
+$trans["adminStaff_editUpdated"]                 = "\$text = ', ถูกแก้ไข';";
 
 #****************************************************************************
 #*  Translation text for page staff_edit_form.php
 #****************************************************************************
-$trans["adminStaff_edit_formHeader"]                 = "\$text = 'Edit Staff Member Information:';";
-$trans["adminStaff_edit_formLastname"]                 = "\$text = 'Last Name:';";
-$trans["adminStaff_edit_formFirstname"]                 = "\$text = 'First Name:';";
-$trans["adminStaff_edit_formLogin"]                 = "\$text = 'Login Username:';";
-$trans["adminStaff_edit_formAuth"]                 = "\$text = 'Authorization:';";
-$trans["adminStaff_edit_formCirc"]                 = "\$text = 'Circ';";
-$trans["adminStaff_edit_formUpdatemember"]                 = "\$text = 'Update Member';";
-$trans["adminStaff_edit_formCatalog"]                 = "\$text = 'Catalog';";
-$trans["adminStaff_edit_formAdmin"]                 = "\$text = 'Admin';";
-$trans["adminStaff_edit_formReports"]                 = "\$text = 'Reports';";
-$trans["adminStaff_edit_formSuspended"]                 = "\$text = 'Suspended:';";
+$trans["adminStaff_edit_formHeader"]                 = "\$text = 'แก้ไขข้อมูลผู้ใช้งานระบบ:';";
+$trans["adminStaff_edit_formLastname"]                 = "\$text = 'ชื่อ';";
+$trans["adminStaff_edit_formFirstname"]                 = "\$text = 'นามสกุล';";
+$trans["adminStaff_edit_formLogin"]                 = "\$text = 'ชื่อเข้าใช้งานระบบ';";
+$trans["adminStaff_edit_formAuth"]                 = "\$text = 'ระดับการใช้โมดูล';";
+$trans["adminStaff_edit_formCirc"]                 = "\$text = 'ยืม-คืน';";
+$trans["adminStaff_edit_formUpdatemember"]                 = "\$text = 'แก้ไขรายการสมาชิกห้องสมุด';";
+$trans["adminStaff_edit_formCatalog"]                 = "\$text = 'รายการบรรณานุกรม';";
+$trans["adminStaff_edit_formAdmin"]                 = "\$text = 'ส่วนดูแลระบบ';";
+$trans["adminStaff_edit_formReports"]                 = "\$text = 'รายงาน';";
+$trans["adminStaff_edit_formSuspended"]                 = "\$text = 'ระงับการใช้งานชั่วคราว:';";
 
 #****************************************************************************
 #*  Translation text for page staff_list.php
 #****************************************************************************
-$trans["adminStaff_list_formHeader"]                 = "\$text = 'Add New Staff Member';";
-$trans["adminStaff_list_Columnheader"]                 = "\$text = ' Staff Members:';";
-$trans["adminStaff_list_Function"]                 = "\$text = 'Function';";
-$trans["adminStaff_list_Edit"]                 = "\$text = 'edit';";
-$trans["adminStaff_list_Pwd"]                 = "\$text = 'pwd';";
-$trans["adminStaff_list_Del"]                 = "\$text = 'del';";
+$trans["adminStaff_list_formHeader"]                 = "\$text = 'เพิ่มผู้ใช้งานระบบ';";
+$trans["adminStaff_list_Columnheader"]                 = "\$text = ' ผู้ใช้งานระบบ:';";
+$trans["adminStaff_list_Function"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminStaff_list_Edit"]                 = "\$text = 'แก้ไข';";
+$trans["adminStaff_list_Pwd"]                 = "\$text = 'รหัสผู้ใช้งาน';";
+$trans["adminStaff_list_Del"]                 = "\$text = 'ลบ';";
 
 #****************************************************************************
 #*  Translation text for page staff_new.php
 #****************************************************************************
-$trans["adminStaff_new_Added"]                 = "\$text = ', has been added.';";
+$trans["adminStaff_new_Added"]                 = "\$text = ', ถูกเพิ่ม';";
 
 #****************************************************************************
 #*  Translation text for page staff_new_form.php
 #****************************************************************************
-$trans["adminStaff_new_form_Header"]          	= "\$text = 'Add New Staff Member:';";
-$trans["adminStaff_new_form_Password"]          = "\$text = 'Password:';";
-$trans["adminStaff_new_form_Reenterpassword"]   = "\$text = 'Re-enter Password:';";
+$trans["adminStaff_new_form_Header"]          	= "\$text = 'เพิ่มผู้ใชงาน้ระบบใหม่:';";
+$trans["adminStaff_new_form_Password"]          = "\$text = 'ใส่รหัสผู้ใช้งาน:';";
+$trans["adminStaff_new_form_Reenterpassword"]   = "\$text = 'ยืนยันรหัสผู้ใช้งาน:';";
 
 #****************************************************************************
 #*  Translation text for page staff_pwd_reset.php
 #****************************************************************************
-$trans["adminStaff_pwd_reset_Passwordreset"]   = "\$text = 'Password has been reset.';";
+$trans["adminStaff_pwd_reset_Passwordreset"]   = "\$text = 'ใส่รหัสผู้ใช้งาน';";
 
 #****************************************************************************
 #*  Translation text for page staff_pwd_reset_form.php
 #****************************************************************************
-$trans["adminStaff_pwd_reset_form_Resetheader"]   = "\$text = 'Reset Staff Member Password:';";
+$trans["adminStaff_pwd_reset_form_Resetheader"]   = "\$text = 'ใส่รหัสผู้ใช้งาน:';";
 
 #****************************************************************************
 #*  Translation text for theme pages
 #****************************************************************************
-$trans["adminTheme_Return"]                 = "\$text = 'return to theme list';";
-$trans["adminTheme_Theme"]                 = "\$text = 'Theme, ';";
+$trans["adminTheme_Return"]                 = "\$text = 'กลับหน้ารายการหน้าจอระบบ';";
+$trans["adminTheme_Theme"]                 = "\$text = 'หน้าจอระบบ ';";
 
 #****************************************************************************
 #*  Translation text for page theme_del.php
 #****************************************************************************
-$trans["adminTheme_Deleted"]                 = "\$text = ', has been deleted.';";
+$trans["adminTheme_Deleted"]                 = "\$text = ', ถูกลบ';";
 #****************************************************************************
 #*  Translation text for page theme_del_confirm.php
 #****************************************************************************
-$trans["adminTheme_Deleteconfirm"]                 = "\$text = 'Are you sure you want to delete theme, ';";
+$trans["adminTheme_Deleteconfirm"]                 = "\$text = 'ยืนยันการหน้าจอระบบ';";
 #****************************************************************************
 #*  Translation text for page theme_edit.php
 #****************************************************************************
-$trans["adminTheme_Updated"]                 = "\$text = ', has been updated.';";
+$trans["adminTheme_Updated"]                 = "\$text = ', ถูกปรับปรุง';";
 
 #****************************************************************************
 #*  Translation text for page theme_edit_form.php
 #****************************************************************************
-$trans["adminTheme_Preview"]                 = "\$text = 'Preview Theme Changes';";
+$trans["adminTheme_Preview"]                 = "\$text = 'ตัวอย่างการเปลี่ยนหน้าจอระบบ';";
 
 #****************************************************************************
 #*  Translation text for page theme_list.php
 #****************************************************************************
-$trans["adminTheme_Changetheme"]                 = "\$text = 'Change Theme In Use:';";
-$trans["adminTheme_Choosetheme"]                 = "\$text = 'Choose a New Theme:';";
-$trans["adminTheme_Addnew"]                 = "\$text = 'Add New Theme';";
-$trans["adminTheme_themes"]                 = "\$text = 'Themes:';";
-$trans["adminTheme_function"]                 = "\$text = 'Function';";
-$trans["adminTheme_Themename"]                 = "\$text = 'Theme Name';";
-$trans["adminTheme_Usage"]                 = "\$text = 'Usage';";
-$trans["adminTheme_Edit"]                 = "\$text = 'edit';";
-$trans["adminTheme_Copy"]                 = "\$text = 'copy';";
-$trans["adminTheme_Del"]                 = "\$text = 'del';";
-$trans["adminTheme_Inuse"]                 = "\$text = 'in use';";
-$trans["adminTheme_Note"]                 = "\$text = '*Note:';";
-$trans["adminTheme_Notetext"]                 = "\$text = 'The delete function is not available on the theme that is currently in use.';";
+$trans["adminTheme_Changetheme"]                 = "\$text = 'เปลี่ยนหน้าจอระบบ';";
+$trans["adminTheme_Choosetheme"]                 = "\$text = 'เลือกหน้าจอระบบ';";
+$trans["adminTheme_Addnew"]                 = "\$text = 'เพิ่มหน้าจอระบบ';";
+$trans["adminTheme_themes"]                 = "\$text = 'หน้าจอระบบ';";
+$trans["adminTheme_function"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminTheme_Themename"]                 = "\$text = 'ชื่อ';";
+$trans["adminTheme_Usage"]                 = "\$text = 'การใช้';";
+$trans["adminTheme_Edit"]                 = "\$text = 'แก้ไข';";
+$trans["adminTheme_Copy"]                 = "\$text = 'คัดลอก';";
+$trans["adminTheme_Del"]                 = "\$text = 'ลบ';";
+$trans["adminTheme_Inuse"]                 = "\$text = 'ถูกใช้';";
+$trans["adminTheme_Note"]                 = "\$text = '*หมายเหตุ:';";
+$trans["adminTheme_Notetext"]                 = "\$text = 'ถ้าต้องการลบหน้าจอระบบ ปัจจุบันหน้าจอระบบต้องไม่ถูกใช้';";
 
 #****************************************************************************
 #*  Translation text for page theme_list.php
 #****************************************************************************
-$trans["adminTheme_Theme2"]                 = "\$text = 'Theme:';";
-$trans["adminTheme_Tablebordercolor"]                 = "\$text = 'Table Border Color:';";
-$trans["adminTheme_Errorcolor"]                 = "\$text = 'Error Color:';";
-$trans["adminTheme_Tableborderwidth"]                 = "\$text = 'Table Border Width:';";
-$trans["adminTheme_Tablecellpadding"]                 = "\$text = 'Table Cell Padding:';";
-$trans["adminTheme_Title"]                 = "\$text = 'Title';";
-$trans["adminTheme_Mainbody"]                 = "\$text = 'Main Body';";
-$trans["adminTheme_Navigation"]                 = "\$text = 'Navigation';";
-$trans["adminTheme_Tabs"]                 = "\$text = 'Tabs';";
-$trans["adminTheme_Backgroundcolor"]                 = "\$text = 'Background Color:';";
-$trans["adminTheme_Fontface"]                 = "\$text = 'Font Face:';";
-$trans["adminTheme_Fontsize"]                 = "\$text = 'Font Size:';";
-$trans["adminTheme_Bold"]                 = "\$text = 'bold';";
-$trans["adminTheme_Fontcolor"]                 = "\$text = 'Font Color:';";
-$trans["adminTheme_Linkcolor"]                 = "\$text = 'Link Color:';";
-$trans["adminTheme_Align"]                 = "\$text = 'Align:';";
-$trans["adminTheme_Right"]                 = "\$text = 'Right';";
-$trans["adminTheme_Left"]                 = "\$text = 'Left';";
-$trans["adminTheme_Center"]                 = "\$text = 'Center';";
+$trans["adminTheme_Theme2"]                 = "\$text = 'หน้าจอระบบ';";
+$trans["adminTheme_Tablebordercolor"]                 = "\$text = 'สีเส้นขอบตาราง:';";
+$trans["adminTheme_Errorcolor"]                 = "\$text = 'สีข้อผิดพลาด:';";
+$trans["adminTheme_Tableborderwidth"]                 = "\$text = 'ความกว้างของเส้นขอบตาราง:';";
+$trans["adminTheme_Tablecellpadding"]                 = "\$text = 'ความกว้างแท็บ:';";
+$trans["adminTheme_Title"]                 = "\$text = 'ส่วนหัวระบบ';";
+$trans["adminTheme_Mainbody"]                 = "\$text = 'ส่วนกลาง';";
+$trans["adminTheme_Navigation"]                 = "\$text = 'เมนูซ้าย';";
+$trans["adminTheme_Tabs"]                 = "\$text = 'เมนู';";
+$trans["adminTheme_Backgroundcolor"]                 = "\$text = 'สีพื้น:';";
+$trans["adminTheme_Fontface"]                 = "\$text = 'แบบอักษร:';";
+$trans["adminTheme_Fontsize"]                 = "\$text = 'ขนาดอักษร:';";
+$trans["adminTheme_Bold"]                 = "\$text = 'หนา';";
+$trans["adminTheme_Fontcolor"]                 = "\$text = 'สีอักษร:';";
+$trans["adminTheme_Linkcolor"]                 = "\$text = 'สีสำหรับการลิงค์:';";
+$trans["adminTheme_Align"]                 = "\$text = 'ตำแหน่งแสดงผล:';";
+$trans["adminTheme_Right"]                 = "\$text = 'ขวา';";
+$trans["adminTheme_Left"]                 = "\$text = 'ซ้าย';";
+$trans["adminTheme_Center"]                 = "\$text = 'กลาง';";
 
-$trans["adminTheme_HeaderWording"]                 = "\$text = 'Edit';";
+$trans["adminTheme_HeaderWording"]                 = "\$text = 'แก้ไข';";
 
 
 #****************************************************************************
 #*  Translation text for page theme_new.php
 #****************************************************************************
-$trans["adminTheme_new_Added"]                 = "\$text = ', has been added.';";
+$trans["adminTheme_new_Added"]                 = "\$text = ', ถูกเพิ่ม';";
 
 #****************************************************************************
 #*  Translation text for page theme_new_form.php
@@ -349,17 +349,17 @@ $trans["adminTheme_new_Added"]                 = "\$text = ', has been added.';"
 #****************************************************************************
 #*  Translation text for page theme_preview.php
 #****************************************************************************
-$trans["adminTheme_preview_Themepreview"]                 = "\$text = 'Theme Preview';";
-$trans["adminTheme_preview_Librarytitle"]                 = "\$text = 'Library Title';";
-$trans["adminTheme_preview_CloseWindow"]                 = "\$text = 'Close Window';";
-$trans["adminTheme_preview_Home"]                 = "\$text = 'Home';";
-$trans["adminTheme_preview_Circulation"]   = "\$text = 'Circulation';";
-$trans["adminTheme_preview_Cataloging"]    = "\$text = 'Cataloging';";
-$trans["adminTheme_preview_Admin"]         = "\$text = 'Admin';";
-$trans["adminTheme_preview_Samplelink"]    = "\$text = 'Sample Link';";
-$trans["adminTheme_preview_Thisstart"]     = "\$text = 'This is a preview of the ';";
-$trans["adminTheme_preview_Thisend"]       = "\$text = 'theme.';";
-$trans["adminTheme_preview_Samplelist"]    = "\$text = 'Sample List:';";
+$trans["adminTheme_preview_Themepreview"]                 = "\$text = 'ตัวอย่างหน้าจอระบบ';";
+$trans["adminTheme_preview_Librarytitle"]                 = "\$text = 'ชื่อห้องสมุด';";
+$trans["adminTheme_preview_CloseWindow"]                 = "\$text = 'ปิดหน้านี้';";
+$trans["adminTheme_preview_Home"]                 = "\$text = 'หน้าหลัก';";
+$trans["adminTheme_preview_Circulation"]   = "\$text = 'งานยืม - คืน';";
+$trans["adminTheme_preview_Cataloging"]    = "\$text = 'งานลงรายการทรัพยากรสารสนเทศ';";
+$trans["adminTheme_preview_Admin"]         = "\$text = 'งานดูแลระบบ';";
+$trans["adminTheme_preview_Samplelink"]    = "\$text = 'ลิงค์ตัวอย่าง';";
+$trans["adminTheme_preview_Thisstart"]     = "\$text = 'แสดงของ ';";
+$trans["adminTheme_preview_Thisend"]       = "\$text = 'หน้าจอระบบ';";
+$trans["adminTheme_preview_Samplelist"]    = "\$text = 'รายการตัวอย่าง:';";
 $trans["adminTheme_preview_Tableheading"]  = "\$text = 'Table Heading';";
 $trans["adminTheme_preview_Sampledatarow1"]= "\$text = 'Sample data row 1';";
 $trans["adminTheme_preview_Sampledatarow2"]= "\$text = 'Sample data row 2';";
@@ -381,13 +381,13 @@ $trans["adminTheme_preview_GNU"]           = "\$text = 'GNU General Public Licen
 #****************************************************************************
 #*  Translation text for page lookupOptsForm.php
 #****************************************************************************
-$trans["lookup_opts"]       			     = "\$text = 'Z39.50 Options.';";
-$trans["lookup_optsUpdated"]           = "\$text = 'Lookup Settings have been updated.';";
-$trans["lookup_optsSettings"]      		 = "\$text = 'Edit Lookup Options:';";
-$trans["lookup_optsProtocol"]          = "\$text = 'Protocol:';";
-$trans["lookup_optsMaxHits"]           = "\$text = 'Maximum no of hits:';";
-$trans["lookup_optsKeepDashes"]        = "\$text = 'Keep Dashes:';";
-$trans["lookup_optsCallNmbrType"]      = "\$text = 'Call Number Type:';";
+$trans["lookup_opts"]       			     = "\$text = 'ตัวเลือกสำหรับ Z39.50';";
+$trans["lookup_optsUpdated"]           = "\$text = 'แก้ไขการตั้งค่า Z39.50 แล้ว';";
+$trans["lookup_optsSettings"]      		 = "\$text = 'แก้ไขตัวเลือกการค้นหาผ่าน Z39.50:';";
+$trans["lookup_optsProtocol"]          = "\$text = 'โพรโตคอล:';";
+$trans["lookup_optsMaxHits"]           = "\$text = 'จำนวนผลลัพธ์สูงสุดที่แสดง:';";
+$trans["lookup_optsKeepDashes"]        = "\$text = 'คงเครื่องหมายขีด (-) ไว้ในผลลัพธ์:';";
+$trans["lookup_optsCallNmbrType"]      = "\$text = 'ชนิดของเลขเรียกหนังสือ:';";
 $trans["lookup_optsAutoDewey"]         = "\$text = 'Use Default Dewey:';";
 $trans["lookup_optsDefaultDewey"]      = "\$text = 'Default Dewey Code:';";
 $trans["lookup_optsAutoCutter"]        = "\$text = 'Generate Cutter if none:';";
@@ -398,28 +398,28 @@ $trans["lookup_optsFictionName"]       = "\$text = 'Fiction Collection Name:';";
 $trans["lookup_optsFictionCode"]       = "\$text = 'Index no. of Fiction Code to use:';";
 $trans["lookup_optsLocFictionCodes"]   = "\$text = 'LoC Fiction Codes';";
 $trans["lookup_optsDewFictionCodes"]   = "\$text = 'Dewey Fiction codes:';";
-$trans["lookup_callNmbrType"]          = "\$text = 'Your call Number Type is invalid!';";
-$trans["lookup_optsUpdtBtn"]           = "\$text = 'Update';";
+$trans["lookup_callNmbrType"]          = "\$text = 'ชนิดของเลขเรียกหนังสือไม่ถูกต้อง!';";
+$trans["lookup_optsUpdtBtn"]           = "\$text = 'ปรับปรุง';";
 #****************************************************************************
 #****************************************************************************
 #*  Translation text for page lookupHostsForm.php
 #****************************************************************************
-$trans["lookup_hosts"]       			     = "\$text = 'Z39.50 Hosts.';";
-$trans["lookup_rqdNote"]       			 	 = "\$text = 'Please fill all required (*) fields.';";
-$trans["lookup_hostsUpdated"]          = "\$text = 'Lookup Settings have been updated.';";
-$trans["lookup_hostsConfirmDelete"]    = "\$text = 'Are you sure you want to delete this host?';";
+$trans["lookup_hosts"]       			     = "\$text = 'เซิฟเวอร์ Z39.50';";
+$trans["lookup_rqdNote"]       			 	 = "\$text = 'โปรดกรอกช่องที่บังคับทั้งหมด (*)';";
+$trans["lookup_hostsUpdated"]          = "\$text = 'แก้ไขการตั้งค่าเซิฟเวอร์ Z39.50 แล้ว';";
+$trans["lookup_hostsConfirmDelete"]    = "\$text = 'ยืนยันคำสั่งลบข้อมูลเซิฟเวอร์นี้หรือไม่?';";
 $trans["lookup_hostsListFunction"]   	 = "\$text = 'Function';";
-$trans["lookup_hostsListHeader"]       = "\$text = 'View Lookup Hosts';";
-$trans["lookup_hostsEditHeader"]       = "\$text = 'Edit Host Properties';";
-$trans["lookup_hostsNewHeader"]        = "\$text = 'Enter New Host Properrties';";
-$trans["lookup_hostsSeqNo"]    	     	 = "\$text = 'Order';";
-$trans["lookup_hostsActive"]           = "\$text = 'Use';";
+$trans["lookup_hostsListHeader"]       = "\$text = 'เซิฟเวอร์ทั้งหมด';";
+$trans["lookup_hostsEditHeader"]       = "\$text = 'แก้ไขค่าต่างๆ ของเซิฟเวอร์';";
+$trans["lookup_hostsNewHeader"]        = "\$text = 'กรอกคุณสมบัติของเซิฟเวอร์';";
+$trans["lookup_hostsSeqNo"]    	     	 = "\$text = 'ลำดับ';";
+$trans["lookup_hostsActive"]           = "\$text = 'เปิดใช้งาน';";
 $trans["lookup_hostsHost"]       			 = "\$text = 'URL:port';";
-$trans["lookup_hostsName"]     				 = "\$text = 'Name';";
-$trans["lookup_hostsDb"]        			 = "\$text = 'Database';";
-$trans["lookup_hostsUser"]      			 = "\$text = 'User Id';";
-$trans["lookup_hostsPw"]        			 = "\$text = 'Password';";
-$trans["lookup_hostsUpdtBtn"]          = "\$text = 'Update';";
+$trans["lookup_hostsName"]     				 = "\$text = 'ชื่อ';";
+$trans["lookup_hostsDb"]        			 = "\$text = 'ชื่อฐานข้อมูล';";
+$trans["lookup_hostsUser"]      			 = "\$text = 'ชื่อผู้ใช้';";
+$trans["lookup_hostsPw"]        			 = "\$text = 'รหัสผ่าน';";
+$trans["lookup_hostsUpdtBtn"]          = "\$text = 'ปรับปรุง';";
 #****************************************************************************
 
 ?>

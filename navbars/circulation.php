@@ -7,7 +7,7 @@
   $navloc = new Localize(OBIB_LOCALE,"navbars");
  
 ?>
-<input type="button" onClick="self.location='../shared/logout.php'" value="<?php echo $navloc->getText("Logout"); ?>" class="navbutton"><br />
+<input type="button" onClick="self.location='../shared/logout.php'" value="<?php echo $navloc->getText("logout"); ?>" class="navbutton"><br />
 <br />
 
 <?php if ($nav == "searchform") { ?>

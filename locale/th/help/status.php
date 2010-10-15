@@ -1,89 +1,89 @@
-<h1>Understanding Bibliography Status Changes:</h1>
-The following table lists the possible status states for a bibliography copy.<br><br>
+<h1>การเปลี่ยนสถานะรายการตัวเล่ม:</h1>
+ตารางด้านล่างแสดงสถานะต่างๆ ของรายการตัวเล่ม.<br><br>
 <table class="primary">
-  <tr><th>Status</th><th>Description</th></tr>
-  <tr><td class="primary" valign="top">checked in</td><td class="primary">Bibliography is shelved and available for checkout.</td></tr>
-  <tr><td class="primary" valign="top">checked out</td><td class="primary">Bibliography is checked out by a library member.</td></tr>
-  <tr><td class="primary" valign="top">on hold</td><td class="primary">Bibliography is being held for pickup by a member who has placed a hold on the bibliography.</td></tr>
-  <tr><td class="primary" valign="top">shelving cart</td><td class="primary">Bibliography is on the shelving cart waiting to be shelved.</td></tr>
-  <tr><td class="primary" valign="top">damaged/mending</td><td class="primary">Bibliography is currently being repaired due to damages.</td></tr>
-  <tr><td class="primary" valign="top">display area</td><td class="primary">Bibliography is not available for checkout because it is in a display case.</td></tr>
-  <tr><td class="primary" valign="top">lost</td><td class="primary">Bibliography is not availbale for checkout because it can not be found.</td></tr>
-  <tr><td class="primary" valign="top">on loan</td><td class="primary">Bibliography is on loan.</td></tr>
-  <tr><td class="primary" valign="top">on order</td><td class="primary">Bibliography is on order and has not arrived yet.</td></tr>
+  <tr><th>สถานะ</th><th>รายละเอียด</th></tr>
+  <tr><td class="primary" valign="top">ยืมออกได้</td><td class="primary">รายการตัวเล่มอยู่บนชั้นหนังสือสามารถยืมออกได้ .</td></tr>
+  <tr><td class="primary" valign="top">ถูกยืม</td><td class="primary">รายการตัวเล่มถูกยืมออกโดยสมาชิก.</td></tr>
+  <tr><td class="primary" valign="top">ถูกจอง</td><td class="primary">รายการตัวเล่มถูกจองโดยสมาชิกสำหรับยืมต่อ.</td></tr>
+  <tr><td class="primary" valign="top">รถเข็น</td><td class="primary">รายการตัวเล่มอยู่บนรถเข็นรอการขึ้นชั้นให้บริการ.</td></tr>
+  <tr><td class="primary" valign="top">ชำรุด/ซ่อมแซม</td><td class="primary">รายการตัวเล่มอยู่ระหว่างการซ่อมแซม.</td></tr>
+  <tr><td class="primary" valign="top">พื้นที่แสดงรายการตัวเล่มใหม่</td><td class="primary">รายการตัวเล่มอยู่ระหว่างการแสดงไม่สามารถยืมออกได้.</td></tr>
+  <tr><td class="primary" valign="top">สูญหาย</td><td class="primary">รายการตัวเล่มสูญหาย.</td></tr>
+  <tr><td class="primary" valign="top">อยู่ระหว่างการยืม</td><td class="primary">รายการตัวเล่มอยู่ระหว่างการยืม.</td></tr>
+  <tr><td class="primary" valign="top">จัดซื้อ</td><td class="primary">อยู่ระหว่างดำเนินการจัดซื้อ.</td></tr>
 </table>
 <br>
-Bibliography status changes are allowed on the following pages with the following rules.<br><br>
+รายการตัวเล่มเปลี่ยนแปลงสถานะตามกฏเกณฑ์ดังต่อไปนี้.<br><br>
 <table class="primary">
-  <tr><th>Page</th><th>Old Status</th><th>New Status</th><th>Rules</th></tr>
+  <tr><th>หน้า</th><th>สภานะเก่า</th><th>สถานะใหม่</th><th>กฏเกณฑ์</th></tr>
   <tr>
-    <td class="primary" valign="top" rowspan="3">member info</td>
-    <td class="primary" valign="top">checked in</td>
-    <td class="primary" valign="top">checked out</td>
+    <td class="primary" valign="top" rowspan="3">ข้อมูลสมาชิก</td>
+    <td class="primary" valign="top">ยืมออกได้</td>
+    <td class="primary" valign="top">ยืมออก</td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">other<sup>*</sup></td>
-    <td class="primary" valign="top">checked out</td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
+    <td class="primary" valign="top">ยืมออก</td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">on hold</td>
-    <td class="primary" valign="top">checked out</td>
-    <td class="primary" valign="top">Only allow if member is first in hold queue for the given copy or if hold queue is empty.</td>
+    <td class="primary" valign="top">จอง</td>
+    <td class="primary" valign="top">ยืมออก</td>
+    <td class="primary" valign="top">ยอมให้สมาชิกลำดับแรกที่จองเพื่อยืมต่อเท่านั้น.</td>
   </tr>
   <tr>
-    <td class="primary" valign="top" rowspan="5">check in</td>
-    <td class="primary" valign="top">checked out</td>
-    <td class="primary" valign="top">shelving cart</td>
-    <td class="primary" valign="top">Will calculate late fees.</td>
+    <td class="primary" valign="top" rowspan="5">ยืมออกได้</td>
+    <td class="primary" valign="top">คืน</td>
+    <td class="primary" valign="top">บนรถเข็น</td>
+    <td class="primary" valign="top">คิดค่าปรับ.</td>
   </tr>
   <tr>
-    <td class="primary" valign="top">checked out</td>
-    <td class="primary" valign="top">on hold</td>
-    <td class="primary" valign="top">Will calculate late fees and show message to place book in hold storage.</td>
+    <td class="primary" valign="top">ยืมออกได้</td>
+    <td class="primary" valign="top">ถูกจอง</td>
+    <td class="primary" valign="top">คิดค่าปรับเกินกำหนด ก่อนแสดงรายการจอง.</td>
   </tr>
   <tr>
-    <td class="primary" valign="top">other<sup>*</sup></td>
-    <td class="primary" valign="top">shelving cart</td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
+    <td class="primary" valign="top">บนรถเข็น</td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">on hold</td>
-    <td class="primary" valign="top">shelving cart</td>
-    <td class="primary" valign="top">Will only allow if hold queue for given copy is empty.</td>
+    <td class="primary" valign="top">จอง</td>
+    <td class="primary" valign="top">บนรถเข็น</td>
+    <td class="primary" valign="top">อนุญาตให้จองสำหรับยืมต่อเมื่อรายการตัวเล่มว่าง.</td>
   </tr>
   <tr>
-    <td class="primary" valign="top">shelving cart</td>
-    <td class="primary" valign="top">checked in</td>
+    <td class="primary" valign="top">บนรถเข็น</td>
+    <td class="primary" valign="top">ยืมออกได้</td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top" rowspan="5">biblio info</td>
-    <td class="primary" valign="top">other<sup>*</sup></td>
-    <td class="primary" valign="top">checked in</td>
+    <td class="primary" valign="top" rowspan="5">ข้อมูลบรรณานุกรม</td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
+    <td class="primary" valign="top">ยืมออกได้</td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">other<sup>*</sup></td>
-    <td class="primary" valign="top">other<sup>*</sup></td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">checed in</td>
-    <td class="primary" valign="top">other<sup>*</sup></td>
+    <td class="primary" valign="top">ยืมออกได้</td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
     <td class="primary" valign="top"></td>
   </tr>
   <tr>
-    <td class="primary" valign="top">on hold</td>
-    <td class="primary" valign="top">checked in</td>
-    <td class="primary" valign="top">Only allowed if hold queue for given copy is empty.</td>
+    <td class="primary" valign="top">ถูกจอง</td>
+    <td class="primary" valign="top">ยืมออกได้</td>
+    <td class="primary" valign="top">อนุญาตให้จองสำหรับยืมต่อเมื่อรายการตัวเล่มว่าง.</td>
   </tr>
   <tr>
-    <td class="primary" valign="top">on hold</td>
-    <td class="primary" valign="top">other<sup>*</sup></td>
-    <td class="primary" valign="top">Only allowed if hold queue for given copy is empty.</td>
+    <td class="primary" valign="top">ถูกจอง</td>
+    <td class="primary" valign="top">อื่นๆ<sup>*</sup></td>
+    <td class="primary" valign="top">อนุญาตให้จองสำหรับยืมต่อเมื่อรายการตัวเล่มว่าง.</td>
   </tr>
 </table>
 
-<font class="small">* - note: other includes damaged/mend, display, lost, on loan and on order status states.</font>
+<font class="small">* - หมายเหตุ: อื่นๆ รวมถึง สถานะดังต่อไปนี้ ชำรุด/ซ่อมแซม พื้นที่แสดง สูญหาย อยู่ระหว่างการยืม และสั่งซื้อ .</font>

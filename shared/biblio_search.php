@@ -246,6 +246,8 @@ function changePage(page,sort)
             <td nowrap="true" class="primary" valign="top" align="center"><font class="small">
               <?php echo H($biblioQ->getCurrentRowNmbr());?>.
             </font></td>
+            
+            <td class="primary">&nbsp;</td>
             <td class="primary" ><font class="small"><b><?php echo $loc->getText("biblioSearchCopyBCode"); ?></b>: <?php echo H($biblio->getBarcodeNmbr());?>
               <?php if ($lookup == 'Y') { ?>
                 <a href="javascript:returnLookup('barcodesearch','barcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchOutIn"); ?></a> | <a href="javascript:returnLookup('holdForm','holdBarcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchHold"); ?></a>
@@ -266,7 +268,7 @@ function changePage(page,sort)
       <a href="../shared/biblio_view.php?bibid=<?php echo HURL($biblio->getBibid());?>&amp;tab=<?php echo HURL($tab);?>">
       <img src="../images/<?php echo HURL($materialImageFiles[$biblio->getMaterialCd()]);?>" width="20" height="20" border="0" align="bottom" alt="<?php echo H($materialTypeDm[$biblio->getMaterialCd()]);?>"></a>
     </td>
-    <td nowrap="true" class="primary" valign="top" align="center" rowspan="2">
+    <td nowrap="true" class="primary picture" valign="top" align="center" rowspan="2">
       <?php
       $bfq = new BiblioFieldQuery();
       $bfq->execSelect($biblio->getBibid(), '902a');
@@ -311,7 +313,7 @@ function changePage(page,sort)
     if ($biblio->getBarcodeNmbr() != "") {
       ?>
       <tr>
-        <td class="primary" ><font class="small"><b><?php echo $loc->getText("biblioSearchCopyBCode"); ?></b>: <?php echo H($biblio->getBarcodeNmbr());?>
+        <td class="primary"><font class="small"><b><?php echo $loc->getText("biblioSearchCopyBCode"); ?></b>: <?php echo H($biblio->getBarcodeNmbr());?>
           <?php if ($lookup == 'Y') { ?>
             <a href="javascript:returnLookup('barcodesearch','barcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchOutIn"); ?></a> | <a href="javascript:returnLookup('holdForm','holdBarcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchHold"); ?></a>
           <?php } ?>

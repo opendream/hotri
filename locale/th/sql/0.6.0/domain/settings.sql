@@ -3,7 +3,7 @@ values (
   'ห้องสมุดของฉัน'
   ,'../images/sampleLogo.png'
   ,'N'
-  ,'M-F 8am-9pm, Sa noon-5pm, Su 1-5pm'
+  ,'จันทร์-ศุกร์'
   ,'111-222-3333'
   ,null
   ,'../opac/index.php'

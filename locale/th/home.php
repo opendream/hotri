@@ -38,32 +38,32 @@
 #****************************************************************************
 #*  Translation text for page index.php
 #****************************************************************************
-$trans["indexHeading"]       = "\$text='Welcome to OpenBiblio';";
+$trans["indexHeading"]       = "\$text='ระบบสืบค้นรายการทรัพยากรสารสนเทศออนไลน์';";
 $trans["indexIntro"]         = "\$text=
-  'Use the navigation tabs at the top of each page to access the following library
-  administration sections.';";
-$trans["indexTab"]           = "\$text='Tab';";
-$trans["indexDesc"]          = "\$text='Description';";
-$trans["indexCirc"]          = "\$text='Circulation';";
-$trans["indexCircDesc1"]     = "\$text='Use this tab to manage your member records.';";
-$trans["indexCircDesc2"]     = "\$text='Member administration (new, search, edit, delete)';";
-$trans["indexCircDesc3"]     = "\$text='Member bibliography checkout, holds, account, and history';";
-$trans["indexCircDesc4"]     = "\$text='Bibliography checkin and shelving cart list';";
-//$trans["indexCircDesc5"]     = "\$text='Member late fee payment';";
-$trans["indexCat"]           = "\$text='Cataloging';";
-$trans["indexCatDesc1"]      = "\$text='Use this tab to manage your bibliography records.';";
-$trans["indexCatDesc2"]      = "\$text='Bibliography administration (new, search, edit, delete)';";
-//$trans["indexCatDesc3"]      = "\$text='Import bibliography from USMarc record';";
-$trans["indexAdmin"]         = "\$text='Admin';";
-$trans["indexAdminDesc1"]    = "\$text='Use this tab to manage staff and administrative records.';";
-$trans["indexAdminDesc2"]    = "\$text='Staff administration (new, edit, password, delete)';";
-$trans["indexAdminDesc3"]    = "\$text='General library settings';";
-$trans["indexAdminDesc5"]    = "\$text='Library material type list';";
-$trans["indexAdminDesc4"]    = "\$text='Library collection list';";
-$trans["indexAdminDesc6"]    = "\$text='Library theme editor';";
-$trans["indexReports"]       = "\$text='Reports';";
-$trans["indexReportsDesc1"]  = "\$text='Use this tab to run reports on your library data.';";
-$trans["indexReportsDesc2"]  = "\$text='Report.';";
-$trans["indexReportsDesc3"]  = "\$text='Labels.';";
+  'ใช้เมนู(ด้านบน)สำหรับการจัดการโมดูลงานต่างๆ ของห้องสมุด (สามารถศึกษาตามคำแนะนำด้านล่างนี้)';";
+$trans["indexTab"] = "\$text='หัวข้อ';";
+$trans["indexDesc"] = "\$text='คำอธิบาย';";
+$trans["indexCirc"] = "\$text='ระบบสมาชิกห้องสมุด';";
+$trans["indexCircDesc1"] = "\$text='ใช้เมนูนี้สำหรับจัดการระบบสมาชิก)';";
+$trans["indexCircDesc2"] = "\$text='ระบบสมาชิก (เพิ่ม, ค้นหา, แก้ไข, ลบ)';";
+$trans["indexCircDesc3"] = "\$text='ระบบยืมทรัพยากรสารสนเทศ';";
+$trans["indexCircDesc4"] = "\$text='ระบบคืนทรัพยากรสาสนเทศ';";
+//$trans["indexCircDesc5"] = "\$text='Member late fee payment';";
+$trans["indexCat"] = "\$text='งานลงรายการทรัพยากรสารสนเทศ';";
+$trans["indexCatDesc1"] = "\$text='ใช้เมนูนสำหรับบันทึกข้อมูลรายการบรรณานุกรม';";
+$trans["indexCatDesc2"] = "\$text='เพิ่ม, ค้นหา, แก้ไข, ลบ, นำเข้า, ส่งออก';";
+$trans["indexCatDesc3"] = "\$text='ถ่ายโอนข้อมูลบรรณานุกรมจาก Amazon.com และ Library of congress';";
+$trans["indexAdmin"] = "\$text='งานดูแลระบบ';";
+$trans["indexAdminDesc1"] = "\$text='ใช้เมนูสำหรับกำหนดผู้ใช้ปฏิบัติงานและผู้ดูแลระบบ ';";
+$trans["indexAdminDesc2"] = "\$text='ผู้ใช้งานระบบ (เพิ่ม, แก้ไข, รหัสผ่าน, ลบ)';";
+$trans["indexAdminDesc3"] = "\$text='ตั้งค่าทั่วไปเกี่ยวกับห้องสมุด';";
+$trans["indexAdminDesc5"] = "\$text='แสดงหมวดหมู่';";
+$trans["indexAdminDesc4"] = "\$text='ประเภททรัพยากรสารสนเทศ';";
+$trans["indexAdminDesc6"] = "\$text='จัดการหน้าจอระบบ';";
+$trans["indexReports"] = "\$text='รายงาน';";
+$trans["indexReportsDesc1"] = "\$text='ใช้เมนูนี้สำหรับออกผลรายงานและสถิติ';";
+$trans["indexReportsDesc2"] = "\$text='แสดงผลรายงานและสถิติต่างๆ';";
+$trans["indexReportsDesc3"] = "\$text='บาร์โค้ด';"; 
+
 
 ?>

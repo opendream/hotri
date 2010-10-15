@@ -1,27 +1,27 @@
-<center><font class="error">This help system is still under construction.  More sections will be added in future releases.</font></center>
-<h1>Contents:</h1>
+<center><font class="error">คู่มือแนะนำการใช้งานการจัดการระบบ.</font></center>
+<h1>เนื้อหา:</h1>
 <ol>
-  <li>OPAC and Search Results pages</li>
+  <li>OPAC และ ผลการสืบค้น</li>
     <ol type="a">
-      <li><a href="../shared/help.php?page=opac">Online Public Access Catalog (OPAC) page</a></li>
-      <li><a href="../shared/help.php?page=biblioSearch">Search Results pages</a></li>
+      <li><a href="../shared/help.php?page=opac">หน้า OPAC</a></li>
+      <li><a href="../shared/help.php?page=biblioSearch">ผลการสืบค้น</a></li>
     </ol>
-  <li>General concepts for library administration</li>
+  <li>การจัดการส่วนดูแลระบบ</li>
     <ol type="a">
-      <li><a href="../shared/help.php?page=status">Understanding bibliography status changes</a></li>
-      <li><a href="../shared/help.php?page=barcodes">Understanding barcodes</a></li>
+      <li><a href="../shared/help.php?page=status">การเปลี่ยนสถานะรายการตัวเล่ม</a></li>
+      <li><a href="../shared/help.php?page=barcodes">จัดการบาร์โค้ด</a></li>
     </ol>
-  <li>Circulation page level help</li>
+  <li>ยืม-คืน</li>
     <ol type="a">
-      <li><a href="../shared/help.php?page=circulation">Member Search (Circulation index) page</a></li>
-      <li><a href="../shared/help.php?page=memberView">Member Info page</a></li>
-      <li><a href="../shared/help.php?page=opacLookup">Barcode Lookup page</a></li>
-      <li><a href="../shared/help.php?page=checkin">Check In page</a></li>
+      <li><a href="../shared/help.php?page=circulation">หน้าค้นหาสมาชิก (ยืม-คืน)</a></li>
+      <li><a href="../shared/help.php?page=memberView">ข้อมูลสมาชิก</a></li>
+      <li><a href="../shared/help.php?page=opacLookup">หน้าแสดงบาร์โค้ด</a></li>
+      <li><a href="../shared/help.php?page=checkin">การคืน</a></li>
     </ol>
-  <li>Cataloging page level help</li>
+  <li>การลงรายการบรรณานุกรม</li>
     <ol type="a">
-      <li><a href="../shared/help.php?page=biblioEdit">Bibliography new and edit (Edit-Basic) pages</a></li>
-      <li><a href="../shared/help.php?page=biblioCopyEdit">Copy new and edit pages</a></li>
+      <li><a href="../shared/help.php?page=biblioEdit">การเพิ่มและแก้ไขรายการบรรณานุกรม</a></li>
+      <li><a href="../shared/help.php?page=biblioCopyEdit">สร้างตัวเล่มและแก้ไข</a></li>
     </ol>
   
 </ol>

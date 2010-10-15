@@ -37,7 +37,7 @@
 #****************************************************************************
 #*  Translation text for class Biblio
 #****************************************************************************
-$trans["biblioError1"]            = "\$text = 'Call number is required.';";
+$trans["biblioError1"]            = "\$text = 'ต้องใส่เลขหมู่';";
 
 #****************************************************************************
 #*  Translation text for class BiblioField
@@ -45,11 +45,11 @@ $trans["biblioError1"]            = "\$text = 'Call number is required.';";
 $trans["biblioFieldError1"]       = "\$text = 'Field is required.';";
 $trans["biblioFieldError2"]       = "\$text = 'Tag must be numeric.';";
 
-$trans["biblioFieldErrorPictureType"]             = "\$text = 'This file type is not image (support jpeg, gif, png).';";
-$trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'Failed to load image informations.';";
-$trans["biblioFieldErrorCoverLookupFailed"] = "\$text = 'Failed to connect online cover lookup service.';";
-$trans["biblioFieldErrorDuplicatedISBN"]       = "\$text = 'This ISBN is already in used,';";
-$trans["biblioFieldViewExistingISBN"]            = "\$text = 'view existing item.';";
+$trans["biblioFieldErrorPictureType"]             = "\$text = 'ชนิดของไฟล์ที่อัพโหลดไม่ใช่รูปภาพ (รองรับ jpeg, gif, png)';";
+$trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'ไม่สามารถดึงข้อมูลของรูปภาพมาใช้งานได้';";
+$trans["biblioFieldErrorCoverLookupFailed"] = "\$text = 'ไม่สามารถเชื่อมต่อกับระบบการค้นหาปกหนังสือได้';";
+$trans["biblioFieldErrorDuplicatedISBN"]       = "\$text = 'เลข ISBN นี้ถูกใช้อ้างอิงหนังสืออื่นแล้ว';";
+$trans["biblioFieldViewExistingISBN"]            = "\$text = 'เปิดดูหนังสือเล่มนั้น';";
 
 #****************************************************************************
 #*  Translation text for class BiblioQuery

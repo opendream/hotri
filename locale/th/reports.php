@@ -37,19 +37,19 @@
 #****************************************************************************
 #*  Translation text used on multiple pages
 #****************************************************************************
-$trans["reportsCancel"]            = "\$text = 'Cancel';";
+$trans["reportsCancel"]            = "\$text = 'ยกเลิก';";
 
 #****************************************************************************
 #*  Translation text for page index.php
 #****************************************************************************
-$trans["indexHdr"]                 = "\$text = 'Reports';";
+$trans["indexHdr"]                 = "\$text = '	รายงาน';";
 $trans["indexDesc"]                = "\$text = 'Use the report or label list located in the left hand navigation area to produce reports or labels.';";
 
 #****************************************************************************
 #*  Translation text for page report_list.php
 #****************************************************************************
-$trans["reportListHdr"]            = "\$text = 'Report List';";
-$trans["reportListDesc"]           = "\$text = 'Choose from one of the following links to run a report.';";
+$trans["reportListHdr"]            = "\$text = 'แสดงผลรายงานและสถิติ';";
+$trans["reportListDesc"]           = "\$text = 'เลือกการออกรายงานจากด้านล่างนี้';";
 $trans["reportListXmlErr"]         = "\$text = 'Error occurred parsing report definition xml.';";
 $trans["reportListCannotRead"]     = "\$text = 'Cannot read label file: %fileName%';";
 
@@ -100,7 +100,7 @@ $trans["reportCriteriaOutputCSV"]  = "\$text = 'CSV';";
 #*  Translation text for page run_report.php
 #****************************************************************************
 $trans["runReportReturnLink1"]     = "\$text = 'report selection criteria';";
-$trans["runReportReturnLink2"]     = "\$text = 'report list';";
+$trans["runReportReturnLink2"]     = "\$text = 'รายการรายงาน';";
 $trans["runReportTotal"]           = "\$text = 'Total Rows:';";
 
 #****************************************************************************
@@ -113,17 +113,17 @@ $trans["displayLabelsCannotRead"]  = "\$text = 'Cannot read label file: %fileNam
 #****************************************************************************
 #*  Translation text for page noauth.php
 #****************************************************************************
-$trans["noauthMsg"]                = "\$text = 'You are not authorized to use the Reports tab.';";
+$trans["noauthMsg"]                = "\$text = 'คุณไม่มีสิทธิ์สำหรับการใช้งานในส่วนนี้';";
 
 #****************************************************************************
 #*  Report Titles
 #****************************************************************************
 $trans["reportHolds"]              = "\$text = 'Hold Requests Containing Member Contact Info';";
-$trans["reportCheckouts"]          = "\$text = 'Bibliography Checkout Listing';";
+$trans["reportCheckouts"]          = "\$text = 'รายงานการยืมทรัพยากรสารสนเทศ';";
 $trans["Over Due Letters"]           = "\$text = 'Over Due Letters';";
 $trans["reportLabels"]             = "\$text = 'Label Printing Query (used by labels)';";
-$trans["popularBiblios"]           = "\$text = 'Most Popular Bibliographies';";
-$trans["overdueList"]              = "\$text = 'Over Due Member List';";
+$trans["popularBiblios"]           = "\$text = 'รายงานการรายการทรัพยากรสารสนเทศที่ยืมมากที่สุด';";
+$trans["overdueList"]              = "\$text = 'รายงานการยืมทรัพยากรสารสนเทศเกินกำหนด';";
 $trans["balanceDueList"]           = "\$text = 'Balance Due Member List';";
 
 #****************************************************************************
@@ -147,8 +147,8 @@ $trans["biblio.title_remainder"]   = "\$text = 'Title Remainder';";
 $trans["biblio.responsibility_stmt"] = "\$text = 'Stmt of Resp';";
 $trans["biblio.opac_flg"]          = "\$text = 'OPAC Flag';";
 
-$trans["biblio_copy.barcode_nmbr"] = "\$text = 'Barcode';";
-$trans["biblio.title"]             = "\$text = 'Title';";
+$trans["biblio_copy.barcode_nmbr"] = "\$text = 'รหัสบาร์โค้ด';";
+$trans["biblio.title"]             = "\$text = 'ชื่อเรื่อง';";
 $trans["biblio.author"]            = "\$text = 'Author';";
 $trans["biblio_copy.status_begin_dt"]   = "\$text = 'Status Begin Date';";
 $trans["biblio_copy.due_back_dt"]       = "\$text = 'Due Back Date';";
@@ -171,16 +171,16 @@ $trans["author"]                   = "\$text = 'Author';";
 $trans["due_back_dt"]              = "\$text = 'Due Back';";
 $trans["checkoutCount"]            = "\$text = 'Checkout Count';";
 
-$trans["reportDateMonth01"]   = "\$text = 'January';";
-$trans["reportDateMonth02"]   = "\$text = 'February';";
-$trans["reportDateMonth03"]   = "\$text = 'March';";
-$trans["reportDateMonth04"]   = "\$text = 'April';";
-$trans["reportDateMonth05"]   = "\$text = 'May';";
-$trans["reportDateMonth06"]   = "\$text = 'June';";
-$trans["reportDateMonth07"]   = "\$text = 'July';";
-$trans["reportDateMonth08"]   = "\$text = 'August';";
-$trans["reportDateMonth09"]   = "\$text = 'September';";
-$trans["reportDateMonth10"]   = "\$text = 'October';";
-$trans["reportDateMonth11"]   = "\$text = 'November';";
-$trans["reportDateMonth12"]   = "\$text = 'December';";
+$trans["reportDateMonth01"]   = "\$text = 'มกราคม';";
+$trans["reportDateMonth02"]   = "\$text = 'กุมภาพันธ์';";
+$trans["reportDateMonth03"]   = "\$text = 'มีนาคม';";
+$trans["reportDateMonth04"]   = "\$text = 'เมษายน';";
+$trans["reportDateMonth05"]   = "\$text = 'พฤษภาคม';";
+$trans["reportDateMonth06"]   = "\$text = 'มิถุนายน';";
+$trans["reportDateMonth07"]   = "\$text = 'กรกฎาคม';";
+$trans["reportDateMonth08"]   = "\$text = 'สิงหาคม';";
+$trans["reportDateMonth09"]   = "\$text = 'กันยายน';";
+$trans["reportDateMonth10"]   = "\$text = 'ตุลาคม';";
+$trans["reportDateMonth11"]   = "\$text = 'พฤศจิกายน';";
+$trans["reportDateMonth12"]   = "\$text = 'ธันวาคม';";
 ?>

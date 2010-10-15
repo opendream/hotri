@@ -1,75 +1,58 @@
-<h1>Understanding barcodes:</h1>
+<h1>เกี่ยวกับบาร์โค้ด:</h1>
 <br><br>
 
-Help Sub Sections:
+คำแนะนำการใช้งาน:
 <ul>
-  <li><a href="#limi">Limitations for OpenBiblio barcode numbers</a></li>
-  <li><a href="#memb">Member barcodes</a></li>
-  <li><a href="#copy">Bibliography copy barcodes</a></li>
-  <li><a href="#scan">Using a barcode scanner</a></li>
-  <li><a href="#labe">Printing barcodes and labeling copies</a></li>
-  <li><a href="#link">Some links with helpful sources on barcodes</a></li>
+  <li><a href="#limi">ข้อจำกัดของโปรแกรม OpenBiblio ในของบาร์โค้ด </a></li>
+  <li><a href="#memb">รหัสบาร์โค้ดสมาชิก</a></li>
+  <li><a href="#copy">รหัสบาร์โค้ดรายการตัวเล่ม</a></li>
+  <li><a href="#scan">การใช้เครื่องอ่านบาร์โค้ด</a></li>
+  <li><a href="#labe">การพิมพ์บาร์โค้ดและพิมพ์เลขเรียกหนังสือ</a></li>
+  <li><a href="#link">ลิงค์เว็บไซต์เกี่ยวกับบาร์โค้ด</a></li>
 </ul>
 <br><br>
 
 
-<a name="limi">Limitations for OpenBiblio barcode numbers</a>:
+<a name="limi">ข้อจำกัดของโปรแกรม OpenBiblio ในของบาร์โค้ด</a>:
 <ul>
-  <li>Barcode number must be all alphabetic and/or numeric characters: a-zA-Z0-9<br>
-Though many barcode symbologies (type of barcodes) can encode special characters, OpenBiblio does not allow
-non alphanumeric characters like - $ % SPACE . / + 
+  <li>การใส่รหัสบาร์โค้ดต้องใส่ตัวอักษรและหรือตัวเลขเท่านั้น เช่น a-zA-Z0-9<br>
+แม้ว่าบาร์โค้ดสามารถเข้ารหัสตัวอักษรพิเศษได้ แต่โปรแกรม OpenBiblio ไม่อนุญาตให้ใช้ตัวอักษรพิเศษ เช่น - $ % SPACE . / + 
   </li>
-  <li>After submitting, alphabetical characters are converted to lowercase.</li>
-  <li>Maximum length of a barcode is 20 characters.</li>
+  <li>หลังจากบันทึกบาร์โค้ดแล้ว ตัวอักษรจะถูกเปลี่ยนให้เป็นอักษรพิมพ์เล็ก.</li>
+  <li>จำกัดความยาวสูงสุดของรหัสบาร์โค้ด 20 ตัวอักษร .</li>
 </ul>
-When choosing a numbering structure you have to be aware of these limitations. Also make sure the barcode 
-symbology you will use for printing does not conflict with the limitations. For example: 
-Code 39 (3 of 9, not the extended version) encodes only uppercase letters.
+หากเลือกใช้ตัวเลขเป็นรหัสบาร์โค้ด โปรดระวังเรื่องข้อจำกัด ต้องแน่ใจว่า สัญลักษณ์บาร์โค้ดที่คุณจะใช้พิมพ์นั้นไม่ขัดแย้งกับข้อจำกัด ยกตัวอย่างเช่น Code 39 (3 of 9, not the extended version) เข้ารหัสตัวอักษรพิมพ์ใหญ่ (Uppercase) เท่านั้น 
 <br><br><br>
   
-<a name="memb">Member barcodes</a>:
+<a name="memb">รหัสบาร์โค้ดสมาชิก</a>:
 <br>
-To have efficient checkout workflow, especially when using a barcode scanner, use a numbering structure with 
-leading zeros for member barcodes. If every member barcode has a fixed number of digits, OpenBiblio is forced 
-to show the Member Info page after scanning or typing a member barcode correctly. This allows subsequent 
-scanning of copy barcodes to check out items.
+ เพื่อให้การทำงานยืม-คืน มีประสิทธิภาพโดยเฉพาะการใช้เครื่องอ่านบาร์โค้ด  ควรใช้รหัสบาร์โค้ดที่เป็นตัวเลขสำหรับรหัสสมาชิก
 <br>
-If a scanned or typed member barcode does not have the required fixed number of digits, Search results for 
-members could appear, even if the member barcode would be unique. The reason for this is Search Member by Card 
-Number does not search for an exact match, just like Search Member by Last Name it takes the Card Number as a 
-Search Phrase with right truncation.
+ถ้าเครื่องอ่านบาร์โค้ดไม่ทำงานหรือไม่ใช้เครื่องอ่านบาร์โค้ดสามารถพิมพ์รหัสบาร์โค้ดหรือชื่อสมาชิกแทนได้
 <br><br><br>
 
-<a name="copy">Bibliography copy barcodes</a>:
+<a name="copy">รหัสบาร์โค้ดรายการตัวเล่ม</a>:
 <br>
-If your library already has labeled barcodes to copies, make sure the numbering structure does not conflict with 
-<a href="#limi">Limitations for OpenBiblio barcodes</a>.
+การพิมพ์รหัสบาร์โค้ด และรายการบรรณานุกรมรวมทั้งการพิมพ์เลขเรียกหนังสือ (พิมพ์สัน) ตองแน่ใจว่ารายการตรงกัน
+<a href="#limi">ข้อจำกัดการใช้บาร์โค้ดโปรแกรม Openbiblio</a>.
 <br>
-If your library never assigned unique numbers to copies you have to decide about a suitable numbering structure or use 
-<a href="../shared/help.php?page=biblioCopyEdit#auto">Barcode Number - Autogenerate</a>.
-This has a useful property when switching from a simple card file: 
-<a href="../shared/help.php?page=biblioCopyEdit#seri">Copy Serial Numbers integrated in Barcode Numbers</a> 
-facilitate entering copy information from a simple card file when unique numbers were not assigned, only serial numbers for multiple copies of a title. 
+ถ้าห้องสมุดไม่เคยกำหนดรหัสบาร์โค้ดตัวเล่ม คุณจะต้องตัดสินใจสำหรับการกำหนดรหัสบาร์โค้ดให้เหมาะสมกับห้องสมุดของคุณ
+<a href="../shared/help.php?page=biblioCopyEdit#auto">การสร้างรหัสบาร์โค้ดโดยอัตโนมัติ</a>.
+มีความรวดเร็วในการสร้างรหัสบาร์โค้ดเพิ่มขึ้นและง่ายสำหรับการสร้าง
+<br><br><br>
+<a name="scan">การใช้เครื่องอ่านบาร์โค้ด :</a>
+<br>
+โปรแกรม OpenBiblio สามารถรองรับเครื่องอ่านบาร์โค้ดที่ทำหน้าที่คล้ายคีย์บอร์ด รวมถึงเครื่องอ่านบาร์โค้ดแบบ USB รวมทั้งเครื่องอ่านบาร์โค้ดที่ต่อระหว่างเครื่องคอมพิวเตอร์และคีย์บอร์ด
+เครื่องอ่านบาร์โค้ดส่วนใหญ่ในปัจจุบันสามารถตั้งโปรแกรมเพื่อให้อ่านรหัสบาร์โค้ดและต่อด้วยการชี้ตำแหน่ง (cursor) ลงในตำแหน่งแรกของบรรทัดถัดลงมา (ซึ่งเหมือนกับการกดปุ่ม ENTER บนคีย์บอร์ด) ทุกครั้งที่อ่านรหัสบาร์โค้ด โปรแกรม OpenBiblio จะสามารถประมวลผลคำสั่งทันทีที่เครื่องอ่านรหัสบาร์โค้ด 
+
 <br><br><br>
 
-<a name="scan">Using a barcode scanner:</a>
-<br>
-Any barcode scanner that emulates the keyboard is supported by OpenBiblio. This includes USB scanners 
-and scanners that connect between the computer and its keyboard (keyboard wedge).<br>
-Most barcode scanners can be programmed to automatically append a carriage return (same as hitting 
-ENTER on the keyboard) to every scan. In this way, OpenBiblio will be able to process your request 
-as soon as you scan the item.
-<br><br><br>
-
-<a name="labe">
-Labeling copies with Barcodes</a> makes circulation efficient, especially when using actual barcodes and a barcode scanning device.
-<ul>
-  <li>Labels containing text and numbers can be printed using a PDF report; Reports tab, Print Labels.</li>
-  <li>Actual barcodes can be produced outside OpenBiblio, for example by using a word processor and a barcode font.</li>
+<a name="labe">การพิมพ์บาร์โค้ดและพิมพ์เลขเรียกหนังสือ</a></li>
+การพิมพ์บาร์โค้ดและพิมพ์เลขเรียกหนังสือ</a> การยืม-คืนด้วยบาร์โค้ดที่มีประสิทธิภาพ, จำเป็นต้องใช้เครื่องอ่านบาร์โค้ดที่มีประสิทธิภาพด้วย.
 </ul>
 <br>
 
-<a name="link">Some links with helpful sources on barcodes</a>
+<a name="link">ลิงค์เว็บไซต์เกี่ยวกับบาร์โค้ด</a>
 <br>
 <a href="javascript:popSecondaryLarge('http://en.wikipedia.org/wiki/Barcode')">Wikipedia: barcode</a>
 <br>
