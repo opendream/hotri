@@ -210,9 +210,9 @@ $trans["NotAuth"]                 = "\$text = 'คุณไม่มีสิท
 #****************************************************************************
 #*  Translation text for page upload_usmarc.php and upload_usmarc_form.php
 #****************************************************************************
-$trans["MarcUploadTest"]            = "\$text = 'ทดสอบนำเข้า';";
-$trans["MarcUploadTestTrue"]        = "\$text = 'จริง';";
-$trans["MarcUploadTestFalse"]       = "\$text = 'เท็จ';";
+$trans["MarcUploadTest"]            = "\$text = 'การจัดการไฟล์ที่นำเข้า';";
+$trans["MarcUploadTestTrue"]        = "\$text = 'ทดสอบ';";
+$trans["MarcUploadTestFalse"]       = "\$text = 'นำเข้า';";
 $trans["MarcUploadTestFileUpload"]  = "\$text = 'ใส่ไฟล์ Marc ';";
 $trans["MarcUploadEncoding"]      = "\$text = 'ชนิดของรหัสอักขระ';";
 $trans["MarcUploadRecordsUploaded"] = "\$text = 'รายการเพิ่ม';";

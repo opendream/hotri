@@ -25,11 +25,11 @@
 
 ?>
 <a href="../admin/member_fields_new_form.php?reset=Y"><?php echo $loc->getText("Add new custom field"); ?></a><br>
-<h1> <?php echo $loc->getText("Custom Member FIelds"); ?></h1>
+<h1> <?php echo $loc->getText("Custom Member Fields"); ?></h1>
 <table class="primary">
   <tr>
     <th colspan="2" valign="top">
-      <font class="small">*</font><?php echo $loc->getText("function"); ?>
+      <font class="small">*</font><?php echo $loc->getText("Function"); ?>
     </th>
     <th valign="top" nowrap="yes">
       <?php echo $loc->getText("Code"); ?>

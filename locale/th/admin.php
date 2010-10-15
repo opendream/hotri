@@ -85,7 +85,7 @@ $trans["adminCollections_edit_formNoteText"]                 = "\$text = 'ตั
 #****************************************************************************
 $trans["adminCollections_listAddNewCollection"]                 = "\$text = 'เพิ่มสถานที่จัดเก็บ';";
 $trans["adminCollections_listCollections"]                 = "\$text = 'สถานที่จัดเก็บ:';";
-$trans["adminCollections_listFunction"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminCollections_listFunction"]                 = "\$text = 'คำสั่ง';";
 $trans["adminCollections_listDescription"]                 = "\$text = 'รายละเอียด';";
 $trans["adminCollections_listDaysdueback"]                 = "\$text = 'จำนวนวันที่ยืมได้';";
 $trans["adminCollections_listDailylatefee"]                 = "\$text = 'ค่าปรับเกินกำหนดต่อวัน';";
@@ -142,7 +142,7 @@ $trans["admin_materials_editEnd"]                 = "\$text = ', ถูกแก
 #****************************************************************************
 $trans["admin_materials_listAddmaterialtypes"]                 = "\$text = 'เพิ่มประเภททรัพยากรสารสนเทศ';";
 $trans["admin_materials_listMaterialtypes"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
-$trans["admin_materials_listFunction"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["admin_materials_listFunction"]                 = "\$text = 'คำสั่ง';";
 $trans["admin_materials_listDescription"]                 = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
 $trans["admin_materials_listLimits"]                 = "\$text = 'จำกัด';";
 $trans["admin_materials_listCheckoutlimit"]                 = "\$text = 'ยืมออก';";
@@ -198,6 +198,8 @@ $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'ค่า�
 $trans["admin_settingsFontNormal"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ทั่วไป):';";
 $trans["admin_settingsFontBold"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวหนา):';";
 $trans["admin_settingsFontOblique"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวเอียง):';";
+$trans["Max. hold length:"]                              = "\$text = 'ระยะเวลาสูงสุดในการจอง:';";
+$trans["Add new member classificaiton"]       = "\$text = 'เพิ่มกลุ่มสมาชิก';";
 
 #****************************************************************************
 #*  Translation text for all staff pages
@@ -236,14 +238,14 @@ $trans["adminStaff_edit_formUpdatemember"]                 = "\$text = 'แก�
 $trans["adminStaff_edit_formCatalog"]                 = "\$text = 'รายการบรรณานุกรม';";
 $trans["adminStaff_edit_formAdmin"]                 = "\$text = 'ส่วนดูแลระบบ';";
 $trans["adminStaff_edit_formReports"]                 = "\$text = 'รายงาน';";
-$trans["adminStaff_edit_formSuspended"]                 = "\$text = 'ระงับการใช้งานชั่วคราว:';";
+$trans["adminStaff_edit_formSuspended"]                 = "\$text = 'ระงับการใช้งานชั่วคราว';";
 
 #****************************************************************************
 #*  Translation text for page staff_list.php
 #****************************************************************************
 $trans["adminStaff_list_formHeader"]                 = "\$text = 'เพิ่มผู้ใช้งานระบบ';";
 $trans["adminStaff_list_Columnheader"]                 = "\$text = ' ผู้ใช้งานระบบ:';";
-$trans["adminStaff_list_Function"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminStaff_list_Function"]                 = "\$text = 'คำสั่ง';";
 $trans["adminStaff_list_Edit"]                 = "\$text = 'แก้ไข';";
 $trans["adminStaff_list_Pwd"]                 = "\$text = 'รหัสผู้ใช้งาน';";
 $trans["adminStaff_list_Del"]                 = "\$text = 'ลบ';";
@@ -301,7 +303,7 @@ $trans["adminTheme_Changetheme"]                 = "\$text = 'เปลี่ย
 $trans["adminTheme_Choosetheme"]                 = "\$text = 'เลือกหน้าจอระบบ';";
 $trans["adminTheme_Addnew"]                 = "\$text = 'เพิ่มหน้าจอระบบ';";
 $trans["adminTheme_themes"]                 = "\$text = 'หน้าจอระบบ';";
-$trans["adminTheme_function"]                 = "\$text = 'เปลี่ยนแปลง';";
+$trans["adminTheme_function"]                 = "\$text = 'คำสั่ง';";
 $trans["adminTheme_Themename"]                 = "\$text = 'ชื่อ';";
 $trans["adminTheme_Usage"]                 = "\$text = 'การใช้';";
 $trans["adminTheme_Edit"]                 = "\$text = 'แก้ไข';";
@@ -421,5 +423,16 @@ $trans["lookup_hostsUser"]      			 = "\$text = 'ชื่อผู้ใช้'
 $trans["lookup_hostsPw"]        			 = "\$text = 'รหัสผ่าน';";
 $trans["lookup_hostsUpdtBtn"]          = "\$text = 'ปรับปรุง';";
 #****************************************************************************
+#* Improved translations
+#****************************************************************************
+$trans["Function"]        = "\$text = 'คำสั่ง';";
+$trans["edit"]                = "\$text = 'แก้ไข';";
+$trans["del"]                 = "\$text = 'ลบ';";
+$trans["Description"]    = "\$text = 'รายละเอียด';";
+$trans["Member Classifications List"]        = "\$text = 'รายชื่อกลุ่มสมาชิก';";
+$trans["Members"]       = "\$text = 'จำนวนสมาชิก';";
+$trans["Max. Fines"]     = "\$text = 'เพดานค่าปรับ';";
 
+$trans["Custom Member Fields"]               = "\$text = 'ฟิลด์เพิ่มเติมของสมาชิก';";
+$trans["Add new custom field"]                 = "\$text = 'เพิ่มฟิลด์ใหม่';";
 ?>

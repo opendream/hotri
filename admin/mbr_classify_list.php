@@ -27,7 +27,7 @@
 <h1><?php echo $loc->getText("Member Classifications List"); ?></h1>
 <table class="primary">
   <tr>
-    <th colspan="2" valign="top"><?php echo $loc->getText("function"); ?>
+    <th colspan="2" valign="top"><?php echo $loc->getText("Function"); ?>
       <font class="small">*</font>
     </th>
     <th valign="top">
