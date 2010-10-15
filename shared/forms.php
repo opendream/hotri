@@ -1,6 +1,6 @@
 <?php
 
-function form_biblio_material_type($loc) {
+function form_biblio_material_types($loc) {
   $form = "";
 
   //    Played with printselect function

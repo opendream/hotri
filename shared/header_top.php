@@ -12,17 +12,17 @@ if (OBIB_HTML_LANG_ATTR != "") {
   echo " lang=\"".H(OBIB_HTML_LANG_ATTR)."\"";
 }
 echo ">\n";
-
+echo "<head>\n";
 // code character set if specified
 if (OBIB_CHARSET != "") { ?>
-<META http-equiv="content-type" content="text/html; charset=<?php echo H(OBIB_CHARSET); ?>">
+  <meta http-equiv="content-type" content="text/html; charset=<?php echo H(OBIB_CHARSET); ?>">
 <?php } ?>
+  <meta name="description" content="OpenBiblio Library Automation System">
 
-<head>
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <style type="text/css">
   <?php include("../css/style.php");?>
 </style>
-<meta name="description" content="OpenBiblio Library Automation System">
 <title><?php echo H(OBIB_LIBRARY_NAME);?></title>
 <script language="JavaScript">
 <!--
@@ -44,18 +44,19 @@ function backToMain(URL) {
 }
 -->
 </script>
-
 <?php
 	## ---------------------------------------------------------------------
 	## --- added for Fred LaPlante's Lookup Function -----------------------
 	if (file_exists('customHead.php')) {
 		include ('customHead.php');
 	}
-	else {
-	  echo '<script src="../scripts/jquery.js" type="text/javascript"></script>';
-	}
 	## ---------------------------------------------------------------------
 	?>
+
+  <script type="text/javascript" src="../scripts/jquery.js"></script>
+  <script type="text/javascript" src="../scripts/jquery.collapsible.js"></script>
+  <script type="text/javascript" src="../scripts/search.js"></script>
+
 </head>
 <body bgcolor="<?php echo H(OBIB_PRIMARY_BG);?>" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0" <?php
   if (isset($focus_form_name) && ($focus_form_name != "")) {

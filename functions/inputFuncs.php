@@ -109,7 +109,7 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
 }
 
 /* Returns HTML for a select box with the contents of $table as options. */
-function dmSelect($table, $name, $value="", $all=FALSE, $attrs=NULL) {
+function dmSelect($table, $name, $value="", $all=FALSE, $attrs=NULL, $required=TRUE) {
   $dmQ = new DmQuery();
   $dmQ->connect();
   # Don't use getAssoc() so that we can set the default below
@@ -120,6 +120,11 @@ function dmSelect($table, $name, $value="", $all=FALSE, $attrs=NULL) {
   if ($all) {
     $options['all'] = 'All';
   }
+  if (!$required) {
+    // Add "Any" for the first option.
+    $loc = new Localize(OBIB_LOCALE, "shared");
+    $options[''] = $loc->getText("any");
+  }
   foreach ($dms as $dm) {
     $options[$dm->getCode()] = $dm->getDescription();
     if ($dm->getDefaultFlg() == 'Y') {
@@ -128,6 +133,10 @@ function dmSelect($table, $name, $value="", $all=FALSE, $attrs=NULL) {
   }
   if ($value == "") {
     $value = $default;
+  }
+  if (!$required) {
+    // Selected on "Any" option.
+    $value = "";
   }
   return inputField('select', $name, $value, $attrs, $options);
 }
@@ -179,14 +188,15 @@ function printMyInputText($fieldName,$size,$max,&$postVars,&$pageErrors,$visibil
  * @param string $fieldName name of input field
  * @param string $domainTable name of domain table to get values from
  * @param array_reference &$postVars reference to array containing all input values
+ * @param boolean $required will generate the first option with a null value if not required
  *********************************************************************************
  */
-function printSelect($fieldName,$domainTable,&$postVars,$disabled=FALSE){
+function printSelect($fieldName, $domainTable, &$postVars, $disabled=FALSE, $required=TRUE){
   $_SESSION['postVars'] = $postVars;
   $attrs = array();
   if ($disabled) {
     $attrs['disabled'] = '1';
   }
-  echo dmSelect($domainTable, $fieldName, "", FALSE, $attrs);
+  echo dmSelect($domainTable, $fieldName, "", FALSE, $attrs, $required);
 }
 ?>

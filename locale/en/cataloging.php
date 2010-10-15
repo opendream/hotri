@@ -55,6 +55,7 @@ $trans["indexSearchHdr"]           = "\$text = 'Search Bibliography by Search Ph
 $trans["indexTitle"]               = "\$text = 'Title';";
 $trans["indexAuthor"]              = "\$text = 'Author';";
 $trans["indexSubject"]             = "\$text = 'Subject';";
+$trans["indexISBN"]                = "\$text = 'ISBN';";
 $trans["indexButton"]              = "\$text = 'Search';";
 
 #****************************************************************************

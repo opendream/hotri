@@ -36,7 +36,50 @@ a:visited {
 }
 
 /* Form */
+a.add_field {
+	text-decoration: none;
+	letter-spacing: -2px;
+}
 
-form td.label {
-	width: 200px;
+a.add_field:hover {
+	font-weight: bold;
+}
+
+table td.label {
+	width: 100px;
+}
+
+table.table_advanced_search_1 {
+	margin-bottom: 20px;
+}
+
+fieldset {
+	border: 1px solid #666;
+}
+
+fieldset legend {
+	font-size: 130%;
+}
+
+fieldset, fieldset.collapsible {
+	padding: 15px 10px;
+	border: 1px solid #999;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	margin-top: 2em;
+	margin-bottom: 1em;
+}
+
+fieldset.collapsed {
+	border-bottom-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	margin-bottom: 0;
+	margin-left: 3px;
+}
+
+legend.collapsible {
+	color: #00A;
+	cursor: pointer;
 }

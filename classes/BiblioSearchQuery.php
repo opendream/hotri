@@ -3,6 +3,7 @@
  * See the file COPYRIGHT.html for more details.
  */
  
+require_once("../shared/common.php");
 require_once("../shared/global_constants.php");
 require_once("../classes/Query.php");
 require_once("../classes/BiblioField.php");
@@ -60,17 +61,17 @@ class BiblioSearchQuery extends Query {
    ****************************************************************************
    */
   function search($type, &$words, $page, $sortBy, $opacFlg=true) {
-    # reset stats
+    # Reset stats
     $this->_rowNmbr = 0;
     $this->_currentRowNmbr = 0;
     $this->_currentPageNmbr = $page;
     $this->_rowCount = 0;
     $this->_pageCount = 0;
 
-    # setting sql join clause
+    # Setting SQL join clause
     $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
 
-    # setting sql where clause
+    # Setting SQL where clause
     $criteria = "";
     if ((sizeof($words) == 0) || ($words[0] == "" && !is_array($words))) {
       if ($opacFlg) $criteria = "WHERE opac_flg = 'Y' ";
@@ -94,8 +95,16 @@ class BiblioSearchQuery extends Query {
                                               "biblio.topic4",
                                               "biblio.topic5"), $words);
       }
+      elseif ($type == OBIB_SEARCH_ISBN) {
+        $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
+                 . "AND biblio_field.tag='20' "
+                 . "AND biblio_field.subfield_cd='a' ";
+        $criteria = $this->_getCriteria(array("biblio_field.field_data"), $words);
+      }
       elseif ($type == OBIB_ADVANCED_SEARCH) {
-        $criteria = $this->_getCriteria(array_keys($words), array_values($words));
+        $sql = $this->_getAdvancedSearchSQLStatement($words);
+        $join .= $sql["join"];
+        $criteria = $sql["criteria"];
       }
       else {
         $criteria = $this->_getCriteria(array("biblio.title"), $words);
@@ -104,28 +113,28 @@ class BiblioSearchQuery extends Query {
       if ($opacFlg) $criteria = $criteria ."AND opac_flg = 'Y' ";
     }
 
-    # setting count query
+    # Setting count query
     $sqlcount = "SELECT COUNT(*) AS rowcount ";
     $sqlcount = $sqlcount.$join;
     $sqlcount = $sqlcount.$criteria;
 
-    # setting query that will return all the data
-    $sql = "SELECT biblio.* ";
-    $sql .= ",biblio_copy.copyid ";
-    $sql .= ",biblio_copy.barcode_nmbr ";
-    $sql .= ",biblio_copy.status_cd ";
-    $sql .= ",biblio_copy.due_back_dt ";
-    $sql .= ",biblio_copy.mbrid ";
+    # Setting query that will return all the data
+    $sql = "SELECT biblio.*, ";
+    $sql .= "biblio_copy.copyid, ";
+    $sql .= "biblio_copy.barcode_nmbr, ";
+    $sql .= "biblio_copy.status_cd, ";
+    $sql .= "biblio_copy.due_back_dt, ";
+    $sql .= "biblio_copy.mbrid ";
     $sql .= $join;
     $sql .= $criteria;
-    $sql .= $this->mkSQL(" ORDER BY %C ", $sortBy);
+    $sql .= $this->mkSQL("ORDER BY %C ", $sortBy);
 
-    # setting limit so we can page through the results
+    # Setting limit so we can page through the results
     $offset = ($page - 1) * $this->_itemsPerPage;
     $limit = $this->_itemsPerPage;
-    $sql .= $this->mkSQL(" LIMIT %N, %N", $offset, $limit);
+    $sql .= $this->mkSQL("LIMIT %N, %N", $offset, $limit);
 
-    # Running row count sql statement
+    # Running row count SQL statement
     if (!$this->_query($sqlcount, $this->_loc->getText("biblioSearchQueryErr1"))) {
       return false;
     }
@@ -135,7 +144,7 @@ class BiblioSearchQuery extends Query {
     $this->_rowCount = $array["rowcount"];
     $this->_pageCount = ceil($this->_rowCount / $this->_itemsPerPage);
 
-    # Running search sql statement
+    # Running search SQL statement
     return $this->_query($sql, $this->_loc->getText("biblioSearchQueryErr2"));
   }
 
@@ -148,12 +157,107 @@ class BiblioSearchQuery extends Query {
    * @access private
    ****************************************************************************
    */
+  function _getAdvancedSearchSQLStatement(&$words) {
+    $join = "";
+    $criteria = "WHERE ";
+    foreach ($_POST as $k => $v) {
+      $v = sanitize_input($v);
+      if ($v == "") {
+        continue; // Skip when the input string is empty
+      }
+
+      // Get values from dynamic INPUT fields
+      if (preg_match("/^keyword_type_(\d+)$/", $k, $matchs)) {
+        $number = $matchs[1];
+        $v_col = $v;
+        $k_txt = "keyword_text_". $number;
+        $v_txt = sanitize_input($_POST[$k_txt]);
+        if ($v_txt == "") {
+          continue; // Skip when the input string is empty
+        }
+
+        // Prepare an expression for the criteria
+        // do nothing if an input is the first one
+        $v_exp = "";
+        if (strcmp($criteria, "WHERE ") > 0) {
+          $k_exp = "expression_". $number;
+          $v_exp = $_POST[$k_exp];
+          if ($v_exp == "not") {
+            $v_exp = " AND NOT ";
+          }
+        }
+
+        if (strcmp($v_exp, "") > 0) {
+          $criteria .= strtoupper($v_exp) ." ";
+        }
+
+        if ($v_col == "title") {
+           $criteria .= "biblio.title LIKE '%". $v_txt ."%' ";
+        }
+        elseif ($v_col == "author") {
+          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ".
+                   "AND biblio_field.tag='700' ".
+                   "AND (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') ";
+
+          $str = "biblio.author LIKE '%". $v_txt ."%' OR ".
+                 "biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
+                 "biblio_field.field_data LIKE '%". $v_txt ."%'";
+          $criteria .= "(". $str .") ";
+        }
+        elseif ($v_col == "subject") {
+          $str = "biblio.topic1 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.topic2 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.topic3 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.topic4 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.topic5 LIKE '%". $v_txt ."%'";
+          $criteria .= "(". $str .") ";
+        }
+        elseif ($v_col == "isbn") {
+          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
+                   . "AND biblio_field.tag='20' "
+                   . "AND biblio_field.subfield_cd='a' ";
+          $criteria .= "biblio_field.field_data LIKE '%". $v_txt ."%' ";
+        }
+      }
+
+      // Other static INPUT fields
+      elseif (preg_match("/^materialCd$/", $k)) {
+        if ($v != "") {
+          $criteria .= "AND biblio.material_cd = '". $v ."' ";
+        }
+      }
+      elseif (preg_match("/^collectionCd$/", $k)) {
+        if ($v != "") {
+          $criteria .= "AND biblio.collection_cd = '". $v ."' ";
+        }
+      }
+      elseif (preg_match("/^call_nmbr$/", $k)) {
+        if (isset($v) && ($call_nmbr = sanitize_input($v)) != "") {
+          $str = "biblio.call_nmbr1 LIKE '%". $call_nmbr ."%' OR ".
+                 "biblio.call_nmbr2 LIKE '%". $call_nmbr ."%' OR ".
+                 "biblio.call_nmbr3 LIKE '%". $call_nmbr ."%'";
+          $criteria .= "AND (". $str .") ";
+        }
+      }
+    }
+
+    // No criteria pass through
+    if (strcmp($criteria, "WHERE ") == 0) {
+      $criteria = "WHERE 1 ";
+    }
+      
+    // Remove redundant whitespace
+    $criteria = preg_replace("/[[:space:]]+/i", " ", $criteria);
+
+    return array("join" => $join, "criteria" => $criteria);
+  }
+
   function _getCriteria($cols, &$words) {
-    # setting selection criteria sql
+    # Setting selection criteria SQL
     $prefix = "WHERE ";
     $criteria = "";
     for ($i = 0; $i < count($words); $i++) {
-      $criteria .= $prefix.$this->_getLike($cols,$words[$i]);
+      $criteria .= $prefix . $this->_getLike($cols, $words[$i]);
       $prefix = " AND ";
     }
     return $criteria;
@@ -169,11 +273,11 @@ class BiblioSearchQuery extends Query {
     $like = "";
     for ($i = 0; $i < count($cols); $i++) {
       $like .= $prefix;
-      $like .= $this->mkSQL("%C LIKE %Q ", $cols[$i], "%".$word."%");
+      $like .= $this->mkSQL("%C LIKE %Q", $cols[$i], "%".$word."%");
       $prefix = " OR ";
     }
     $like .= $suffix;
-    return $like;
+    return $like ." ";
   }
 
   /****************************************************************************
@@ -222,7 +326,7 @@ class BiblioSearchQuery extends Query {
       return false;
     }
 
-    # increment rowNmbr
+    # Increment rowNmbr
     $this->_rowNmbr = $this->_rowNmbr + 1;
     $this->_currentRowNmbr = $this->_rowNmbr + (($this->_currentPageNmbr - 1) * $this->_itemsPerPage);
 

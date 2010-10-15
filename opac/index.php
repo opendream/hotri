@@ -12,7 +12,7 @@
   $focus_form_name = "phrasesearch";
   $focus_form_field = "searchText";
   require_once("../classes/Localize.php");
-  $loc = new Localize(OBIB_LOCALE,$tab);
+  $loc = new Localize(OBIB_LOCALE, $tab);
 
   $lookup = "N";
   if (isset($_GET["lookup"])) {

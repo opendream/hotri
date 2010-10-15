@@ -128,6 +128,11 @@
       $sType = OBIB_SEARCH_AUTHOR;
     } elseif ($searchType == "subject") {
       $sType = OBIB_SEARCH_SUBJECT;
+    } elseif ($searchType == "isbn") {
+      $sType = OBIB_SEARCH_ISBN;
+    } elseif ($searchType == "advanced") {
+      $sType = OBIB_ADVANCED_SEARCH;
+      $words = $_POST;
     } else {
       $sType = OBIB_SEARCH_TITLE;
     }
@@ -149,7 +154,7 @@
   } else {
     $opacFlg = false;
   }
-  if (!$biblioQ->search($sType,$words,$currentPageNmbr,$sortBy,$opacFlg)) {
+  if (!$biblioQ->search($sType, $words, $currentPageNmbr, $sortBy, $opacFlg)) {
     $biblioQ->close();
     displayErrorPage($biblioQ);
   }
