@@ -67,12 +67,16 @@
 <?php } else { ?>
 <a href="../admin/z3950_opts.php" class="alt1"><?php echo $navLoc->getText("lookup_opts");?></a><br>
 <?php } ?>
-<?php
-	$list = getPlugIns('admin.nav');
-	for ($x=0; $x<count($list); $x++) {
-		include_once ($list[$x]);
-	}
-	?>
+<?php if ($nav == "lookupHosts") { ?>
+&raquo; <?php echo $navLoc->getText("lookup_opts");?><br>
+<?php } else { ?>
+<a href="../admin/z3950_server_list.php" class="alt1"><?php echo $navLoc->getText("lookup_hosts");?></a><br>
+<?php } ?>
+<?php if ($nav == "BulkLookup") { ?>
+&raquo; <?php echo $navLoc->getText("lookup_bulk");?><br>
+<?php } else { ?>
+<a href="../admin/BulkLookup.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_bulk");?></a><br>
+<?php } ?>
 <?php if ($nav == "themes") { ?>
  &raquo; <?php echo $navLoc->getText("adminThemes");?><br>
 <?php } else { ?>

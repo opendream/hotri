@@ -411,7 +411,7 @@ $trans["lookup_hostsConfirmDelete"]    = "\$text = 'Are you sure you want to del
 $trans["lookup_hostsListFunction"]   	 = "\$text = 'Function';";
 $trans["lookup_hostsListHeader"]       = "\$text = 'View Lookup Hosts';";
 $trans["lookup_hostsEditHeader"]       = "\$text = 'Edit Host Properties';";
-$trans["lookup_hostsNewHeader"]        = "\$text = 'Enter New Host Properrties';";
+$trans["lookup_hostsNewHeader"]        = "\$text = 'Enter New Host Properties';";
 $trans["lookup_hostsSeqNo"]    	     	 = "\$text = 'Order';";
 $trans["lookup_hostsActive"]           = "\$text = 'Use';";
 $trans["lookup_hostsHost"]       			 = "\$text = 'URL:port';";

@@ -405,7 +405,7 @@ $trans["lookup_optsUpdtBtn"]           = "\$text = 'Update';";
 #*  Translation text for page lookupHostsForm.php
 #****************************************************************************
 $trans["lookup_hosts"]       			     = "\$text = 'Z39.50 Hosts.';";
-$trans["lookup_rqdNote"]       			 	 = "\$text = ' - required fields.';";
+$trans["lookup_rqdNote"]       			 	 = "\$text = 'Please fill all required (*) fields.';";
 $trans["lookup_hostsUpdated"]          = "\$text = 'Lookup Settings have been updated.';";
 $trans["lookup_hostsConfirmDelete"]    = "\$text = 'Are you sure you want to delete this host?';";
 $trans["lookup_hostsListFunction"]   	 = "\$text = 'Function';";

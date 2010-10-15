@@ -15,7 +15,12 @@ $done = $q->countQueue('publish');
 $covered = $q->countQueue('cover');
 $copied = $q->countQueue('copy');
 $failed = $q->countQueue('manual');
-$estimate_time = date('H:i:s', $q->getStartTime());
+//$estimate_time = date('H:i:s', $q->getStartTime());
+$est_time = $q->getStartTime();
+$est_hour = str_pad(floor($est_time / 3600), 2, '0', STR_PAD_LEFT);
+$est_min = str_pad(floor(($est_time % 3600) / 60), 2, '0', STR_PAD_LEFT);
+$est_sec = str_pad(floor($est_time % 60), 2, '0', STR_PAD_LEFT);
+$estimate_time = $est_hour . ':' . $est_min . ':' . $est_sec;
 if ($queued < 1) {
   echo "DONE";
 }

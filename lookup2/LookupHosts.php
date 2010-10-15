@@ -57,7 +57,7 @@ class LookupHosts {
     return $this->_db;
   }
   function getUser() {
-    return $this->_defaultuser;
+    return $this->_user;
   }
   function getPw() {
     return $this->_pw;

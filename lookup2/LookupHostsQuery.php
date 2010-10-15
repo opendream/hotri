@@ -104,9 +104,9 @@ function deleteHost ($array) {
 
 function makeHostDataSet($array) {
   $set = new LookupHosts();
-  $set->setSeq($array["seq"]);
-  $set->setActive($array["active"]);
-  $set->setId($array["id"]);
+  $set->setSeq(0 + $array["seq"]);
+  $set->setActive($array["active"] == 'y' ? 'y' : 'n');
+  $set->setId(0 + $array["id"]);
   $set->setHost($array["host"]);
   $set->setName($array["name"]);
   $set->setDb($array["db"]);
@@ -115,6 +115,19 @@ function makeHostDataSet($array) {
   $set->setCharset($array["charset"]);
   
   return $set;
+}
+
+function validateHostData($set) {
+  $required = array('Active', 'Host', 'Db', 'Name');
+  foreach ($required as $field) {
+    $method = 'get' . $field;
+    $val = $set->$method();
+    
+    if (empty($val)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function updateHost ($array) {
@@ -126,7 +139,12 @@ function updateHost ($array) {
   }
 
 	$set = makeHostDataSet($array);
-	return $hostQ->update($set);
+	if (validateHostData($set)) {
+	  return $hostQ->update($set);
+	}
+	else {
+	  return false;
+	}
 }
 
 function insertHost ($array) {
@@ -138,7 +156,12 @@ function insertHost ($array) {
   }
 
 	$set = makeHostDataSet($array);
-	return $hostQ->insert($set);
+	if (validateHostData($set)) {
+	  return $hostQ->insert($set);
+	}
+	else {
+	  return false;
+	}
 }
 
 function getHosts ($mode) {

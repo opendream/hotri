@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 <script type="text/javascript">
 getStatus = function() { 
   $('#bulkMsg').css('border', '1px solid #ccc').css('padding', '5px');
-  $.get('BulkStatus.php', function(data) {
+  $.get('../lookup2/BulkStatus.php', function(data) {
     if (data.length < 1000) { // otherwise redirect page happen.
       if (data.substring(0, 4) == 'DONE') {
         clearInterval(updateStatus);
