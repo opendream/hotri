@@ -1,5 +1,6 @@
 var row_count = 1;
 $(document).ready(function() {
+    var loc = new Locale();
 
     /**
      * Functions ---------------------------------------------------------------
@@ -7,10 +8,11 @@ $(document).ready(function() {
 
     form_biblio_search_keyword_types = function() {
         return '<select name="keyword_type_' + row_count + '">' + 
-               '  <option value="title" selected>' + 'Title' + '</option>' +
-               '  <option value="author">' + 'Author' + '</option>' +
-               '  <option value="subject">' + 'Subject' + '</option>' +
-               '  <option value="isbn">' + 'ISBN' + '</option>' +
+               '  <option value="title" selected>' + loc.Title + '</option>' +
+               '  <option value="author">' + loc.Author + '</option>' +
+               '  <option value="subject">' + loc.Subject + '</option>' +
+               '  <option value="isbn">' + loc.ISBN + '</option>' +
+               '  <option value="call_nmbr">' + loc.CallNumber + '</option>' +
                '</select>';
     }
 
@@ -20,14 +22,14 @@ $(document).ready(function() {
 
     form_biblio_search_expressions = function() {
         return '<select name="expression_' + row_count + '">' +
-               '  <option value="and">AND</option>' +
-               '  <option value="or">OR</option>' +
-               '  <option value="not">NOT</option>' +
+               '  <option value="and">' + loc.And + '</option>' +
+               '  <option value="or">' + loc.Or + '</option>' +
+               '  <option value="not">' + loc.Not + '</option>' +
                '</select>';
     }
         
     form_biblio_search_add_field = function() {
-        return '<a href="javascript:add_field();" title="Add another field" class="add_field">[+]</a>';
+        return '<a href="javascript:add_field();" title="' + loc.AddAnotherField + '" class="add_field">[+]</a>';
     }
 
     add_field = function() {

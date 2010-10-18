@@ -191,10 +191,10 @@ class BiblioSearchQuery extends Query {
           $criteria .= strtoupper($v_exp) ." ";
         }
 
-        if ($v_col == "title") {
+        if (strcmp($v_col, "title") == 0) {
            $criteria .= "biblio.title LIKE '%". $v_txt ."%' ";
         }
-        elseif ($v_col == "author") {
+        elseif (strcmp($v_col, "author") == 0) {
           $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ".
                    "AND biblio_field.tag='700' ".
                    "AND (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') ";
@@ -204,7 +204,7 @@ class BiblioSearchQuery extends Query {
                  "biblio_field.field_data LIKE '%". $v_txt ."%'";
           $criteria .= "(". $str .") ";
         }
-        elseif ($v_col == "subject") {
+        elseif (strcmp($v_col, "subject") == 0) {
           $str = "biblio.topic1 LIKE '%". $v_txt ."%' OR ".
                  "biblio.topic2 LIKE '%". $v_txt ."%' OR ".
                  "biblio.topic3 LIKE '%". $v_txt ."%' OR ".
@@ -212,31 +212,35 @@ class BiblioSearchQuery extends Query {
                  "biblio.topic5 LIKE '%". $v_txt ."%'";
           $criteria .= "(". $str .") ";
         }
-        elseif ($v_col == "isbn") {
+        elseif (strcmp($v_col, "isbn") == 0) {
           $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
                    . "AND biblio_field.tag='20' "
                    . "AND biblio_field.subfield_cd='a' ";
           $criteria .= "biblio_field.field_data LIKE '%". $v_txt ."%' ";
         }
+        elseif (strcmp($v_col, "call_nmbr") == 0) {
+          $str = "biblio.call_nmbr1 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.call_nmbr2 LIKE '%". $v_txt ."%' OR ".
+                 "biblio.call_nmbr3 LIKE '%". $v_txt ."%'";
+          $criteria .= "(". $str .") ";
+        }
       }
 
-      // Other static INPUT fields
+      // Other static SELECT fields
       elseif (preg_match("/^materialCd$/", $k)) {
         if ($v != "") {
-          $criteria .= "AND biblio.material_cd = '". $v ."' ";
+          if (strcmp($criteria, "WHERE ") > 0) {
+            $criteria .= "AND ";
+          }
+          $criteria .= "biblio.material_cd = '". $v ."' ";
         }
       }
       elseif (preg_match("/^collectionCd$/", $k)) {
         if ($v != "") {
-          $criteria .= "AND biblio.collection_cd = '". $v ."' ";
-        }
-      }
-      elseif (preg_match("/^call_nmbr$/", $k)) {
-        if (isset($v) && ($call_nmbr = sanitize_input($v)) != "") {
-          $str = "biblio.call_nmbr1 LIKE '%". $call_nmbr ."%' OR ".
-                 "biblio.call_nmbr2 LIKE '%". $call_nmbr ."%' OR ".
-                 "biblio.call_nmbr3 LIKE '%". $call_nmbr ."%'";
-          $criteria .= "AND (". $str .") ";
+          if (strcmp($criteria, "WHERE ") > 0) {
+            $criteria .= "AND ";
+          }
+          $criteria .= "biblio.collection_cd = '". $v ."' ";
         }
       }
     }

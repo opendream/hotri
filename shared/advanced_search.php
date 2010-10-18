@@ -16,7 +16,7 @@
 <div class="advanced-search">
   <form method="post" action="../shared/biblio_search.php">
     <fieldset id="advanced-search" class="collapsible">
-      <legend><span id="legend-toggle">[+]</span> <?php echo $loc->getText("advsTitle") ?></legend>
+      <legend><span id="legend-toggle">[+]</span> <?php echo $loc->getText("advsAdvancedSearch") ?></legend>
       <table class="table_advanced_search_1">
         <tr>
           <td>
@@ -36,15 +36,11 @@
 
       <table class="table_advanced_search_2">
         <tr>
-          <td class="label"><?php echo $loc->getText("advsCallNumber") ?></td>
-          <td><input type="text" name="call_nmbr" size="40" /></td>
-        </tr>
-        <tr>
-          <td class="label"><?php echo $loc->getText("advsMaterialType"); ?></td>
+          <td class="label"><?php echo $loc->getText("advsMaterialType"); ?>:</td>
           <td><?php echo form_biblio_material_types($loc); ?></td>
         </tr>
         <tr>
-          <td class="label"><?php echo $loc->getText("advsCollectionType") ?></td>
+          <td class="label"><?php echo $loc->getText("advsCollectionType") ?>:</td>
           <td><?php printSelect("collectionCd", "collection_dm", $_POST, FALSE, FALSE); ?></td>
         </tr>
         <tr>
