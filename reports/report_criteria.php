@@ -52,6 +52,7 @@
       array('paged', array('title'=>'HTML (page-by-page)')),
       array('html', array('title'=>'HTML (one big page)')),
       array('csv', array('title'=>'CSV')),
+      array('xls', array('title'=>'Microsoft Excel')),
     )),
   );
   $params = array_merge($rpt->paramDefs(), $format);

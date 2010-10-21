@@ -72,25 +72,44 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
   case 'date':
     $thisDate = explode(' ', date('d m Y'));
     $dateInputName = H($name);
-    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_day" name="'.$dateInputName.'_day">' . "\n";
+    $s .= '<select id="' . str_replace(array('[',']'),array(''), $dateInputName).'_day" name="'.$dateInputName.'_day">' . "\n";
     for ($i = 1; $i <= 31; $i++) {
+      $day = str_pad($i, 2, '0', STR_PAD_LEFT); 
       $s .= '  <option value="' . $i . '" ' . ($i == 0 + $thisDate[0] ? ' selected="selected"':'') . '>' . $i . "</option>\n";
     }
     $s .= "</select>\n";
-    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_month" name="'.$dateInputName.'_month">' . "\n";
+    $s .= '<select id="' . str_replace(array('[',']'),array(''), $dateInputName).'_month" name="'.$dateInputName.'_month">' . "\n";
     for ($i = 1; $i <= 12; $i++) {
       $mon = str_pad($i, 2, '0', STR_PAD_LEFT); 
       $s .= '  <option value="' . $mon . '"' . ($mon == $thisDate[1] ? ' selected="selected"':'') . '>' . $loc->getText('reportDateMonth' . $mon) . "</option>\n";
     }
     $s .= "</select>\n";
     
-    $s .= '<select id=' . str_replace(array('[',']'),array(''), $dateInputName).'_year" name="'.$dateInputName.'_year">' . "\n";
+    $s .= '<select id="' . str_replace(array('[',']'),array(''), $dateInputName).'_year" name="'.$dateInputName.'_year">' . "\n";
     
     for ($i = -20; $i <= 20; $i++) {
       $y = $thisDate[2] + $i;
       $s .= '  <option value="' . $y . '" '. ($i == 0 ? 'selected="select"' : '') . '>' . $y . "</option>\n";
     }
     $s .= "</select>\n";
+    
+    // Javascript code for collecting date
+    $s .= '<input type="hidden" id="' . $dateInputName . '" name="' . $dateInputName . '">
+      <script>
+        var updateDateInput_' . $dateInputName . ' = function() {
+          document.getElementById("' . $dateInputName . '").value = 
+            document.getElementById("' . $dateInputName . '_year").value + "-" +
+            document.getElementById("' . $dateInputName . '_month").value + "-" +
+            document.getElementById("' . $dateInputName . '_day").value;
+            
+            console.log(day.value);
+        };
+        
+        document.getElementById("' . $dateInputName . '_day").onchange = updateDateInput_' . $dateInputName . ';
+        document.getElementById("' . $dateInputName . '_month").onchange = updateDateInput_' . $dateInputName . ';
+        document.getElementById("' . $dateInputName . '_year").onchange = updateDateInput_' . $dateInputName . ';
+      </script>
+    ';
     
     break;
   default:
