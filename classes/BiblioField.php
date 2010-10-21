@@ -85,17 +85,17 @@ class BiblioField {
               // If file type is allowed
               if (in_array($info["mime"], $allow_types)) {
                 // Create directory when necessary, raise error when failed to create "not exist" one.
-                if (!(is_dir('..' . COVER_PATH) || is_dir('..' . COVER_PATH_TMP))) {
+                if (!(is_dir('../' . COVER_PATH) || is_dir('../' . COVER_PATH_TMP))) {
                   $dir_error = FALSE;
-                  if (is_dir('..' . dirname(COVER_PATH))) {
+                  if (is_dir('../' . dirname(COVER_PATH))) {
                     // Create new one.
-                    $cover_path = @mkdir('..' . COVER_PATH, 0777);
-                    $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777);
+                    $cover_path = @mkdir('../' . COVER_PATH, 0777);
+                    $tmp_path = @mkdir('../' . COVER_PATH_TMP, 0777);
                     
                     if (!$cover_path) {
-                      if (is_dir('..' . COVER_PATH)) {
-                        if (decoct(fileperms('..' . COVER_PATH)) != 0777) {
-                          $force_chmod = @chmod('..' . COVER_PATH, 0777);
+                      if (is_dir('../' . COVER_PATH)) {
+                        if (decoct(fileperms('../' . COVER_PATH)) != 0777) {
+                          $force_chmod = @chmod('../' . COVER_PATH, 0777);
                           if (!$force_chmod) {
                             $dir_error = TRUE;
                           }
@@ -107,9 +107,9 @@ class BiblioField {
                     }
                     
                     if (!$tmp_path) {
-                      if (is_dir('..' . COVER_PATH_TMP)) {
-                        if (decoct(fileperms('..' . COVER_PATH_TMP)) != 0777) {
-                          $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+                      if (is_dir('../' . COVER_PATH_TMP)) {
+                        if (decoct(fileperms('../' . COVER_PATH_TMP)) != 0777) {
+                          $force_chmod = @chmod('../' . COVER_PATH_TMP, 0777);
                           if (!$force_chmod) {
                             $dir_error = TRUE;
                           }
@@ -129,7 +129,7 @@ class BiblioField {
                 $ext = image_type_to_extension($info[2]);
                 $tmp = md5($filename.session_id().time());
                 $filename = $filename."_".substr($tmp, strlen($tmp) - 7, strlen($tmp)).$ext;
-                $filepath = ".." . COVER_PATH . "/$filename";
+                $filepath = "../" . COVER_PATH . "/$filename";
                 copy($fieldData["tmp_name"][$index], $filepath);
                 make_thumbnail($filepath, array('height' => 160));
                 $this->setFieldData($filename);

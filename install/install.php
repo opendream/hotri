@@ -40,12 +40,12 @@
   if ($cover_path) {
     echo 'Create book cover directory successfully.<br />';
   }
-  else if (is_dir('..' . COVER_PATH)) {
-    if (is_writable('..' . COVER_PATH)) {
+  else if (is_dir('../' . COVER_PATH)) {
+    if (is_writable('../' . COVER_PATH)) {
       echo 'Book cover directory already exists & work properly.<br />';
     }
     else {
-      $force_chmod = @chmod('..' . COVER_PATH, 0777);
+      $force_chmod = @chmod('../' . COVER_PATH, 0777);
       if ($force_chmod) {
         echo 'Book cover directory is exists, force read/write access to exists one.<br />';
       }
@@ -63,12 +63,12 @@
   if ($tmp_path) {
     echo 'Create temporary cover lookup directory successfully.<br />';
   }
-  else if (is_dir('..' . COVER_PATH_TMP)) {
-    if (is_writable('..' . COVER_PATH_TMP)) {
+  else if (is_dir('../' . COVER_PATH_TMP)) {
+    if (is_writable('../' . COVER_PATH_TMP)) {
       echo 'Temporay cover lookup directory already exists & work properly.<br />';
     }
     else {
-      $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+      $force_chmod = @chmod('../' . COVER_PATH_TMP, 0777);
       if ($force_chmod) {
         echo 'Temporary cover lookup directory is exists, force read/write access to exists one.<br />';
       }

@@ -258,14 +258,12 @@ require_once("../functions/openUrl.php");
 </table>
 <br />
 
-
-
 <?php
   #***************************************************************************
   #*  Show picture
   #***************************************************************************
   if (isset($biblioFlds["902a"])):
-    $filepath = ".." . COVER_PATH . "/". $biblioFlds["902a"]->getFieldData();
+    $filepath = "../" . COVER_PATH . "/". $biblioFlds["902a"]->getFieldData();
     $title = H($biblioFlds["245a"]->getFieldData());
     //$info = _image_resize($filepath, 200);
     //if (is_array($info)): 

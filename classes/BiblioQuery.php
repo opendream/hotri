@@ -405,8 +405,8 @@ class BiblioQuery extends Query {
     $res = $this->_query($sql, $this->_loc->getText("biblioCoverDetectErr"));
     $img = $this->_conn->fetchRow();
     if ($img['field_data']) {
-      unlink('..' . COVER_PATH . '/thumb_' . $img['field_data']);
-      unlink('..' . COVER_PATH . '/' . $img['field_data']);
+      unlink('../' . COVER_PATH . '/thumb_' . $img['field_data']);
+      unlink('../' . COVER_PATH . '/' . $img['field_data']);
     }
     
     $sql = $this->mkSQL("delete from biblio_field where bibid = %N ", $bibid);

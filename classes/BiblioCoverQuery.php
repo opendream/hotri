@@ -67,17 +67,17 @@ class BiblioCoverQuery extends Query {
     if (!$img_bin || strlen($img_bin) < 1) return false;
     
     // Create directory when necessary, raise error when failed to create "not exist" one.
-    if (!(is_dir('..' . COVER_PATH) || is_dir('..', COVER_PATH_TMP))) {
+    if (!(is_dir('../'. COVER_PATH) || is_dir('../'. COVER_PATH_TMP))) {
       $dir_error = FALSE;
-      if (is_dir('..' . dirname(COVER_PATH))) {
+      if (is_dir('../' . dirname(COVER_PATH))) {
         // Create new one.
-        $cover_path = @mkdir('..' . COVER_PATH, 0777);
-        $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777);
+        $cover_path = @mkdir('../' . COVER_PATH, 0777);
+        $tmp_path = @mkdir('../' . COVER_PATH_TMP, 0777);
         
         if (!$cover_path) {
-          if (is_dir('..' . COVER_PATH)) {
-            if (decoct(fileperms('..' . COVER_PATH)) != 0777) {
-              $force_chmod = @chmod('..' . COVER_PATH, 0777);
+          if (is_dir('../' . COVER_PATH)) {
+            if (decoct(fileperms('../' . COVER_PATH)) != 0777) {
+              $force_chmod = @chmod('../' . COVER_PATH, 0777);
               if (!$force_chmod) {
                 $dir_error = TRUE;
               }
@@ -89,9 +89,9 @@ class BiblioCoverQuery extends Query {
         }
         
         if (!$tmp_path) {
-          if (is_dir('..' . COVER_PATH_TMP)) {
-            if (decoct(fileperms('..' . COVER_PATH_TMP)) != 0777) {
-              $force_chmod = @chmod('..' . COVER_PATH_TMP, 0777);
+          if (is_dir('../' . COVER_PATH_TMP)) {
+            if (decoct(fileperms('../' . COVER_PATH_TMP)) != 0777) {
+              $force_chmod = @chmod('../' . COVER_PATH_TMP, 0777);
               if (!$force_chmod) {
                 $dir_error = TRUE;
               }
@@ -113,7 +113,7 @@ class BiblioCoverQuery extends Query {
     // result: file.name
     // 
     $name_full = substr($path, strrpos($path, '/') + 1); // file.name.ext
-    $path_tmp = '..' . COVER_PATH_TMP . '/' . substr($hash, strlen($hash) - 7) . '_' . $name_full;
+    $path_tmp = '../' . COVER_PATH_TMP . '/' . substr($hash, strlen($hash) - 7) . '_' . $name_full;
     
     if (!file_put_contents($path_tmp, $img_bin)) return false;
     
@@ -122,7 +122,7 @@ class BiblioCoverQuery extends Query {
     $hash = md5($path.session_id().time());
     if ($ext == '.jpeg') $ext = '.jpg';
     $name = str_replace('%', '', substr($name_full, 0, strrpos($name_full, '.')) . "_" . substr($hash, strlen($hash) - 7) . $ext);
-    $path_local = '..' . COVER_PATH . '/' . $name;
+    $path_local = '../' . COVER_PATH . '/' . $name;
     
     switch ($img_info['mime']) {
       case 'image/jpeg':

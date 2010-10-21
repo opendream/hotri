@@ -275,7 +275,7 @@ function changePage(page,sort)
       $flds = $bfq->fetchField();
       
       if ($flds->_fieldData):
-        $filepath = '..' . COVER_PATH . '/'. $flds->_fieldData;
+        $filepath = '../' . COVER_PATH . '/'. $flds->_fieldData;
         $title = H($biblio->getTitle());
         if ($thumbpath = make_thumbnail($filepath, array('height' => 160))): 
       ?>
