@@ -17,7 +17,7 @@ class UFPDF extends PDF
   function text($p, $txt) {
     // Output a string
     $bbox = $this->currentFont['desc']['FontBBox']; // '[-659 -589 1090 1288]'
-    $bbox = split(' ', $bbox); // split each member and get the last
+    $bbox = explode(' ', $bbox); // split each member and get the last
     $bbox = substr($bbox[3], 0, -1); // strip ']' from '1288]'
     $y_base = $bbox * $this->fontSize / 1000.0;
     $s = sprintf('BT %.2f %.2f Td %s Tj ET',
@@ -40,7 +40,7 @@ class UFPDF extends PDF
 
     # array(x-min, y-min, x-max, y-max) -- LOWER-LEFT ORIGIN
     $bbox = $this->currentFont['desc']['FontBBox']; // '[-659 -589 1090 1288]'
-    $bbox = split(' ', $bbox); // split each member with space
+    $bbox = explode(' ', $bbox); // split each member with space
     $bbox = array(substr($bbox[0], 1), $bbox[1], $bbox[2], substr($bbox[3], 0, -1));
     $dim = array();
     $dim['x'] = $w * $this->fontSize / 1000.0;
@@ -78,7 +78,7 @@ class UFPDF extends PDF
     }
 
     $mqr = get_magic_quotes_runtime();
-    set_magic_quotes_runtime(0);
+    ini_set('magic_quotes_runtime', 0);
 
     foreach ($this->FontFiles as $file=>$info) {
       //Font file embedding
@@ -124,7 +124,7 @@ class UFPDF extends PDF
       $this->_out('endobj');
     }
 
-    set_magic_quotes_runtime($mqr);
+    ini_set('magic_quotes_runtime', $mqr);
 
     foreach ($this->fonts as $name => $font) {
       //Font objects

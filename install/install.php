@@ -34,8 +34,8 @@
 <?php
 
   // Create directories for book cover / cover lookup
-  $cover_path = @mkdir('..' . COVER_PATH, 0777, TRUE);
-  $tmp_path = @mkdir('..' . COVER_PATH_TMP, 0777, TRUE);
+  $cover_path = @mkdir("../" . COVER_PATH, 0777, TRUE);
+  $tmp_path = @mkdir("../" . COVER_PATH_TMP, 0777, TRUE);
   
   if ($cover_path) {
     echo 'Create book cover directory successfully.<br />';

@@ -25,14 +25,14 @@
     $opts->setAWS($_POST);
 ?>
 <font class="error">Data has been updated.</font>
-<?
+<?php
   }
   $form = $opts->getAWS();
   $postVars['coverOptsKey'] = $form['aws_key'];
   $postVars['coverOptsSecretKey'] = $form['aws_secret_key'];
   $postVars['coverOptsAccId'] = $form['aws_account_id'];
 ?>
-<form name="<? echo $focus_form_name; ?>" method="POST" action="<? echo $_SERVER['SCRIPT_NAME']; ?>">
+<form name="<?php echo $focus_form_name; ?>" method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>">
 <table class="primary">
   <tr>
     <th colspan="2" nowrap="yes" align="left">

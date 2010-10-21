@@ -227,10 +227,10 @@ class BulkLookupQuery extends Query {
     $limit = 0 + $limit;
     $start = 0 + $start;
     // synchronize
-    $this->_query("UPDATE biblio SET cover='no'", false);
-    $this->_query("UPDATE biblio, biblio_field SET biblio.cover='yes' WHERE biblio.bibid=biblio_field.bibid AND tag='902' AND subfield_cd='a'", false);
+    $this->_query("UPDATE biblio SET has_cover='N'", false);
+    $this->_query("UPDATE biblio, biblio_field SET biblio.has_cover='Y' WHERE biblio.bibid=biblio_field.bibid AND tag='902' AND subfield_cd='a'", false);
 
-    $this->_query("SELECT * FROM biblio WHERE cover = 'no' ORDER by bibid LIMIT $start, $limit", false);
+    $this->_query("SELECT * FROM biblio WHERE has_cover='N' ORDER by bibid LIMIT $start, $limit", false);
   }
   
   function getQueue($status = 'queue', $limit = 100) {
@@ -286,7 +286,7 @@ class BulkLookupQuery extends Query {
         $res = $this->fetch();
         return $res[c];
       case 'cover_list':
-        $this->_query("SELECT COUNT(*) AS c FROM biblio WHERE cover='no'", false);
+        $this->_query("SELECT COUNT(*) AS c FROM biblio WHERE has_cover='N'", false);
         $res = $this->fetch();
         return $res[c];
       default:
@@ -352,9 +352,9 @@ class BulkLookupQuery extends Query {
   function getExistCover($bibid) {
     $bibid = 0 + $bibid;
 
-    $this->_query("SELECT cover FROM biblio WHERE bibid=$bibid", false);
+    $this->_query("SELECT has_cover FROM biblio WHERE bibid=$bibid", false);
     $data = $this->fetch();
-    return $data['cover'] == 'yes' ? true : false;
+    return $data['has_cover'] == 'Y' ? true : false;
   }
 
   function getExistBiblio($isbn) {

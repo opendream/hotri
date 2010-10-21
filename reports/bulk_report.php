@@ -55,7 +55,8 @@ if ($p * $limit < $total) $next = "<a href=\"?type=cover&page=".($p+1)."\">Next<
 
 echo $prev . ($prev && $next ? ' | ' : '') . $next;
 ?>
-<?
+
+<?php
     break;
   case 'manual':
     if ($_GET['act'] == 'cleartemp') {

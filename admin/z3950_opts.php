@@ -63,7 +63,7 @@
     $opts->setOptions($_POST);
 ?>
 <font class="error">Data has been updated.</font>
-<?
+<?php
   }
   $form = $opts->getOptions();
   if (!is_array($postVars)) {
@@ -71,7 +71,7 @@
   }
   $postVars = array_merge($form, $postVars);
 ?>
-<form name="<? echo $focus_form_name; ?>" method="POST" action="<? echo $_SERVER['SCRIPT_NAME']; ?>">
+<form name="<?php echo $focus_form_name; ?>" method="POST" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>">
 <table class="primary">
 	<tbody>
   <tr>
