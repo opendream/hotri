@@ -39,7 +39,14 @@ function returnLookup(formName,fieldName,val) {
 </script>
   <script type="text/javascript" src="../scripts/jquery.js"></script>
   <script type="text/javascript" src="../scripts/jquery.collapsible.js"></script>
-  <script type="text/javascript" src="../scripts/locale/<?php echo OBIB_LOCALE ?>.js"></script>
+  <?php
+    if (file_exists('../scripts/locale/'. OBIB_LOCALE .'.js')) {
+      $js_filename = OBIB_LOCALE .'.js'; 
+    } else {
+      $js_filename = 'en.js';
+    }
+  ?>
+  <script type="text/javascript" src="../scripts/locale/<?php echo $js_filename; ?>"></script>
   <script type="text/javascript" src="../scripts/search.js"></script>
 
   <title><?php echo H(OBIB_LIBRARY_NAME);?></title>
