@@ -100,6 +100,19 @@ $trans["biblioSearchBCode2Chk"]    = "\$text = 'Barcode to Check Out or Check In
 $trans["biblioSearchBCode2Hold"]   = "\$text = 'Barcode to Hold Form';";
 
 #****************************************************************************
+#*  Translation text for page advanced_search.php
+#****************************************************************************
+
+$trans["advsAdvancedSearch"]       = "\$text = 'Advanced Search';";
+$trans["advsMaterialType"]         = "\$text = 'Material Type';"; 
+$trans["advsCollectionType"]       = "\$text = 'Collection Type';";
+$trans["advsSearch"]               = "\$text = 'Search';";
+$trans["advsClear"]                = "\$text = 'Clear';";
+$trans["cancel"]                   = "\$text = 'Cancel';";
+$trans["or"]                       = "\$text = 'or';";
+$trans["any"]                      = "\$text = 'ANY';";
+
+#****************************************************************************
 #*  Translation text for page loginform.php
 #****************************************************************************
 $trans["loginFormTbleHdr"]         = "\$text = 'Staff Login';";
