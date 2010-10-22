@@ -133,6 +133,80 @@
     $rpt->table($table);
     exit;
   }
+  if ($format == 'xls') {
+    include_once('../classes/ExcelTable.php');
+    $table = new ExcelTable;
+    
+    // Load phpExcel
+    date_default_timezone_set('Asia/Bangkok');
+    require_once '../classes/PHPExcel.php';
+    
+    $objPHPExcel = new PHPExcel();
+    
+    $columns = array(
+      '',   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
+      'I',  'J',  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 
+      'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    );
+    $breaker = count($columns);
+    $objPHPExcel->setActiveSheetIndex(0);
+    $objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+$objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+    
+    $rpt->preloadTable($table);
+    $key_row = 0;
+    
+    // Get header row
+    $table->start();
+    $row = $table->getData();
+    
+    // Set autosize to columns.
+    for ($i = 0; $i < count($row); $i++) {
+      $objPHPExcel->getActiveSheet()->getColumnDimension(
+              $columns[floor(($i + 1) / $breaker)] 
+              . $columns[($i + 1) % $breaker])
+              ->setAutoSize(TRUE);
+    }
+    
+    do {
+      foreach ($row as $key_col => $val) {
+        $column_name = $columns[floor(($key_col + 1) / $breaker)] 
+              . $columns[($key_col + 1) % $breaker] . ($key_row + 1);
+        
+        $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
+        
+        // Initialize cell styles
+        $styles = $objPHPExcel->getActiveSheet()->getStyle($column_name);
+        $styles->getAlignment()->setWrapText(TRUE);
+        //$styles->getAlignment()->setShrinkToFit(TRUE);
+        
+        // Borders
+        $borders = $styles->getBorders();
+        $borders->getTop()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+        $borders->getBottom()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+        $borders->getLeft()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+        $borders->getRight()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+        
+        if ($key_row === 0) {
+          // Emphasize cell as header row
+          $styles->getFont()->setBold(TRUE);
+          $styles->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+          $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
+        }
+      }
+      
+      $key_row++;
+    } while ($row = $rpt->getTableRow($table));
+    
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="' . $rpt->type() . '.xls"');
+    header('Cache-Control: max-age=0');
+
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+    $objWriter->save('php://output');
+
+    exit;
+  }
   
   include('../shared/header.php');
 

@@ -266,6 +266,26 @@ class Report {
     }
     $table->end();
   }
+  function preloadTable($table=NULL, $doCols=true) {
+    if (!$table) {
+      require_once('../classes/Table.php');
+      $table = new Table;
+    }
+    if ($doCols) {
+      $table->columns($this->columns());
+    }
+    if ($this->name) {
+      $table->parameters(array('rpt'=>$this->name,
+                               'rpt_colnames'=>$this->columnNames()));
+    }
+  }
+  function getTableRow($table) {
+    if (($row = $this->each()) !== NULL) {
+      $table->row($row);
+      return $table->getData();
+    }
+    return false;
+  }
 }
 
 ?>
