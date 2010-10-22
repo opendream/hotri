@@ -50,6 +50,8 @@ $trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'ไม่สามา
 $trans["biblioFieldErrorCoverLookupFailed"] = "\$text = 'ไม่สามารถเชื่อมต่อกับระบบการค้นหาปกหนังสือได้';";
 $trans["biblioFieldErrorDuplicatedISBN"]       = "\$text = 'เลข ISBN นี้ถูกใช้อ้างอิงหนังสืออื่นแล้ว';";
 $trans["biblioFieldViewExistingISBN"]            = "\$text = 'เปิดดูหนังสือเล่มนั้น';";
+$trans["biblioFieldErrorDuplicatedTitle"]       = "\$text = 'มีทรัพยากรที่ใช้ชื่อเรื่องนี้อยู่แล้ว';";
+$trans["biblioFieldViewExistingTitle"]            = "\$text = 'เปิดดูทรัพยากรนั้น';";
 
 #****************************************************************************
 #*  Translation text for class BiblioQuery
