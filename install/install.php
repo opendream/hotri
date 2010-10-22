@@ -50,13 +50,13 @@
         echo 'Book cover directory is exists, force read/write access to exists one.<br />';
       }
       else {
-        echo '<span style="color: red">Could not change access to exist cover directory! You must change chmod to 777 with ' . COVER_PATH . ' manually.</span><br />';
+        echo '<span style="color: red">Could not change access to exist cover directory! Please change ' . COVER_PATH . ' directory permission (chmod) to full access (777) manually.</span><br />';
         $isFailedSomeDir = TRUE;
       }
     }
   }
   else {
-    echo '<span style="color: red">Could not create book cover directory!</span><br />';
+    echo '<span style="color: red">Could not create book cover directory! Please create new ' . COVER_PATH . ' directory & change permission (chmod) to full access (777) manually.</span><br />';
     $isFailedSomeDir = TRUE;
   }
   
@@ -73,13 +73,13 @@
         echo 'Temporary cover lookup directory is exists, force read/write access to exists one.<br />';
       }
       else {
-        echo '<span style="color: red">Could not change access to exist temporary cover lookup directory! You must change chmod to 777 with ' . COVER_PATH_TMP . ' manually.</span><br />';
+        echo '<span style="color: red">Could not change access to exist temporary cover lookup directory! Please change ' . COVER_PATH_TMP . ' directory permission (chmod) to full access (777) manually.</span><br />';
         $isFailedSomeDir = TRUE;
       }
     }
   }
   else {
-    echo '<span style="color: red">Could not create temporary cover lookup directory!</span><br />';
+    echo '<span style="color: red">Could not create temporary cover lookup directory! Please create new ' . COVER_PATH_TMP . ' directory & change permission (chmod) to full access (777) manually.</span><br />';
     $isFailedSomeDir = TRUE;
   }
   
