@@ -42,10 +42,7 @@ class CsvImport {
       $s = fgets($fp);
       $line++;
       $formatted = $this->_string2Array($s);
-      if ($formatted['quote_incorrect']) {
-        return array('error' => 'Incorrect double quote formatting');
-      }
-      else if (empty ($formatted['020a']) || empty($formatted['100a']) || empty($formatted['245a'])) {
+      if (empty ($formatted['020a']) || empty($formatted['100a']) || empty($formatted['245a'])) {
         return array('error' => 'Missing required fields (ISBN, ชื่อผู้แต่ง, ชื่อเรื่อง) @ line ' . $line);
       }
     }
