@@ -98,7 +98,7 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
   }
   if ($error != "") {
     echo "<br><font class=\"error\">";
-    if ($formIndex == '020a') // Enable suggestion link for existing ISBN check.
+    if ($formIndex == '020a' || $formIndex == '245a') // Enable suggestion link for existing ISBN check.
       echo $error."</font>";
     else 
       echo H($error)."</font>";

@@ -196,6 +196,18 @@ class BiblioQuery extends Query {
     $result = $this->_conn->fetchRow();
     return $result == false ? false : $result['bibid'];
   }
+  
+  function titleExists($title) {
+    $sql = $this->mkSQL("select bibid from biblio "
+        . "where title=%Q ",
+        $title);
+        
+    if (!$this->_query($sql, $this->_loc->getText("usmarcSubfldDmQueryErr1"))) {
+      return false;
+    }
+    $result = $this->_conn->fetchRow();
+    return $result == false ? false : $result['bibid'];
+  }
 
 
   /****************************************************************************

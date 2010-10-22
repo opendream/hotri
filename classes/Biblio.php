@@ -50,6 +50,20 @@ class Biblio {
         $valid = false;
       }
     }
+    
+    // Check title exists when this biblio couldn't verified with ISBN.
+    $isbn = $this->_biblioFields['020a']->getFieldData();
+    if (empty($isbn)) {
+      require_once("../classes/BiblioQuery.php");
+      $biblioQ = new BiblioQuery();
+      $existBibId = $biblioQ->titleExists($this->_biblioFields['245a']->getFieldData());
+      
+      if ($existBibId && $this->_bibid != $existBibId) {
+        $this->_biblioFields['245a']->setFieldDataError($this->_loc->getText("biblioFieldErrorDuplicatedTitle") . ' <a href="../shared/biblio_view.php?bibid=' . $existBibId . '&tab=cataloging">' . $this->_loc->getText("biblioFieldViewExistingTitle") . '</a>');
+        $valid = false;
+      }
+    }
+    
     return $valid;
   }
 

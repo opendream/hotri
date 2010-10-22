@@ -213,6 +213,7 @@ $trans["NotAuth"]                 = "\$text = 'คุณไม่มีสิท
 $trans["MarcUploadTest"]            = "\$text = 'การจัดการไฟล์ที่นำเข้า';";
 $trans["MarcUploadTestTrue"]        = "\$text = 'ทดสอบ';";
 $trans["MarcUploadTestFalse"]       = "\$text = 'นำเข้า';";
+$trans["MarcSizeLimitNotes"]        = "\$text = '<strong>คำแนะนำ:</strong> ขนาดไฟล์ Marc ไม่ควรเกิน 10MB หากมีจำนวนรายการมากเกินไปอาจทำให้เกิดข้อผิดพลาดระหว่างการนำเข้าข้อมูลได้';";
 $trans["MarcUploadTestFileUpload"]  = "\$text = 'ใส่ไฟล์ Marc ';";
 $trans["MarcUploadEncoding"]      = "\$text = 'ชนิดของรหัสอักขระ';";
 $trans["MarcUploadRecordsUploaded"] = "\$text = 'รายการเพิ่ม';";

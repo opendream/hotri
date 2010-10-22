@@ -50,6 +50,8 @@ $trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'Failed to load image 
 $trans["biblioFieldErrorCoverLookupFailed"] = "\$text = 'Failed to connect online cover lookup service.';";
 $trans["biblioFieldErrorDuplicatedISBN"]       = "\$text = 'This ISBN is already in used,';";
 $trans["biblioFieldViewExistingISBN"]            = "\$text = 'view existing item.';";
+$trans["biblioFieldErrorDuplicatedTitle"]       = "\$text = 'This title is already in used,';";
+$trans["biblioFieldViewExistingTitle"]            = "\$text = 'view existing item, or specify ISBN.';";
 
 #****************************************************************************
 #*  Translation text for class BiblioQuery

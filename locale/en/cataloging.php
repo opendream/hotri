@@ -210,6 +210,7 @@ $trans["NotAuth"]                 = "\$text = 'You are not authorized to use the
 $trans["MarcUploadTest"]            = "\$text = 'Test Load';";
 $trans["MarcUploadTestTrue"]        = "\$text = 'True';";
 $trans["MarcUploadTestFalse"]       = "\$text = 'False';";
+$trans["MarcSizeLimitNotes"]        = "\$text = '<strong>Note:</strong> Recommend file size below 10MB. Large marc record file can cause errors when parsing data.';";
 $trans["MarcUploadTestFileUpload"]  = "\$text = 'USMarc Input File';";
 $trans["MarcUploadEncoding"]      = "\$text = 'Character encoding';";
 $trans["MarcUploadRecordsUploaded"] = "\$text = 'Records Uploaded';";

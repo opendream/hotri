@@ -150,6 +150,7 @@
     );
     $breaker = count($columns);
     $objPHPExcel->setActiveSheetIndex(0);
+    $objPHPExcel->getActiveSheet()->getDefaultStyle()->getFont()->setName('Tahoma');
     $objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
     
