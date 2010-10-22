@@ -24,45 +24,57 @@
   #**************************************************************************
   $mbrQ = new MemberQuery();
   $mbrQ->connect();
-  $mbrQ->delete($mbrid);
+  if (isset($_GET["permanently"]) && $_GET["permanently"] == 1) {
+    $mbrQ->delete($mbrid);
+  } else {
+    $mbrQ->inactive($mbrid);
+  }
   $mbrQ->close();
 
   #**************************************************************************
   #*  Delete Member History
   #**************************************************************************
-  $histQ = new BiblioStatusHistQuery();
-  $histQ->connect();
-  if ($histQ->errorOccurred()) {
+  if (isset($_GET["permanently"]) && $_GET["permanently"] == 1) {
+    $histQ = new BiblioStatusHistQuery();
+    $histQ->connect();
+    if ($histQ->errorOccurred()) {
+      $histQ->close();
+      displayErrorPage($histQ);
+    }
+    if (!$histQ->deleteByMbrid($mbrid)) {
+      $histQ->close();
+      displayErrorPage($histQ);
+    }
     $histQ->close();
-    displayErrorPage($histQ);
   }
-  if (!$histQ->deleteByMbrid($mbrid)) {
-    $histQ->close();
-    displayErrorPage($histQ);
-  }
-  $histQ->close();
 
   #**************************************************************************
   #*  Delete Member Account
   #**************************************************************************
-  $transQ = new MemberAccountQuery();
-  $transQ->connect();
-  if ($transQ->errorOccurred()) {
+  if (isset($_GET["permanently"]) && $_GET["permanently"] == 1) {
+    $transQ = new MemberAccountQuery();
+    $transQ->connect();
+    if ($transQ->errorOccurred()) {
+      $transQ->close();
+      displayErrorPage($transQ);
+    }
+    $trans = $transQ->delete($mbrid);
+    if ($transQ->errorOccurred()) {
+      $transQ->close();
+      displayErrorPage($transQ);
+    }
     $transQ->close();
-    displayErrorPage($transQ);
   }
-  $trans = $transQ->delete($mbrid);
-  if ($transQ->errorOccurred()) {
-    $transQ->close();
-    displayErrorPage($transQ);
-  }
-  $transQ->close();
 
   #**************************************************************************
   #*  Show success page
   #**************************************************************************
   require_once("../shared/header.php");
-  echo $loc->getText("mbrDelSuccess",array("name"=>$mbrName));
+  if (isset($_GET["permanently"]) && $_GET["permanently"] == 1) {
+    echo $loc->getText("mbrDelSuccess", array("name"=>$mbrName));
+  } else {
+    echo $loc->getText("mbrSuspendSuccess", array("name"=>$mbrName));
+  }
   
 ?>
 <br><br>

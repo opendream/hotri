@@ -31,6 +31,8 @@ class Member {
   var $_address = "";
   var $_homePhone = "";
   var $_workPhone = "";
+  var $_status = "Y";
+  var $_statusError = "";
   var $_custom = array();
   
 
@@ -55,6 +57,10 @@ class Member {
     if ($this->_firstName == "") {
       $valid = false;
       $this->_firstNameError = "First name is required.";
+    }
+    if (strcmp($this->_status, "y") != 0 && strcmp($this->_status, "n") != 0) {
+      $valid = false;
+      $this->_statusError = "Status options is incorrect.";
     }
 
     return $valid;
@@ -130,6 +136,12 @@ class Member {
   function getClassification() {
     return $this->_classification;
   }
+  function getStatus() {
+    return $this->_status;
+  }
+  function getStatusError() {
+    return $this->_statusError;
+  }
 
   /****************************************************************************
    * Setter methods for all fields
@@ -182,6 +194,12 @@ class Member {
   }
   function setClassification($value) {
     $this->_classification = trim($value);
+  }
+  function setStatus($value) {
+    $this->_status = trim($value);
+  }
+  function setStatusError($value) {
+    $this->_statusError = trim($value);
   }
 }
 

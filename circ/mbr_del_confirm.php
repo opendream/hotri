@@ -24,7 +24,12 @@
   $mbrQ->connect();
   $mbr = $mbrQ->get($mbrid);
   $mbrQ->close();
-  $mbrName = $mbr->getFirstName()." ".$mbr->getLastName();
+
+  if (strcmp(OBIB_LOCALE, "th") == 0) {
+    $mbrName = $mbr->getLastName()." ".$mbr->getFirstName();
+  } else {
+    $mbrName = $mbr->getFirstName()." ".$mbr->getLastName();
+  }
 
   #****************************************************************************
   #*  Getting checkout count
@@ -77,9 +82,10 @@
 ?>
 <center>
 <form name="delbiblioform" method="POST" action="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y">
-<?php echo $loc->getText("mbrDelConfirmMsg",array("name"=>$mbrName)); ?>
+<?php echo $loc->getText("mbrDelConfirmMsg", array("name"=>$mbrName)); ?>
 <br><br>
-      <input type="button" onClick="self.location='../circ/mbr_del.php?mbrid=<?php echo H(addslashes(U($mbrid)));?>&amp;name=<?php echo H(addslashes(U($mbrName)));?>'" value="<?php echo $loc->getText("circDelete"); ?>" class="button">
+      <input type="button" onClick="self.location='../circ/mbr_del.php?mbrid=<?php echo H(addslashes(U($mbrid)));?>&amp;name=<?php echo H(addslashes(U($mbrName)));?>'" value="<?php echo $loc->getText("circSuspend"); ?>" class="button">
+      <input type="button" onClick="self.location='../circ/mbr_del.php?mbrid=<?php echo H(addslashes(U($mbrid)));?>&amp;name=<?php echo H(addslashes(U($mbrName)));?>&permanently=1'" value="<?php echo $loc->getText("circPermanentlyDelete"); ?>" class="button">
       <input type="submit" value="<?php echo $loc->getText("circCancel"); ?>" class="button">
 </form>
 </center>

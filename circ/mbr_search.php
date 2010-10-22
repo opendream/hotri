@@ -161,8 +161,16 @@ function changePage(page)
         if ($mbr->getAddress() != "")
           echo str_replace("\n", "<br />", H($mbr->getAddress())).'<br />';
       ?>
-      <b><?php echo $loc->getText("mbrsearchCardNumber");?></b> <?php echo H($mbr->getBarcodeNmbr());?>
-      <b><?php echo $loc->getText("mbrsearchClassification");?></b> <?php echo H($mbrClassifyDm[$mbr->getClassification()]);?>
+      <b><?php echo $loc->getText("mbrsearchCardNumber");?></b> <?php echo H($mbr->getBarcodeNmbr());?><br />
+      <b><?php echo $loc->getText("mbrsearchClassification");?></b> <?php echo H($mbrClassifyDm[$mbr->getClassification()]);?><br />
+      <b><?php echo $loc->getText("mbrsearchStatus");?></b>
+      <?php
+        if (strcmp($mbr->getStatus(), "Y") == 0) { 
+          echo $loc->getText("mbrActive");
+        } elseif (strcmp($mbr->getStatus(), "N") == 0) { 
+          echo $loc->getText("mbrInactive");
+        }
+      ?>
     </td>
   </tr>
 

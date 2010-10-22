@@ -45,6 +45,7 @@
   $mbr->setEmail($_POST["email"]);
   $_POST["email"] = $mbr->getEmail();
   $mbr->setClassification($_POST["classification"]);
+  $mbr->setStatus($_POST["status"]);
   
   $dmQ = new DmQuery();
   $dmQ->connect();
@@ -61,6 +62,7 @@
     $pageErrors["barcodeNmbr"] = $mbr->getBarcodeNmbrError();
     $pageErrors["lastName"] = $mbr->getLastNameError();
     $pageErrors["firstName"] = $mbr->getFirstNameError();
+    $pageErrors["status"] = $mbr->getStatusError();
     $_SESSION["postVars"] = $_POST;
     $_SESSION["pageErrors"] = $pageErrors;
     header("Location: ../circ/mbr_new_form.php");

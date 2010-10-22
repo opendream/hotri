@@ -34,7 +34,7 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
     $attrs['onChange'] = 'modified=true';
   }
   switch ($type) {
-  // FIXME radio
+  // TODO: radio
   case 'select':
     $s .= '<select id="'.H($name).'" name="'.H($name).'" ';
     foreach ($attrs as $k => $v) {
@@ -43,7 +43,7 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
     $s .= ">\n";
     foreach ($data as $val => $desc) {
       $s .= '<option value="'.H($val).'" ';
-      if ($value == $val) {
+      if (strtolower($value) == strtolower($val)) {
         $s .= " selected";
       }
       $s .= ">".H($desc)."</option>\n";

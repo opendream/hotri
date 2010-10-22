@@ -139,6 +139,20 @@
   </tr>
   <tr>
     <td class="primary" valign="top">
+      <?php echo $loc->getText("mbrViewStatus"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php
+        if (strcmp($mbr->getStatus(), "Y") == 0) {
+          echo $loc->getText("mbrActive"); 
+        } elseif (strcmp($mbr->getStatus(), "N") == 0) {
+          echo $loc->getText("mbrInactive"); 
+        }
+      ?>
+    </td>
+  </tr>
+  <tr>
+    <td class="primary" valign="top">
       <?php echo $loc->getText("mbrViewPhone"); ?>
     </td>
     <td valign="top" class="primary">

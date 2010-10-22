@@ -8,10 +8,12 @@
   $dmQ = new DmQuery();
   $dmQ->connect();
   $mbrClassifyDm = $dmQ->getAssoc('mbr_classify_dm');
+  $mbrStatusDm = array("y" => $loc->getText("mbrActive"), "n" => $loc->getText("mbrInactive"));
   $customFields = $dmQ->getAssoc('member_fields_dm');
   $dmQ->close();
   $fields = array(
-    "mbrFldsClassify" => inputField('select', 'classification', $mbr->getClassification(), NULL, $mbrClassifyDm),
+    "mbrFldsClassify" => inputField('select', "classification", $mbr->getClassification(), NULL, $mbrClassifyDm),
+    "mbrFldsStatus" => inputField('select', "status", $mbr->getStatus(), NULL, $mbrStatusDm),
     "mbrFldsCardNmbr" => inputField('text', "barcodeNmbr", $mbr->getBarcodeNmbr()),
     "mbrFldsLastName" => inputField('text', "lastName", $mbr->getLastName()),
     "mbrFldsFirstName" => inputField('text', "firstName", $mbr->getFirstName()),

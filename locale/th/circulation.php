@@ -39,6 +39,8 @@
 #****************************************************************************
 $trans["circCancel"]              = "\$text = 'ยกเลิก';";
 $trans["circDelete"]              = "\$text = 'ลบ';";
+$trans["circSuspend"]             = "\$text = 'ระงับชั่วคราว';";
+$trans["circPermanentlyDelete"]   = "\$text = 'ลบถาวร';";
 $trans["circLogout"]              = "\$text = 'ออกจากระบบ';";
 $trans["circAdd"]                 = "\$text = 'เพิ่ม';";
 $trans["mbrDupBarcode"]           = "\$text = 'รหัสบาร์โค้ด, %barcode%, ปัจจุบันถูกใช้';";
@@ -56,10 +58,10 @@ $trans["indexName"]               = "\$text='ชื่อสมาชิก:';";
 #****************************************************************************
 #*  Translation text for page mbr_new_form.php, mbr_edit_form.php and mbr_fields.php
 #****************************************************************************
-$trans["Mailing Address:"] = "\$text='ที่อยู่:';";
+$trans["Mailing Address:"]        = "\$text='ที่อยู่:';";
 $trans["mbrNewForm"]              = "\$text='เพิ่มสมาชิกใหม่';";
 $trans["mbrEditForm"]             = "\$text='แก้ไข';";
-//$trans["mbrFldsHeader"]           = "\$text='สมาชิก:';";
+$trans["mbrFldsHeader"]           = "\$text=':';";
 $trans["mbrFldsCardNmbr"]         = "\$text='เลขที่สมาชิก:';";
 $trans["mbrFldsLastName"]         = "\$text='ชื่อ:';";
 $trans["mbrFldsFirstName"]        = "\$text='นามสกุล:';";
@@ -69,8 +71,9 @@ $trans["mbrFldsCity"]             = "\$text='จังหวัด:';";
 $trans["mbrFldsStateZip"]         = "\$text='รหัสไปรษณีย์:';";
 $trans["mbrFldsHomePhone"]        = "\$text='เบอร์โทรศัพท์ที่บ้าน:';";
 $trans["mbrFldsWorkPhone"]        = "\$text='เบอร์โทรศัพท์ที่ทำงาน:';";
-$trans["mbrFldsEmail"]            = "\$text='อีเมล์:';";
+$trans["mbrFldsEmail"]            = "\$text='อีเมล:';";
 $trans["mbrFldsClassify"]         = "\$text='ประเภทสมาชิก:';";
+$trans["mbrFldsStatus"]           = "\$text='สถานะ:';";
 $trans["mbrFldsGrade"]            = "\$text='หน่วยงานที่ทำงาน:';";
 $trans["mbrFldsTeacher"]          = "\$text='สถาบันที่ศึกษา:';";
 $trans["mbrFldsSubmit"]           = "\$text='บันทึก';";
@@ -83,6 +86,9 @@ $trans["mbrsearchFoundResults"]   = "\$text=' รายการค้นพบ.
 $trans["mbrsearchSearchResults"]  = "\$text='ผลการค้น:';";
 $trans["mbrsearchCardNumber"]     = "\$text='เลขที่สมาชิก:';";
 $trans["mbrsearchClassification"] = "\$text='ประเภท:';";
+$trans["mbrsearchStatus"]         = "\$text='สถานะ:';";
+$trans["mbrActive"]               = "\$text='ปกติ';";
+$trans["mbrInactive"]             = "\$text='ระงับ';";
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php
@@ -105,7 +111,7 @@ $trans["mbrViewClassify"]         = "\$text='ประเภทสมาชิ�
 $trans["mbrViewPhone"]            = "\$text='เบอร์โทร:';";
 $trans["mbrViewPhoneHome"]        = "\$text='บ้าน:';";
 $trans["mbrViewPhoneWork"]        = "\$text='ทำงาน:';";
-$trans["mbrViewEmail"]            = "\$text='อีเมล์:';";
+$trans["mbrViewEmail"]            = "\$text='อีเมล:';";
 $trans["mbrViewGrade"]            = "\$text='School Grade:';";
 $trans["mbrViewTeacher"]          = "\$text='Schooher:';";
 $trans["mbrViewHead2"]            = "\$text='สถิติยืมออก:';";
@@ -141,8 +147,9 @@ $trans["mbrViewHoldHdr7"]         = "\$text='สถานภาพ';";
 $trans["mbrViewHoldHdr8"]         = "\$text='คืนทรัพยากรสารสนเทศ';";
 $trans["mbrViewNoHolds"]          = "\$text='ไม่มีรายการบรรณานุกรมที่ถูกจอง';";
 $trans["mbrViewBalMsg"]           = "\$text='หมายเหตุ: คุณยังมีค่าปรับยืมหนังสือเกินค้างอยู่จำนวน %bal%';";
-$trans["mbrPrintCheckouts"]	  = "\$text='พิมพ์รายการยืมออก';";
+$trans["mbrPrintCheckouts"]	      = "\$text='พิมพ์รายการยืมออก';";
 $trans["mbrViewDel"]              = "\$text='ลบ';";
+$trans["mbrViewStatus"]           = "\$text='สถานะ:';";
 
 #****************************************************************************
 #*  Translation text for page checkout.php
@@ -211,6 +218,7 @@ $trans["mbrDelConfirmMsg"]        = "\$text = 'ยืนยันในการ
 #*  Translation text for page mbr_del.php
 #****************************************************************************
 $trans["mbrDelSuccess"]           = "\$text='สมาชิกชื่อ %name% ถูกลบ';";
+$trans["mbrSuspendSuccess"]       = "\$text='สมาชิกชื่อ %name% ถูกระงับชั่วคราว';";
 $trans["mbrDelReturn"]            = "\$text='กลับไปรายการค้นหาสมาชิก';";
 
 #****************************************************************************

@@ -134,7 +134,7 @@ class MemberQuery extends Query {
     $mbr->setWorkPhone($array["work_phone"]);
     $mbr->setEmail($array["email"]);
     $mbr->setClassification($array["classification"]);
-
+    $mbr->setStatus($array["is_active"]);
     $mbr->_custom = $this->getCustomFields($array['mbrid']);
     return $mbr;
   }
@@ -196,14 +196,14 @@ class MemberQuery extends Query {
     $sql = $this->mkSQL("insert into member "
                         . "(mbrid, barcode_nmbr, create_dt, last_change_dt, "
                         . " last_change_userid, last_name, first_name, address, "
-                        . " home_phone, work_phone, email, classification) "
+                        . " home_phone, work_phone, email, classification, is_active) "
                         . "values (null, %Q, sysdate(), sysdate(), %N, "
-                        . " %Q, %Q, %Q, %Q, %Q, %Q, %Q) ",
+                        . " %Q, %Q, %Q, %Q, %Q, %Q, %Q, %Q) ",
                         $mbr->getBarcodeNmbr(), $mbr->getLastChangeUserid(),
                         $mbr->getLastName(), $mbr->getFirstName(),
                         $mbr->getAddress(), $mbr->getHomePhone(),
                         $mbr->getWorkPhone(), $mbr->getEmail(),
-                        $mbr->getClassification());
+                        $mbr->getClassification(), strtoupper($mbr->getStatus()));
 
     $this->exec($sql);
     $mbrid = $this->_conn->getInsertId();
@@ -222,13 +222,14 @@ class MemberQuery extends Query {
                         . " last_change_dt = sysdate(), last_change_userid=%N, "
                         . " barcode_nmbr=%Q,  last_name=%Q,  first_name=%Q, "
                         . " address=%Q, home_phone=%Q, work_phone=%Q, "
-                        . " email=%Q, classification=%Q "
+                        . " email=%Q, classification=%Q, is_active=%Q "
                         . "where mbrid=%N",
                         $mbr->getLastChangeUserid(), $mbr->getBarcodeNmbr(),
                         $mbr->getLastName(), $mbr->getFirstName(),
                         $mbr->getAddress(), $mbr->getHomePhone(),
                         $mbr->getWorkPhone(), $mbr->getEmail(),
-                        $mbr->getClassification(), $mbr->getMbrid());
+                        $mbr->getClassification(), strtoupper($mbr->getStatus()),
+                        $mbr->getMbrid());
 
     $this->exec($sql);
     $this->setCustomFields($mbr->getMbrid(), $mbr->_custom);
@@ -248,6 +249,15 @@ class MemberQuery extends Query {
   }
   function deleteCustomField($code) {
     $sql = $this->mkSQL("delete from member_fields where code = %Q ", $code);
+    $this->exec($sql);
+  }
+
+  function active($mbrid) {
+    $sql = $this->mkSQL("UPDATE member SET is_active = 'Y' WHERE mbrid = %N ", $mbrid);
+    $this->exec($sql);
+  }
+  function inactive($mbrid) {
+    $sql = $this->mkSQL("UPDATE member SET is_active = 'N' WHERE mbrid = %N ", $mbrid);
     $this->exec($sql);
   }
 }

@@ -39,6 +39,8 @@
 #****************************************************************************
 $trans["circCancel"]              = "\$text = 'Cancel';";
 $trans["circDelete"]              = "\$text = 'Delete';";
+$trans["circSuspend"]             = "\$text = 'Suspend';";
+$trans["circPermanentlyDelete"]   = "\$text = 'Permanently Delete';";
 $trans["circLogout"]              = "\$text = 'Logout';";
 $trans["circAdd"]                 = "\$text = 'Add';";
 $trans["mbrDupBarcode"]           = "\$text = 'Barcode number, %barcode%, is currently in use.';";
@@ -71,6 +73,7 @@ $trans["mbrFldsHomePhone"]        = "\$text='Home Phone:';";
 $trans["mbrFldsWorkPhone"]        = "\$text='Work Phone:';";
 $trans["mbrFldsEmail"]            = "\$text='Email Address:';";
 $trans["mbrFldsClassify"]         = "\$text='Classification:';";
+$trans["mbrFldsStatus"]           = "\$text='Status:';";
 $trans["mbrFldsGrade"]            = "\$text='School Grade:';";
 $trans["mbrFldsTeacher"]          = "\$text='School Teacher:';";
 $trans["mbrFldsSubmit"]           = "\$text='Submit';";
@@ -83,6 +86,9 @@ $trans["mbrsearchFoundResults"]   = "\$text=' results found.';";
 $trans["mbrsearchSearchResults"]  = "\$text='Search Results:';";
 $trans["mbrsearchCardNumber"]     = "\$text='Card Number:';";
 $trans["mbrsearchClassification"] = "\$text='Classification:';";
+$trans["mbrsearchStatus"]         = "\$text='Status:';";
+$trans["mbrActive"]               = "\$text='Active:';";
+$trans["mbrInactive"]             = "\$text='Inactive:';";
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php
@@ -141,8 +147,9 @@ $trans["mbrViewHoldHdr7"]         = "\$text='Status';";
 $trans["mbrViewHoldHdr8"]         = "\$text='Due Back';";
 $trans["mbrViewNoHolds"]          = "\$text='No bibliographies are currently on hold.';";
 $trans["mbrViewBalMsg"]           = "\$text='Note: Member has an outstanding account balance of %bal%.';";
-$trans["mbrPrintCheckouts"]	  = "\$text='print checkouts';";
+$trans["mbrPrintCheckouts"]	      = "\$text='print checkouts';";
 $trans["mbrViewDel"]              = "\$text='del';";
+$trans["mbrViewStatus"]           = "\$text='Status:';";
 
 #****************************************************************************
 #*  Translation text for page checkout.php
@@ -211,6 +218,7 @@ $trans["mbrDelConfirmMsg"]        = "\$text = 'Are you sure you want to delete t
 #*  Translation text for page mbr_del.php
 #****************************************************************************
 $trans["mbrDelSuccess"]           = "\$text='Member, %name%, has been deleted.';";
+$trans["mbrSuspendSuccess"]       = "\$text='Member, %name%, has been suspended.';";
 $trans["mbrDelReturn"]            = "\$text='return to Member Search';";
 
 #****************************************************************************
