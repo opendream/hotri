@@ -22,8 +22,7 @@ class CsvImport {
     $s = fgets($fp);
     $arr = $this->_string2Array($s);
     $required_header = array('ISBN', 'ชื่อผู้แต่ง', 'ชื่อเรื่อง', 'ชื่อเรื่องย่อย', 'ผู้รับผิดชอบ',
-     'Call Number', 'Call Number (2)', 'หัวเรื่อง', 'LCCN', 
-     'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์', 'จำนวนหน้า', 'ชื่อไฟล์ภาพปก');
+     'Call Number', 'Call Number (2)', 'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์',);
     $i = 0;
     foreach ($arr as $field) {
       if (trim($field) != $required_header[$i]) {
@@ -97,48 +96,28 @@ class CsvImport {
   } 
   
   function _string2Array($str) {
-    $str = str_replace('""', "%double_quote%", 
-     str_replace('%', '%25', $str));
-
-    $status = str_replace('"', '', $str, $matches);
-    if ($matches % 2 != 0) {
-      return array('quote_incorrect' => true);
-    }
-    $hasQuote = false;
-    $i = 0;
-    while(($qpos = strpos($str, '"')) !== false) {
-      if ($hasQuote) {
-        $hasQuote = false;
-        $needle = $var[$i] = substr($str, $startPos, $qpos - $startPos);
-        $str = str_replace( $needle . '"', '%var_'.$i.'%', $str);
-
-        // same value strings should be removed pre-quote.
-        $str = str_replace('"%var_'.$i.'%', '%var_'.$i.'%', $str);
-        $i++;
+    // Get array of data, without end of line
+    $data = explode("\t", str_replace("\n", '', $str));
+    
+    foreach ($data as $i => $val) {
+      // Strip all unescaped quotes, they should always be ("...") pattern
+      if (mb_strpos($val, '"') === 0) {
+        $data[$i] = mb_substr($val, 1, -1);
       }
       else {
-        $hasQuote = true;
-        $startPos = $qpos;
-        $str = substr($str, 0, $startPos) . substr($str, $startPos + 1);
-      }   
-    }
-    $data = explode("\t", $str);
-    $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', '650a', '010a', '260a', '260b', '260c', '300a', '902a');
-    foreach ($data as $key=>$field) {
-      if (preg_match('%(var_[0-9]{1,2})%', $field, $reg)) {
-        $index = substr($reg[1], strpos($reg[1], '_') + 1);
-        $data[$header[$key]] = str_replace(
-         array('%25', '%double_quote%'), 
-         array('%', '"'),
-         str_replace("%{$reg[1]}%", $var[$index], $field)
-        );
+        $data[$i] = $val;
       }
-      else {
-        $data[$header[$key]] = $field;
-      }
-      unset($data[$key]);
+      
+      // For escape quote should be parsed as double quotes
+      $data[$i] = str_replace('""', '"', $data[$i]);
     }
-    unset($var);
+    
+    // Map data with real marc fields
+    $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', 
+      '260a', '260b', '260c', );
+      
+    $data = array_combine($header, $data);
+    
     return $data;
   }
 }
