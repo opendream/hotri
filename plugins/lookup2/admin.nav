@@ -1,13 +1,21 @@
 <!-- ---------------------------------------- --->
 <!-- added for Fred LaPlante's Lookup Function -->
 <?php if ($nav == "lookupHosts") { ?>
-&raquo; <?php echo $navLoc->getText("lookup_hosts");?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("lookup_hosts");?>
+ </li>
 <?php } else { ?>
-<a href="../lookup2/lookupHostsForm.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_hosts");?></a><br>
+ <li>
+   <a href="../lookup2/lookupHostsForm.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_hosts");?></a>
+ </li>
 <?php } ?>
 <?php if ($nav == "BulkLookup") { ?>
-&raquo; <?php echo $navLoc->getText("lookup_bulk");?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("lookup_bulk");?>
+ </li>
 <?php } else { ?>
-<a href="../lookup2/BulkLookup.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_bulk");?></a><br>
+ <li>
+   <a href="../lookup2/BulkLookup.php?reset=Y" class="alt1"><?php echo $navLoc->getText("lookup_bulk");?></a>
+ </li>
 <?php } ?>
 <!-- ---------------------------------------- --->

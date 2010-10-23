@@ -320,12 +320,12 @@ select {
   color: <?php echo H(OBIB_PRIMARY_FONT_COLOR);?>;
 }*/
 
-ul.nav_main { list-style-type: none; padding-left: 0; margin-left: 0; }
+/*ul.nav_main { list-style-type: none; padding-left: 0; margin-left: 0; }
 li.nav_selected:before { white-space: pre-wrap; content: "\bb  " }
 ul.nav_main li.nav_selected { font-weight: bold }
 ul.nav_sub li.nav_selected { font-weight: bold }
 ul.nav_main li { font-weight: normal }
-ul.nav_sub li { font-weight: normal }
+ul.nav_sub li { font-weight: normal }*/
 
 li.report_category { margin-bottom: 1em }
 

@@ -83,3 +83,23 @@ legend.collapsible {
 	color: #00A;
 	cursor: pointer;
 }
+
+/* Navigations */
+td.nav a {
+}
+
+td.nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+td.nav li {
+	list-style-type: none;
+	margin: 3px 0;
+	padding: 5px;
+	background-color: #999;
+}
+
+td.nav li.active {
+	background-color: #fff;
+}

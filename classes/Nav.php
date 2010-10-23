@@ -28,7 +28,7 @@ class Nav {
         $link = H($m['title']);
       }
       if (Nav::_pathWithin($activePath, $m['path'])) {
-        echo '<li class="nav_selected">'.$link;
+        echo '<li class="active">'.$link;
         Nav::_display($activePath, $m['children'], 'nav_sub');
         echo '</li>';
       } elseif ($m['url']) {

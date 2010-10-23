@@ -29,10 +29,10 @@
   </tr>
   <tr>
     <td bgcolor="<?php echo H(OBIB_ALT1_BG);?>"><img src="../images/shim.gif" width="1" height="1" border="0"></td>
-    <td valign="top" bgcolor="<?php echo H(OBIB_ALT1_BG);?>">
-      <font  class="alt1">
-      <?php include("../navbars/".$tab.".php");?>
-      </font>
+    <td valign="top" bgcolor="<?php echo H(OBIB_ALT1_BG);?>" class="nav">
+        <font  class="alt1">
+        <?php include("../navbars/".$tab.".php");?>
+        </font>
     <br><br><br><br>
     </td>
     <td bgcolor="<?php echo H(OBIB_BORDER_COLOR);?>"><img src="../images/shim.gif" width="1" height="1" border="0"></td>

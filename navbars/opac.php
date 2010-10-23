@@ -7,19 +7,30 @@
   $navLoc = new Localize(OBIB_LOCALE,"navbars");
 ?>
 
-
+<ul>
 <?php if ($nav == "home") { ?>
- &raquo; <?php echo $navLoc->getText("catalogSearch1"); ?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("catalogSearch1"); ?>
+ </li>
 <?php } else { ?>
- <a href="../opac/index.php" class="alt1"><?php echo $navLoc->getText("catalogSearch2"); ?></a><br>
+ <li>
+   <a href="../opac/index.php" class="alt1"><?php echo $navLoc->getText("catalogSearch2"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "search") { ?>
- &raquo; <?php echo $navLoc->getText("catalogResults"); ?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("catalogResults"); ?>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "view") { ?>
- &raquo; <?php echo $navLoc->getText("catalogBibInfo"); ?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("catalogBibInfo"); ?>
+ </li>
 <?php } ?>
 
-<a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("Help"); ?></a>
+ <li>
+   <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("Help"); ?></a>
+ </li>
+</ul>

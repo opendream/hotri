@@ -10,66 +10,134 @@
 <input type="button" onClick="self.location='../shared/logout.php'" value="<?php echo $navloc->getText("logout"); ?>" class="navbutton"><br />
 <br />
 
+<ul>
 <?php if ($nav == "searchform") { ?>
- &raquo; <?php echo $navloc->getText("memberSearch"); ?><br>
+ <li class="active">
+   <?php echo $navloc->getText("memberSearch"); ?>
+ </li>
 <?php } else { ?>
- <a href="../circ/index.php" class="alt1"><?php echo $navloc->getText("memberSearch"); ?></a><br>
+ <li>
+   <a href="../circ/index.php" class="alt1"><?php echo $navloc->getText("memberSearch"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "search") { ?>
- &nbsp; &raquo; <?php echo $navloc->getText("catalogResults"); ?><br>
+ <li class="active">
+   <?php echo $navloc->getText("catalogResults"); ?>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "view") { ?>
- &nbsp; &raquo; <?php echo $navloc->getText("memberInfo"); ?><br>
- &nbsp; &nbsp; <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a><br>
+ <li class="active">
+   <?php echo $navloc->getText("memberInfo"); ?>
+ </li>
+ <li>
+   <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "edit") { ?>
- &nbsp; <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a><br>
- &nbsp; &nbsp; &raquo; <?php echo $navloc->getText("editInfo"); ?><br>
- &nbsp; &nbsp; <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a><br>
+ <li>
+   <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a>
+ </li>
+ <li class="active">
+   <?php echo $navloc->getText("editInfo"); ?>
+ </li>
+ <li>
+   <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "delete") { ?>
- &nbsp; <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a><br>
- &nbsp; &nbsp; &raquo; <?php echo $navloc->getText("catalogDelete"); ?><br>
- &nbsp; &nbsp; <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a><br>
+ <li>
+   <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a>
+ </li>
+ <li class="active">
+   <?php echo $navloc->getText("catalogDelete"); ?>
+ </li>
+ <li>
+   <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "hist") { ?>
- &nbsp; <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a><br>
- &nbsp; &nbsp; &raquo; <?php echo $navloc->getText("checkoutHistory"); ?><br>
+ <li>
+   <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_account.php?mbrid=<?php echo HURL($mbrid);?>&amp;reset=Y" class="alt1"><?php echo $navloc->getText("account"); ?></a>
+ </li>
+ <li class="active">
+   <?php echo $navloc->getText("checkoutHistory"); ?>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "account") { ?>
- &nbsp; <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a><br>
- &nbsp; &nbsp; <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a><br>
- &nbsp; &nbsp; &raquo; <?php echo $navloc->getText("account"); ?><br>
- &nbsp; &nbsp; <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a><br>
+ <li>
+   <a href="../circ/mbr_view.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("memberInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_edit_form.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("editInfo"); ?></a>
+ </li>
+ <li>
+   <a href="../circ/mbr_del_confirm.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("catalogDelete"); ?></a>
+ </li>
+ <li class="active">
+   <?php echo $navloc->getText("account"); ?>
+ </li>
+ <li>
+   <a href="../circ/mbr_history.php?mbrid=<?php echo HURL($mbrid);?>" class="alt1"><?php echo $navloc->getText("checkoutHistory"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "new") { ?>
- &raquo; <?php echo $navloc->getText("newMember"); ?><br>
+ <li class="active">
+   <?php echo $navloc->getText("newMember"); ?>
+ </li>
 <?php } else { ?>
- <a href="../circ/mbr_new_form.php?reset=Y" class="alt1"><?php echo $navloc->getText("newMember"); ?></a><br>
+ <li>
+   <a href="../circ/mbr_new_form.php?reset=Y" class="alt1"><?php echo $navloc->getText("newMember"); ?></a>
+ </li>
 <?php } ?>
 
 <?php if ($nav == "checkin") { ?>
- &raquo; <?php echo $navloc->getText("checkIn"); ?><br>
+ <li class="active">
+   <?php echo $navloc->getText("checkIn"); ?>
+ </li>
 <?php } else { ?>
- <a href="../circ/checkin_form.php?reset=Y" class="alt1"><?php echo $navloc->getText("checkIn"); ?></a><br>
+ <li>
+   <a href="../circ/checkin_form.php?reset=Y" class="alt1"><?php echo $navloc->getText("checkIn"); ?></a>
+ </li>
 <?php } ?>
 
-<a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navloc->getText("help"); ?></a>
+ <li>
+   <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navloc->getText("help"); ?></a>
+ </li>
+</ul>

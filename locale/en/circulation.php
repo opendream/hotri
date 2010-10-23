@@ -87,8 +87,8 @@ $trans["mbrsearchSearchResults"]  = "\$text='Search Results:';";
 $trans["mbrsearchCardNumber"]     = "\$text='Card Number:';";
 $trans["mbrsearchClassification"] = "\$text='Classification:';";
 $trans["mbrsearchStatus"]         = "\$text='Status:';";
-$trans["mbrActive"]               = "\$text='Active:';";
-$trans["mbrInactive"]             = "\$text='Inactive:';";
+$trans["mbrActive"]               = "\$text='active';";
+$trans["mbrInactive"]             = "\$text='inactive';";
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php

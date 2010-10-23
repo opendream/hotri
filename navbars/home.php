@@ -19,18 +19,30 @@
 <?php } ?>
 <br /><br />
 
+<ul>
 <?php if ($nav == "home") { ?>
- &raquo; <?php echo $navLoc->getText("homeHomeLink");?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("homeHomeLink");?>
+ </li>
 <?php } else { ?>
- <a href="../home/index.php" class="alt1"><?php echo $navLoc->getText("homeHomeLink");?></a><br>
+ <li>
+   <a href="../home/index.php" class="alt1"><?php echo $navLoc->getText("homeHomeLink");?></a>
+ </li>
 <?php } 
 // Temporary disable frontpage feature, wait for new options for switching on/off.
 // <a href="../front/" class="alt1"><?php echo $navLoc->getText("Front Page"); ? ></a><br />
 ?>
 <?php if ($nav == "license") { ?>
- &raquo; <?php echo $navLoc->getText("homeLicenseLink");?><br>
+ <li class="active">
+   <?php echo $navLoc->getText("homeLicenseLink");?>
+ </li>
 <?php } else { ?>
- <a href="../home/license.php" class="alt1"><?php echo $navLoc->getText("homeLicenseLink");?></a><br>
+ <li>
+   <a href="../home/license.php" class="alt1"><?php echo $navLoc->getText("homeLicenseLink");?></a>
+ </li>
 <?php } ?>
 
-<a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("help");?></a>
+ <li>
+   <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("help");?></a>
+ </li>
+</ul>
