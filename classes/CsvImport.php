@@ -34,11 +34,13 @@ class CsvImport {
     $required_header = array('ISBN', 'ชื่อผู้แต่ง', 'ชื่อเรื่อง', 'ชื่อเรื่องย่อย', 'ผู้รับผิดชอบ',
      'Call Number', 'Call Number (2)', 'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์',);
     $i = 0;
-    foreach ($arr as $field) {
-      if (trim($field) != $required_header[$i]) {
-        return array('error' => $this->locale->getText('CSVErrorMissingHeader'), 'pos' => $required_header[$i] . '(' . strlen($required_header[$i]) . ') != ' . $field . '(' . strlen($field) . ')');
+    if (is_array($arr)) {
+      foreach ($arr as $field) {
+        if (trim($field) != $required_header[$i]) {
+          return array('error' => $this->locale->getText('CSVErrorMissingHeader'), 'pos' => $required_header[$i] . '(' . strlen($required_header[$i]) . ') != ' . $field . '(' . strlen($field) . ')');
+        }
+        $i++;
       }
-      $i++;
     }
     if ($i != count($required_header)) {
       return array('error' => $this->locale->getText('CSVErrorIncorrectHeader'));
@@ -139,7 +141,7 @@ class CsvImport {
     $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', 
       '260a', '260b', '260c', );
       
-    $data = array_combine($header, $data);
+    $data = @array_combine($header, $data);
     
     return $data;
   }
