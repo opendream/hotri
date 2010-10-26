@@ -74,6 +74,23 @@ $(document).ready(function() {
         }
     });
 
+    $("input#chk_auto_barcode").change(function(e) {
+        self = this;
+        if ($(this).is(":checked")) {
+            $.get("/circ/mbr_get_barcode.php", function(data) {
+                if (data != "") {
+                    $("#barcodeNmbr").val(data);
+                    $("#lastName").focus();
+                } else {
+                    var loc = new Locale();
+                    alert(loc.ErrorGetAutoBarcode);
+                    $(self).removeAttr("checked");
+                    $("#barcodeNmbr").focus();
+                }
+            });
+        }
+    });
+
     /**
      * Working on page loads ----------------------------------------------------
      */

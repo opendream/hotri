@@ -8,5 +8,6 @@ Locale = function() {
     this.ISBN = "ISBN";
     this.CallNumber = "เลขหมู่";
     this.AddAnotherField = "เพิ่มเงื่อนไข";
+    this.ErrorGetAutoBarcode = "ไม่สามารถใช้เลขที่สมาชิกอัตโนมัติได้ จำเป็นต้องกรอกเอง";
 }
 

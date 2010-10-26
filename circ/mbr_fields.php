@@ -11,10 +11,15 @@
   $mbrStatusDm = array("y" => $loc->getText("mbrActive"), "n" => $loc->getText("mbrInactive"));
   $customFields = $dmQ->getAssoc('member_fields_dm');
   $dmQ->close();
+
+  // The code that is called to handle this box is in script/search.js file
+  $barcode_help = '<input type="checkbox" id="chk_auto_barcode" name="chk_auto_barcode" value="1" /> '.
+                  $loc->getText("mbrAutoBarcode");
+
   $fields = array(
     "mbrFldsClassify" => inputField('select', "classification", $mbr->getClassification(), NULL, $mbrClassifyDm),
     "mbrFldsStatus" => inputField('select', "status", $mbr->getStatus(), NULL, $mbrStatusDm),
-    "mbrFldsCardNmbr" => inputField('text', "barcodeNmbr", $mbr->getBarcodeNmbr()),
+    "mbrFldsCardNmbr" => inputField('text', "barcodeNmbr", $mbr->getBarcodeNmbr(), NULL, NULL, $barcode_help),
     "mbrFldsLastName" => inputField('text', "lastName", $mbr->getLastName()),
     "mbrFldsFirstName" => inputField('text', "firstName", $mbr->getFirstName()),
     "mbrFldsEmail" => inputField('text', "email", $mbr->getEmail()),

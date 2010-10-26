@@ -89,6 +89,7 @@ $trans["mbrsearchClassification"] = "\$text='ประเภท:';";
 $trans["mbrsearchStatus"]         = "\$text='สถานะ:';";
 $trans["mbrActive"]               = "\$text='ปกติ';";
 $trans["mbrInactive"]             = "\$text='ระงับ';";
+$trans["mbrAutoBarcode"]          = "\$text='ใช้เลขที่สมาชิกอัตโนมัติ';";
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php

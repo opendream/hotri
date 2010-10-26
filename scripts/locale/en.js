@@ -8,5 +8,6 @@ Locale = function() {
     this.ISBN = "ISBN";
     this.CallNumber = "Call Number";
     this.AddAnotherField = "Add another field";
+    this.ErrorGetAutoBarcode = "Cannot generate barcode number. Please input manually.";
 }
 

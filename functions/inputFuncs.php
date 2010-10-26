@@ -8,7 +8,7 @@ require_once("../classes/Dm.php");
 require_once("../classes/DmQuery.php");
 
 /* Returns HTML for a form input field with error handling. */
-function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
+function inputField($type, $name, $value="", $attrs=NULL, $data=NULL, $help_text=NULL) {
   global $loc;
   $s = "";
   if (isset($_SESSION['postVars'])) {
@@ -122,6 +122,13 @@ function inputField($type, $name, $value="", $attrs=NULL, $data=NULL) {
       $s .= H($k).'="'.H($v).'" ';
     }
     $s .= "/>";
+
+    // Display a help text under the widget.
+    // TODO: add this into another widgets.
+    if (isset($help_text)) {
+      $s .= "<div>". $help_text ."</div>";
+    }
+
     break;
   }
   return $s;
