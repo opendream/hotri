@@ -1,37 +1,47 @@
 <?php
+require_once("../classes/Localize.php");
 class CsvImport {
+  var $locale;
+  
+  function CsvImport() {
+    $this->locale = new Localize(OBIB_LOCALE, 'classes');
+  }
+  
   function importFromCsv($file) {
     // Get uploaded file
     $path = $file['tmp_name'];
     
     // Validations
     if (!is_uploaded_file($path)) {
-      return array('error'=>'invalid upload files');
+      return array('error'=>$this->locale->getText('CSVErrorInvalidFile'));
     }
-    if ($file['size'] <= 0 || $file['size'] > 10000000) {
-      return array('error'=>'oversized files');
+    if (strtolower(array_pop(explode('.', $file['name']))) != 'csv') {
+      return array('error'=>$this->locale->getText('CSVErrorInvalidFileFormat'));
+    }
+    if ($file['size'] <= 0 || $file['size'] > 10485760) {
+      return array('error'=> $this->locale->getText('CSVErrorOversized'));
     }
     
     // Read CSV
     $fp = $this->fopen_utf8($file['tmp_name'], 'r');
     if (!$fp) {
-      return array('error'=>'unable to open uploaded files');
+      return array('error'=>$this->locale->getText('CSVErrorReadFile'));
     }
     
     // Make sure first row must have no changes. (Missing header issue)
     $s = fgets($fp);
-    $arr = $this->_string2Array($s);
+    $arr = $this->_string2Array($s, $fp);
     $required_header = array('ISBN', 'ชื่อผู้แต่ง', 'ชื่อเรื่อง', 'ชื่อเรื่องย่อย', 'ผู้รับผิดชอบ',
      'Call Number', 'Call Number (2)', 'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์',);
     $i = 0;
     foreach ($arr as $field) {
       if (trim($field) != $required_header[$i]) {
-        return array('error' => 'Missing header', 'pos' => $required_header[$i] . '(' . strlen($required_header[$i]) . ') != ' . $field . '(' . strlen($field) . ')');
+        return array('error' => $this->locale->getText('CSVErrorMissingHeader'), 'pos' => $required_header[$i] . '(' . strlen($required_header[$i]) . ') != ' . $field . '(' . strlen($field) . ')');
       }
       $i++;
     }
     if ($i != count($required_header)) {
-      return array('error' => 'Incorrect header');
+      return array('error' => $this->locale->getText('CSVErrorIncorrectHeader'));
     }
     $copy = 0;
     $done = 0;
@@ -41,9 +51,12 @@ class CsvImport {
     while (!feof($fp)) {
       $s = fgets($fp);
       $line++;
-      $formatted = $this->_string2Array($s);
+      $formatted = $this->_string2Array($s, $fp);
+      if ($formatted === FALSE) { // Quotes validation with multiline guess failed
+        return array('error' => $this->locale->getText('CSVErrorInvalidData', array('line' => $line)));
+      }
       if (empty ($formatted['020a']) || empty($formatted['100a']) || empty($formatted['245a'])) {
-        return array('error' => 'Missing required fields (ISBN, ชื่อผู้แต่ง, ชื่อเรื่อง) @ line ' . $line);
+        return array('error' => $this->locale->getText('CSVErrorMissingRequireField', array('line' => $line)));
       }
     }
     fclose($fp);
@@ -51,12 +64,12 @@ class CsvImport {
     // Reopen to save them
     $fp = $this->fopen_utf8($file['tmp_name'], 'r');
     if (!$fp) {
-      return array('error'=>'unable to open uploaded files');
+      return array('error'=> $this->locale->getText('CSVErrorInvalidFile'));
     }
     $s = fgets($fp); // Skip header line
     while (!feof($fp)) {
       $s = fgets($fp);
-      $import = $importQ->import($this->_string2Array($s));
+      $import = $importQ->import($this->_string2Array($s, $fp));
       if ($import == 'copy') {
         $copy++;
       }
@@ -92,9 +105,22 @@ class CsvImport {
     return $handle;
   } 
   
-  function _string2Array($str) {
+  function _string2Array($str, $fp) {
     // Get array of data, without end of line
-    $data = explode("\t", str_replace("\n", '', $str));
+    $str = str_replace("\n", '', $str);
+    $quote_count = preg_match_all('/\"/', $str, $matches);
+    // Read more when found incompleted quotes
+    while ($quote_count % 2 != 0) {
+      if ( !feof($fp) ) {
+        $str .= "\n" . substr(fgets($fp), 0, -1);
+      }
+      else {
+        return false;
+      }
+      $quote_count = preg_match_all('/\"/', $str, $matches);
+    }
+    
+    $data = explode("\t", $str);
     
     foreach ($data as $i => $val) {
       // Strip all unescaped quotes, they should always be ("...") pattern

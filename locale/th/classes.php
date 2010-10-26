@@ -183,4 +183,16 @@ $trans["memberAccountQueryErr1"]    = "\$text = 'Error accessing member account 
 $trans["memberAccountQueryErr2"]    = "\$text = 'Error inserting member account information.';";
 $trans["memberAccountQueryErr3"]    = "\$text = 'Error deleting member account information.';";
 
+#****************************************************************************
+#*  Translation text for class MemberAccountQuery
+#****************************************************************************
+$trans["CSVErrorInvalidFile"]                   = "\$text = 'เกิดความผิดพลาดในการอัพโหลดเอกสาร';";
+$trans["CSVErrorInvalidFileFormat"]                = "\$text = 'ชนิดของไฟล์เอกสารไม่ถูกต้อง';";
+$trans["CSVErrorOversized"]                   = "\$text = 'ขนาดของไฟล์เกินกว่าที่กำหนด';";
+$trans["CSVErrorReadFile"]                   = "\$text = 'ไม่สามารถอ่านไฟล์ที่อัพโหลดได้';";
+$trans["CSVErrorMissingHeader"]           = "\$text = 'ฟิลด์หัวข้อใน CSV หายไป';";
+$trans["CSVErrorIncorrectHeader"]           = "\$text = 'ฟิลด์บังคับใน CSV ไม่ครบถ้วน';";
+$trans["CSVErrorInvalidData"]           = "\$text = 'ข้อมูลใน CSV ผิดพลาด เริ่มตั้งแต่ข้อมูลแถวที่ %line%';";
+$trans["CSVErrorMissingRequireField"] = "\$text = 'ไม่พบข้อมูลในฟิลด์บังคับ (ISBN, ชื่อผู้แต่ง, ชื่อเรื่อง) ในข้อมูลแถวที่ %line%';";
+
 ?>

@@ -183,4 +183,16 @@ $trans["memberAccountQueryErr1"]    = "\$text = 'Error accessing member account 
 $trans["memberAccountQueryErr2"]    = "\$text = 'Error inserting member account information.';";
 $trans["memberAccountQueryErr3"]    = "\$text = 'Error deleting member account information.';";
 
+#****************************************************************************
+#*  Translation text for class MemberAccountQuery
+#****************************************************************************
+$trans["CSVErrorInvalidFile"]                   = "\$text = 'invalid upload files.';";
+$trans["CSVErrorInvalidFileFormat"]       = "\$text = 'invalid file format.';";
+$trans["CSVErrorOversized"]                   = "\$text = 'file size limit exceeded.';";
+$trans["CSVErrorReadFile"]                      = "\$text = 'unable to open uploaded files.';";
+$trans["CSVErrorMissingHeader"]           = "\$text = 'Missing header';";
+$trans["CSVErrorIncorrectHeader"]           = "\$text = 'Incorrect header';";
+$trans["CSVErrorInvalidData"]           = "\$text = 'Invalid CSV format start with line %line%';";
+$trans["CSVErrorMissingRequireField"] = "\$text = 'Missing required fields (ISBN, ชื่อผู้แต่ง, ชื่อเรื่อง) with line %line%';";
+
 ?>

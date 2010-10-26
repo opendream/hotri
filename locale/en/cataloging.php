@@ -276,5 +276,15 @@ $trans["locsru_Publisher"]            = "\$text = 'Publisher';";
 $trans["locsru_PublicationDate"]  = "\$text = 'PublicationDate';";
 
 #****************************************************************************
+#*  Translation text for page csv_import.php
+#****************************************************************************
+$trans["CSVImport"]                               = "\$text = 'Import from CSV';";
+$trans["CSVImportSuccess"]                  = "\$text = 'All items has been process!';";
+$trans["CSVImportStatus"]                    = "\$text = 'Done: %done%, copy: %copy%, failed: %failed%';";
+$trans["CSVImportContinue"]               = "\$text = 'continue import';";
+$trans["CSVImportSizeLimitNotes"]     = "\$text = '<strong>Note:</strong> Recommend file size below 10MB. For larger size file please split them to multiple file before upload.';";
+$trans["CSVLabel"]                                  = "\$text='Choose CSV file (use <a href=\"csv_template.csv\">this template</a>, more information see <a href=\"javascript:popSecondary(\'../shared/help.php?page=CsvImport\')\">this help</a>):';";
+
+#****************************************************************************
 
 ?>

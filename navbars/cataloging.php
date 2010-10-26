@@ -326,11 +326,11 @@
 	?>
 <?php if ($nav == 'CsvImport') : ?>
  <li class="active">
-   <?php echo $navLoc->getText("CSV Import");?>
+   <?php echo $navLoc->getText("CSVImport");?>
  </li>
 <?php else : ?>
  <li>
-   <a href="../catalog/csv_import.php" class="alt1"><?php echo $navLoc->getText("CSV Import");?></a>
+   <a href="../catalog/csv_import.php" class="alt1"><?php echo $navLoc->getText("CSVImport");?></a>
  </li>
 <?php endif; ?>
 <?php if ($nav == "upload_usmarc") { ?>

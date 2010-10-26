@@ -5,6 +5,8 @@ $helpPage = "CsvImport";
 $cancelLocation = "../catalog/index.php";
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
+require_once("../classes/Localize.php");
+$loc = new Localize(OBIB_LOCALE,$tab);
 
 require_once("../shared/header.php");
 if (isset($_POST['submit'])) {
@@ -14,9 +16,7 @@ if (isset($_POST['submit'])) {
   
   // Report.
   echo <<<INNERHTML
-<h1>CSV Import</h1>
-<h5 id="updateMsg">All items has been process!</h5>
-<span>status:</span>
+<h1>{$loc->getText('CSVImport')}</h1>
 
 INNERHTML;
 
@@ -25,28 +25,31 @@ INNERHTML;
       $status['error'] .= ' @ ' . $status['pos'];
     echo <<<INNERHTML
 <div id="errorMsg">
-Error: $status[error]<br />
-<br /><a href="csv_import.php">continue import</a>
+Error: {$status[error]}
 </div>
+<a href="csv_import.php">{$loc->getText('CSVImportContinue')}</a>
+
 INNERHTML;
   }
   else {
     echo <<<INNERHTML
+<h4 id="updateMsg">{$loc->getText('CSVImportSuccess')}</h4>
 <div id="importMsg">
-Done: $status[done], copy: $status[copy], failed: $status[failed]<br />
-<br /><a href="csv_import.php">continue import</a>
+{$loc->getText('CSVImportStatus', array('done' => $status['done'], 'copy' => $status['copy'], 'failed' => $status['failed']))}<br />
+<br /><a href="csv_import.php">{$loc->getText('CSVImportContinue')}</a>
 </div>
 INNERHTML;
   }
 }
 else {
   echo <<<INNERHTML
-<h1>CSV Import</h1>
+<h1>{$loc->getText('CSVImport')}</h1>
+<p>{$loc->getText('CSVImportSizeLimitNotes')}</p>
 <form method="post" enctype="multipart/form-data" action="{$_SERVER["SCRIPT_NAME"]}">
-  <label for="upload"><p>Choose CSV file (use <a href="csv_template.csv">this template</a>, more information see <a href="javascript:popSecondary('../shared/help.php?page=CsvImport')">this help</a>):</p></label>
+  <label for="upload"><p>{$loc->getText('CSVLabel')}</p></label>
   <input type="file" name="upload" />
-  <input type="hidden" name="MAX_FILE_SIZE" value="10000000"/>
-  <input type="submit" name="submit" class="button" value="Import" />
+  <input type="hidden" name="MAX_FILE_SIZE" value="10485760"/>
+  <input type="submit" name="submit" class="button" value="{$loc->getText('UploadFile')}" />
 </form>
 
 INNERHTML;

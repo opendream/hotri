@@ -36,6 +36,11 @@ a:visited {
 }
 
 /* Form */
+#errorMsg {
+  background: #ffcccc;
+  margin: 10px 0;
+  padding: 3px;
+}
 a.add_field {
 	text-decoration: none;
 	letter-spacing: -2px;

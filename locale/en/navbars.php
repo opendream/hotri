@@ -77,6 +77,7 @@ $trans["catalogHolds"]             = "\$text = 'Hold Requests';";
 $trans["catalogDelete"]            = "\$text = 'Delete';";
 $trans["catalogBibNewLike"]        = "\$text = 'New Like';";
 $trans["catalogBibNew"]            = "\$text = 'New Bibliography';";
+$trans["CSVImport"]                               = "\$text = 'Import from CSV';";
 $trans["Upload Marc Data"]         = "\$text = 'Upload Marc Data';";
 
 #****************************************************************************
