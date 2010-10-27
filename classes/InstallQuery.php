@@ -81,18 +81,28 @@ class InstallQuery extends Query {
     $rootDir = '../install/' . $version . '/sql';
     $localeDir = '../locale/' . $locale . '/sql/' . $version;
     
+    // Hotri updates
+    $updateDir = '../install/hotri';
+    
     $this->executeSqlFilesInDir($rootDir, $tablePrfx);
+    
     $this->executeSqlFilesInDir($localeDir . '/domain/', $tablePrfx);
     if($sampleDataRequired) {
       $this->executeSqlFilesInDir($localeDir . '/sample/', $tablePrfx);
     }
+    
+    $this->executeSqlFilesInDir($updateDir, $tablePrfx);
   }
   
   function executeSqlFilesInDir($dir, $tablePrfx = "") {
     if (is_dir($dir)) {
       if ($dh = opendir($dir)) {
         while (($filename = readdir($dh)) !== false) {
-          if(preg_match('/\\.sql$/', $filename)) {
+          
+          if(is_dir($dir . '/' . $filename) && !($filename == '.' || $filename == '..')) {
+            $this->executeSqlFilesInDir($dir . '/' . $filename, $tablePrfx);
+          }
+          else if(preg_match('/\\.sql$/', $filename)) {
             $this->executeSqlFile($dir.'/'.$filename, $tablePrfx);
           }
         }

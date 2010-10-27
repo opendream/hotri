@@ -23,7 +23,9 @@
   list($notices, $error) = $upgradeQ->performUpgrade_e();
   if ($error) {
     echo "<h1>Upgrade Failed</h1>";
-    echo H($error->toStr());
+    echo $error->toStr();
+    echo '<span style="color: red; font-weight: bold;">Installation has been interrupted, please fix issues above then try to <a href="./index.php">run update again</a>';
+    include("../install/footer.php");
     exit();
   }
   $upgradeQ->close();

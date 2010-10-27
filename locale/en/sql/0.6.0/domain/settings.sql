@@ -17,8 +17,5 @@ values (
   ,'en'
   ,'utf-8'
   ,null
-  ,'Garuda'
-  ,'Garuda-Bold'
-  ,'Garuda-Oblique'
 )
 ;

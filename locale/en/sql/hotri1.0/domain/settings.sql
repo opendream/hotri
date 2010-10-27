@@ -1,20 +1,20 @@
 insert into %prfx%settings
 values (
-  'ห้องสมุดของฉัน'
+  'Your Library Name'
   ,'../images/sampleLogo.png'
   ,'N'
-  ,'จันทร์-ศุกร์'
+  ,'M-F 8am-9pm, Sa noon-5pm, Su 1-5pm'
   ,'111-222-3333'
   ,null
   ,'../opac/index.php'
   ,20
   ,10
-  ,'0.6.0'
+  ,'hotri1.0'
   ,1
   ,6
   ,'Y'
   ,14
-  ,'th'
+  ,'en'
   ,'utf-8'
   ,null
 )

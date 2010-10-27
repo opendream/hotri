@@ -9,7 +9,7 @@ values (
   ,'../opac/index.php'
   ,20
   ,10
-  ,'0.6.0'
+  ,'hotri1.0'
   ,1
   ,6
   ,'Y'

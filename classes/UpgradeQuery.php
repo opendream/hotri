@@ -45,6 +45,7 @@ class UpgradeQuery extends InstallQuery {
       '0.3.0' => '_upgrade030_e',
       '0.4.0' => '_upgrade040_e',
       '0.5.2' => '_upgrade052_e',
+      '0.6.0' => '_upgrade060_e',
     );
     $tmpPrfx = "obiblio_upgrade_";
     # FIXME - translate upgrade messages
@@ -324,6 +325,110 @@ class UpgradeQuery extends InstallQuery {
     $this->exec("update settings set version='0.6.0'");
     $notices = array();
     return array($notices, NULL);
+  }
+  /* Upgrade 0.6.0 to 0.6.0_hotri1.0 */
+  function _upgrade060_e($prfx, $tmpPrfx) {
+    // Create directories for book cover / cover lookup
+    $cover_path = @mkdir("../" . COVER_PATH, 0777, TRUE);
+    $tmp_path = @mkdir("../" . COVER_PATH_TMP, 0777, TRUE);
+    $notices = array();
+    $error = '';
+    if ($cover_path) {
+      $notices[] = 'Create book cover directory successfully.';
+    }
+    else if (is_dir('../' . COVER_PATH)) {
+      if (is_writable('../' . COVER_PATH)) {
+        $notices[] = 'Book cover directory already exists & work properly.';
+      }
+      else {
+        $force_chmod = @chmod('../' . COVER_PATH, 0777);
+        if ($force_chmod) {
+          $notices[] = 'Book cover directory is exists, force read/write access to exists one.';
+        }
+        else {
+          $error .= 'Could not change access to exist cover directory! Please change ' . COVER_PATH . ' directory permission (chmod) to full access (777) manually.<br />';
+        }
+      }
+    }
+    else {
+      $error .= 'Could not create book cover directory! Please create new ' . COVER_PATH . ' directory & change permission (chmod) to full access (777) manually.<br />';
+    }
+    
+    if ($tmp_path) {
+      $notices[] = 'Create temporary cover lookup directory successfully.';
+    }
+    else if (is_dir('../' . COVER_PATH_TMP)) {
+      if (is_writable('../' . COVER_PATH_TMP)) {
+        $notices[] = 'Temporay cover lookup directory already exists & work properly.';
+      }
+      else {
+        $force_chmod = @chmod('../' . COVER_PATH_TMP, 0777);
+        if ($force_chmod) {
+          $notices[] = 'Temporary cover lookup directory is exists, force read/write access to exists one.';
+        }
+        else {
+          $error .= 'Could not change access to exist temporary cover lookup directory! Please change ' . COVER_PATH_TMP . ' directory permission (chmod) to full access (777) manually.<br />';
+        }
+      }
+    }
+    else {
+      $error .= 'Could not create temporary cover lookup directory! Please create new ' . COVER_PATH_TMP . ' directory & change permission (chmod) to full access (777) manually.<br />';
+    }
+    
+    if (!empty($error)) {
+      return array(NULL, new Error($error));
+    }
+    
+    $updateDir = '../install/hotri/1.0';
+    $this->executeSqlFilesInDir($updateDir, $tablePrfx);
+    $this->exec("update settings set version='hotri1.0'");
+    $notices = array();
+    return array($notices, NULL);
+  }
+  
+  function executeSqlFilesInDir($dir, $tablePrfx = "") {
+    if (is_dir($dir)) {
+      if ($dh = opendir($dir)) {
+        while (($filename = readdir($dh)) !== false) {
+          if(preg_match('/\\.sql$/', $filename)) {
+            $this->executeSqlFile($dir.'/'.$filename, $tablePrfx);
+          }
+        }
+        closedir($dh);
+      }
+    }
+  }
+
+  /**********************************************************************************
+   * Function to read through an sql file executing SQL only when ";" is encountered
+   **********************************************************************************/
+  function executeSqlFile($filename, $tablePrfx = DB_TABLENAME_PREFIX) {
+    $fp = fopen($filename, "r");
+    # show error if file could not be opened
+    if ($fp == false) {
+      Fatal::error("Error reading file: ".H($filename));
+    } else {
+      $sqlStmt = "";
+      while (!feof ($fp)) {
+        $char = fgetc($fp);
+        if ($char == ";") {
+          //replace table prefix, we're doing it here as the install script may
+          //want to override the required prefix (eg. during upgrade / conversion 
+          //process)
+          $sql = str_replace("%prfx%",$tablePrfx,$sqlStmt);
+          $root_path = "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME']));
+          if (substr($root_path, -1) == '/') {
+            $root_path = substr($root_path, 0, -1);
+          }
+          $sql = str_replace('%domain%', $root_path . "/cron/lookup.php", $sql);
+          $this->exec($sql);
+          $sqlStmt = "";
+        } else {
+          $sqlStmt .= $char;
+        }
+      }
+      fclose($fp);
+    }
   }
 }
 
