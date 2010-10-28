@@ -83,11 +83,11 @@
 
 <?php if ($nav == "checkout_privs") { ?>
  <li class="active">
-   <?php echo $navLoc->getText("Checkout Privs");?>
+   <?php echo $navLoc->getText("adminCheckoutPriv");?>
  </li>
 <?php } else { ?>
  <li> 
-   <a href="../admin/checkout_privs_list.php" class="alt1"><?php echo $navLoc->getText("Checkout Privs");?></a>
+   <a href="../admin/checkout_privs_list.php" class="alt1"><?php echo $navLoc->getText("adminCheckoutPriv");?></a>
  </li>
 <?php } ?>
 <?php if ($nav == 'cover_opts') { ?>

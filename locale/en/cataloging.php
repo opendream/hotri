@@ -287,4 +287,6 @@ $trans["CSVLabel"]                                  = "\$text='Choose CSV file (
 
 #****************************************************************************
 
+$trans["Defaults:"]                 = "\$text = 'Defaults:';";
+
 ?>

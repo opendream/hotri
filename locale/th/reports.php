@@ -95,6 +95,10 @@ $trans["reportCriteriaStartOnLabel"] = "\$text = 'Start printing on label:';";
 $trans["reportCriteriaOutput"]     = "\$text = 'Output Type:';";
 $trans["reportCriteriaOutputHTML"] = "\$text = 'HTML';";
 $trans["reportCriteriaOutputCSV"]  = "\$text = 'CSV';";
+$trans["HTML (page-by-page)"] = "\$text = 'HTML (แบ่งเป็นหน้าๆ)';";
+$trans["HTML (one big page)"]  = "\$text = 'HTML (แสดงทั้งหมด)';";
+$trans["CSV"]                                = "\$text = 'CSV';";
+$trans["Microsoft Excel"]            = "\$text = 'Microsoft Excel';";
 
 #****************************************************************************
 #*  Translation text for page run_report.php
@@ -102,6 +106,11 @@ $trans["reportCriteriaOutputCSV"]  = "\$text = 'CSV';";
 $trans["runReportReturnLink1"]     = "\$text = 'report selection criteria';";
 $trans["runReportReturnLink2"]     = "\$text = 'รายการรายงาน';";
 $trans["runReportTotal"]           = "\$text = 'Total Rows:';";
+$trans["Print list"]                        = "\$text = 'พิมพ์รายการ';";
+$trans["Labels"]                           = "\$text = 'ฉลากติดหนังสือ';";
+$trans["reportsResultNotFound"]  = "\$text = 'ไม่พบผลลัพธ์ใดๆ';";
+$trans["reportsResultFound"]        = "\$text = 'พบผลลัพธ์ %results% รายการ';";
+$trans["Report Results:"]                = "\$text = 'รายการผลลัพธ์:';";
 
 #****************************************************************************
 #*  Translation text for page display_labels.php
@@ -118,13 +127,18 @@ $trans["noauthMsg"]                = "\$text = 'คุณไม่มีสิ�
 #****************************************************************************
 #*  Report Titles
 #****************************************************************************
-$trans["reportHolds"]              = "\$text = 'Hold Requests Containing Member Contact Info';";
+$trans["Copy Search"]                                       = "\$text = 'สืบค้นสำเนา';";
+$trans["Item Checkout History"]                     = "\$text = 'ประวัติย้อนหลังการยืมทรัพยากรสารสนเทศ';";
+$trans["reportHolds"]              = "\$text = 'รายการจองทรัพยากรสารสนเทศพร้อมข้อมูลสมาชิก';";
 $trans["reportCheckouts"]          = "\$text = 'รายงานการยืมทรัพยากรสารสนเทศ';";
-$trans["Over Due Letters"]           = "\$text = 'Over Due Letters';";
-$trans["reportLabels"]             = "\$text = 'Label Printing Query (used by labels)';";
+$trans["Over Due Letters"]           = "\$text = 'จดหมายแจ้งเตือนยืมเกินกำหนด';";
+$trans["reportLabels"]             = "\$text = 'พิมพ์ฉลากพร้อมบาร์โค้ด';";
 $trans["popularBiblios"]           = "\$text = 'รายงานการรายการทรัพยากรสารสนเทศที่ยืมมากที่สุด';";
 $trans["overdueList"]              = "\$text = 'รายงานการยืมทรัพยากรสารสนเทศเกินกำหนด';";
-$trans["balanceDueList"]           = "\$text = 'Balance Due Member List';";
+$trans["balanceDueList"]           = "\$text = 'ตรวจสอบยอดค่าปรับสมาชิก';";
+$trans["Cataloging"]                  = "\$text = 'งานลงรายการทรัพยากรสารสนเทศ';";
+$trans["Circulation"]                  = "\$text = 'สมาชิกห้องสมุด';";
+$trans["Bulk summary"]            = "\$text = 'รายงานจากระบบสืบค้นฐานข้อมูลห้องสมุด';";
 
 #****************************************************************************
 #*  Label Titles
@@ -136,40 +150,40 @@ $trans["labelsSimple"]             = "\$text = 'Simple Label Example';";
 #*  Column Text
 #****************************************************************************
 $trans["biblio.bibid"]             = "\$text = 'Biblio ID';";
-$trans["biblio.create_dt"]         = "\$text = 'Date Added';";
-$trans["biblio.last_change_dt"]    = "\$text = 'Last Changed';";
-$trans["biblio.material_cd"]       = "\$text = 'Material Cd';";
-$trans["biblio.collection_cd"]     = "\$text = 'Collection';";
-$trans["biblio.call_nmbr1"]        = "\$text = 'Call 1';";
-$trans["biblio.call_nmbr2"]        = "\$text = 'Call 2';";
-$trans["biblio.call_nmbr3"]        = "\$text = 'Call 3';";
-$trans["biblio.title_remainder"]   = "\$text = 'Title Remainder';";
-$trans["biblio.responsibility_stmt"] = "\$text = 'Stmt of Resp';";
+$trans["biblio.create_dt"]         = "\$text = 'วันที่เพิ่มเข้าระบบ';";
+$trans["biblio.last_change_dt"]    = "\$text = 'ปรับปรุงครั้งสุดท้ายเมื่อ';";
+$trans["biblio.material_cd"]       = "\$text = 'ประเภททรัพยากร';";
+$trans["biblio.collection_cd"]     = "\$text = 'สถานที่จัดเก็บ';";
+$trans["biblio.call_nmbr1"]        = "\$text = 'เลขเรียก 1';";
+$trans["biblio.call_nmbr2"]        = "\$text = 'เลขเรียก 2';";
+$trans["biblio.call_nmbr3"]        = "\$text = 'เลขเรียก 3';";
+$trans["biblio.title_remainder"]   = "\$text = 'ชื่อเรื่องรอง';";
+$trans["biblio.responsibility_stmt"] = "\$text = 'ส่วนแจ้งผู้รับผิดชอบ';";
 $trans["biblio.opac_flg"]          = "\$text = 'OPAC Flag';";
 
 $trans["biblio_copy.barcode_nmbr"] = "\$text = 'รหัสบาร์โค้ด';";
 $trans["biblio.title"]             = "\$text = 'ชื่อเรื่อง';";
-$trans["biblio.author"]            = "\$text = 'Author';";
-$trans["biblio_copy.status_begin_dt"]   = "\$text = 'Status Begin Date';";
-$trans["biblio_copy.due_back_dt"]       = "\$text = 'Due Back Date';";
+$trans["biblio.author"]            = "\$text = 'ผู้แต่ง';";
+$trans["biblio_copy.status_begin_dt"]   = "\$text = 'วันที่เริ่มต้นสถานะนี้';";
+$trans["biblio_copy.due_back_dt"]       = "\$text = 'วันที่กำหนดคืน';";
 $trans["member.mbrid"]             = "\$text = 'Member ID';";
-$trans["member.barcode_nmbr"]      = "\$text = 'Member Barcode';";
-$trans["member.last_name"]         = "\$text = 'Last Name';";
-$trans["member.first_name"]        = "\$text = 'First Name';";
-$trans["member.address"]          = "\$text = 'Address';";
-$trans["biblio_hold.hold_begin_dt"] = "\$text = 'Hold Begin Date';";
-$trans["member.home_phone"]        = "\$text = 'Home Phone';";
-$trans["member.work_phone"]        = "\$text = 'Work Phone';";
-$trans["member.email"]             = "\$text = 'Email';";
-$trans["biblio_status_dm.description"] = "\$text = 'Status';";
-$trans["settings.library_name"]    = "\$text = 'Library Name';";
-$trans["settings.library_hours"]   = "\$text = 'Library Hours';";
-$trans["settings.library_phone"]   = "\$text = 'Library Phone';";
-$trans["days_late"]                = "\$text = 'Days Late';";
-$trans["title"]                    = "\$text = 'Title';";
-$trans["author"]                   = "\$text = 'Author';";
-$trans["due_back_dt"]              = "\$text = 'Due Back';";
-$trans["checkoutCount"]            = "\$text = 'Checkout Count';";
+$trans["member.barcode_nmbr"]      = "\$text = 'รหัสบาร์โค้ดสมาชิก';";
+$trans["member.last_name"]         = "\$text = 'นามสกุล';";
+$trans["member.first_name"]        = "\$text = 'ชื่อ';";
+$trans["member.address"]          = "\$text = 'ที่อยู่';";
+$trans["biblio_hold.hold_begin_dt"] = "\$text = 'วันที่เริ่มจอง';";
+$trans["member.home_phone"]        = "\$text = 'หมายเลขโทรศัพท์บ้าน';";
+$trans["member.work_phone"]        = "\$text = 'หมายเลขโทรศัพท์ที่ทำงาน';";
+$trans["member.email"]             = "\$text = 'อีเมล์';";
+$trans["biblio_status_dm.description"] = "\$text = 'สถานะ';";
+$trans["settings.library_name"]    = "\$text = 'ชื่อห้องสมุด';";
+$trans["settings.library_hours"]   = "\$text = 'เวลาเปิดปิด';";
+$trans["settings.library_phone"]   = "\$text = 'หมายเลขโทรศัพท์';";
+$trans["days_late"]                = "\$text = 'เกินเวลามากี่วัน';";
+$trans["title"]                    = "\$text = 'ชื่อเรื่อง';";
+$trans["author"]                   = "\$text = 'ผู้แต่ง';";
+$trans["due_back_dt"]              = "\$text = 'วันที่คืน';";
+$trans["checkoutCount"]            = "\$text = 'จำนวนครั้งที่ถูกยืม';";
 
 $trans["reportDateMonth01"]   = "\$text = 'มกราคม';";
 $trans["reportDateMonth02"]   = "\$text = 'กุมภาพันธ์';";
@@ -183,4 +197,21 @@ $trans["reportDateMonth09"]   = "\$text = 'กันยายน';";
 $trans["reportDateMonth10"]   = "\$text = 'ตุลาคม';";
 $trans["reportDateMonth11"]   = "\$text = 'พฤศจิกายน';";
 $trans["reportDateMonth12"]   = "\$text = 'ธันวาคม';";
+
+$trans["Barcode"] = "\$text = 'หมายเลขบาร์โค้ด';";
+$trans["Title"]       = "\$text = 'ชื่อเรื่อง';";
+$trans["Barcode Starts With"] = "\$text = 'เริ่มต้นที่หมายเลขบาร์โค้ด';";
+$trans["Newer than"]               = "\$text = 'แสดงรายการใหม่ตั้งแต่วันที่';";
+$trans["Sort By"]                       = "\$text = 'เรียงตาม';";
+$trans["Format"]                       = "\$text = 'รูปแบบการแสดงผล';";
+$trans["Minimum balance"]     = "\$text = 'ยอดขั้นต่ำ';";
+$trans["Call Number"]              = "\$text = 'เลขเรียกหนังสือ';";
+$trans["Placed before"]           = "\$text = 'จนถึงก่อนวันที่';";
+$trans["Placed since"]              = "\$text = 'ตั้งแต่วันที่';";
+$trans["As of"]                           = "\$text = 'อ้างอิงจากวันที่';";
+$trans["Due before"]                = "\$text = 'ถึงกำหนดคืนก่อนวันที่';";
+$trans["Out since"]                   = "\$text = 'ยืมไปตั้งแต่วันที่';";
+$trans["reportsReverse"]        = "\$text = '(มากไปน้อย)';";
+$trans["Member Name"]          = "\$text = 'ชื่อสมาชิก';";
+$trans["Balance Due"]              = "\$text = 'ยอดค่าปรับ';";
 ?>

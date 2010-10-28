@@ -7,10 +7,10 @@
 .column checkoutCount sort=checkoutCount
 .parameters
 .	order_by
-.		item barcode_nmbr
-.		item title
-.		item author
-.		item checkoutCount type=numeric
+.		item barcode_nmbr title="Barcode"
+.		item title title="Title"
+.		item author title="Author"
+.		item checkoutCount type=numeric "Checkout Count"
 .	end order_by
 .end parameters
 .sql

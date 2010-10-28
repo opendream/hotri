@@ -12,6 +12,7 @@
   require_once("../classes/Report.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  $navLoc = new Localize(OBIB_LOCALE, 'navbars');
   define("REPORT_DEFS_DIR","../reports/defs");
 
   #****************************************************************************
@@ -65,9 +66,9 @@
     echo '</ul></li>';
   }
 ?>
-<li class"report_category"><strong>Bulk summary</strong><ul>
-<li><a href="../reports/bulk_report.php?type=manual">View failed items</a></li>
-<li><a href="../reports/bulk_report.php?type=cover">View no-cover items</a></li>
+<li class"report_category"><strong><?php echo $loc->getText('Bulk summary'); ?></strong><ul>
+<li><a href="../reports/bulk_report.php?type=manual"><?php echo $navLoc->getText('reportsFailedImport'); ?></a></li>
+<li><a href="../reports/bulk_report.php?type=cover"><?php echo $navLoc->getText('reportsNoCover'); ?></a></li>
 </ul></li>
 </ul>
 <?php include("../shared/footer.php"); ?>

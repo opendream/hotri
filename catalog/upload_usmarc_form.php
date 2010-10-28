@@ -47,7 +47,7 @@ echo $loc->getText('MarcSizeLimitNotes');
 <br /><br />
 
 <hr />
-<b>Defaults:</b>
+<b><?php echo $loc->getText('Defaults:'); ?></b>
 <table border=0>
 <tr><td><?php echo $loc->getText("biblioFieldsCollection"); ?>:</td><td><?php printSelect("collectionCd","collection_dm",$postVars); ?></td></tr>
 <tr><td><?php echo $loc->getText("biblioFieldsMaterialTyp"); ?>:</td><td><?php printSelect("materialCd","material_type_dm",$postVars); ?></td></tr>

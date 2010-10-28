@@ -9,15 +9,15 @@
 .column mbr_bcode sort=mbr_bcode
 .column name sort=name func=member_link
 .parameters
-.	date placed_before title="Placed before"
 .	date placed_since title="Placed since"
+.	date placed_before title="Placed before"
 .	order_by
-.		item item_bcode expr="c.barcode_nmbr"
-.		item title
-.		item author
-.		item hold_begin_dt
-.		item mbr_bcode expr="m.barcode_nmbr"
-.		item name expr="concat(m.last_name, ', ', m.first_name)"
+.		item item_bcode expr="c.barcode_nmbr" title="Barcode"
+.		item title title="Title"
+.		item author title="Author"
+.		item hold_begin_dt title="Hold Date"
+.		item mbr_bcode expr="m.barcode_nmbr" title="Member Barcode"
+.		item name expr="concat(m.last_name, ', ', m.first_name)" title="Member Name"
 .	end order_by
 .end parameters
 .sql

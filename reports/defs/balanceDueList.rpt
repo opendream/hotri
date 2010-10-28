@@ -7,9 +7,9 @@
 .parameters
 .	string minimum title="Minimum balance"
 .	order_by
-.		item barcode_nmbr
-.		item name expr="concat(m.last_name, ', ', m.first_name)"
-.		item balance type=numeric
+.		item barcode_nmbr title ="Barcode"
+.		item name expr="concat(m.last_name, ', ', m.first_name)" title ="Member Name"
+.		item balance type=numeric title ="Balance Due"
 .	end order_by
 .end parameters
 .sql

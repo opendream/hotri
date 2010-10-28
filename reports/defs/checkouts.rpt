@@ -11,8 +11,8 @@
 .column status_begin_dt sort=status_begin_dt
 .column due_back_dt sort=due_back_dt
 .parameters
-.	date due_before title="Due before"
 .	date out_since title="Out since"
+.	date due_before title="Due before"
 .	order_by
 .		item barcode_nmbr expr='c.barcode_nmbr'
 .		item title

@@ -16,14 +16,14 @@
 .parameters
 .	date as_of title="As of" default="today"
 .	order_by
-.		item barcode_nmbr expr='c.barcode_nmbr'
-.		item callno expr="concat_ws(' ', b.call_nmbr1, b.call_nmbr2, b.call_nmbr3)"
-.		item title
-.		item author
-.		item member_bcode expr='m.barcode_nmbr'
-.		item name expr="concat(m.last_name, ', ', m.first_name)"
-.		item status_begin_dt
-.		item due_back_dt
+.		item barcode_nmbr expr='c.barcode_nmbr' title="Barcode"
+.		item callno expr="concat_ws(' ', b.call_nmbr1, b.call_nmbr2, b.call_nmbr3)" title="Call Number"
+.		item title title="Title"
+.		item author title="Author"
+.		item member_bcode expr='m.barcode_nmbr' title="Member Barcode"
+.		item name expr="concat(m.last_name, ', ', m.first_name)" title="Member Name"
+.		item status_begin_dt title="Status Begin Date"
+.		item due_back_dt title="Due Back Date"
 .	end order_by
 .end parameters
 .sql

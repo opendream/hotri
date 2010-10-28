@@ -95,6 +95,10 @@ $trans["reportCriteriaStartOnLabel"] = "\$text = 'Start printing on label:';";
 $trans["reportCriteriaOutput"]     = "\$text = 'Output Type:';";
 $trans["reportCriteriaOutputHTML"] = "\$text = 'HTML';";
 $trans["reportCriteriaOutputCSV"]  = "\$text = 'CSV';";
+$trans["HTML (page-by-page)"] = "\$text = 'HTML (page-by-page)';";
+$trans["HTML (one big page)"]  = "\$text = 'HTML (one big page)';";
+$trans["CSV"]                                = "\$text = 'CSV';";
+$trans["Microsoft Excel"]            = "\$text = 'Microsoft Excel';";
 
 #****************************************************************************
 #*  Translation text for page run_report.php
@@ -102,6 +106,11 @@ $trans["reportCriteriaOutputCSV"]  = "\$text = 'CSV';";
 $trans["runReportReturnLink1"]     = "\$text = 'report selection criteria';";
 $trans["runReportReturnLink2"]     = "\$text = 'report list';";
 $trans["runReportTotal"]           = "\$text = 'Total Rows:';";
+$trans["Print list"]                        = "\$text = 'Print list';";
+$trans["Labels"]                           = "\$text = 'Labels';";
+$trans["reportsResultNotFound"]  = "\$text = 'No results found.';";
+$trans["reportsResultFound"]        = "\$text = '%results% results found.';";
+$trans["Report Results:"]                = "\$text = 'Report Results:';";
 
 #****************************************************************************
 #*  Translation text for page display_labels.php
@@ -118,6 +127,8 @@ $trans["noauthMsg"]                = "\$text = 'You are not authorized to use th
 #****************************************************************************
 #*  Report Titles
 #****************************************************************************
+$trans["Copy Search"]                                       = "\$text = 'Copy Search';";
+$trans["Item Checkout History"]                     = "\$text = 'Item Checkout History';";
 $trans["reportHolds"]              = "\$text = 'Hold Requests Containing Member Contact Info';";
 $trans["reportCheckouts"]          = "\$text = 'Bibliography Checkout Listing';";
 $trans["Over Due Letters"]           = "\$text = 'Over Due Letters';";
@@ -125,6 +136,9 @@ $trans["reportLabels"]             = "\$text = 'Label Printing Query (used by la
 $trans["popularBiblios"]           = "\$text = 'Most Popular Bibliographies';";
 $trans["overdueList"]              = "\$text = 'Over Due Member List';";
 $trans["balanceDueList"]           = "\$text = 'Balance Due Member List';";
+$trans["Cataloging"]                  = "\$text = 'Cataloging';";
+$trans["Circulation"]                  = "\$text = 'Circulation';";
+$trans["Bulk summary"]            = "\$text = 'Bulk summary';";
 
 #****************************************************************************
 #*  Label Titles
@@ -171,4 +185,20 @@ $trans["author"]                   = "\$text = 'Author';";
 $trans["due_back_dt"]              = "\$text = 'Due Back';";
 $trans["checkoutCount"]            = "\$text = 'Checkout Count';";
 
+$trans["Barcode"] = "\$text = 'Barcode';";
+$trans["Title"]       = "\$text = 'Title';";
+$trans["Barcode Starts With"] = "\$text = 'Barcode Starts With';";
+$trans["Newer than"]               = "\$text = 'Newer than';";
+$trans["Sort By"]                       = "\$text = 'Sort By';";
+$trans["Format"]                       = "\$text = 'Format';";
+$trans["Minimum balance"]     = "\$text = 'Minimum balance';";
+$trans["Call Number"]              = "\$text = 'Call Number';";
+$trans["Placed before"]           = "\$text = 'Placed before';";
+$trans["Placed since"]              = "\$text = 'Placed since';";
+$trans["As of"]                           = "\$text = 'As of';";
+$trans["Due before"]               = "\$text = 'Due before';";
+$trans["Out since"]                   = "\$text = 'Out since';";
+$trans["reportsReverse"]        = "\$text = '(Reverse)';";
+$trans["Member Name"]          = "\$text = 'Member name';";
+$trans["Balance Due"]              = "\$text = 'Balance';";
 ?>
