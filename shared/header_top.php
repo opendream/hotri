@@ -86,7 +86,7 @@ function backToMain(URL) {
 <!-- **************************************************************************************
      * Library Name and hours
      **************************************************************************************-->
-<table class="primary" width="100%" cellpadding="0" cellspacing="0" border="0">
+<table class="primary library-info" width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr bgcolor="<?php echo H(OBIB_TITLE_BG);?>">
     <td width="100%" class="title" valign="top">
        <?php
@@ -94,7 +94,7 @@ function backToMain(URL) {
            echo "<img align=\"middle\" src=\"".H(OBIB_LIBRARY_IMAGE_URL)."\" border=\"0\">";
          }
          if (!OBIB_LIBRARY_USE_IMAGE_ONLY) {
-           echo ' <a href="/" class="site-name">'. H(OBIB_LIBRARY_NAME) .'</a>';
+           echo ' <a href="/" class="library-name">'. H(OBIB_LIBRARY_NAME) .'</a>';
          }
        ?>
     </td>

@@ -79,12 +79,12 @@ function returnLookup(formName,fieldName,val) {
            echo "<img align=\"middle\" src=\"".H(OBIB_LIBRARY_IMAGE_URL)."\" border=\"0\">";
          }
          if (!OBIB_LIBRARY_USE_IMAGE_ONLY) {
-           echo ' <a href="/" class="site-name">'. H(OBIB_LIBRARY_NAME) .'</a>';
+           echo ' <a href="/" class="library-name">'. H(OBIB_LIBRARY_NAME) .'</a>';
          }
        ?>
     </td>
     <td valign="top">
-      <table class="primary" cellpadding="0" cellspacing="0" border="0">
+      <table class="primary library-info" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td class="title" nowrap="yes"><font class="small"><?php echo $headerLoc->getText("headerTodaysDate"); ?></font></td>
           <td class="title" nowrap="yes"><font class="small"><?php echo H(date($headerLoc->getText("headerDateFormat")));?></font></td>

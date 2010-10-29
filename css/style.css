@@ -39,6 +39,12 @@ a:visited {
 
 /* ---------------------- Form ---------------------- */
 
+a.library-name:link,
+a.library-name:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
 #errorMsg {
   background: #ffcccc;
   margin: 10px 0;
