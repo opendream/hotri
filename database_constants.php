@@ -8,9 +8,9 @@
  *********************************************************************************
  */
 define("OBIB_HOST",     "localhost");
-define("OBIB_DATABASE", "testdrive");
-define("OBIB_USERNAME", "root");
-define("OBIB_PWD",      "opendream");
+define("OBIB_DATABASE", "OpenBiblio");
+define("OBIB_USERNAME", "obiblio");
+define("OBIB_PWD",      "obiblio");
 /*********************************************************************************
  *  /\                                                                      /\
  *  ||                                                                      ||
