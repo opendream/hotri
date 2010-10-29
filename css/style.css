@@ -68,7 +68,7 @@ fieldset legend {
 
 fieldset, fieldset.collapsible {
 	padding: 15px 10px;
-	border: 1px solid #999;
+	border: 1px solid #DDD;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
 	border-right-width: 1px;
@@ -85,12 +85,17 @@ fieldset.collapsed {
 }
 
 legend.collapsible {
-	color: #00A;
+	color: #2C93EF;
 	cursor: pointer;
 }
 
 /* Navigations */
 td.nav a {
+	text-decoration: none;
+}
+
+td.nav a:hover {
+	text-decoration: underline;
 }
 
 td.nav ul {
@@ -102,13 +107,4 @@ td.nav li {
 	list-style-type: none;
 	margin: 3px 0;
 	padding: 5px 0 5px 5px;
-	background-color: #999;
-}
-
-td.nav li.active {
-	background-color: #fff;
-}
-
-td.nav li.active li {
-	background-color: #bbb;
 }

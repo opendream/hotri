@@ -1,7 +1,7 @@
 insert into %prfx%settings
 values (
   'Your Library Name'
-  ,'../images/sampleLogo.png'
+  ,'../images/logo_theme_opendream.png'
   ,'N'
   ,'M-F 8am-9pm, Sa noon-5pm, Su 1-5pm'
   ,'111-222-3333'
@@ -10,7 +10,7 @@ values (
   ,20
   ,10
   ,'hotri1.0'
-  ,1
+  ,7
   ,6
   ,'Y'
   ,14
