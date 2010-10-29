@@ -118,9 +118,6 @@ a.tab:hover {text-decoration: underline}
 /*********************************************************
  *  Table Styles
  *********************************************************/
-table.primary {
-  border-collapse: collapse
-}
 table.border {
   border-style: solid;
   border-color: <?php echo H(OBIB_BORDER_COLOR);?>;
