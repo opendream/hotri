@@ -11,19 +11,19 @@
 .parameters
 .	string barcode title="Barcode Starts With"
 
-. select material_type title="Material Type"
-.  sql
-    select code, description
-    from material_type_dm
-.  end sql
-. end select
-
-. select collection title="Collection"
-.  sql
-    select code, description
-    from collection_dm
-.  end sql
-. end select
+#. select material_type title="Material Type"
+#.  sql
+#    select code, description
+#    from material_type_dm
+#.  end sql
+#. end select
+#
+#. select collection title="Collection"
+#.  sql
+#    select code, description
+#    from collection_dm
+#.  end sql
+#. end select
 
 .	date newer title="Newer than"
 .	order_by default=barcode_nmbr
@@ -46,13 +46,13 @@
 		and c.create_dt >= %newer%
 .	end if_set
 
-. if_not_equal material_type ''
-    and b.material_cd = %material_type%
-. end if_not_equal
-
-. if_not_equal collection ""
-    and b.collection_cd = %collection%
-. end if_not_equal
+#. if_not_equal material_type ''
+#    and b.material_cd = %material_type%
+#. end if_not_equal
+#
+#. if_not_equal collection ''
+#    and b.collection_cd = %collection%
+#. end if_not_equal
 
 .	order_by_expr
 .end sql
