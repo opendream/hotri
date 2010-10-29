@@ -10,8 +10,11 @@
   $nav = "new";
   $helpPage = "customMARC";
 
+  require_once("../classes/Localize.php");
+  $loc = new Localize(OBIB_LOCALE,$tab);
+  
   if (isset($_GET["msg"])) {
-    $msg = "<font class=\"error\">".H($_GET["msg"])."</font><br><br>";
+    $msg = "<font class=\"error\">".H($loc->getText($_GET["msg"]))."</font><br><br>";
   } else {
     $msg = "";
   }
@@ -20,8 +23,6 @@
   require_once("../classes/MaterialFieldQuery.php");
   require_once("../shared/get_form_vars.php");
   require_once("../shared/header.php");
-  require_once("../classes/Localize.php");
-  $loc = new Localize(OBIB_LOCALE,$tab);
   require_once("../functions/errorFuncs.php");
 
   if (isset($_GET["materialCd"]) && $_GET["materialCd"] != "") {
@@ -44,7 +45,7 @@
   echo $msg;
 ?>
 <br>	
-<a href="custom_marc_add_form.php?materialCd=<?php echo HURL($materialCd);?>&amp;reset=Y">Add a custom MARC Field to this material type</a> (<?php echo H($dm->getDescription()); ?>)<br><br>
+<a href="custom_marc_add_form.php?materialCd=<?php echo HURL($materialCd);?>&amp;reset=Y"><?php echo $loc->getText('materialAddCustomMarc'); ?></a> (<?php echo H($dm->getDescription()); ?>)<br><br>
 <?php
   $matQ = new MaterialFieldQuery;
   $matQ->connect();
@@ -61,10 +62,10 @@
 <th colspan="2" valign="top">
 <?php echo $loc->getText("admin_materials_listFunction"); ?>
 </th>
-<th>Tag</th>
-<th>Subfield</th>
-<th>Description</th>
-<th>Required?</th>
+<th><?php echo $loc->getText('Tag'); ?></th>
+<th><?php echo $loc->getText('Subfield Code'); ?></th>
+<th><?php echo $loc->getText('Description'); ?></th>
+<th><?php echo $loc->getText('Required?'); ?></th>
 </tr>
 <?php
     foreach ($rows as $row) {
@@ -82,7 +83,7 @@
 <td class="primary"><?php echo H($row["tag"])?></td>
 <td class="primary" align="center"><?php echo H($row["subfieldCd"])?></td>
 <td class="primary"><?php echo H($row['descr']); ?></td>
-<td class="primary" align="center"><?php echo H($row["required"])?></td>
+<td class="primary" align="center"><?php echo $loc->getText($row["required"] == 'Y' ? 'TRUE' : 'FALSE'); ?></td>
 </tr>
 <?php
     }

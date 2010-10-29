@@ -7,10 +7,12 @@ else if ($_GET['type'] == 'cover')
 else
   $nav = "BulkLookup";
 
-$helpPage = "BulkLookup";
 $cancelLocation = "../admin/index.php";
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
+require_once("../classes/Localize.php");
+$loc = new Localize(OBIB_LOCALE,$tab);
+$navLoc = new Localize(OBIB_LOCALE, 'navbars');
 
 require_once("../classes/BulkLookup.php");
 
@@ -20,9 +22,9 @@ require_once("../shared/header.php");
 switch ($_GET['type']) {
   case 'cover':
 ?>
-<h1>No-Cover Items</h1>
+<h1><?php echo $navLoc->getText('reportsNoCover'); ?></h1>
 <table class="primary" border="1" cellpadding="3">
-<th>BibID</th><th>Name</th><th>Actions</th></tr>
+<th><?php echo $loc->getText('bulkReportBibID'); ?></th><th><?php echo $loc->getText('bulkReportBibName'); ?></th><th><?php echo $loc->getText('function'); ?></th></tr>
 <?php
 $bl = new BulkLookupQuery();
 
@@ -37,12 +39,12 @@ while ($row = $bl->fetch()) {
   $rows[] = $row;
 }
 if (count($rows) < 1) {
-  echo "<tr><td colspan=\"7\">All items have their book cover.</td></tr>";
+  echo "<tr><td colspan=\"7\">" . $loc->getText('bulkReportAllCovered') . "</td></tr>";
 }
 
 foreach ($rows as $row) {
   echo "<tr><td>{$row['bibid']}</td><td>{$row['title']}</td>" .
-   "<td><a href=\"../catalog/biblio_edit.php?bibid={$row['bibid']}\">Edit</a></td>" .
+   "<td><a href=\"../catalog/biblio_edit.php?bibid={$row['bibid']}\">" . $loc->getText('edit') . "</a></td>" .
    "</tr>";
 }
 ?>
@@ -62,7 +64,7 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
     if ($_GET['act'] == 'cleartemp') {
       $bl = new BulkLookupQuery();
       $bl->clearDoneQueue('manual_list');
-      $msg = '<h5 id="updateMsg">Hidden items (no copy) has been removed from failed list.</h5>';
+      $msg = '<h5 id="updateMsg">' . $loc->getText('bulkReportZeroHitsClear') . '</h5>';
     }
     else if ($_GET['act'] == 'export') {
       $bl = new BulkLookupQuery();
@@ -83,16 +85,16 @@ echo $prev . ($prev && $next ? ' | ' : '') . $next;
       $bl = new BulkLookupQuery();
       $bl->removeManualItem($isbn);
       if (empty($_GET['del']))
-        $msg = '<h5 id="updateMsg">All items has been purged from failed list.</h5>';
+        $msg = '<h5 id="updateMsg">' . $loc->getText('bulkReportPurgeDone') . '</h5>';
       else 
-        $msg = '<h5 id="updateMsg">ISBN ' . $isbn . ' has been removed from failed list.</h5>';
+        $msg = '<h5 id="updateMsg">' . $loc->getText('bulkReportISBNRemoved', array('isbn' => $isbn)) . '</h5>';
     }
   default:
 ?>
-<h1>Failed Imports</h1>
+<h1><?php echo $navLoc->getText('reportsFailedImport'); ?></h1>
 <?php print $msg ?>
 <table class="primary" border="1" cellpadding="3">
-<th>ISBN</th><th>Hits</th><th>Created</th><th colspan="3">Actions</th><th>Exist in catalog?</th></tr>
+<th>ISBN</th><th><?php echo $loc->getText('Hits'); ?></th><th><?php echo $loc->getText('Created'); ?></th><th colspan="3"><?php echo $loc->getText('function'); ?></th><th><?php echo $loc->getText('OPAC') ?></th></tr>
 <?php
 $bl = new BulkLookupQuery();
 
@@ -108,14 +110,14 @@ while ($row = $bl->fetch()) {
   $rows[] = $row;
 }
 if (count($rows) < 1) {
-  echo "<tr><td colspan=\"7\">No failed items yet.</td></tr>";
+  echo "<tr><td colspan=\"7\">" . $loc->getText('bulkReportNoItem') . "</td></tr>";
 }
 
 foreach ($rows as $row) {
   $bibid = $bl->getExistBiblio($row['isbn']);
   $status = $bibid > 0 ? "yes":"no";
-  echo "<tr><td>{$row['isbn']}</td><td>{$row['hits']}</td><td>{$row['created']}</td><td><a href=\"../catalog/biblio_new.php?isbn={$row['isbn']}&hits={$row['hits']}\">add</a></td>" .
-   "<td><a href=\"?del={$row['isbn']}&type=manual\" onclick=\"return confirm('Are you sure to remove ISBN: {$row['isbn']}?')\">remove</a></td>" .
+  echo "<tr><td>{$row['isbn']}</td><td>{$row['hits']}</td><td>{$row['created']}</td><td><a href=\"../catalog/biblio_new.php?isbn={$row['isbn']}&hits={$row['hits']}\">" . $loc->getText('add') . "</a></td>" .
+   "<td><a href=\"?del={$row['isbn']}&type=manual\" onclick=\"return confirm('" . $loc->getText('bulkReportConfirmRemoveISBN', array('isbn' => $row['isbn'])) . "')\">" . $loc->getText ('remove') . "</a></td>" .
    ($bibid < 1 ? "<td>&nbsp;</td>":"<td><a href=\"../catalog/biblio_copy_new_form.php?bibid={$bibid}&isbn={$row['isbn']}&hits={$row['hits']}\">copy</a></td>") . 
    "<td>$status</td></tr>";
 }
@@ -127,10 +129,10 @@ if ($p > 1) $prev = "<a href=\"?type=manual&page=".($p-1)."\">Previous</a>";
 if ($p * $limit < $total) $next = "<a href=\"?type=manual&page=".($p+1)."\">Next</a>";
 
 echo $prev . ($prev && $next ? ' | ' : '') . $next;
-echo '<p><a href="?type=manual&act=export">Export to file</a> | <a href="?del=0&type=manual" onclick="return confirm(\'Are you sure to purge ISBN list?\')">Purge all items</a></p>';
+echo '<p><a href="?type=manual&act=export">' . $loc->getText('Export to file') . '</a> | <a href="?del=0&type=manual" onclick="return confirm(\'' . $loc->getText('bulkReportConfirmPurge') . '\')">' . $loc->getText('Purge all items') . '</a></p>';
   $zero_hits = $bl->countQueue('manual_list_zero');
   if ($zero_hits > 0) {
-    echo '<p><span class="warn" style="color:red">*</span> Found ' . $zero_hits . ' hidden items (nothing copy), <a href="bulk_report.php?type=manual&act=cleartemp">clear now.</a></p>';
+    echo '<p><span class="warn" style="color:red">*</span> ' . $loc->getText('bulkReportZeroHits', array('zero_hits' => $zero_hits)) . '</p>';
   }
   break;
 }

@@ -143,8 +143,8 @@
   <?php printUsmarcInputText(902,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_FILE_CNTRL);?>
   <tr>
     <td class="primary">&nbsp;</td>
-    <td id="lookup_field" class="primary">No bibliography picture? 
-      <input type="button" class="button" id="cover_lookup" name="cover_lookup" value="search for this one" />
+    <td id="lookup_field" class="primary"><?php echo $loc->getText('No bibliography picture?'); ?>
+      <input type="button" class="button" id="cover_lookup" name="cover_lookup" value="<?php echo $loc->getText('search for this one'); ?>" />
     </td>
   </tr>
   <?php printUsmarcInputText(10,"a",FALSE,$postVars,$pageErrors,$marcTags, $marcSubflds, FALSE,OBIB_TEXT_CNTRL);?>

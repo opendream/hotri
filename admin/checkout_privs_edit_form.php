@@ -49,7 +49,7 @@
   </tr>
   <tr>
     <td nowrap="true" class="primary">
-      <?php echo $loc->getText("Material Type:"); ?>
+      <?php echo $loc->getText("Material Type"); ?>:
     </td>
     <td valign="top" class="primary">
       <?php echo H($priv['material_type']) ?>
@@ -57,7 +57,7 @@
   </tr>
   <tr>
     <td nowrap="true" class="primary">
-      <?php echo $loc->getText("Member Classification:"); ?>
+      <?php echo $loc->getText("Member Classification"); ?>:
     </td>
     <td valign="top" class="primary">
       <?php echo H($priv['classification_type']) ?>
@@ -65,7 +65,7 @@
   </tr>
   <tr>
     <td nowrap="true" class="primary">
-      <?php echo $loc->getText("Checkout Limit:"); ?>
+      <?php echo $loc->getText("Checkout Limit"); ?>:
     </td>
     <td valign="top" class="primary">
       <?php echo inputField('text', 'checkout_limit', $priv['checkout_limit']); ?>
@@ -73,7 +73,7 @@
   </tr>
   <tr>
     <td nowrap="true" class="primary">
-      <?php echo $loc->getText("Renewal Limit:"); ?>
+      <?php echo $loc->getText("Renewal Limit"); ?>:
     </td>
     <td valign="top" class="primary">
       <?php echo inputField('text', 'renewal_limit', $priv['renewal_limit']); ?>

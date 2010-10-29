@@ -74,7 +74,7 @@
   ?>
 </table>
 <br>
-<table class="primary"><tr><td valign="top" class="noborder"><font class="small"><?php echo $loc->getText("*Note:"); ?></font></td>
-<td class="noborder"><font class="small"><?php echo $loc->getText("The delete function is only available on classifications that have a member count of zero.  If you wish to delete a classification with a member count greater than zero you will first need to change those members to another classification."); ?><br></font>
+<table class="primary"><tr><td valign="top" class="noborder"><font class="small"><?php echo $loc->getText("adminFormNote"); ?></font></td>
+<td class="noborder"><font class="small"><?php echo $loc->getText("adminMbrListNote"); ?><br></font>
 </td></tr></table>
 <?php include("../shared/footer.php"); ?>

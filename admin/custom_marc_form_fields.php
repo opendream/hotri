@@ -5,11 +5,11 @@
 ?>
 <table class="primary">
 <tr>
-<th>Field</th>
-<th>Value</th>
+<th><?php echo $loc->getText('Field'); ?></th>
+<th><?php echo $loc->getText('Value'); ?></th>
 </tr>
 <tr>
-<td  align="right" class="primary">Material Type</td>
+<td  align="right" class="primary"><?php echo $loc->getText('Material Type'); ?></td>
 <?php
   $dmQ = new DmQuery();
   $dmQ->connect();
@@ -23,36 +23,36 @@ echo H($material_type);
 ?>
 </td></tr>
 <tr>
-<td align="right" class="primary">Tag</td>
+<td align="right" class="primary"><?php echo $loc->getText('Tag'); ?></td>
 <td align="Left" class="primary">
 <?php printInputText("tag",3,3,$postVars,$pageErrors); ?>
-<input type="button" onClick="javascript:popSecondary('../catalog/usmarc_select.php?retpage=<?php echo HURL($returnPg);?>')" value="Select" class="button">
+<input type="button" onClick="javascript:popSecondary('../catalog/usmarc_select.php?retpage=<?php echo HURL($returnPg);?>')" value="<?php echo $loc->getText('Select'); ?>" class="button">
 </td></tr>
 <tr>
-<td  align="right" class="primary">Subfield Code</td>
+<td  align="right" class="primary"><?php echo $loc->getText('Subfield Code'); ?></td>
 <td  align="Left" class="primary">
 <?php printInputText("subfieldCd",1,1,$postVars,$pageErrors); ?>
 </td></tr>
 <tr>
-<td  align="right" class="primary">Description</td>
+<td  align="right" class="primary"><?php echo $loc->getText('Description'); ?></td>
 <td  align="Left" class="primary">
 <?php printInputText("descr",32,64,$postVars,$pageErrors); ?>
 </td></tr>
 <tr>
-<td  align="right" class="primary">Required?</td>
+<td  align="right" class="primary"><?php echo $loc->getText('Required?'); ?></td>
 <td  align="Left" class="primary">
 <SELECT name="required" id="required" tabindex="4">
-<OPTION value="Y" <?php if ((isset($postVars["required"]))&& ($postVars["required"]=="Y")) echo "selected"; ?>>TRUE</OPTION>
-<OPTION value="N" <?php if ((isset($postVars["required"]))&& ($postVars["required"]=="N")) echo "selected"; ?>>FALSE</OPTION>
+<OPTION value="Y" <?php if ((isset($postVars["required"]))&& ($postVars["required"]=="Y")) echo "selected"; ?>><?php echo $loc->getText('TRUE'); ?></OPTION>
+<OPTION value="N" <?php if ((isset($postVars["required"]))&& ($postVars["required"]=="N")) echo "selected"; ?>><?php echo $loc->getText('FALSE'); ?></OPTION>
 </SELECT>
 </td></tr>
 
 <tr>
-<td  align="right" class="primary">cntrltype</td>
+<td  align="right" class="primary"><?php echo $loc->getText('cntrltype'); ?></td>
 <td  align="Left" class="primary">
 <SELECT name="cntrltype" id="cntrltype" tabindex="7">
-<OPTION value="0"  <?php if((isset($postVars["cntrltype"]))&&($postVars["cntrltype"]=="0")) echo "selected"; ?>>Text Field</OPTION>
-<OPTION value="1"  <?php if((isset($postVars["cntrltype"]))&&($postVars["cntrltype"]=="1")) echo "selected"; ?>>Text Area</OPTION>
+<OPTION value="0"  <?php if((isset($postVars["cntrltype"]))&&($postVars["cntrltype"]=="0")) echo "selected"; ?>><?php echo $loc->getText('Text Field'); ?></OPTION>
+<OPTION value="1"  <?php if((isset($postVars["cntrltype"]))&&($postVars["cntrltype"]=="1")) echo "selected"; ?>><?php echo $loc->getText('Text Area'); ?></OPTION>
 </SELECT>
 </td></tr>
 

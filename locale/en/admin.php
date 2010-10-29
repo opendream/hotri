@@ -405,7 +405,7 @@ $trans["lookup_optsCutterType"]        = "\$text = 'Cutter Type to create:';";
 $trans["lookup_optsCutterWord"]        = "\$text = 'Dewey Cutter Word No.:';";
 $trans["lookup_optsAutoCollection"]    = "\$text = 'Use Auto Collection:';";
 $trans["lookup_optsFictionName"]       = "\$text = 'Fiction Collection Name:';";
-$trans["lookup_optsFictionCode"]       = "\$text = 'Index no. of Fiction Code to use:';";
+$trans["lookup_optsFictionCode"]       = "\$text = 'Default for Auto Collection:';";
 $trans["lookup_optsLocFictionCodes"]   = "\$text = 'LoC Fiction Codes';";
 $trans["lookup_optsDewFictionCodes"]   = "\$text = 'Dewey Fiction codes:';";
 $trans["lookup_callNmbrType"]          = "\$text = 'Your call Number Type is invalid!';";
@@ -460,4 +460,40 @@ Cron status: %cron_status%<br />
 Remaining: %remain% (%trying% trying)<br />
 Done: %done% (%covered% covered), Copied: %copied%<br />
 Failed: %failed%';";
+$trans["adminFormNote"]                 = "\$text = '*Note:';";
+$trans["adminAWSNote"]                  = "\$text = 'You can create own AWS Account with register from <a href=\"http://aws.amazon.com/\">Amazon</a> in \'Create an AWS Account\' menu.<br />
+When registration done, you can find all options that is required in %cover_opt_menu% in Account > Security Credentials page';";
+$trans["adminZ3950Note"]              = "\$text = '\'%fiction_code%\' option always used on \'%lookup_bulk%\' page, as default for new items.';";
+$trans["adminMbrListNote"]            = "\$text = 'The delete function is only available on classifications that have a member count of zero.  If you wish to delete a classification with a member count greater than zero you will first need to change those members to another classification.';";
+
+$trans["Add new classification type"]       = "\$text = 'Add new classification type';";
+$trans["Edit Classification Type"]              = "\$text = 'Edit Classification Type';";
+$trans["Description:"]                                 = "\$text = 'Description:';";
+$trans["Max. Fines:"]                                   = "\$text = 'Max. Fines:';";
+
+$trans["Add custom member field"]         = "\$text = 'Add custom member field';";
+$trans["Edit Member Field"]                      = "\$text = 'Edit Member Field';";
+$trans["Code"]                                             = "\$text = 'Code';";
+$trans["Code:"]                                            = "\$text ='Code:';";
+$trans["memberFieldDelConfirm"]           = "\$text = 'Are you sure you want to delete field \'%desc%\'?';";
+
+$trans["MARC Fields"]                                 = "\$text = 'MARC Fields';";
+$trans["materialAddCustomMarc"]           = "\$text = 'Add a custom MARC Field to this material type';";
+$trans["Field"]                                              = "\$text = 'Field';";
+$trans["Value"]                                             = "\$text = 'Value';";
+$trans["Tag"]                                                 = "\$text = 'Tag';";
+$trans["Select"]                                            = "\$text = 'Select';";
+$trans["Subfield Code"]                              = "\$text = 'Subfield Code';";
+$trans["Required?"]                                     = "\$text = 'Required?';";
+$trans["cntrltype"]                                      = "\$text = 'Control Type';";
+$trans["TRUE"]                                             = "\$text = 'TRUE';";
+$trans["FALSE"]                                            = "\$text = 'FALSE';";
+$trans["Text Field"]                                     = "\$text = 'Text Field';";
+$trans["Text Area"]                                     = "\$text = 'Text Area';";
+$trans["New Field Added Successfully"]  = "\$text = 'New Field Added Successfully';";
+$trans["Field Successfully Deleted"]         = "\$text = 'Field Successfully Deleted';";
+
+$trans["Edit Checkout Privileges"]           = "\$text = 'Edit Checkout Privileges';";
+$trans["Material Type:"]                             = "\$text = 'Material Type:';";
+$trans["Member Classification:"]              = "\$text = 'Member Classification:';";
 ?>

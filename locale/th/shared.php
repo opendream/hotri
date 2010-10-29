@@ -145,7 +145,33 @@ $trans["catalogResults"]           = "\$text='ผลการสืบค้น'
 #*  Translation text for page header.php and header_opac.php
 #****************************************************************************
 $trans["headerTodaysDate"]         = "\$text='เวลาปัจจุบัน:';";
-$trans["headerDateFormat"]         = "\$text='เดือน m วันที่ d ปี y';";
+
+// execute thai date statements
+$trans["headerDateFormat"]         = <<<INNERHTML
+
+\$this_date = explode('-', date('D-d-m-Y'));
+\$thDay = array(
+  'Sun' => 'อาทิตย์',
+  'Mon' => 'จันทร์',
+  'Tue' => 'อังคาร',
+  'Wed' => 'พุธ',
+  'Thu' => 'พฤหัส',
+  'Fri' => 'ศุกร์',
+  'Sat' => 'เสาร์',
+);
+\$thMonth = array(
+  1 => 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
+  'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
+\$thMonthLong = array(
+  1 => 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+  'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+  'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
+  
+
+  
+\$text='วัน' . \$thDay[\$this_date[0]] . 'ที่ ' . \$this_date[1] . ' ' . \$thMonthLong[0+\$this_date[2]] . ' พ.ศ.' . (543 + \$this_date[3]);
+
+INNERHTML;
 $trans["headerLibraryHours"]       = "\$text='เวลาเปิดบริการ:';";
 $trans["headerLibraryPhone"]       = "\$text='ติดต่อ:';";
 $trans["headerHome"]               = "\$text='หน้าหลัก';";

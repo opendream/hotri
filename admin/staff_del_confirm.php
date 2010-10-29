@@ -29,8 +29,8 @@
 <center>
 <form name="delstaffform" method="POST" action="../admin/staff_del.php?UID=<?php echo HURL($uid);?>&amp;LAST=<?php echo HURL($last_name);?>&amp;FIRST=<?php echo HURL($first_name);?>">
 <?php echo $loc->getText("adminStaff_del_confirmConfirmText"); ?><?php echo H($first_name);?> <?php echo H($last_name);?>?<br><br>
-      <input type="submit" value="  <?php echo $loc->getText("Delete"); ?>  " class="button">
-      <input type="button" onClick="self.location='../admin/staff_list.php'" value="  <?php echo $loc->getText("Cancel"); ?>  " class="button">
+      <input type="submit" value="  <?php echo $loc->getText("adminDelete"); ?>  " class="button">
+      <input type="button" onClick="self.location='../admin/staff_list.php'" value="  <?php echo $loc->getText("adminCancel"); ?>  " class="button">
 </form>
 </center>
 <?php include("../shared/footer.php"); ?>
