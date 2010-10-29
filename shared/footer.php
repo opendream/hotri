@@ -12,7 +12,6 @@
      **************************************************************************************-->
 <br><br><br>
 </font>
-<font face="Arial, Helvetica, sans-serif" size="1" color="<?php echo H(OBIB_PRIMARY_FONT_COLOR);?>">
   <div class="footer">
     <center>
       <?php if (OBIB_LIBRARY_URL != "") { ?>
@@ -32,7 +31,6 @@
       <a href="../shared/copying.html"><?php echo $headerLoc->getText("footerGPL"); ?></a>
     </center>
   </div>
-</font>
     </td>
   </tr>
 </table>
