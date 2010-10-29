@@ -110,6 +110,8 @@ class Params {
     global $loc;
     assert('$loc');
     assert('!empty($namel)');
+    $loc_share = new Localize(OBIB_LOCALE, "shared");
+
     if ($type == 'session_id') {
       return;
     }
@@ -152,6 +154,12 @@ class Params {
         list($n, $o) = $v;
         if (isset($o['title']) && $o['title']) {
           $l[$n] = $loc->getText($o['title']);
+        } elseif ((strcmp($name, "rpt_material_type") == 0) ||
+                  (strcmp($name, "rpt_collection") == 0)) {
+          $l[''] = $loc_share->getText("any");
+          foreach ($o as $i) {
+            $l[$o['code']] = $o['description'];
+          }
         } else {
           $l[$n] = $n;
         }

@@ -101,10 +101,14 @@ td.nav ul {
 td.nav li {
 	list-style-type: none;
 	margin: 3px 0;
-	padding: 5px;
+	padding: 5px 0 5px 5px;
 	background-color: #999;
 }
 
 td.nav li.active {
 	background-color: #fff;
+}
+
+td.nav li.active li {
+	background-color: #bbb;
 }
