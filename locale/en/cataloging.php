@@ -288,5 +288,13 @@ $trans["CSVLabel"]                                  = "\$text='Choose CSV file (
 #****************************************************************************
 
 $trans["Defaults:"]                 = "\$text = 'Defaults:';";
-
+$trans["No bibliography picture?"]  = "\$text = 'No bibliography picture?';";
+$trans["search for this one"]            = "\$text = 'search for this one';";
+$trans["coverLookupWait"]              = "\$text = 'Now searching, please wait..';";
+$trans["coverLookupNotFound"]     = "\$text = 'Book cover not found!';";
+$trans["coverLookupISBNInvalid"]   = "\$text = 'ISBN format not valid.';";
+$trans["Found"]                                  = "\$text = 'Found';";
+$trans["Save"]                                     = "\$text = 'Save';";
+$trans["Cancel"]                                  = "\$text = 'Cancel';";
+$trans["coverLookupSelect"]            = "\$text = 'Use this image for bibliography picture';";
 ?>

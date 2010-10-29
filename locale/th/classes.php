@@ -42,8 +42,8 @@ $trans["biblioError1"]            = "\$text = 'ต้องใส่เลขห
 #****************************************************************************
 #*  Translation text for class BiblioField
 #****************************************************************************
-$trans["biblioFieldError1"]       = "\$text = 'Field is required.';";
-$trans["biblioFieldError2"]       = "\$text = 'Tag must be numeric.';";
+$trans["biblioFieldError1"]       = "\$text = 'ฟิลด์นี้จำเป็นต้องกรอก';";
+$trans["biblioFieldError2"]       = "\$text = 'แท็กต้องเป็นตัวเลขเท่านั้น';";
 
 $trans["biblioFieldErrorPictureType"]             = "\$text = 'ชนิดของไฟล์ที่อัพโหลดไม่ใช่รูปภาพ (รองรับ jpeg, gif, png)';";
 $trans["biblioFieldErrorPictureLoadFailed"]   = "\$text = 'ไม่สามารถดึงข้อมูลของรูปภาพมาใช้งานได้';";

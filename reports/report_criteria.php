@@ -60,6 +60,6 @@
   Params::printForm($params);
 ?>
 
-<input type="submit" value="Submit" class="button" />
+<input type="submit" value="<?php echo $loc->getText('Submit'); ?>" class="button" />
 </form>
 <?php include("../shared/footer.php"); ?>

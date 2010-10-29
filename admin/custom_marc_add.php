@@ -60,7 +60,7 @@
   
   unset($_SESSION["postVars"]);
   unset($_SESSION["pageErrors"]);
-  $msg = "New Field Added Successfully ";
+  $msg = "New Field Added Successfully";
   header("Location: custom_marc_view.php?materialCd=".U($rec['materialCd'])."&msg=".U($msg));
 
 ?>

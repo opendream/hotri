@@ -4,7 +4,7 @@
  */
  
 // Check lookupVal should not empty.
-if ($_POST['mode'] == 'search' && empty($_POST['lookupVal']) && empty($_POST['lookupVal2'])) {
+if (isset($_POST['mode']) && $_POST['mode'] == 'search' && empty($_POST['lookupVal']) && empty($_POST['lookupVal2'])) {
   exit('invalid parameters');
 }
 
@@ -29,8 +29,11 @@ getOpts();
 	## get default collection name
 	class myQuery extends Query {
 	  function getDefault() {
+	    /*
    		$sql = "SELECT * FROM `collection_dm` ".
 						 " WHERE `default_flg`='Y' ";
+			*/
+			$sql = "SELECT fiction_code AS code FROM lookup_settings LIMIT 1";
 			//echo "sql=$sql <br />";
    		return $this->select01($sql);
 		}

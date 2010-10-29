@@ -451,7 +451,7 @@ class BulkLookupQuery extends Query {
   }
   
   function _getDefaultCollection() {
-    $this->_query("SELECT code FROM collection_dm WHERE default_flg='Y'", false);
+    $this->_query("SELECT fiction_code AS code FROM lookup_settings LIMIT 1", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? '' : $array['code'];
   }

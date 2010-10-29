@@ -42,25 +42,27 @@ class Member {
    ****************************************************************************
    */
   function validateData() {
+    global $loc;
+    
     $valid = true;
     if ($this->_barcodeNmbr == "") {
       $valid = false;
-      $this->_barcodeNmbrError = "Card number is required.";
+      $this->_barcodeNmbrError = $loc->getText("Card number is required.");
     } else if (!ctypeAlnum($this->_barcodeNmbr)) {
       $valid = FALSE;
-      $this->_barcodeNmbrError = "Card number must be all alphabetic and numeric characters.";
+      $this->_barcodeNmbrError = $loc->getText("Card number must be all alphabetic and numeric characters.");
     }
     if ($this->_lastName == "") {
       $valid = false;
-      $this->_lastNameError = "Last name is required.";
+      $this->_lastNameError = $loc->getText("Last name is required.");
     }
     if ($this->_firstName == "") {
       $valid = false;
-      $this->_firstNameError = "First name is required.";
+      $this->_firstNameError = $loc->getText("First name is required.");
     }
     if (strcmp($this->_status, "y") != 0 && strcmp($this->_status, "n") != 0) {
       $valid = false;
-      $this->_statusError = "Status options is incorrect.";
+      $this->_statusError = $loc->getText("Status options is incorrect.");
     }
 
     return $valid;

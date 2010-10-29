@@ -144,7 +144,7 @@ function showForm($postVars, $pageErrors=array()) {
       }
     //-->
   </script>
-  <script type="text/javascript" src="../scripts/cover_lookup.js"></script>
+  <script type="text/javascript" src="../scripts/cover_lookup.php?js"></script>
   <form name="newbiblioform" method="POST" action="../catalog/biblio_new.php<?php echo empty($_GET['hits'])?'':'?hits='.$_GET['hits'].(empty($_GET['isbn'])?'':'&isbn=' . $_GET['isbn']) ?>" enctype="multipart/form-data">
 <?php
   include("../catalog/biblio_fields.php");

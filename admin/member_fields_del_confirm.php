@@ -27,7 +27,7 @@
 ?>
 <center>
 <form name="delstaffform" method="POST" action="../admin/member_fields_del.php?code=<?php echo HURL($code);?>&amp;desc=<?php echo HURL($description);?>">
-<?php echo $loc->getText("Are you sure you want to delete field '%desc%'?", array('desc'=>$description)); ?><br><br>
+<?php echo $loc->getText("memberFieldDelConfirm", array('desc'=>$description)); ?><br><br>
       <input type="submit" value="  <?php echo $loc->getText("adminDelete"); ?>  " class="button">
       <input type="button" onClick="self.location='../admin/materials_list.php'" value="  <?php echo $loc->getText("adminCancel"); ?>  " class="button">
 </form>

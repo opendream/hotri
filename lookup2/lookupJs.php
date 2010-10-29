@@ -314,7 +314,7 @@ lkup = {
 	doShowOne: function (data){
 		// setting defaults
 		//console.log(data);
-  	$('input[name=callNmbr1]').val('call nmbr required');
+  	$('input[name=callNmbr1]').val('');
   	$('input[name=callNmbr1]').css('color','red');
   	$('input[name=values[245a]').val('title required');
   	$('input[name=values[245a]').css('color','red');
@@ -462,7 +462,7 @@ lkup = {
 		if (lkup.opts['autoCollect']) {
 			var index = lkup.opts['fictionCode'];
 			var collection = lkup.opts['defaultCollect'];
-
+      /*
 			if ((data['050a']) && (lkup.opts['callNmbrType'] == 'LoC')) {
 				var locClass = (data['050a']).substr(0,2);
 				if ((lkup.opts['fictionLoC']).indexOf(locClass) >= 0) {
@@ -475,6 +475,7 @@ lkup = {
 					collection = $.trim(lkup.opts['fictionName']);
 				}
 			}
+			*/
 			$('#collectionCd').val(collection);
 		}
 	}

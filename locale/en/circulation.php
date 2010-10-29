@@ -277,4 +277,11 @@ $trans["mbrPrintCheckoutsHdr3"]   = "\$text='Card Number:';";
 $trans["mbrPrintCheckoutsHdr4"]   = "\$text='Classification:';";
 $trans["mbrPrintCloseWindow"]     = "\$text='Close Window';";
 
+
+# Error message
+$trans["Card number is required."]  = "\$text = 'Card number is required.';";
+$trans["Card number must be all alphabetic and numeric characters."] = "\$text = 'Card number must be all alphabetic and numeric characters.';";
+$trans["Last name is required."]       = "\$text = 'Last name is required.';";
+$trans["First name is required."]       = "\$text = 'First name is required.';";
+$trans["Status options is incorrect."] = "\$text = 'Status options is incorrect.';";
 ?>

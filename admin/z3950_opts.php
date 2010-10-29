@@ -16,13 +16,13 @@
   require_once("../shared/header.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  $navLoc = new Localize(OBIB_LOCALE, 'navbars');
   
   // Implementation for create dropdown options
   function getSelection($name, $options, $postVars, $hasLabel = TRUE) {
     if (!is_array($options)) {
       return false;
     }
-    
     $selections = '<select id="' . $name . '" name="' . $name . '">' . "\n";
     foreach ($options as $label => $val) {
       $selections .= '  <option value="' . $val . '"';
@@ -62,7 +62,7 @@
   if ($_POST) {
     $opts->setOptions($_POST);
 ?>
-<font class="error">Data has been updated.</font>
+<font class="error"><?php echo $loc->getText('admin_settingsUpdated'); ?></font>
 <?php
   }
   $form = $opts->getOptions();
@@ -98,6 +98,8 @@
       <?php printMyInputText("max_hits",10,10,$postVars,$pageErrors); ?>
     </td>
   </tr>
+<?php
+/*
   <tr>
     <td nowrap="true" class="primary">
       <label for="keep_dashes"><?php echo $loc->getText("lookup_optsKeepDashes"); ?></label>
@@ -108,6 +110,8 @@
       ?>
     </td>
   </tr>
+*/
+?>
   <tr>
     <td nowrap="true" class="primary">
       <label for="callNmbr_type"><?php echo $loc->getText("lookup_optsCallNmbrType"); ?></label>
@@ -119,6 +123,8 @@
       ?>
     </td>
   </tr>
+<?php
+/*
   <tr>
     <td nowrap="true" class="primary">
       <label for="auto_dewey"><?php echo $loc->getText("lookup_optsAutoDewey"); ?></label>
@@ -166,6 +172,8 @@
       <?php printMyInputText("cutter_word",10,10,$postVars,$pageErrors); ?>
     </td>
   </tr>
+*/
+?>
   <tr>
     <td class="primary" valign="top">
       <label for="auto_collect"><?php echo $loc->getText("lookup_optsAutoCollection"); ?></label>
@@ -175,23 +183,41 @@
       echo getCheckbox('auto_collect', $postVars);
       ?>
     </td>
-  </tr>
+<?php
+/*
   <tr>
     <td nowrap="true" class="primary">
       <label for="fiction_name"><?php echo $loc->getText("lookup_optsFictionName"); ?></label>
     </td>
     <td valign="top" class="primary">
-      <?php printMyInputText("fiction_name",10,10,$postVars,$pageErrors); ?>
+      <?php printMyInputText("fiction_name",30,40,$postVars,$pageErrors); ?>
     </td>
   </tr>
+*/
+?>
   <tr>
     <td class="primary" valign="top">
       <label for="fiction_code"><?php echo $loc->getText("lookup_optsFictionCode"); ?></label>
     </td>
     <td valign="top" class="primary">
-      <?php printMyInputText("fiction_code",10,10,$postVars,$pageErrors); ?>
+      <?php
+        require_once("../classes/Dm.php");
+        require_once("../classes/DmQuery.php");
+        $dmQ = new DmQuery();
+        $dmQ->connect();
+        $dms = $dmQ->getWithStats("collection_dm");
+        $dmQ->close();
+        
+        $options = array();
+        foreach ($dms as $dm) {
+          $options[$dm->getDescription()] = $dm->getCode();
+        }
+        echo getSelection('fiction_code', $options, $postVars);
+        ?>
     </td>
   </tr>
+<?php
+/*
   <tr>
     <td class="primary" valign="top">
       <label for="fiction_loc"><?php echo $loc->getText("lookup_optsLocFictionCodes"); ?></label>
@@ -208,6 +234,8 @@
       <?php printMyInputText("fiction_dewey",30,50,$postVars,$pageErrors); ?>
     </td>
   </tr>
+*/
+?>
   </tbody>
   <tfoot>
   <tr>
@@ -218,3 +246,15 @@
 	</tfoot>
 </table>
 </form>
+<table class="primary">
+  <tbody>
+    <tr>
+      <td valign="top" class="noborder"><font class="small"><?php echo $loc->getText('adminFormNote'); ?></font></td>
+      <td class="noborder">
+        <font class="small"><?php echo $loc->getText('adminZ3950Note', array('fiction_code' => $loc->getText('lookup_optsFictionCode'), 'lookup_bulk' => $navLoc->getText('lookup_bulk'))); ?>
+        <br></font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<?php require_once("../shared/footer.php"); ?>

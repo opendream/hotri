@@ -1,7 +1,7 @@
 <?php
 class Z3950OptsQuery extends Query {
   function getOptions() {
-    $this->_query('SELECT * FROM lookup_settings', FALSE);
+    $this->_query('SELECT protocol, max_hits, callNmbr_type, auto_collect, fiction_code FROM lookup_settings', FALSE);
     $options = $this->_conn->fetchRow();
     unset($options['cron_url']);
     return $options;
@@ -9,7 +9,7 @@ class Z3950OptsQuery extends Query {
   
   function setOptions($form) {
     // Defaults
-    $checkboxes = array('keep_dashes', 'auto_dewey', 'auto_cutter', 'auto_collect');
+    $checkboxes = array('auto_collect');
     foreach ($checkboxes as $key) {
       $form[$key] = $form[$key] ? 'y' : 'n';
     }

@@ -16,6 +16,7 @@
   require_once("../shared/header.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  $navLoc = new Localize(OBIB_LOCALE, 'navbars');
 
   // Load cover options
   require_once('../classes/CoverOptsQuery.php');
@@ -24,7 +25,7 @@
   if ($_POST) {
     $opts->setAWS($_POST);
 ?>
-<font class="error">Data has been updated.</font>
+<font class="error"><?php echo $loc->getText('admin_settingsUpdated'); ?></font>
 <?php
   }
   $form = $opts->getAWS();
@@ -70,3 +71,14 @@
   </tr>
 </table>
 </form>
+<table class="primary">
+  <tbody>
+    <tr>
+      <td valign="top" class="noborder"><font class="small"><?php echo $loc->getText('adminFormNote'); ?></font></td>
+      <td class="noborder">
+        <font class="small"><?php echo $loc->getText('adminAWSNote', array('cover_opt_menu' => $navLoc->getText('Cover Lookup Options'))); ?><br></font>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<?php require_once("../shared/footer.php"); ?>
