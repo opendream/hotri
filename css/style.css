@@ -3,6 +3,8 @@
  *********************************************************/
 body {
   background-color: #ffffff
+  font-family: sans-serif;
+  font-size: 13px;
 }
 
 /*********************************************************
@@ -35,15 +37,16 @@ a:visited {
   color: #0000aa;
 }
 
-/* Form */
+/* ---------------------- Form ---------------------- */
+
 #errorMsg {
   background: #ffcccc;
   margin: 10px 0;
   padding: 3px;
 }
+
 a.add_field {
 	text-decoration: none;
-	letter-spacing: -2px;
 }
 
 a.add_field:hover {
@@ -89,13 +92,10 @@ legend.collapsible {
 	cursor: pointer;
 }
 
-/* Navigations */
+/* --------------------- Navigations ---------------------- */
+
 td.nav a {
 	text-decoration: none;
-}
-
-td.nav a:hover {
-	text-decoration: underline;
 }
 
 td.nav ul {
@@ -107,4 +107,18 @@ td.nav li {
 	list-style-type: none;
 	margin: 3px 0;
 	padding: 5px 0 5px 5px;
+	background-color: #999;
+}
+
+td.nav li:hover,
+td.nav li.active li:hover {
+	background-color: #fff;
+}
+
+td.nav li.active {
+	background-color: #fff;
+}
+
+td.nav li.active li {
+	background-color: #ccc;
 }

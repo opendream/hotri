@@ -355,22 +355,3 @@ table.resultshead td {
 }
 table.results td.primary { border-top: none; }
 td.picture { width: 120px; }
-
-/*---------------------- LEFT SIDEBAR MENU ----------------------*/
-
-td.nav li {
-	background-color: <?php echo OBIB_ALT2_BG; ?>;
-}
-
-td.nav li:hover,
-td.nav li.active li:hover {
-	background-color: <?php echo OBIB_ALT1_BG; ?>;
-}
-
-td.nav li.active {
-	background-color: <?php echo OBIB_PRIMARY_BG; ?>;
-}
-
-td.nav li.active li {
-	background-color: <?php echo OBIB_ALT2_BG; ?>;
-}
