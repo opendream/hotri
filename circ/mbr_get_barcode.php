@@ -16,4 +16,5 @@
       $ret = $bn + 1;
     }
   }
+  $q->close();
   echo $ret;
