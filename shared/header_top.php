@@ -86,7 +86,7 @@ function backToMain(URL) {
 <!-- **************************************************************************************
      * Library Name and hours
      **************************************************************************************-->
-<table class="primary library-info" width="100%" cellpadding="0" cellspacing="0" border="0">
+<table class="primary" width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr bgcolor="<?php echo H(OBIB_TITLE_BG);?>">
     <td width="100%" class="title" valign="top">
        <?php
@@ -99,7 +99,7 @@ function backToMain(URL) {
        ?>
     </td>
     <td valign="top">
-      <table class="primary" cellpadding="0" cellspacing="0" border="0">
+      <table class="primary library-info" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td class="title" nowrap="yes"><font class="small"><?php echo $headerLoc->getText("headerTodaysDate"); ?></font></td>
           <td class="title" nowrap="yes"><font class="small"><?php echo H(date($headerLoc->getText("headerDateFormat")));?></font></td>
