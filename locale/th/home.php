@@ -44,7 +44,7 @@ $trans["indexIntro"]         = "\$text=
 $trans["indexTab"] = "\$text='หัวข้อ';";
 $trans["indexDesc"] = "\$text='คำอธิบาย';";
 $trans["indexCirc"] = "\$text='ระบบสมาชิกห้องสมุด';";
-$trans["indexCircDesc1"] = "\$text='ใช้เมนูนี้สำหรับจัดการระบบสมาชิก)';";
+$trans["indexCircDesc1"] = "\$text='ใช้เมนูนี้สำหรับจัดการระบบสมาชิก';";
 $trans["indexCircDesc2"] = "\$text='ระบบสมาชิก (เพิ่ม, ค้นหา, แก้ไข, ลบ)';";
 $trans["indexCircDesc3"] = "\$text='ระบบยืมทรัพยากรสารสนเทศ';";
 $trans["indexCircDesc4"] = "\$text='ระบบคืนทรัพยากรสารสนเทศ';";
