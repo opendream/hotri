@@ -6,6 +6,8 @@ $cancelLocation = "../admin/index.php";
 
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
+require_once("../classes/Localize.php");
+$loc = new Localize(OBIB_LOCALE,$tab);
 
 require_once('../classes/BulkLookup.php');
 $q = new BulkLookupQuery();
@@ -25,20 +27,20 @@ if ($queued < 1) {
   echo "DONE";
 }
 $cron_status = file_get_contents('../cron/cronrun.txt');
-echo "Last updated: " . date('Y-m-d H:i:s') . " ($estimate_time) Cron: {$cron_status}<br />Remaining: $queued ($trying trying), done: " . ($done + $covered) . " ($covered covered), copied: $copied, failed: $failed";
+
+echo $loc->getText('lookup_bulkStatus', array(
+  'updated' => date('Y-m-d H:i:s'),
+  'estimate' => $estimate_time,
+  'cron_status' => $cron_status,
+  'remain' => $queued,
+  'trying' => $trying,
+  'done' => $done + $covered,
+  'covered' => $covered,
+  'copied' => $copied,
+  'failed' => $failed,
+));
+
 if ($queued < 1) {
-  echo '<h5 id="updateMsg">All items has been proceed!</h5> <br /><a href="BulkLookup.php">continue import</a> | <a href="../reports/bulk_report.php">view failed items</a><br /><br />';
-  /*
-  if ($failed > 0) {
-    $q->getQueue('manual', $failed);
-    echo "<h5>Failed ISBN:</h5>
-Note: You should add below ones manually.<br />";
-    for ($i = 0; $i < $failed; $i++) {
-      $row = $q->fetch();
-      if (!$row) break;
-      echo $row['isbn'] . "<br />";
-    }
-  }
-  */
+  echo '<h5 id="updateMsg">' . $loc->getText('lookup_bulkProceed') . '</h5> <br /><a href="BulkLookup.php">' . $loc->getText('lookup_bulkCont') . '</a> | <a href="../reports/bulk_report.php">' . $loc->getText('lookup_bulkViewFailed') . '</a><br /><br />';
 }
 ?>

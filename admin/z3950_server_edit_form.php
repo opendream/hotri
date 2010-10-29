@@ -120,10 +120,10 @@
   <tr>
     <td class="primary">
       <label for="charset">
-        Character set
+        <?php echo $loc->getText('Character set'); ?>
       </label>
     </td>
-    <td class="primary"><?php printMyInputText("charset",10,20,$postVars,$pageErrors); ?> <font class="small">default: leave empty</font></td>
+    <td class="primary"><?php printMyInputText("charset",10,20,$postVars,$pageErrors); ?> <font class="small"><?php echo $loc->getText('lookup_DefaultCharset'); ?></font></td>
   </tr>
   <tr>
     <td class="primary">&nbsp;</td>

@@ -25,7 +25,7 @@
 	<thead>
   <tr>
     <th colspan="2" valign="top" nowrap="yes">
-      Function
+      <?php echo $loc->getText("lookup_hostsFunc"); ?>
     </th>
     <th valign="top" nowrap="yes">
       <?php echo $loc->getText("lookup_hostsSeqNo"); ?>
@@ -49,7 +49,7 @@
       <?php echo $loc->getText("lookup_hostsPw"); ?>
     </th>
     <th valign="top" nowrap="yes">
-      Charset:
+      <?php echo $loc->getText("lookup_hostsCharset"); ?>
     </th>
   </tr>
 	</thead>

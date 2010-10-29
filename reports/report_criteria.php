@@ -12,6 +12,7 @@
   require_once("../classes/Report.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  $navLoc = new Localize(OBIB_LOCALE, 'navbars');
 
   if (isset($_SESSION['postVars']['type'])) {
     $type = $_SESSION['postVars']['type'];
@@ -28,7 +29,7 @@
     exit(0);
   }
 
-  Nav::node('reportcriteria', 'Report Criteria');
+  Nav::node('reportcriteria', $navLoc->getText('reportsCriteria'));
   include("../shared/header.php");
 
   #****************************************************************************
@@ -49,10 +50,10 @@
 <?php
   $format = array(
     array('select', '__format', array('title'=>'Format'), array(
-      array('paged', array('title'=>'HTML (page-by-page)')),
-      array('html', array('title'=>'HTML (one big page)')),
-      array('csv', array('title'=>'CSV')),
-      array('xls', array('title'=>'Microsoft Excel')),
+      array('paged', array('title'=> $loc->getText('HTML (page-by-page)'))),
+      array('html', array('title'=>$loc->getText('HTML (one big page)'))),
+      array('csv', array('title'=>$loc->getText('CSV'))),
+      array('xls', array('title'=>$loc->getText('Microsoft Excel'))),
     )),
   );
   $params = array_merge($rpt->paramDefs(), $format);

@@ -5,6 +5,9 @@ $helpPage = "BulkLookup";
 $cancelLocation = "../admin/index.php";
 require_once("../shared/common.php");
 require_once("../shared/logincheck.php");
+require_once("../classes/Localize.php");
+$loc = new Localize(OBIB_LOCALE,$tab);
+$navbar = new Localize(OBIB_LOCALE, 'navbars');
 
 // Bulk Lookup Test
 if (isset($_POST['submit'])) {
@@ -18,10 +21,9 @@ if (isset($_POST['submit'])) {
   // View status
   require_once("../shared/header.php");
   echo <<<INNERHTML
-<h1>Bulk ISBN Lookup</h1>
-<h5 id="updateMsg">All items has been queue!</h5>
-<span>status:</span> 
-<span style="color:blue; padding: 3px 0">Update every 10 seconds</span>
+<h1>{$navbar->getText('lookup_bulk')}</h1>
+<h5 id="updateMsg">{$loc->getText('lookup_bulkQueue')}</h5>
+{$loc->getText('lookup_bulkStatusHead')}
 <div id="bulkMsg"></div>
 <script type="text/javascript">
 getStatus = function() { 
@@ -35,7 +37,7 @@ getStatus = function() {
       $('#bulkMsg').html(data);
     }
     else {
-      $('#bulkMsg').html('Error occured, press F5 to refresh this page.');
+      $('#bulkMsg').html('{$loc->getText('lookup_bulkStatusError')}');
     }
   });
 };
@@ -60,13 +62,13 @@ else {
   }
   
   echo <<<INNERHTML
-<h1>Bulk ISBN Lookup</h1>
+<h1>{$navbar->getText('lookup_bulk')}</h1>
 $warning
 <form method="post" enctype="multipart/form-data" action="{$_SERVER["SCRIPT_NAME"]}">
-  <label for="upload">Choose the ISBN list file (.txt, one per line):</label> <br />
+  <label for="upload">{$loc->getText('lookup_bulkNotes')}</label> <br />
   <input type="file" name="upload" />
   <input type="hidden" name="MAX_FILE_SIZE" value="10000"/>
-  <input type="submit" name="submit" class="button" value="Import" />
+  <input type="submit" name="submit" class="button" value="{$loc->getText('Import')}" />
 </form>
 
 INNERHTML;

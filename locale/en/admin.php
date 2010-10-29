@@ -164,6 +164,16 @@ $trans["admin_materials_listNewadded"]                 = "\$text = ', has been a
 #****************************************************************************
 $trans["admin_materials_new_formNoteText"]                 = "\$text = 'Image files must be located in the openbiblio/images directory.';";
 
+$trans["Checkout Privileges"]       = "\$text = 'Checkout Privileges';";
+$trans["function"]                            = "\$text = 'Function';";
+$trans["Material Type"]                  = "\$text = 'Material Type';";
+$trans["Member Classification"]    = "\$text = 'Member Classification';";
+$trans["Checkout Limit"]                = "\$text = 'Checkout Limit';";
+$trans["Renewal Limit"]                  = "\$text = 'Renewal Limit';";
+
+$trans["Edit cover lookup options (Amazon AWS)"] = "\$text = 'Edit cover lookup options (Amazon AWS)';";
+$trans["Add new z39.50 server"]                                = "\$text = 'Add new z39.50 server';";
+
 #****************************************************************************
 #*  Translation text for page noauth.php
 #****************************************************************************
@@ -420,6 +430,34 @@ $trans["lookup_hostsDb"]        			 = "\$text = 'Database';";
 $trans["lookup_hostsUser"]      			 = "\$text = 'User Id';";
 $trans["lookup_hostsPw"]        			 = "\$text = 'Password';";
 $trans["lookup_hostsUpdtBtn"]          = "\$text = 'Update';";
+$trans["lookup_hostsFunc"]       			     = "\$text = 'Function';";
+$trans["lookup_hostsCharset"]       			     = "\$text = 'Charset';";
+$trans["lookup_DefaultCharset"]             = "\$text = 'default: leave empty';";
 #****************************************************************************
+$trans["Function"]        = "\$text = 'Function';";
+$trans["edit"]                = "\$text = 'edit';";
+$trans["del"]                 = "\$text = 'del';";
+$trans["Description"]    = "\$text = 'Description';";
+$trans["Member Classifications List"]        = "\$text = 'Member Classifications List';";
+$trans["Members"]       = "\$text = 'Members';";
+$trans["Max. Fines"]     = "\$text = 'Max. Fines';";
 
+$trans["Custom Member Fields"]               = "\$text = 'Custom Member Fields';";
+$trans["Add new custom field"]                 = "\$text = 'Add new custom field';";
+$trans["Character set"]                               = "\$text = 'Character set';";
+
+$trans["lookup_bulkNotes"]   = "\$text = 'Choose the ISBN list file (.txt, one per line):';";
+$trans["Import"]                       = "\$text = 'Import';";
+$trans["lookup_bulkQueue"]              = "\$text = 'All items has been queue!';";
+$trans["lookup_bulkStatusHead"]      = "\$text = '<span>status:</span> <span style=\"color:blue; padding: 3px 0\">Update every 10 seconds</span>';";
+$trans["lookup_bulkStatusError"]      = "\$text = 'Error occured, press F5 to refresh this page.';";
+$trans["lookup_bulkProceed"]            = "\$text = 'All items has been proceed!';";
+$trans["lookup_bulkCont"]                  = "\$text = 'continue import';";
+$trans["lookup_bulkViewFailed"]       = "\$text = 'view failed items';";
+
+$trans["lookup_bulkStatus"]               = "\$text = 'Last updated: %updated% (%estimate%)<br />
+Cron status: %cron_status%<br />
+Remaining: %remain% (%trying% trying)<br />
+Done: %done% (%covered% covered), Copied: %copied%<br />
+Failed: %failed%';";
 ?>

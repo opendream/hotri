@@ -9,6 +9,7 @@
   require_once("../classes/Table.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE, "reports");
+  $navLoc = new Localize(OBIB_LOCALE, 'navbars');
 
   $tab="reports";
   $nav="results";
@@ -117,12 +118,12 @@
     } else {
       $title = $l['name'];
     }
-    Nav::node('results/'.$l['name'], $title,
+    Nav::node('results/'.$l['name'], $loc->getText($title),
       '../shared/layout.php?rpt=Report&name='.U($l['name']));
   }
-  Nav::node('results/list', 'Print list',
+  Nav::node('results/list', $loc->getText('Print list'),
     '../shared/layout.php?rpt=Report&name=list');
-  Nav::node('reportcriteria', 'Report Criteria',
+  Nav::node('reportcriteria', $navLoc->getText('reportsCriteria'),
     '../reports/report_criteria.php?type='.U($rpt->type()));
   
   if ($format == 'csv') {
@@ -216,12 +217,12 @@ $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_
   }
 
   if ($rpt->count() == 0) {
-    echo $loc->getText("No results found.");
+    echo $loc->getText("reportsResultNotFound");
     require_once("../shared/footer.php");
     exit();
   }
 
-  echo '<p>'.$rpt->count().' results found.</p>';
+  echo '<p>'.$loc->getText('reportsResultFound', array('results' => $rpt->count())) . '</p>';
   if ($format == 'paged') {
     printResultPages($loc, $page, ceil($rpt->count()/OBIB_ITEMS_PER_PAGE));
   }

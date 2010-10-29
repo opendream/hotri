@@ -175,7 +175,7 @@ class Params {
         } else {
           $l[$n] = $n;
         }
-        $l[$n.'!r'] = $l[$n].' (Reverse)';
+        $l[$n.'!r'] = $l[$n] . ' ' . $loc->getText('reportsReverse');
       }
       echo inputField('select', $name, $default, NULL, $l);
       break;

@@ -55,6 +55,8 @@ $trans["adminStaff"]               = "\$text = 'Staff Admin';";
 $trans["adminSettings"]            = "\$text = 'Library Settings';";
 $trans["adminMaterialTypes"]       = "\$text = 'Material Types';";
 $trans["adminCollections"]         = "\$text = 'Collections';";
+$trans["adminCheckoutPriv"]     = "\$text = 'Checkout Privs';";
+$trans["Cover Lookup Options"]  = "\$text = 'Cover Lookup Options';";
 $trans["adminThemes"]              = "\$text = 'Themes';";
 $trans["adminTranslation"]         = "\$text = 'Translation';";
 
@@ -87,6 +89,10 @@ $trans["reportsSummary"]           = "\$text = 'Reports Summary';";
 $trans["reportsReportListLink"]    = "\$text = 'Report List';";
 $trans["reportsLabelsLink"]        = "\$text = 'Print Labels';";
 $trans["reportsLettersLink"]        = "\$text = 'Print Letters';";
+$trans["reportsResult"]               = "\$text = 'Report Results';";
+$trans["reportsCriteria"]               = "\$text = 'Report Criteria';";
+$trans["reportsFailedImport"]     = "\$text = 'Failed Imports';";
+$trans["reportsNoCover"]            = "\$text = 'No-Cover Items';";
 
 #****************************************************************************
 #*  Translation text for page opac.php

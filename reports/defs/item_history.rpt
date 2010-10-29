@@ -12,12 +12,12 @@
 .	string title
 .	string call_num title='Call Number'
 .	order_by default=title
-.		item call_num expr='CONCAT(b.call_nmbr1, b.call_nmbr2, b.call_nmbr3)'
-.		item title expr='CONCAT(b.title,b.title_remainder)'
-.		item author expr='b.author'
-.		item member expr='CONCAT(m.last_name, m.first_name)'
-.		item checkout expr='s.status_begin_dt'
-.		item due expr='s.due_back_dt'
+.		item call_num expr='CONCAT(b.call_nmbr1, b.call_nmbr2, b.call_nmbr3)' title='Call Number'
+.		item title expr='CONCAT(b.title,b.title_remainder)' title='Title'
+.		item author expr='b.author' title='Author'
+.		item member expr='CONCAT(m.last_name, m.first_name)' title='Member Name'
+.		item checkout expr='s.status_begin_dt' title='Begin Date'
+.		item due expr='s.due_back_dt' title='Due Date'
 .	end order_by
 .end parameters
 .sql

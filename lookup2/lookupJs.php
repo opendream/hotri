@@ -257,7 +257,7 @@ lkup = {
 					        html += '<tr><td class="primary">Location</th><td class="primary">'+hitData['260a']+'</td></tr>';
 					        html += '<tr><td class="primary">Date</th><td class="primary">'+hitData['260c']+'</td>';
 							    var id = 'host'+hostIndex+'-hit'+hitIndex;
-					        html += '<td id="'+id+'" class="primary"><input type="button" value="This One" class="button" /></td></tr>';
+					        html += '<td id="'+id+'" class="primary"><input type="button" value="' + lkup.useThis + '" class="button" /></td></tr>';
 							    html += '</table></form>';
 							    $('#choiceSpace').append(html);
 							    $('#'+id).bind('click',{host:hostIndex,hit:hitIndex,data:hitData},lkup.doSelectOne);
