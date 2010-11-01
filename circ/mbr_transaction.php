@@ -65,6 +65,12 @@
     displayErrorPage($transQ);
   }
   $transQ->close();
+  
+  require_once('../classes/MemberQuery.php');
+  $mbrQ = new MemberQuery;
+  $mbrQ->connect();
+  $mbrQ->updateActivity($mbrid);
+  $mbrQ->close();
 
   #**************************************************************************
   #*  Destroy form values and errors

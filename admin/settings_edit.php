@@ -53,6 +53,8 @@
   $_POST["charset"] = $set->getCharset();
   $set->setHtmlLangAttr($_POST["htmlLangAttr"]);
   $_POST["htmlLangAttr"] = $set->getHtmlLangAttr();
+  $set->setInactiveMemberAfterDays($_POST['inactiveMemberAfterDays']);
+  $POST['inactiveMemberAfterDays'] = $set->getInactiveMemberAfterDays();
   $set->setFontNormal($_POST["fontNormal"]);
   $_POST["fontNormal"] = $set->getFontNormal();
   $set->setFontBold($_POST["fontBold"]);
@@ -64,6 +66,7 @@
     $pageErrors["sessionTimeout"] = $set->getSessionTimeoutError();
     $pageErrors["itemsPerPage"] = $set->getItemsPerPageError();
     $pageErrors["purgeHistoryAfterMonths"] = $set->getPurgeHistoryAfterMonthsError();
+    $pageErrors["inactiveMemberAfterDays"] = $set->getInactiveMemberAfterDaysError();
     $_SESSION["postVars"] = $_POST;
     $_SESSION["pageErrors"] = $pageErrors;
     header("Location: ../admin/settings_edit_form.php");

@@ -35,6 +35,8 @@ class Settings {
   var $_fontNormal = "";
   var $_fontBold = "";
   var $_fontOblique = "";
+  var $_inactiveMemberAfterDays = 90;
+  var $_inactiveMemberAfterDaysError = "";
 
   /****************************************************************************
   * @return array with code and description of installed locales
@@ -66,24 +68,32 @@ class Settings {
    ****************************************************************************
    */
   function validateData() {
+    
+    require_once("../classes/Localize.php");
+    $loc = new Localize(OBIB_LOCALE, 'admin');
+    
     $valid = true;
     if (!is_numeric($this->_sessionTimeout)) {
       $valid = false;
-      $this->_sessionTimeoutError = "Session timeout must be numeric.";
+      $this->_sessionTimeoutError = $loc->getText("Session timeout must be numeric.");
     } elseif ($this->_sessionTimeout <= 0) {
       $valid = false;
-      $this->_sessionTimeoutError = "Session timeout must be greater than 0.";
+      $this->_sessionTimeoutError = $loc->getText("Session timeout must be greater than 0.");
     }
     if (!is_numeric($this->_itemsPerPage)) {
       $valid = false;
-      $this->_itemsPerPageError = "Items per page must be numeric.";
+      $this->_itemsPerPageError = $loc->getText("Items per page must be numeric.");
     } elseif ($this->_itemsPerPage <= 0) {
       $valid = false;
-      $this->_itemsPerPageError = "Items per page must be greater than 0.";
+      $this->_itemsPerPageError = $loc->getText("Items per page must be greater than 0.");
     }
     if (!is_numeric($this->_purgeHistoryAfterMonths)) {
-      $valid = FALSE;
-      $this->_purgeHistoryAfterMonthsError = "Months must be numeric.";
+      $valid = false;
+      $this->_purgeHistoryAfterMonthsError = $loc->getText("Months must be numeric.");
+    }
+    if (!is_numeric($this->_inactiveMemberAfterDays)) {
+      $valid = false;
+      $this->_inactiveMemberAfterDaysError = $loc->getText("Days must be numeric.");
     }
     return $valid;
   }
@@ -153,6 +163,12 @@ class Settings {
   }
   function getHtmlLangAttr() {
     return $this->_htmlLangAttr;
+  }
+  function getInactiveMemberAfterDays() {
+    return $this->_inactiveMemberAfterDays;
+  }
+  function getInactiveMemberAfterDaysError() {
+    return $this->_inactiveMemberAfterDaysError;
   }
   function getFontNormal() {
     return $this->_fontNormal;
@@ -250,6 +266,9 @@ class Settings {
   }
   function setHtmlLangAttr($value) {
     $this->_htmlLangAttr = trim($value);
+  }
+  function setInactiveMemberAfterDays($value) {
+    $this->_inactiveMemberAfterDays = $value;
   }
   function setFontNormal($value) {
     $this->_fontNormal = trim($value);

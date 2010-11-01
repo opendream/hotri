@@ -38,7 +38,6 @@
   $mbrQ->connect();
   $mbr = $mbrQ->get($mbrid);
   $mbrClassification = $mbr->getClassification();
-  $mbrQ->close();
 
   if(isset($_POST["renewal"])) {
       $renewal = true;
@@ -283,6 +282,12 @@
     displayErrorPage($histQ);
   }
   $histQ->close();
+  
+  #**************************************************************************
+  #*  Update member's activity date
+  #**************************************************************************
+  $mbrQ->updateActivity($mbrid);
+  $mbrQ->close();
 
   #**************************************************************************
   #*  Destroy form values and errors

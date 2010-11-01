@@ -6,6 +6,8 @@
 require_once("../shared/global_constants.php");
 require_once("../classes/Member.php");
 require_once("../classes/Query.php");
+require_once("../classes/Settings.php");
+require_once("../classes/SettingsQuery.php");
 
 /******************************************************************************
  * MemberQuery data access component for library members
@@ -259,6 +261,32 @@ class MemberQuery extends Query {
   function inactive($mbrid) {
     $sql = $this->mkSQL("UPDATE member SET is_active = 'N' WHERE mbrid = %N ", $mbrid);
     $this->exec($sql);
+  }
+  
+  function updateActivity($mbrid) {
+    $sql = $this->mkSQL("UPDATE member SET last_activity_dt=NOW() WHERE mbrid = %N ", $mbrid);
+    $this->exec($sql);
+  }
+  
+  function autoInactive() {
+    $setQ = new SettingsQuery();
+    $setQ->connect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $setQ->execSelect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $set = $setQ->fetchRow();
+    $inactiveMemberAfterDays = 0 + $set->getInactiveMemberAfterDays();
+    
+    if ($inactiveMemberAfterDays > 0) {
+      $sql = $this->mkSQL("UPDATE member SET is_active = 'N' WHERE last_activity_dt <= DATE_SUB(NOW(), INTERVAL %N DAY) ", $inactiveMemberAfterDays);
+      $this->exec($sql);
+    }
   }
 }
 

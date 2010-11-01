@@ -65,6 +65,8 @@
     $postVars["fontNormal"] = $set->getFontNormal();
     $postVars["fontBold"] = $set->getFontBold();
     $postVars["fontOblique"] = $set->getFontOblique();
+    $postVars["inactiveMemberAfterDays"] = $set->getInactiveMemberAfterDays();
+    
     $setQ->close();
   } else {
     require("../shared/get_form_vars.php");
@@ -240,6 +242,14 @@
     </td>
     <td valign="top" class="primary">
       <?php printInputText("htmlLangAttr",8,8,$postVars,$pageErrors); ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <?php echo $loc->getText("admin_settingsInactiveDays"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php printInputText("inactiveMemberAfterDays",2,2,$postVars,$pageErrors); ?><?php echo $loc->getText("days"); ?>
     </td>
   </tr>
   <tr>

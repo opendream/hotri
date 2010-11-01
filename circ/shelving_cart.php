@@ -17,6 +17,7 @@
   require_once("../classes/BiblioStatusHistQuery.php");
   require_once("../classes/MemberAccountTransaction.php");
   require_once("../classes/MemberAccountQuery.php");
+  require_once("../classes/MemberQuery.php");
   require_once("../functions/errorFuncs.php");
   require_once("../functions/formatFuncs.php");
   require_once("../classes/Localize.php");
@@ -174,6 +175,12 @@
       }
       $transQ->close();
     }
+    
+    // Update activity
+    $mbrQ = new MemberQuery;
+    $mbrQ->connect();
+    $mbrQ->updateActivity($saveMbrid);
+    $mbrQ->close();
   }
 
   #**************************************************************************

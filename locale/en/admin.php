@@ -206,6 +206,7 @@ $trans["admin_settingsBlockCheckouts"]                 = "\$text = 'Block Checko
 $trans["admin_settingsLocale"]                 = "\$text = 'Locale:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'HTML Charset:';";
 $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'HTML Tag Lang Attribute:';";
+$trans["admin_settingsInactiveDays"]             = "\$text = 'Auto update inactive members in:';";
 $trans["admin_settingsFontNormal"]                  = "\$text = 'Print Fonts (Normal):';";
 $trans["admin_settingsFontBold"]                  = "\$text = 'Print Fonts (Bold):';";
 $trans["admin_settingsFontOblique"]                  = "\$text = 'Print Fonts (Oblique):';";
@@ -497,4 +498,12 @@ $trans["Field Successfully Deleted"]         = "\$text = 'Field Successfully Del
 $trans["Edit Checkout Privileges"]           = "\$text = 'Edit Checkout Privileges';";
 $trans["Material Type:"]                             = "\$text = 'Material Type:';";
 $trans["Member Classification:"]              = "\$text = 'Member Classification:';";
+
+# Validation errors
+$trans["Session timeout must be numeric."]            = "\$text = 'Session timeout must be numeric.';";
+$trans["Session timeout must be greater than 0."] = "\$text = 'Session timeout must be greater than 0.';";
+$trans["Items per page must be numeric."]              = "\$text = 'Items per page must be numeric.';";
+$trans["Items per page must be greater than 0."]   = "\$text = 'Items per page must be greater than 0.';";
+$trans["Months must be numeric."]                           = "\$text = 'Months must be numeric.';";
+$trans["Days must be numeric."]                                = "\$text = 'Days must be numeric.';";
 ?>
