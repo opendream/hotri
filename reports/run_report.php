@@ -175,8 +175,6 @@ $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_
         $column_name = $columns[floor(($key_col + 1) / $breaker)] 
               . $columns[($key_col + 1) % $breaker] . ($key_row + 1);
         
-        $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
-        
         // Initialize cell styles
         $styles = $objPHPExcel->getActiveSheet()->getStyle($column_name);
         $styles->getAlignment()->setWrapText(TRUE);
@@ -194,7 +192,12 @@ $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_
           $styles->getFont()->setBold(TRUE);
           $styles->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
           $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
+          
+          $objPHPExcel->getActiveSheet()->setCellValue($column_name, $loc->getText($val));
         }
+       else {
+        $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
+       }
       }
       
       $key_row++;

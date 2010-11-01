@@ -29,7 +29,11 @@ class Layout_list {
     }
     # We have 7.5in, distribute it weighted by width
     $unit = (7.5-$totalspacing)/$total;
-      
+    
+    // Add locale support
+    require_once("../classes/Localize.php");
+    $loc = new Localize(OBIB_LOCALE,'reports');
+    
     $lay = new Lay;
       $lay->container('Columns', array(
         'margin-left'=>'0.5in', 'margin-right'=>'0.5in',
@@ -38,7 +42,7 @@ class Layout_list {
         if ($rpt->title()) {
           $lay->pushFont($this->sets['fontBold'], 18);
             $lay->container('TextLine', array('x-align'=>'center'));
-              $lay->text($rpt->title());
+              $lay->text($loc->getText($rpt->title()));
             $lay->close();
           $lay->popFont();
         }
@@ -49,6 +53,8 @@ class Layout_list {
                 continue;
               }
               $lay->container('TextLine', array('width'=>($unit*$col['width']).'in', 'underline'=>1));
+                $col['title'] = $loc->getText($col['title']);
+                
                 $lay->text($col['title']);
               $lay->close();
             }

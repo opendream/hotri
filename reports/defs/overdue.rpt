@@ -4,14 +4,14 @@
 .column bibid hidden
 .column copyid hidden
 .column mbrid hidden
-.column barcode_nmbr sort=barcode_nmbr
-.column callno sort=callno
-.column title sort=title func=biblio_link
-.column author sort=author
-.column member_bcode sort=member_bcode
-.column name sort=name func=member_link
-.column status_begin_dt sort=status_begin_dt
-.column due_back_dt sort=due_back_dt
+.column barcode_nmbr sort=barcode_nmbr title="Barcode"
+.column callno sort=callno title="Call Number"
+.column title sort=title func=biblio_link title="Title"
+.column author sort=author title="Author"
+.column member_bcode sort=member_bcode title="Member Barcode"
+.column name sort=name func=member_link title="Member Name"
+.column status_begin_dt sort=status_begin_dt title="Checkout Date"
+.column due_back_dt sort=due_back_dt title="Due Date"
 .column days_late sort='due_back_dt!r'
 .parameters
 .	date as_of title="As of" default="today"
@@ -22,8 +22,8 @@
 .		item author title="Author"
 .		item member_bcode expr='m.barcode_nmbr' title="Member Barcode"
 .		item name expr="concat(m.last_name, ', ', m.first_name)" title="Member Name"
-.		item status_begin_dt title="Status Begin Date"
-.		item due_back_dt title="Due Back Date"
+.		item status_begin_dt title="Checkout Date"
+.		item due_back_dt title="Due Date"
 .	end order_by
 .end parameters
 .sql

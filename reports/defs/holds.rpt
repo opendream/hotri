@@ -2,12 +2,12 @@
 .category Circulation
 .column bibid hidden
 .column mbrid hidden
-.column item_bcode sort=item_bcode
-.column title sort=title func=biblio_link
-.column author sort=author
-.column hold_begin_dt sort=hold_begin_dt
-.column mbr_bcode sort=mbr_bcode
-.column name sort=name func=member_link
+.column item_bcode sort=item_bcode title="Barcode"
+.column title sort=title func=biblio_link title="Title"
+.column author sort=author title="Author"
+.column hold_begin_dt sort=hold_begin_dt title="Hold Date"
+.column mbr_bcode sort=mbr_bcode title="Member Barcode"
+.column name sort=name func=member_link title="Member Name"
 .parameters
 .	date placed_since title="Placed since"
 .	date placed_before title="Placed before"

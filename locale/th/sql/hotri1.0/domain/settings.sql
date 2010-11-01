@@ -1,7 +1,7 @@
 insert into %prfx%settings
 values (
   'ห้องสมุดของฉัน'
-  ,'../images/logo_theme_opendream.png'
+  ,'../images/logo.png'
   ,'N'
   ,'จันทร์-ศุกร์'
   ,'111-222-3333'

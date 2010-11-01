@@ -19,10 +19,14 @@ class CsvTable {
     $this->_cols = array_merge($this->_cols, $cols);
   }
   function start() {
+    global $loc;
     $arr = array();
     foreach ($this->_cols as $col) {
       if (!isset($col['title']) or !$col['title']) {
         $col['title'] = $col['name'];
+      }
+      if (get_class($loc) == 'Localize') {
+        $col['title'] = $loc->getText($col['title']);
       }
       $arr[] = $this->escape($col['title']);
     }

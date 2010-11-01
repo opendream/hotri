@@ -180,8 +180,6 @@ $trans["settings.library_name"]    = "\$text = 'Library Name';";
 $trans["settings.library_hours"]   = "\$text = 'Library Hours';";
 $trans["settings.library_phone"]   = "\$text = 'Library Phone';";
 $trans["days_late"]                = "\$text = 'Days Late';";
-$trans["title"]                    = "\$text = 'Title';";
-$trans["author"]                   = "\$text = 'Author';";
 $trans["due_back_dt"]              = "\$text = 'Due Back';";
 $trans["checkoutCount"]            = "\$text = 'Checkout Count';";
 
@@ -220,4 +218,12 @@ $trans["Created"]                        = "\$text = 'Created Date';";
 $trans["Export to file"]               = "\$text = 'Export to file';";
 $trans["Purge all items"]            = "\$text = 'Purge all items';";
 $trans["Submit"]                          = "\$text = 'Submit';";
+
+$trans["Call Num."]                     = "\$text = 'Call Num.';";
+$trans["Author"]                          = "\$text = 'Author';";
+$trans["collection"]                     = "\$text = 'Collection';";
+$trans["Checkout Date"]           = "\$text = 'Checkout Date';";
+$trans["Due Date"]                     = "\$text = 'Due Date';";
+$trans["Hold Date"]                    = "\$text = 'Hold Date';";
+$trans["Member Barcode"]       = "\$text = 'Member Barcode';";
 ?>

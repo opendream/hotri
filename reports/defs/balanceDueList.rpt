@@ -1,15 +1,15 @@
 .title balanceDueList
 .category Circulation
 .column mbrid hidden
-.column barcode_nmbr sort=barcode_nmbr
-.column name sort=name func=member_link
-.column balance sort=balance
+.column barcode_nmbr sort=barcode_nmbr title="Barcode"
+.column name sort=name func=member_link title="Member Name"
+.column balance sort=balance title="Balance Due"
 .parameters
 .	string minimum title="Minimum balance"
 .	order_by
-.		item barcode_nmbr title ="Barcode"
-.		item name expr="concat(m.last_name, ', ', m.first_name)" title ="Member Name"
-.		item balance type=numeric title ="Balance Due"
+.		item barcode_nmbr title="Barcode"
+.		item name expr="concat(m.last_name, ', ', m.first_name)" title="Member Name"
+.		item balance type=numeric title="Balance Due"
 .	end order_by
 .end parameters
 .sql

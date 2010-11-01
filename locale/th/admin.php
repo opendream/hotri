@@ -201,13 +201,14 @@ $trans["admin_settingsSearchResults"]                 = "\$text = 'ผลกา�
 $trans["admin_settingsItemsperpage"]                 = "\$text = 'รายการต่อหน้า';";
 $trans["admin_settingsPurgebibhistory"]                 = "\$text = 'ลบประวัติรายการบรรณานุกรมหลังจาก:';";
 $trans["admin_settingsmonths"]                 = "\$text = 'เดือน';";
+$trans["days"]                                              = "\$text = 'วัน';";
 $trans["admin_settingsBlockCheckouts"]                 = "\$text = 'มีค่าปรับไม่สามารถยืมออกได้:';";
 $trans["admin_settingsLocale"]                 = "\$text = 'ภาษา:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'ชุดอักขระ HTML:';";
 $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'ค่าภาษาในแท็ก HTML:';";
-$trans["admin_settingsFontNormal"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ทั่วไป):';";
-$trans["admin_settingsFontBold"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวหนา):';";
-$trans["admin_settingsFontOblique"]                  = "\$text = 'Fonts สำหรับพิมพ์เอกสาร (ตัวเอียง):';";
+$trans["admin_settingsFontNormal"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ทั่วไป):';";
+$trans["admin_settingsFontBold"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ตัวหนา):';";
+$trans["admin_settingsFontOblique"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ตัวเอียง):';";
 $trans["Max. hold length:"]                              = "\$text = 'ระยะเวลาสูงสุดในการจอง:';";
 $trans["Add new member classificaiton"]       = "\$text = 'เพิ่มกลุ่มสมาชิก';";
 

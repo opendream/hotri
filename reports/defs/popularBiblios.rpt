@@ -1,16 +1,16 @@
 .title popularBiblios
 .category Circulation
 .column bibid hidden
-.column barcode_nmbr sort=barcode_nmbr
-.column title sort=title func=biblio_link
-.column author sort=author
-.column checkoutCount sort=checkoutCount
+.column barcode_nmbr sort=barcode_nmbr title="Barcode"
+.column title sort=title func=biblio_link title="Title"
+.column author sort=author title="Author"
+.column checkoutCount sort=checkoutCount title="checkoutCount"
 .parameters
 .	order_by
 .		item barcode_nmbr title="Barcode"
 .		item title title="Title"
 .		item author title="Author"
-.		item checkoutCount type=numeric "Checkout Count"
+.		item checkoutCount type=numeric title="checkoutCount"
 .	end order_by
 .end parameters
 .sql

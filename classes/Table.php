@@ -26,6 +26,7 @@ class Table {
     $this->_params = array_merge($this->_params, $params);
   }
   function start() {
+    global $loc;
     $echolink = $this->_echolink;
     $this->_rown=1;
     echo "<table class='results'>\n";
@@ -56,6 +57,10 @@ class Table {
       if (!isset($col['title']) or !$col['title']) {
         $col['title'] = $col['name'];
       }
+      if (get_class($loc) == 'Localize') {
+        $col['title'] = $loc->getText($col['title']);
+      }
+      
       echo '<td valign="middle" align="center" class="primary">';
       echo '<font class="small"><b>'.$col['title'].'</b></font>';
       if (isset($col['sort']) and $col['sort'] and $echolink) {

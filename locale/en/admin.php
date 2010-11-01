@@ -201,6 +201,7 @@ $trans["admin_settingsSearchResults"]                 = "\$text = 'Search Result
 $trans["admin_settingsItemsperpage"]                 = "\$text = 'items per page';";
 $trans["admin_settingsPurgebibhistory"]                 = "\$text = 'Purge Bibliography History After:';";
 $trans["admin_settingsmonths"]                 = "\$text = 'months';";
+$trans["days"]                                                 = "\$text = 'days';";
 $trans["admin_settingsBlockCheckouts"]                 = "\$text = 'Block Checkouts When Fines Due:';";
 $trans["admin_settingsLocale"]                 = "\$text = 'Locale:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'HTML Charset:';";

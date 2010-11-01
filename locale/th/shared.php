@@ -34,6 +34,7 @@
  **********************************************************************************
  */
 
+setlocale(LC_MONETARY, 'th_TH.UTF-8'); // For change currency symbol
 #****************************************************************************
 #*  Common translation text shared among multiple pages
 #****************************************************************************
@@ -186,10 +187,10 @@ $trans["headerReports"]            = "\$text='รายงาน';";
 $trans["footerLibraryHome"]        = "\$text='	หน้าหลักห้องสมุด';";
 $trans["footerOPAC"]               = "\$text='สืบค้น';";
 $trans["footerHelp"]               = "\$text='แนะนำการใช้งาน';";
-$trans["footerPoweredBy"]          = "\$text='พัฒนาเพิ่มเติมโดย นายประสิทธิชัย เลิศรัตนเคหกาล จาก OpenBiblio version';";
-$trans["footerDatabaseVersion"]    = "\$text='database version';";
-$trans["footerCopyright"]          = "\$text='Copyright';";
-$trans["footerUnderThe"]           = "\$text='under the';";
+$trans["footerPoweredBy"]          = "\$text='พัฒนาเพิ่มเติมโดย นายประสิทธิชัย เลิศรัตนเคหกาล จาก OpenBiblio รุ่น';";
+$trans["footerDatabaseVersion"]    = "\$text='เลขรุ่นฐานข้อมูล';";
+$trans["footerCopyright"]          = "\$text='สงวนลิขสิทธิ์';";
+$trans["footerUnderThe"]           = "\$text='ซอร์สโค้ดอยู่ภายใต้ลิขสิทธิ์';";
 $trans["footerGPL"]                = "\$text='GNU General Public License';";
 
 ?>
