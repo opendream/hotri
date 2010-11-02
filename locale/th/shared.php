@@ -70,7 +70,7 @@ $trans["biblioViewPictureHeader"]  = "\$text = 'Bibliograhy Picture';";
 #****************************************************************************
 #*  Translation text for page biblio_search.php
 #****************************************************************************
-$trans["biblioSearchNoResults"]    = "\$text = 'ไม่พบคำที่ต้องการค้น';";
+$trans["biblioSearchNoResults"]    = "\$text = 'ไม่พบผลลัพธ์จากเงื่อนไขที่ใช้ค้นหา';";
 $trans["biblioSearchResults"]      = "\$text = 'ผลการสืบค้น';";
 $trans["biblioSearchResultPages"]  = "\$text = 'หน้าผลสืบค้น';";
 $trans["biblioSearchFirst"]        = "\$text = 'หน้าแรก';";
