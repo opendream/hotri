@@ -41,6 +41,7 @@
   #**************************************************************************
   unset($_SESSION["postVars"]);
   unset($_SESSION["pageErrors"]);
+  unset($_SESSION["active_theme"]);
 
   header("Location: ../admin/theme_list.php");
 ?>

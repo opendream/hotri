@@ -17,6 +17,8 @@ function get_active_theme() {
   // Check theme directory existence.
   $theme = "../themes/". $theme_name;
   if (file_exists($theme) && file_exists($theme ."/style.css")) {
-    $_SESSION["active_theme"] = $theme_name;
+    return $theme_name;
+  } else {
+    return "";
   }
 }

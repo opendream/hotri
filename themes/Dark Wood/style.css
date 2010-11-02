@@ -8,14 +8,14 @@ td.nav li {
 }
 
 td.nav li:hover {
-	background-color: #fff;
+	background-color: #999080;
 }
 
 	td.nav li a:hover {
 		text-decoration: none;
 	}
 	td.nav li a:link, td.nav li a:visited {
-		color: #4F4E57;
+		color: #FFFF99;
 	}
 	td.nav li.active {
 		color: #f03030;
