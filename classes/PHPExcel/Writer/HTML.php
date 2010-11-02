@@ -634,6 +634,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 					$column = PHPExcel_Cell::columnIndexFromString($columnDimension->getColumnIndex()) - 1;
 					$this->_columnWidths[$sheetIndex][$column] = $width;
 					$css['table.sheet' . $sheetIndex . ' col.col' . $column]['width'] = $width . 'pt';
+					$css['table.sheet' . $sheetIndex . ' col.col' . $column]['word-wrap'] = 'break-word';
 
 					if ($columnDimension->getVisible() === false) {
 						$css['table.sheet' . $sheetIndex . ' col.col' . $column]['visibility'] = 'collapse';

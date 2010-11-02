@@ -81,8 +81,14 @@
         
         // Implemented font files
         if ($f[1] == 'php') {
-          $options .= "<option value=\"{$f[0]}\" " . ($f[0] == $postVars[$name] ? 'selected="selected"' : '') . ">{$f[0]}</option>\n";
+          $opts[] = $f[0];
         }
+      }
+      
+      sort($opts);
+      
+      foreach ($opts as $val) {
+        $options .= "<option value=\"{$val}\" " . ($val == $postVars[$name] ? 'selected="selected"' : '') . ">{$val}</option>\n";
       }
     }
     else {

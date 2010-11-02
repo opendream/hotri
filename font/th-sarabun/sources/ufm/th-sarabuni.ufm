@@ -1,0 +1,1986 @@
+StartFontMetrics 4.1
+FontName THSarabunPSK-Italic
+FullName TH SarabunPSK Italic
+Notice Copyright [c] 2006 by Department of Intellectual Property [DIP], Ministry of Commerce and Software Industry Promotion Agency [P
+EncodingScheme FontSpecific
+FamilyName TH SarabunPSK
+Weight Italic
+Version Version 1.1  2006
+Characters 510
+ItalicAngle -11.9
+Ascender 850
+Descender -250
+UnderlineThickness 30
+UnderlinePosition -35
+IsFixedPitch false
+FontBBox -374 -435 947 836
+StartCharMetrics 548
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 32 ; WX 216 ; N space ; G 496 ; B 29 -6 397 546 ;
+U 33 ; WX 147 ; N exclam ; G 2 ; B -2 -6 153 475 ;
+U 34 ; WX 208 ; N quotedbl ; G 3 ; B 75 338 234 499 ;
+U 35 ; WX 403 ; N numbersign ; G 4 ; B 15 0 402 475 ;
+U 36 ; WX 361 ; N dollar ; G 5 ; B 19 -58 343 536 ;
+U 37 ; WX 585 ; N percent ; G 6 ; B 31 -9 566 476 ;
+U 38 ; WX 423 ; N ampersand ; G 7 ; B -9 -9 424 493 ;
+U 39 ; WX 120 ; N quotesingle ; G 8 ; B 75 338 146 499 ;
+U 40 ; WX 190 ; N parenleft ; G 9 ; B -9 -58 240 532 ;
+U 41 ; WX 190 ; N parenright ; G 10 ; B -35 -58 212 532 ;
+U 42 ; WX 285 ; N asterisk ; G 11 ; B 50 258 307 494 ;
+U 43 ; WX 411 ; N plus ; G 12 ; B 30 0 372 357 ;
+U 44 ; WX 162 ; N comma ; G 13 ; B -32 -109 89 68 ;
+U 45 ; WX 216 ; N hyphen ; G 14 ; B 5 165 193 198 ;
+U 46 ; WX 162 ; N period ; G 15 ; B 5 -6 80 63 ;
+U 47 ; WX 270 ; N slash ; G 16 ; B -67 -29 339 493 ;
+U 48 ; WX 362 ; N zero ; G 17 ; B 18 -11 356 479 ;
+U 49 ; WX 362 ; N one ; G 18 ; B 54 0 270 478 ;
+U 50 ; WX 362 ; N two ; G 19 ; B -17 0 366 478 ;
+U 51 ; WX 362 ; N three ; G 20 ; B -3 -13 336 478 ;
+U 52 ; WX 362 ; N four ; G 21 ; B 12 0 334 488 ;
+U 53 ; WX 362 ; N five ; G 22 ; B -12 -8 360 475 ;
+U 54 ; WX 362 ; N six ; G 23 ; B 14 -8 349 484 ;
+U 55 ; WX 362 ; N seven ; G 24 ; B 82 0 386 475 ;
+U 56 ; WX 362 ; N eight ; G 25 ; B 3 -8 357 479 ;
+U 57 ; WX 362 ; N nine ; G 26 ; B 24 -12 359 480 ;
+U 58 ; WX 162 ; N colon ; G 27 ; B 5 -6 135 318 ;
+U 59 ; WX 162 ; N semicolon ; G 28 ; B -32 -109 135 318 ;
+U 60 ; WX 411 ; N less ; G 29 ; B 37 -2 403 377 ;
+U 61 ; WX 411 ; N equal ; G 30 ; B 33 102 369 265 ;
+U 62 ; WX 411 ; N greater ; G 31 ; B 0 -2 365 377 ;
+U 63 ; WX 283 ; N question ; G 32 ; B 44 -6 293 483 ;
+U 64 ; WX 536 ; N at ; G 33 ; B -13 -97 524 394 ;
+U 65 ; WX 400 ; N A ; G 34 ; B -43 0 357 483 ;
+U 66 ; WX 378 ; N B ; G 35 ; B 11 -6 386 482 ;
+U 67 ; WX 406 ; N C ; G 36 ; B 8 -7 433 483 ;
+U 68 ; WX 431 ; N D ; G 37 ; B 12 -4 434 481 ;
+U 69 ; WX 351 ; N E ; G 38 ; B 11 0 371 476 ;
+U 70 ; WX 351 ; N F ; G 39 ; B 11 0 381 476 ;
+U 71 ; WX 425 ; N G ; G 40 ; B 7 -5 423 481 ;
+U 72 ; WX 441 ; N H ; G 41 ; B 11 0 445 476 ;
+U 73 ; WX 147 ; N I ; G 42 ; B 11 0 151 476 ;
+U 74 ; WX 264 ; N J ; G 43 ; B -42 -9 268 476 ;
+U 75 ; WX 376 ; N K ; G 44 ; B 11 -5 426 482 ;
+U 76 ; WX 353 ; N L ; G 45 ; B 11 0 291 476 ;
+U 77 ; WX 548 ; N M ; G 46 ; B -3 0 533 476 ;
+U 78 ; WX 441 ; N N ; G 47 ; B 11 0 445 476 ;
+U 79 ; WX 486 ; N O ; G 48 ; B 6 -10 494 484 ;
+U 80 ; WX 378 ; N P ; G 49 ; B 11 0 389 481 ;
+U 81 ; WX 487 ; N Q ; G 50 ; B 6 -67 494 484 ;
+U 82 ; WX 379 ; N R ; G 51 ; B 11 0 390 481 ;
+U 83 ; WX 352 ; N S ; G 52 ; B -10 -9 354 485 ;
+U 84 ; WX 379 ; N T ; G 53 ; B 46 0 442 476 ;
+U 85 ; WX 466 ; N U ; G 54 ; B 9 -9 470 476 ;
+U 86 ; WX 390 ; N V ; G 55 ; B 58 0 448 476 ;
+U 87 ; WX 588 ; N W ; G 56 ; B 58 0 646 476 ;
+U 88 ; WX 418 ; N X ; G 57 ; B -26 0 452 476 ;
+U 89 ; WX 366 ; N Y ; G 58 ; B 58 0 424 476 ;
+U 90 ; WX 424 ; N Z ; G 59 ; B -21 0 453 476 ;
+U 91 ; WX 196 ; N bracketleft ; G 60 ; B -7 -78 249 506 ;
+U 92 ; WX 262 ; N backslash ; G 61 ; B 50 -28 230 483 ;
+U 93 ; WX 196 ; N bracketright ; G 62 ; B -48 -78 209 506 ;
+U 94 ; WX 412 ; N asciicircum ; G 63 ; B 33 159 357 480 ;
+U 95 ; WX 352 ; N underscore ; G 64 ; B -81 -183 276 -152 ;
+U 96 ; WX 204 ; N grave ; G 65 ; B 116 390 187 481 ;
+U 97 ; WX 398 ; N a ; G 66 ; B 16 -10 370 347 ;
+U 98 ; WX 401 ; N b ; G 67 ; B 34 -9 382 505 ;
+U 99 ; WX 331 ; N c ; G 68 ; B 2 -9 337 347 ;
+U 100 ; WX 401 ; N d ; G 69 ; B 4 -9 413 505 ;
+U 101 ; WX 374 ; N e ; G 70 ; B 13 -9 344 347 ;
+U 102 ; WX 206 ; N f ; G 71 ; B -150 -156 303 513 ;
+U 103 ; WX 311 ; N g ; G 72 ; B -16 -157 312 341 ;
+U 104 ; WX 390 ; N h ; G 73 ; B 9 -7 368 505 ;
+U 105 ; WX 143 ; N i ; G 74 ; B 9 0 156 475 ;
+U 106 ; WX 155 ; N j ; G 75 ; B -112 -148 168 475 ;
+U 107 ; WX 316 ; N k ; G 76 ; B 9 -10 328 505 ;
+U 108 ; WX 200 ; N l ; G 77 ; B 8 -7 155 505 ;
+U 109 ; WX 601 ; N m ; G 78 ; B 9 -7 561 347 ;
+U 110 ; WX 390 ; N n ; G 79 ; B 9 -7 368 347 ;
+U 111 ; WX 398 ; N o ; G 80 ; B 4 -10 378 347 ;
+U 112 ; WX 401 ; N p ; G 81 ; B -26 -167 382 347 ;
+U 113 ; WX 401 ; N q ; G 82 ; B 16 -168 373 347 ;
+U 114 ; WX 217 ; N r ; G 83 ; B 9 0 238 347 ;
+U 115 ; WX 282 ; N s ; G 84 ; B -10 -9 263 347 ;
+U 116 ; WX 238 ; N t ; G 85 ; B 28 -9 251 459 ;
+U 117 ; WX 390 ; N u ; G 86 ; B 7 -9 367 346 ;
+U 118 ; WX 341 ; N v ; G 87 ; B 32 0 367 340 ;
+U 119 ; WX 507 ; N w ; G 88 ; B 32 0 536 340 ;
+U 120 ; WX 318 ; N x ; G 89 ; B -43 0 340 340 ;
+U 121 ; WX 337 ; N y ; G 90 ; B -51 -156 363 340 ;
+U 122 ; WX 321 ; N z ; G 91 ; B -28 0 333 340 ;
+U 123 ; WX 208 ; N braceleft ; G 92 ; B 1 -77 239 483 ;
+U 124 ; WX 153 ; N bar ; G 93 ; B -19 -174 162 528 ;
+U 125 ; WX 208 ; N braceright ; G 94 ; B -31 -77 206 483 ;
+U 126 ; WX 416 ; N asciitilde ; G 95 ; B 15 151 398 249 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 8364 ; WX 406 ; N Euro ; G 323 ; B -11 -7 433 483 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 8218 ; WX 247 ; N quotesinglbase ; G 309 ; B 10 -111 135 70 ;
+U 402 ; WX 398 ; N florin ; G 204 ; B -71 -72 460 462 ;
+U 8222 ; WX 370 ; N quotedblbase ; G 312 ; B 15 -111 256 70 ;
+U 8230 ; WX 479 ; N ellipsis ; G 316 ; B 5 -6 399 63 ;
+U 8224 ; WX 374 ; N dagger ; G 313 ; B 57 -34 360 474 ;
+U 8225 ; WX 374 ; N daggerdbl ; G 314 ; B 19 -34 360 474 ;
+U 710 ; WX 212 ; N circumflex ; G 205 ; B 92 392 258 470 ;
+U 8240 ; WX 829 ; N perthousand ; G 317 ; B 31 -9 810 476 ;
+U 352 ; WX 352 ; N Scaron ; G 199 ; B -10 -9 354 598 ;
+U 8249 ; WX 183 ; N guilsinglleft ; G 320 ; B 5 48 185 309 ;
+U 338 ; WX 711 ; N OE ; G 197 ; B 6 -10 731 484 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 142 ; WX 424 ; N Zcaron ; G 202 ; B -21 0 453 598 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 8216 ; WX 247 ; N quoteleft ; G 307 ; B 105 334 230 515 ;
+U 8217 ; WX 247 ; N quoteright ; G 308 ; B 102 322 227 503 ;
+U 8220 ; WX 370 ; N quotedblleft ; G 310 ; B 110 334 351 515 ;
+U 8221 ; WX 370 ; N quotedblright ; G 311 ; B 107 322 348 503 ;
+U 8226 ; WX 216 ; N bullet ; G 315 ; B 24 116 192 284 ;
+U 8211 ; WX 360 ; N endash ; G 305 ; B 13 165 337 198 ;
+U 8212 ; WX 720 ; N emdash ; G 306 ; B 14 165 694 198 ;
+U 732 ; WX 212 ; N tilde ; G 211 ; B 63 391 247 457 ;
+U 8482 ; WX 563 ; N trademark ; G 325 ; B 72 242 546 492 ;
+U 353 ; WX 282 ; N scaron ; G 200 ; B -10 -9 279 462 ;
+U 8250 ; WX 183 ; N guilsinglright ; G 321 ; B -13 48 166 309 ;
+U 339 ; WX 679 ; N oe ; G 198 ; B 4 -10 675 347 ;
+U -1 ; WX 692 ; N .notdef ; G 0 ; B 50 0 642 809 ;
+U 158 ; WX 321 ; N zcaron ; G 203 ; B -28 0 333 462 ;
+U 376 ; WX 382 ; N Ydieresis ; G 201 ; B 65 0 431 586 ;
+U 160 ; WX 216 ; N .null ; G 1 ; B -2 -6 153 475 ;
+U 161 ; WX 151 ; N exclamdown ; G 100 ; B -25 -140 136 341 ;
+U 162 ; WX 411 ; N cent ; G 101 ; B 18 -59 424 542 ;
+U 163 ; WX 411 ; N sterling ; G 102 ; B 14 0 387 461 ;
+U 164 ; WX 411 ; N currency ; G 103 ; B -5 43 426 410 ;
+U 165 ; WX 411 ; N yen ; G 104 ; B 44 19 431 459 ;
+U 166 ; WX 153 ; N brokenbar ; G 105 ; B -9 -123 150 475 ;
+U 167 ; WX 374 ; N section ; G 106 ; B 27 -39 347 479 ;
+U 168 ; WX 212 ; N dieresis ; G 107 ; B 86 392 277 453 ;
+U 169 ; WX 536 ; N copyright ; G 108 ; B 40 -3 526 483 ;
+U 170 ; WX 272 ; N ordfeminine ; G 109 ; B 32 241 274 478 ;
+U 171 ; WX 298 ; N guillemotleft ; G 110 ; B 5 48 296 309 ;
+U 172 ; WX 420 ; N logicalnot ; G 111 ; B 43 91 407 272 ;
+U 45 ; WX 216 ; N hyphen ; G 14 ; B 5 165 193 198 ;
+U 174 ; WX 536 ; N registered ; G 112 ; B 40 -3 526 483 ;
+U 175 ; WX 352 ; N macron ; G 113 ; B 69 528 427 559 ;
+U 176 ; WX 212 ; N degree ; G 114 ; B 53 312 239 483 ;
+U 177 ; WX 411 ; N plusminus ; G 115 ; B -5 0 379 357 ;
+U 178 ; WX 254 ; N twosuperior ; G 116 ; B 23 196 256 481 ;
+U 179 ; WX 254 ; N threesuperior ; G 117 ; B 37 195 253 482 ;
+U 180 ; WX 212 ; N acute ; G 118 ; B 123 528 242 619 ;
+U 181 ; WX 406 ; N mu ; G 119 ; B -15 -140 380 340 ;
+U 182 ; WX 374 ; N paragraph ; G 120 ; B 56 -63 377 475 ;
+U 183 ; WX 162 ; N periodcentered ; G 121 ; B 38 147 113 216 ;
+U 184 ; WX 212 ; N cedilla ; G 122 ; B -34 -139 100 4 ;
+U 185 ; WX 254 ; N onesuperior ; G 123 ; B 71 201 210 484 ;
+U 186 ; WX 285 ; N ordmasculine ; G 124 ; B 42 238 308 483 ;
+U 187 ; WX 294 ; N guillemotright ; G 125 ; B -13 48 277 309 ;
+U 188 ; WX 536 ; N onequarter ; G 126 ; B 39 -9 486 467 ;
+U 189 ; WX 536 ; N onehalf ; G 127 ; B 39 -9 516 467 ;
+U 190 ; WX 536 ; N threequarters ; G 128 ; B 35 -9 486 470 ;
+U 191 ; WX 289 ; N questiondown ; G 129 ; B -28 -153 222 341 ;
+U 192 ; WX 400 ; N Agrave ; G 130 ; B -43 0 357 617 ;
+U 193 ; WX 400 ; N Aacute ; G 131 ; B -43 0 357 617 ;
+U 194 ; WX 400 ; N Acircumflex ; G 132 ; B -43 0 357 606 ;
+U 195 ; WX 400 ; N Atilde ; G 133 ; B -43 0 366 590 ;
+U 196 ; WX 400 ; N Adieresis ; G 134 ; B -43 0 370 589 ;
+U 197 ; WX 400 ; N Aring ; G 135 ; B -43 0 359 651 ;
+U 198 ; WX 582 ; N AE ; G 136 ; B -50 0 590 476 ;
+U 199 ; WX 406 ; N Ccedilla ; G 137 ; B 8 -139 433 483 ;
+U 200 ; WX 351 ; N Egrave ; G 138 ; B 11 0 371 617 ;
+U 201 ; WX 351 ; N Eacute ; G 139 ; B 11 0 371 617 ;
+U 202 ; WX 351 ; N Ecircumflex ; G 140 ; B 11 0 371 606 ;
+U 203 ; WX 351 ; N Edieresis ; G 141 ; B 11 0 371 589 ;
+U 204 ; WX 147 ; N Igrave ; G 142 ; B 11 0 186 617 ;
+U 205 ; WX 147 ; N Iacute ; G 143 ; B 11 0 204 617 ;
+U 206 ; WX 147 ; N Icircumflex ; G 144 ; B 11 0 227 606 ;
+U 207 ; WX 147 ; N Idieresis ; G 145 ; B 11 0 245 589 ;
+U 208 ; WX 431 ; N Eth ; G 146 ; B 7 -4 434 481 ;
+U 209 ; WX 441 ; N Ntilde ; G 147 ; B 11 0 445 590 ;
+U 210 ; WX 486 ; N Ograve ; G 148 ; B 6 -10 494 617 ;
+U 211 ; WX 486 ; N Oacute ; G 149 ; B 6 -10 494 617 ;
+U 212 ; WX 486 ; N Ocircumflex ; G 150 ; B 6 -10 494 606 ;
+U 213 ; WX 486 ; N Otilde ; G 151 ; B 6 -10 494 590 ;
+U 214 ; WX 486 ; N Odieresis ; G 152 ; B 6 -10 494 589 ;
+U 215 ; WX 411 ; N multiply ; G 153 ; B 11 11 386 337 ;
+U 216 ; WX 486 ; N Oslash ; G 154 ; B 6 -29 494 493 ;
+U 217 ; WX 466 ; N Ugrave ; G 155 ; B 9 -9 470 617 ;
+U 218 ; WX 466 ; N Uacute ; G 156 ; B 9 -9 470 617 ;
+U 219 ; WX 466 ; N Ucircumflex ; G 157 ; B 9 -9 470 606 ;
+U 220 ; WX 466 ; N Udieresis ; G 158 ; B 9 -9 470 589 ;
+U 221 ; WX 366 ; N Yacute ; G 159 ; B 58 0 424 617 ;
+U 222 ; WX 380 ; N Thorn ; G 160 ; B 17 0 376 476 ;
+U 223 ; WX 392 ; N germandbls ; G 161 ; B -31 -148 370 487 ;
+U 224 ; WX 398 ; N agrave ; G 162 ; B 16 -10 370 481 ;
+U 225 ; WX 398 ; N aacute ; G 163 ; B 16 -10 370 481 ;
+U 226 ; WX 398 ; N acircumflex ; G 164 ; B 16 -10 370 470 ;
+U 227 ; WX 398 ; N atilde ; G 165 ; B 16 -10 370 454 ;
+U 228 ; WX 398 ; N adieresis ; G 166 ; B 16 -10 371 453 ;
+U 229 ; WX 398 ; N aring ; G 167 ; B 16 -10 370 515 ;
+U 230 ; WX 608 ; N ae ; G 168 ; B -8 -9 596 347 ;
+U 231 ; WX 331 ; N ccedilla ; G 169 ; B 2 -126 337 347 ;
+U 232 ; WX 374 ; N egrave ; G 170 ; B 13 -9 344 481 ;
+U 233 ; WX 374 ; N eacute ; G 171 ; B 13 -9 344 481 ;
+U 234 ; WX 374 ; N ecircumflex ; G 172 ; B 13 -9 344 470 ;
+U 235 ; WX 374 ; N edieresis ; G 173 ; B 13 -9 344 453 ;
+U 236 ; WX 143 ; N igrave ; G 174 ; B 9 0 155 481 ;
+U 237 ; WX 143 ; N iacute ; G 175 ; B 9 0 173 481 ;
+U 238 ; WX 143 ; N icircumflex ; G 176 ; B 9 0 196 470 ;
+U 239 ; WX 143 ; N idieresis ; G 177 ; B 9 0 214 453 ;
+U 240 ; WX 362 ; N eth ; G 178 ; B 11 -12 339 480 ;
+U 241 ; WX 390 ; N ntilde ; G 179 ; B 9 -7 368 454 ;
+U 242 ; WX 398 ; N ograve ; G 180 ; B 4 -10 378 481 ;
+U 243 ; WX 398 ; N oacute ; G 181 ; B 4 -10 378 481 ;
+U 244 ; WX 398 ; N ocircumflex ; G 182 ; B 4 -10 378 470 ;
+U 245 ; WX 398 ; N otilde ; G 183 ; B 4 -10 378 454 ;
+U 246 ; WX 398 ; N odieresis ; G 184 ; B 4 -10 378 453 ;
+U 247 ; WX 411 ; N divide ; G 185 ; B 30 25 372 336 ;
+U 248 ; WX 398 ; N oslash ; G 186 ; B 1 -29 384 383 ;
+U 249 ; WX 390 ; N ugrave ; G 187 ; B 7 -9 367 481 ;
+U 250 ; WX 390 ; N uacute ; G 188 ; B 7 -9 367 481 ;
+U 251 ; WX 390 ; N ucircumflex ; G 189 ; B 7 -9 367 470 ;
+U 252 ; WX 390 ; N udieresis ; G 190 ; B 7 -9 367 453 ;
+U 253 ; WX 337 ; N yacute ; G 191 ; B -51 -156 363 481 ;
+U 254 ; WX 432 ; N thorn ; G 192 ; B -11 -140 410 470 ;
+U 255 ; WX 337 ; N ydieresis ; G 193 ; B -51 -156 363 453 ;
+U -1 ; WX 316 ; N uni0E33.alt1 ; G 96 ; B -238 -37 290 615 ;
+U -1 ; WX 0 ; N .null ; G 97 ; B -25 -140 136 341 ;
+U -1 ; WX 216 ; N nonmarkingreturn ; G 98 ; B -25 -140 136 341 ;
+U -1 ; WX 216 ; N CR ; G 99 ; B -25 -140 136 341 ;
+U 305 ; WX 143 ; N dotlessi ; G 194 ; B 9 0 119 340 ;
+U 321 ; WX 361 ; N Lslash ; G 195 ; B 17 0 338 476 ;
+U 322 ; WX 209 ; N lslash ; G 196 ; B 16 -7 194 505 ;
+U 711 ; WX 212 ; N caron ; G 206 ; B 78 384 244 462 ;
+U 728 ; WX 302 ; N breve ; G 207 ; B 142 385 321 453 ;
+U 729 ; WX 302 ; N dotaccent ; G 208 ; B 185 507 259 575 ;
+U 730 ; WX 302 ; N ring ; G 209 ; B 155 368 314 515 ;
+U 731 ; WX 302 ; N ogonek ; G 210 ; B 12 -158 151 4 ;
+U 733 ; WX 279 ; N hungarumlaut ; G 212 ; B 69 330 296 491 ;
+U 3584 ; WX 0 ; N uni0E00 ; G 213 ; B 17 -37 356 400 ;
+U 3585 ; WX 386 ; N uni0E01 ; G 214 ; B 17 -37 356 400 ;
+U 3586 ; WX 378 ; N uni0E02 ; G 215 ; B 30 -8 378 427 ;
+U 3587 ; WX 382 ; N uni0E03 ; G 216 ; B 22 -8 382 427 ;
+U 3588 ; WX 393 ; N uni0E04 ; G 217 ; B 22 -37 365 400 ;
+U 3589 ; WX 393 ; N uni0E05 ; G 218 ; B 24 -37 373 402 ;
+U 3590 ; WX 408 ; N uni0E06 ; G 219 ; B 22 -8 408 427 ;
+U 3591 ; WX 294 ; N uni0E07 ; G 220 ; B 23 0 271 400 ;
+U 3592 ; WX 367 ; N uni0E08 ; G 221 ; B 43 -9 353 400 ;
+U 3593 ; WX 377 ; N uni0E09 ; G 222 ; B 19 -7 351 400 ;
+U 3594 ; WX 380 ; N uni0E0A ; G 223 ; B 30 -8 419 427 ;
+U 3595 ; WX 384 ; N uni0E0B ; G 224 ; B 22 -8 423 427 ;
+U 3596 ; WX 519 ; N uni0E0C ; G 225 ; B 13 -9 519 427 ;
+U 3597 ; WX 519 ; N uni0E0D ; G 226 ; B 19 -171 519 427 ;
+U 3598 ; WX 425 ; N uni0E0E ; G 227 ; B -12 -219 395 400 ;
+U 3599 ; WX 425 ; N uni0E0F ; G 228 ; B -34 -220 395 400 ;
+U 3600 ; WX 343 ; N uni0E10 ; G 229 ; B -103 -220 373 427 ;
+U 3601 ; WX 461 ; N uni0E11 ; G 230 ; B 22 -37 447 401 ;
+U 3602 ; WX 532 ; N uni0E12 ; G 231 ; B 31 -8 532 427 ;
+U 3603 ; WX 543 ; N uni0E13 ; G 232 ; B 20 -10 543 427 ;
+U 3604 ; WX 391 ; N uni0E14 ; G 233 ; B 22 -37 361 400 ;
+U 3605 ; WX 391 ; N uni0E15 ; G 234 ; B 23 -37 358 400 ;
+U 3606 ; WX 378 ; N uni0E16 ; G 235 ; B 16 -37 348 400 ;
+U 3607 ; WX 430 ; N uni0E17 ; G 236 ; B 39 -37 416 400 ;
+U 3608 ; WX 335 ; N uni0E18 ; G 237 ; B 12 -7 352 427 ;
+U 3609 ; WX 420 ; N uni0E19 ; G 238 ; B 39 -8 420 427 ;
+U 3610 ; WX 428 ; N uni0E1A ; G 239 ; B 39 -8 428 427 ;
+U 3611 ; WX 428 ; N uni0E1B ; G 240 ; B 39 -8 459 577 ;
+U 3612 ; WX 381 ; N uni0E1C ; G 241 ; B -3 0 381 427 ;
+U 3613 ; WX 381 ; N uni0E1D ; G 242 ; B -3 0 412 577 ;
+U 3614 ; WX 447 ; N uni0E1E ; G 243 ; B 39 0 447 427 ;
+U 3615 ; WX 447 ; N uni0E1F ; G 244 ; B 39 0 478 577 ;
+U 3616 ; WX 425 ; N uni0E20 ; G 245 ; B -12 -38 395 400 ;
+U 3617 ; WX 400 ; N uni0E21 ; G 246 ; B -13 -8 400 427 ;
+U 3618 ; WX 375 ; N uni0E22 ; G 247 ; B 3 -8 375 427 ;
+U 3619 ; WX 322 ; N uni0E23 ; G 248 ; B 44 -8 341 427 ;
+U 3620 ; WX 378 ; N uni0E24 ; G 249 ; B 16 -233 348 400 ;
+U 3621 ; WX 381 ; N uni0E25 ; G 250 ; B 17 -18 346 400 ;
+U 3622 ; WX 425 ; N uni0E26 ; G 251 ; B -12 -233 395 400 ;
+U 3623 ; WX 335 ; N uni0E27 ; G 252 ; B 29 -8 308 400 ;
+U 3624 ; WX 393 ; N uni0E28 ; G 253 ; B 22 -37 419 427 ;
+U 3625 ; WX 438 ; N uni0E29 ; G 254 ; B 39 -8 450 427 ;
+U 3626 ; WX 381 ; N uni0E2A ; G 255 ; B 17 -18 419 427 ;
+U 3627 ; WX 427 ; N uni0E2B ; G 256 ; B 39 -37 421 400 ;
+U 3628 ; WX 454 ; N uni0E2C ; G 257 ; B 39 0 502 427 ;
+U 3629 ; WX 387 ; N uni0E2D ; G 258 ; B 20 -8 360 400 ;
+U 3630 ; WX 372 ; N uni0E2E ; G 259 ; B 3 -8 404 427 ;
+U 3631 ; WX 391 ; N uni0E2F ; G 260 ; B 75 -37 373 400 ;
+U 3632 ; WX 357 ; N uni0E30 ; G 261 ; B 0 15 341 382 ;
+U 3633 ; WX 0 ; N uni0E31 ; G 262 ; B -169 464 137 619 ;
+U 3634 ; WX 316 ; N uni0E32 ; G 263 ; B 43 -37 290 400 ;
+U 3635 ; WX 316 ; N uni0E33 ; G 264 ; B -97 -37 290 615 ;
+U 3636 ; WX 0 ; N uni0E34 ; G 265 ; B -283 455 9 603 ;
+U 3637 ; WX 0 ; N uni0E35 ; G 266 ; B -283 455 38 647 ;
+U 3638 ; WX 0 ; N uni0E36 ; G 267 ; B -283 455 64 642 ;
+U 3639 ; WX 0 ; N uni0E37 ; G 268 ; B -283 455 38 647 ;
+U 3640 ; WX 0 ; N uni0E38 ; G 269 ; B -233 -260 -117 -58 ;
+U 3641 ; WX 0 ; N uni0E39 ; G 270 ; B -338 -255 -102 -54 ;
+U 3642 ; WX 0 ; N uni0E3A ; G 271 ; B -182 -123 -124 -70 ;
+U 3647 ; WX 411 ; N uni0E3F ; G 272 ; B 38 -59 367 523 ;
+U 3648 ; WX 203 ; N uni0E40 ; G 273 ; B 17 -6 164 427 ;
+U 3649 ; WX 377 ; N uni0E41 ; G 274 ; B 17 -6 337 427 ;
+U 3650 ; WX 237 ; N uni0E42 ; G 275 ; B 36 -8 297 651 ;
+U 3651 ; WX 242 ; N uni0E43 ; G 276 ; B 27 -8 245 657 ;
+U 3652 ; WX 244 ; N uni0E44 ; G 277 ; B 53 -8 220 665 ;
+U 3653 ; WX 205 ; N uni0E45 ; G 278 ; B -67 -233 179 400 ;
+U 3654 ; WX 399 ; N uni0E46 ; G 279 ; B 72 -208 371 413 ;
+U 3655 ; WX 0 ; N uni0E47 ; G 280 ; B -231 460 48 688 ;
+U 3656 ; WX 0 ; N uni0E48 ; G 281 ; B 12 680 69 791 ;
+U 3657 ; WX 0 ; N uni0E49 ; G 282 ; B -82 677 174 836 ;
+U 3658 ; WX 0 ; N uni0E4A ; G 283 ; B -192 675 99 833 ;
+U 3659 ; WX 0 ; N uni0E4B ; G 284 ; B -31 680 111 790 ;
+U 3660 ; WX 0 ; N uni0E4C ; G 285 ; B -80 630 117 807 ;
+U 3661 ; WX 0 ; N uni0E4D ; G 286 ; B -97 462 69 615 ;
+U 3662 ; WX 0 ; N uni0E4E ; G 287 ; B -136 463 67 671 ;
+U 3663 ; WX 450 ; N uni0E4F ; G 288 ; B 32 -6 400 332 ;
+U 3664 ; WX 449 ; N uni0E50 ; G 289 ; B 12 -7 412 295 ;
+U 3665 ; WX 449 ; N uni0E51 ; G 290 ; B 9 -19 411 294 ;
+U 3666 ; WX 449 ; N uni0E52 ; G 291 ; B -3 -12 418 460 ;
+U 3667 ; WX 449 ; N uni0E53 ; G 292 ; B 6 -2 422 294 ;
+U 3668 ; WX 449 ; N uni0E54 ; G 293 ; B 0 -11 502 414 ;
+U 3669 ; WX 449 ; N uni0E55 ; G 294 ; B 0 -11 502 420 ;
+U 3670 ; WX 449 ; N uni0E56 ; G 295 ; B 37 -8 424 414 ;
+U 3671 ; WX 449 ; N uni0E57 ; G 296 ; B -4 -3 480 414 ;
+U 3672 ; WX 449 ; N uni0E58 ; G 297 ; B -5 -9 456 414 ;
+U 3673 ; WX 449 ; N uni0E59 ; G 298 ; B 0 -11 458 414 ;
+U 3674 ; WX 522 ; N uni0E5A ; G 299 ; B 75 -37 506 400 ;
+U 3675 ; WX 697 ; N uni0E5B ; G 300 ; B 57 24 664 340 ;
+U 8204 ; WX 0 ; N zerowidthnonjoiner ; G 301 ; B -14 -154 15 383 ;
+U 8205 ; WX 0 ; N zerowidthjoiner ; G 302 ; B -51 -154 52 383 ;
+U 8206 ; WX 0 ; N lefttorightmark ; G 303 ; B -14 -154 163 382 ;
+U 8207 ; WX 0 ; N righttoleftmark ; G 304 ; B -162 -154 15 382 ;
+U 8242 ; WX 125 ; N minute ; G 318 ; B 50 371 166 476 ;
+U 8243 ; WX 214 ; N second ; G 319 ; B 50 371 255 476 ;
+U 8260 ; WX 162 ; N fraction ; G 322 ; B -79 0 256 476 ;
+U 8467 ; WX 209 ; N uni2113 ; G 324 ; B 22 -3 223 448 ;
+U 8486 ; WX 453 ; N Ohm ; G 326 ; B -8 0 436 447 ;
+U 8494 ; WX 313 ; N estimated ; G 327 ; B 8 -7 297 384 ;
+U 8706 ; WX 317 ; N partialdiff ; G 328 ; B -4 -5 341 453 ;
+U 8710 ; WX 474 ; N increment ; G 329 ; B -43 0 431 472 ;
+U 8719 ; WX 446 ; N product ; G 330 ; B 0 -55 450 476 ;
+U 8721 ; WX 411 ; N summation ; G 331 ; B -29 -55 440 476 ;
+U 8722 ; WX 411 ; N minus ; G 332 ; B 47 165 355 198 ;
+U 8730 ; WX 350 ; N radical ; G 333 ; B 28 -10 407 472 ;
+U 8734 ; WX 618 ; N infinity ; G 334 ; B 45 107 577 325 ;
+U 8747 ; WX 242 ; N integral ; G 335 ; B -102 -103 303 482 ;
+U 8776 ; WX 411 ; N approxequal ; G 336 ; B 17 75 388 306 ;
+U 8800 ; WX 411 ; N notequal ; G 337 ; B 33 -9 369 354 ;
+U 8804 ; WX 411 ; N lessequal ; G 338 ; B 17 16 358 341 ;
+U 8805 ; WX 411 ; N greaterequal ; G 339 ; B 17 16 333 341 ;
+U 9674 ; WX 386 ; N lozenge ; G 340 ; B 32 0 352 398 ;
+U 9676 ; WX 400 ; N dottedcircle ; G 341 ; B -26 22 339 387 ;
+U 63232 ; WX 336 ; N uni0E10.alt1 ; G 342 ; B 30 -9 357 400 ;
+U 63233 ; WX 0 ; N uni0E34.alt1 ; G 343 ; B -365 455 -72 603 ;
+U 63234 ; WX 0 ; N uni0E35.alt1 ; G 344 ; B -365 455 -43 647 ;
+U 63235 ; WX 0 ; N uni0E36.alt1 ; G 345 ; B -365 455 -17 642 ;
+U 63236 ; WX 0 ; N uni0E37.alt1 ; G 346 ; B -365 455 -44 647 ;
+U 63237 ; WX 0 ; N uni0E48.alt1 ; G 347 ; B -142 470 -74 614 ;
+U 63238 ; WX 0 ; N uni0E49.alt1 ; G 348 ; B -238 465 47 640 ;
+U 63239 ; WX 0 ; N uni0E4A.alt1 ; G 349 ; B -270 475 33 640 ;
+U 63240 ; WX 0 ; N uni0E4B.alt1 ; G 350 ; B -214 470 -60 606 ;
+U 63241 ; WX 0 ; N uni0E4C.alt1 ; G 351 ; B -192 471 15 658 ;
+U 63242 ; WX 0 ; N uni0E48.alt2 ; G 352 ; B -33 480 33 624 ;
+U 63243 ; WX 0 ; N uni0E49.alt2 ; G 353 ; B -172 477 112 652 ;
+U 63244 ; WX 0 ; N uni0E4A.alt2 ; G 354 ; B -222 466 81 631 ;
+U 63245 ; WX 0 ; N uni0E4B.alt2 ; G 355 ; B -78 476 77 615 ;
+U 63246 ; WX 0 ; N uni0E4C.alt2 ; G 356 ; B -123 471 84 658 ;
+U 63247 ; WX 512 ; N uni0E0D.alt1 ; G 357 ; B 19 -9 519 427 ;
+U 63248 ; WX 0 ; N uni0E31.alt1 ; G 358 ; B -276 463 30 618 ;
+U 63249 ; WX 0 ; N uni0E4D.alt1 ; G 359 ; B -238 462 -71 615 ;
+U 63250 ; WX 0 ; N uni0E47.alt1 ; G 360 ; B -310 460 -30 688 ;
+U 63251 ; WX 0 ; N uni0E48.alt3 ; G 361 ; B -69 680 -12 791 ;
+U 63252 ; WX 0 ; N uni0E49.alt3 ; G 362 ; B -187 677 69 836 ;
+U 63253 ; WX 0 ; N uni0E4A.alt3 ; G 363 ; B -242 675 49 833 ;
+U 63254 ; WX 0 ; N uni0E4B.alt3 ; G 364 ; B -113 680 29 790 ;
+U 63255 ; WX 0 ; N uni0E4C.alt3 ; G 365 ; B -134 634 73 821 ;
+U 63256 ; WX 0 ; N uni0E38.alt1 ; G 366 ; B -273 -435 -157 -245 ;
+U 63257 ; WX 0 ; N uni0E39.alt1 ; G 367 ; B -378 -435 -142 -242 ;
+U 63258 ; WX 0 ; N uni0E3A.alt1 ; G 368 ; B -204 -299 -146 -246 ;
+U 63260 ; WX 425 ; N uni0E0F.alt1 ; G 369 ; B -34 -220 395 400 ;
+U 63261 ; WX 454 ; N uni0E2C.alt1 ; G 370 ; B 39 0 502 427 ;
+U 64257 ; WX 347 ; N fi ; G 371 ; B -152 -156 344 513 ;
+U 64258 ; WX 404 ; N fl ; G 372 ; B -152 -156 356 513 ;
+U -1 ; WX 0 ; N uni0E4E.alt1 ; G 373 ; B -227 463 -23 671 ;
+U 7840 ; WX 400 ; N uni1EA0 ; G 374 ; B -43 -106 357 483 ;
+U 7841 ; WX 398 ; N uni1EA1 ; G 375 ; B 16 -106 370 347 ;
+U 7842 ; WX 400 ; N uni1EA2 ; G 376 ; B -43 0 360 663 ;
+U 7843 ; WX 398 ; N uni1EA3 ; G 377 ; B 16 -10 370 512 ;
+U 7844 ; WX 400 ; N uni1EA4 ; G 378 ; B -43 0 457 661 ;
+U 7845 ; WX 398 ; N uni1EA5 ; G 379 ; B 16 -10 429 527 ;
+U 7846 ; WX 400 ; N uni1EA6 ; G 380 ; B -43 0 409 661 ;
+U 7847 ; WX 398 ; N uni1EA7 ; G 381 ; B 16 -10 387 527 ;
+U 7848 ; WX 400 ; N uni1EA8 ; G 382 ; B -43 0 462 706 ;
+U 7849 ; WX 398 ; N uni1EA9 ; G 383 ; B 16 -10 446 584 ;
+U 7850 ; WX 400 ; N uni1EAA ; G 384 ; B -43 0 390 696 ;
+U 7851 ; WX 398 ; N uni1EAB ; G 385 ; B 16 -10 376 559 ;
+U 7852 ; WX 400 ; N uni1EAC ; G 386 ; B -43 -106 357 606 ;
+U 7853 ; WX 398 ; N uni1EAD ; G 387 ; B 16 -106 370 470 ;
+U 7854 ; WX 400 ; N uni1EAE ; G 388 ; B -43 0 371 679 ;
+U 7855 ; WX 398 ; N uni1EAF ; G 389 ; B 16 -10 370 546 ;
+U 7856 ; WX 400 ; N uni1EB0 ; G 390 ; B -43 0 371 681 ;
+U 7857 ; WX 398 ; N uni1EB1 ; G 391 ; B 16 -10 375 545 ;
+U 7858 ; WX 400 ; N uni1EB2 ; G 392 ; B -43 0 371 729 ;
+U 7859 ; WX 398 ; N uni1EB3 ; G 393 ; B 16 -10 372 596 ;
+U 7860 ; WX 400 ; N uni1EB4 ; G 394 ; B -43 0 386 686 ;
+U 7861 ; WX 398 ; N uni1EB5 ; G 395 ; B 16 -10 384 548 ;
+U 7862 ; WX 400 ; N uni1EB6 ; G 396 ; B -43 -106 371 589 ;
+U 7863 ; WX 398 ; N uni1EB7 ; G 397 ; B 16 -106 370 453 ;
+U 7864 ; WX 351 ; N uni1EB8 ; G 398 ; B 11 -106 371 476 ;
+U 7865 ; WX 374 ; N uni1EB9 ; G 399 ; B 13 -106 344 347 ;
+U 7866 ; WX 351 ; N uni1EBA ; G 400 ; B 11 0 371 663 ;
+U 7867 ; WX 374 ; N uni1EBB ; G 401 ; B 13 -9 344 512 ;
+U 7868 ; WX 351 ; N uni1EBC ; G 402 ; B 11 0 371 590 ;
+U 7869 ; WX 374 ; N uni1EBD ; G 403 ; B 13 -9 344 454 ;
+U 7870 ; WX 351 ; N uni1EBE ; G 404 ; B 11 0 422 661 ;
+U 7871 ; WX 374 ; N uni1EBF ; G 405 ; B 13 -9 415 527 ;
+U 7872 ; WX 351 ; N uni1EC0 ; G 406 ; B 11 0 376 661 ;
+U 7873 ; WX 374 ; N uni1EC1 ; G 407 ; B 13 -9 369 528 ;
+U 7874 ; WX 351 ; N uni1EC2 ; G 408 ; B 11 0 443 706 ;
+U 7875 ; WX 374 ; N uni1EC3 ; G 409 ; B 13 -9 420 584 ;
+U 7876 ; WX 351 ; N uni1EC4 ; G 410 ; B 11 0 371 696 ;
+U 7877 ; WX 374 ; N uni1EC5 ; G 411 ; B 13 -9 347 559 ;
+U 7878 ; WX 351 ; N uni1EC6 ; G 412 ; B 11 -106 371 606 ;
+U 7879 ; WX 374 ; N uni1EC7 ; G 413 ; B 13 -106 344 470 ;
+U 7880 ; WX 147 ; N uni1EC8 ; G 414 ; B 11 0 237 663 ;
+U 7881 ; WX 143 ; N uni1EC9 ; G 415 ; B 9 0 206 527 ;
+U 7882 ; WX 147 ; N uni1ECA ; G 416 ; B -17 -106 151 476 ;
+U 7883 ; WX 143 ; N uni1ECB ; G 417 ; B -18 -106 156 475 ;
+U 7884 ; WX 486 ; N uni1ECC ; G 418 ; B 6 -106 494 484 ;
+U 7885 ; WX 398 ; N uni1ECD ; G 419 ; B 4 -106 378 347 ;
+U 7886 ; WX 486 ; N uni1ECE ; G 420 ; B 6 -10 494 663 ;
+U 7887 ; WX 398 ; N uni1ECF ; G 421 ; B 4 -10 378 527 ;
+U 7888 ; WX 486 ; N uni1ED0 ; G 422 ; B 6 -10 511 661 ;
+U 7889 ; WX 398 ; N uni1ED1 ; G 423 ; B 4 -10 430 527 ;
+U 7890 ; WX 486 ; N uni1ED2 ; G 424 ; B 6 -10 494 661 ;
+U 7891 ; WX 398 ; N uni1ED3 ; G 425 ; B 4 -10 385 527 ;
+U 7892 ; WX 486 ; N uni1ED4 ; G 426 ; B 6 -10 514 706 ;
+U 7893 ; WX 398 ; N uni1ED5 ; G 427 ; B 4 -10 433 584 ;
+U 7894 ; WX 486 ; N uni1ED6 ; G 428 ; B 6 -10 494 696 ;
+U 7895 ; WX 398 ; N uni1ED7 ; G 429 ; B 4 -10 378 559 ;
+U 7896 ; WX 486 ; N uni1ED8 ; G 430 ; B 6 -106 494 606 ;
+U 7897 ; WX 398 ; N uni1ED9 ; G 431 ; B 4 -106 378 470 ;
+U 7898 ; WX 486 ; N uni1EDA ; G 432 ; B 6 -10 531 617 ;
+U 7899 ; WX 398 ; N uni1EDB ; G 433 ; B 4 -10 427 481 ;
+U 7900 ; WX 486 ; N uni1EDC ; G 434 ; B 6 -10 531 617 ;
+U 7901 ; WX 398 ; N uni1EDD ; G 435 ; B 4 -10 427 481 ;
+U 7902 ; WX 486 ; N uni1EDE ; G 436 ; B 6 -10 531 663 ;
+U 7903 ; WX 398 ; N uni1EDF ; G 437 ; B 4 -10 427 512 ;
+U 7904 ; WX 486 ; N uni1EE0 ; G 438 ; B 6 -10 531 590 ;
+U 7905 ; WX 398 ; N uni1EE1 ; G 439 ; B 4 -10 427 454 ;
+U 7906 ; WX 486 ; N uni1EE2 ; G 440 ; B 6 -106 531 521 ;
+U 7907 ; WX 398 ; N uni1EE3 ; G 441 ; B 4 -106 427 398 ;
+U 7908 ; WX 466 ; N uni1EE4 ; G 442 ; B 9 -106 470 476 ;
+U 7909 ; WX 390 ; N uni1EE5 ; G 443 ; B 7 -106 367 346 ;
+U 7910 ; WX 466 ; N uni1EE6 ; G 444 ; B 9 -9 470 663 ;
+U 7911 ; WX 390 ; N uni1EE7 ; G 445 ; B 7 -9 367 512 ;
+U 7912 ; WX 466 ; N uni1EE8 ; G 446 ; B 9 -9 559 617 ;
+U 7913 ; WX 373 ; N uni1EE9 ; G 447 ; B 7 -9 455 481 ;
+U 7914 ; WX 466 ; N uni1EEA ; G 448 ; B 9 -9 559 617 ;
+U 7915 ; WX 373 ; N uni1EEB ; G 449 ; B 7 -9 455 481 ;
+U 7916 ; WX 466 ; N uni1EEC ; G 450 ; B 9 -9 559 663 ;
+U 7917 ; WX 373 ; N uni1EED ; G 451 ; B 7 -9 455 512 ;
+U 7918 ; WX 466 ; N uni1EEE ; G 452 ; B 9 -9 559 590 ;
+U 7919 ; WX 373 ; N uni1EEF ; G 453 ; B 7 -9 455 454 ;
+U 7920 ; WX 466 ; N uni1EF0 ; G 454 ; B 9 -106 559 521 ;
+U 7921 ; WX 373 ; N uni1EF1 ; G 455 ; B 7 -106 455 398 ;
+U 7922 ; WX 366 ; N Ygrave ; G 456 ; B 58 0 424 617 ;
+U 7923 ; WX 337 ; N ygrave ; G 457 ; B -51 -156 363 481 ;
+U 7924 ; WX 366 ; N uni1EF4 ; G 458 ; B 58 -106 424 476 ;
+U 7925 ; WX 337 ; N uni1EF5 ; G 459 ; B -51 -156 363 340 ;
+U 7926 ; WX 366 ; N uni1EF6 ; G 460 ; B 58 0 424 663 ;
+U 7927 ; WX 337 ; N uni1EF7 ; G 461 ; B -51 -156 363 512 ;
+U 7928 ; WX 366 ; N uni1EF8 ; G 462 ; B 58 0 424 590 ;
+U 7929 ; WX 337 ; N uni1EF9 ; G 463 ; B -51 -156 363 454 ;
+U 8355 ; WX 360 ; N franc ; G 464 ; B -36 0 387 476 ;
+U 8363 ; WX 401 ; N dong ; G 465 ; B -39 -108 451 505 ;
+U 258 ; WX 400 ; N Abreve ; G 466 ; B -43 0 371 589 ;
+U 259 ; WX 401 ; N abreve ; G 467 ; B 16 -10 370 453 ;
+U 262 ; WX 406 ; N Cacute ; G 468 ; B 8 -7 433 617 ;
+U 263 ; WX 331 ; N cacute ; G 469 ; B 2 -9 337 481 ;
+U 268 ; WX 406 ; N Ccaron ; G 470 ; B 8 -7 433 598 ;
+U 269 ; WX 331 ; N ccaron ; G 471 ; B 2 -9 337 462 ;
+U 272 ; WX 431 ; N Dcroat ; G 472 ; B 10 -4 435 481 ;
+U 273 ; WX 401 ; N dmacron ; G 473 ; B 4 -9 451 505 ;
+U 286 ; WX 425 ; N Gbreve ; G 474 ; B 7 -5 423 589 ;
+U 287 ; WX 311 ; N gbreve ; G 475 ; B -16 -157 326 453 ;
+U 296 ; WX 147 ; N Itilde ; G 476 ; B 11 0 240 590 ;
+U 297 ; WX 143 ; N itilde ; G 477 ; B 9 0 209 454 ;
+U 304 ; WX 147 ; N Idot ; G 478 ; B 11 0 182 575 ;
+U 350 ; WX 357 ; N Scedilla ; G 479 ; B -8 -139 356 485 ;
+U 351 ; WX 288 ; N scedilla ; G 480 ; B -7 -126 266 347 ;
+U 360 ; WX 476 ; N Utilde ; G 481 ; B 14 -9 475 590 ;
+U 361 ; WX 405 ; N utilde ; G 482 ; B 7 -9 367 454 ;
+U 416 ; WX 486 ; N Ohorn ; G 483 ; B 6 -10 531 521 ;
+U 417 ; WX 398 ; N ohorn ; G 484 ; B 4 -10 427 398 ;
+U 431 ; WX 466 ; N Uhorn ; G 485 ; B 9 -9 559 521 ;
+U 432 ; WX 373 ; N uhorn ; G 486 ; B 7 -9 455 398 ;
+U 777 ; WX 0 ; N hookabovecomb ; G 487 ; B -114 384 18 527 ;
+U 771 ; WX 0 ; N tildecomb ; G 488 ; B -122 388 62 454 ;
+U 769 ; WX 0 ; N acutecomb ; G 489 ; B -87 390 20 481 ;
+U 803 ; WX 0 ; N dotbelowcomb ; G 490 ; B -168 -106 -106 -49 ;
+U 768 ; WX 0 ; N gravecomb ; G 491 ; B -59 390 12 481 ;
+U 8539 ; WX 536 ; N oneeighth ; G 492 ; B 39 -9 507 467 ;
+U 8540 ; WX 536 ; N threeeighths ; G 493 ; B 35 -9 507 470 ;
+U 8541 ; WX 536 ; N fiveeighths ; G 494 ; B 28 -9 507 467 ;
+U 8542 ; WX 536 ; N seveneighths ; G 495 ; B 57 -9 507 467 ;
+U 63616 ; WX 443 ; N uni0E4F.liga ; G 497 ; B 29 -6 397 546 ;
+U 63617 ; WX 575 ; N uni0E24.liga ; G 498 ; B 16 -233 549 400 ;
+U 63618 ; WX 621 ; N uni0E26.liga ; G 499 ; B -12 -233 595 400 ;
+U 63259 ; WX 425 ; N uni0E0E.alt1 ; G 500 ; B -12 -219 395 400 ;
+U 8531 ; WX 536 ; N onethird ; G 501 ; B 40 -9 510 467 ;
+U 8532 ; WX 536 ; N twothirds ; G 502 ; B 13 -9 510 471 ;
+U 8533 ; WX 536 ; N uni2155 ; G 503 ; B 40 -9 522 467 ;
+U 8534 ; WX 536 ; N uni2156 ; G 504 ; B 13 -9 522 471 ;
+U 8535 ; WX 536 ; N uni2157 ; G 505 ; B 36 -9 522 470 ;
+U 8536 ; WX 536 ; N uni2158 ; G 506 ; B 44 -9 522 482 ;
+U 8537 ; WX 536 ; N uni2159 ; G 507 ; B 40 -9 503 467 ;
+U 8538 ; WX 536 ; N uni215A ; G 508 ; B 29 -9 503 467 ;
+U -1 ; WX 954 ; N PSK ; G 509 ; B 58 -1 947 734 ;
+EndCharMetrics
+StartKernData
+StartKernPairs 1415
+KPX A T -40
+KPX A V -50
+KPX A W -45
+KPX A Y -40
+KPX A y -15
+KPX A Yacute -40
+KPX A yacute -15
+KPX A ydieresis -15
+KPX A Ydieresis -40
+KPX A Ygrave -40
+KPX A ygrave -15
+KPX A uni1EF4 -40
+KPX A uni1EF5 -15
+KPX A uni1EF6 -40
+KPX A uni1EF7 -15
+KPX A uni1EF8 -40
+KPX A uni1EF9 -15
+KPX F A -40
+KPX F Agrave -40
+KPX F Aacute -40
+KPX F Acircumflex -40
+KPX F Atilde -40
+KPX F Adieresis -40
+KPX F Aring -40
+KPX F AE -50
+KPX F uni1EA0 -40
+KPX F uni1EA2 -40
+KPX F uni1EA4 -40
+KPX F uni1EA6 -40
+KPX F uni1EA8 -40
+KPX F uni1EAA -40
+KPX F uni1EAC -40
+KPX F uni1EAE -40
+KPX F uni1EB0 -40
+KPX F uni1EB2 -40
+KPX F uni1EB4 -40
+KPX F uni1EB6 -40
+KPX F Abreve -40
+KPX L T -80
+KPX L V -80
+KPX L W -70
+KPX L Y -70
+KPX L Yacute -70
+KPX L Ydieresis -70
+KPX L Ygrave -70
+KPX L uni1EF4 -70
+KPX L uni1EF6 -70
+KPX L uni1EF8 -70
+KPX P A -50
+KPX P J -60
+KPX P Agrave -50
+KPX P Aacute -50
+KPX P Acircumflex -50
+KPX P Atilde -50
+KPX P Adieresis -50
+KPX P Aring -50
+KPX P uni1EA0 -50
+KPX P uni1EA2 -50
+KPX P uni1EA4 -50
+KPX P uni1EA6 -50
+KPX P uni1EA8 -50
+KPX P uni1EAA -50
+KPX P uni1EAC -50
+KPX P uni1EAE -50
+KPX P uni1EB0 -50
+KPX P uni1EB2 -50
+KPX P uni1EB4 -50
+KPX P uni1EB6 -50
+KPX P Abreve -50
+KPX T A -40
+KPX T J -40
+KPX T a -30
+KPX T c -30
+KPX T e -30
+KPX T g -35
+KPX T m -30
+KPX T n -30
+KPX T o -30
+KPX T p -30
+KPX T q -30
+KPX T r -30
+KPX T s -30
+KPX T u -30
+KPX T v -30
+KPX T w -30
+KPX T x -30
+KPX T y -30
+KPX T z -30
+KPX T Agrave -40
+KPX T Aacute -40
+KPX T Acircumflex -40
+KPX T Atilde -40
+KPX T Adieresis -40
+KPX T Aring -40
+KPX T agrave -30
+KPX T aacute -30
+KPX T acircumflex -30
+KPX T atilde -30
+KPX T adieresis -30
+KPX T aring -30
+KPX T ae -30
+KPX T ccedilla -30
+KPX T egrave -30
+KPX T eacute -30
+KPX T ecircumflex -30
+KPX T edieresis -30
+KPX T eth -30
+KPX T ntilde -30
+KPX T ograve -30
+KPX T oacute -30
+KPX T ocircumflex -30
+KPX T otilde -30
+KPX T odieresis -30
+KPX T oslash -30
+KPX T ugrave -30
+KPX T uacute -30
+KPX T ucircumflex -30
+KPX T udieresis -30
+KPX T yacute -30
+KPX T ydieresis -30
+KPX T oe -30
+KPX T scaron -30
+KPX T uni1EA0 -40
+KPX T uni1EA1 -30
+KPX T uni1EA2 -40
+KPX T uni1EA3 -30
+KPX T uni1EA4 -40
+KPX T uni1EA5 -30
+KPX T uni1EA6 -40
+KPX T uni1EA7 -30
+KPX T uni1EA8 -40
+KPX T uni1EA9 -30
+KPX T uni1EAA -40
+KPX T uni1EAB -30
+KPX T uni1EAC -40
+KPX T uni1EAD -30
+KPX T uni1EAE -40
+KPX T uni1EAF -30
+KPX T uni1EB0 -40
+KPX T uni1EB1 -30
+KPX T uni1EB2 -40
+KPX T uni1EB3 -30
+KPX T uni1EB4 -40
+KPX T uni1EB5 -30
+KPX T uni1EB6 -40
+KPX T uni1EB7 -30
+KPX T uni1EB9 -30
+KPX T uni1EBB -30
+KPX T uni1EBD -30
+KPX T uni1EBF -30
+KPX T uni1EC1 -30
+KPX T uni1EC3 -30
+KPX T uni1EC5 -30
+KPX T uni1EC7 -30
+KPX T uni1ECD -30
+KPX T uni1ECF -30
+KPX T uni1ED1 -30
+KPX T uni1ED3 -30
+KPX T uni1ED5 -30
+KPX T uni1ED7 -30
+KPX T uni1ED9 -30
+KPX T uni1EDB -30
+KPX T uni1EDD -30
+KPX T uni1EDF -30
+KPX T uni1EE1 -30
+KPX T uni1EE3 -30
+KPX T uni1EE5 -30
+KPX T uni1EE7 -30
+KPX T uni1EE9 -30
+KPX T uni1EEB -30
+KPX T uni1EED -30
+KPX T uni1EEF -30
+KPX T uni1EF1 -30
+KPX T ygrave -30
+KPX T uni1EF5 -30
+KPX T uni1EF7 -30
+KPX T uni1EF9 -30
+KPX T Abreve -40
+KPX T abreve -30
+KPX T cacute -30
+KPX T ccaron -30
+KPX T gbreve -35
+KPX T scedilla -30
+KPX T utilde -30
+KPX T ohorn -30
+KPX T uhorn -30
+KPX V A -50
+KPX V J -40
+KPX V c -30
+KPX V e -30
+KPX V g -30
+KPX V o -30
+KPX V q -30
+KPX V s -20
+KPX V Agrave -50
+KPX V Aacute -50
+KPX V Acircumflex -50
+KPX V Atilde -50
+KPX V Adieresis -50
+KPX V Aring -50
+KPX V ccedilla -30
+KPX V egrave -30
+KPX V eacute -30
+KPX V ecircumflex -30
+KPX V edieresis -30
+KPX V eth -30
+KPX V ograve -30
+KPX V oacute -30
+KPX V ocircumflex -30
+KPX V otilde -30
+KPX V odieresis -30
+KPX V oslash -30
+KPX V oe -30
+KPX V scaron -20
+KPX V uni1EA0 -50
+KPX V uni1EA2 -50
+KPX V uni1EA4 -50
+KPX V uni1EA6 -50
+KPX V uni1EA8 -50
+KPX V uni1EAA -50
+KPX V uni1EAC -50
+KPX V uni1EAE -50
+KPX V uni1EB0 -50
+KPX V uni1EB2 -50
+KPX V uni1EB4 -50
+KPX V uni1EB6 -50
+KPX V uni1EB9 -30
+KPX V uni1EBB -30
+KPX V uni1EBD -30
+KPX V uni1EBF -30
+KPX V uni1EC1 -30
+KPX V uni1EC3 -30
+KPX V uni1EC5 -30
+KPX V uni1EC7 -30
+KPX V uni1ECD -30
+KPX V uni1ECF -30
+KPX V uni1ED1 -30
+KPX V uni1ED3 -30
+KPX V uni1ED5 -30
+KPX V uni1ED7 -30
+KPX V uni1ED9 -30
+KPX V uni1EDB -30
+KPX V uni1EDD -30
+KPX V uni1EDF -30
+KPX V uni1EE1 -30
+KPX V uni1EE3 -30
+KPX V Abreve -50
+KPX V cacute -30
+KPX V ccaron -30
+KPX V gbreve -30
+KPX V scedilla -20
+KPX V ohorn -30
+KPX W A -45
+KPX W c -20
+KPX W e -20
+KPX W g -20
+KPX W o -20
+KPX W q -20
+KPX W s -20
+KPX W Agrave -45
+KPX W Aacute -45
+KPX W Acircumflex -45
+KPX W Atilde -45
+KPX W Adieresis -45
+KPX W Aring -45
+KPX W ccedilla -20
+KPX W egrave -20
+KPX W eacute -20
+KPX W ecircumflex -20
+KPX W edieresis -20
+KPX W eth -20
+KPX W ograve -20
+KPX W oacute -20
+KPX W ocircumflex -20
+KPX W otilde -20
+KPX W odieresis -20
+KPX W oslash -20
+KPX W oe -20
+KPX W scaron -20
+KPX W uni1EA0 -45
+KPX W uni1EA2 -45
+KPX W uni1EA4 -45
+KPX W uni1EA6 -45
+KPX W uni1EA8 -45
+KPX W uni1EAA -45
+KPX W uni1EAC -45
+KPX W uni1EAE -45
+KPX W uni1EB0 -45
+KPX W uni1EB2 -45
+KPX W uni1EB4 -45
+KPX W uni1EB6 -45
+KPX W uni1EB9 -20
+KPX W uni1EBB -20
+KPX W uni1EBD -20
+KPX W uni1EBF -20
+KPX W uni1EC1 -20
+KPX W uni1EC3 -20
+KPX W uni1EC5 -20
+KPX W uni1EC7 -20
+KPX W uni1ECD -20
+KPX W uni1ECF -20
+KPX W uni1ED1 -20
+KPX W uni1ED3 -20
+KPX W uni1ED5 -20
+KPX W uni1ED7 -20
+KPX W uni1ED9 -20
+KPX W uni1EDB -20
+KPX W uni1EDD -20
+KPX W uni1EDF -20
+KPX W uni1EE1 -20
+KPX W uni1EE3 -20
+KPX W Abreve -45
+KPX W cacute -20
+KPX W ccaron -20
+KPX W gbreve -20
+KPX W scedilla -20
+KPX W ohorn -20
+KPX Y A -40
+KPX Y a -20
+KPX Y c -25
+KPX Y e -25
+KPX Y g -25
+KPX Y m -20
+KPX Y n -20
+KPX Y o -25
+KPX Y p -20
+KPX Y q -25
+KPX Y r -20
+KPX Y s -25
+KPX Y u -20
+KPX Y Agrave -40
+KPX Y Aacute -40
+KPX Y Acircumflex -40
+KPX Y Atilde -40
+KPX Y Adieresis -40
+KPX Y Aring -40
+KPX Y agrave -20
+KPX Y aacute -20
+KPX Y acircumflex -20
+KPX Y atilde -20
+KPX Y adieresis -20
+KPX Y aring -20
+KPX Y ae -20
+KPX Y ccedilla -25
+KPX Y egrave -25
+KPX Y eacute -25
+KPX Y ecircumflex -25
+KPX Y edieresis -25
+KPX Y eth -25
+KPX Y ntilde -20
+KPX Y ograve -25
+KPX Y oacute -25
+KPX Y ocircumflex -25
+KPX Y otilde -25
+KPX Y odieresis -25
+KPX Y oslash -25
+KPX Y ugrave -20
+KPX Y uacute -20
+KPX Y ucircumflex -20
+KPX Y udieresis -20
+KPX Y oe -25
+KPX Y scaron -25
+KPX Y uni1EA0 -40
+KPX Y uni1EA1 -20
+KPX Y uni1EA2 -40
+KPX Y uni1EA3 -20
+KPX Y uni1EA4 -40
+KPX Y uni1EA5 -20
+KPX Y uni1EA6 -40
+KPX Y uni1EA7 -20
+KPX Y uni1EA8 -40
+KPX Y uni1EA9 -20
+KPX Y uni1EAA -40
+KPX Y uni1EAB -20
+KPX Y uni1EAC -40
+KPX Y uni1EAD -20
+KPX Y uni1EAE -40
+KPX Y uni1EAF -20
+KPX Y uni1EB0 -40
+KPX Y uni1EB1 -20
+KPX Y uni1EB2 -40
+KPX Y uni1EB3 -20
+KPX Y uni1EB4 -40
+KPX Y uni1EB5 -20
+KPX Y uni1EB6 -40
+KPX Y uni1EB7 -20
+KPX Y uni1EB9 -25
+KPX Y uni1EBB -25
+KPX Y uni1EBD -25
+KPX Y uni1EBF -25
+KPX Y uni1EC1 -25
+KPX Y uni1EC3 -25
+KPX Y uni1EC5 -25
+KPX Y uni1EC7 -25
+KPX Y uni1ECD -25
+KPX Y uni1ECF -25
+KPX Y uni1ED1 -25
+KPX Y uni1ED3 -25
+KPX Y uni1ED5 -25
+KPX Y uni1ED7 -25
+KPX Y uni1ED9 -25
+KPX Y uni1EDB -25
+KPX Y uni1EDD -25
+KPX Y uni1EDF -25
+KPX Y uni1EE1 -25
+KPX Y uni1EE3 -25
+KPX Y uni1EE5 -20
+KPX Y uni1EE7 -20
+KPX Y uni1EE9 -20
+KPX Y uni1EEB -20
+KPX Y uni1EED -20
+KPX Y uni1EEF -20
+KPX Y uni1EF1 -20
+KPX Y Abreve -40
+KPX Y abreve -20
+KPX Y cacute -25
+KPX Y ccaron -25
+KPX Y gbreve -25
+KPX Y scedilla -25
+KPX Y utilde -20
+KPX Y ohorn -25
+KPX Y uhorn -20
+KPX Agrave T -40
+KPX Agrave V -50
+KPX Agrave W -45
+KPX Agrave Y -40
+KPX Agrave y -15
+KPX Agrave Yacute -40
+KPX Agrave yacute -15
+KPX Agrave ydieresis -15
+KPX Agrave Ydieresis -40
+KPX Agrave Ygrave -40
+KPX Agrave ygrave -15
+KPX Agrave uni1EF4 -40
+KPX Agrave uni1EF5 -15
+KPX Agrave uni1EF6 -40
+KPX Agrave uni1EF7 -15
+KPX Agrave uni1EF8 -40
+KPX Agrave uni1EF9 -15
+KPX Aacute T -40
+KPX Aacute V -50
+KPX Aacute W -45
+KPX Aacute Y -40
+KPX Aacute y -15
+KPX Aacute Yacute -40
+KPX Aacute yacute -15
+KPX Aacute ydieresis -15
+KPX Aacute Ydieresis -40
+KPX Aacute Ygrave -40
+KPX Aacute ygrave -15
+KPX Aacute uni1EF4 -40
+KPX Aacute uni1EF5 -15
+KPX Aacute uni1EF6 -40
+KPX Aacute uni1EF7 -15
+KPX Aacute uni1EF8 -40
+KPX Aacute uni1EF9 -15
+KPX Acircumflex T -40
+KPX Acircumflex V -50
+KPX Acircumflex W -45
+KPX Acircumflex Y -40
+KPX Acircumflex y -15
+KPX Acircumflex Yacute -40
+KPX Acircumflex yacute -15
+KPX Acircumflex ydieresis -15
+KPX Acircumflex Ydieresis -40
+KPX Acircumflex Ygrave -40
+KPX Acircumflex ygrave -15
+KPX Acircumflex uni1EF4 -40
+KPX Acircumflex uni1EF5 -15
+KPX Acircumflex uni1EF6 -40
+KPX Acircumflex uni1EF7 -15
+KPX Acircumflex uni1EF8 -40
+KPX Acircumflex uni1EF9 -15
+KPX Atilde T -40
+KPX Atilde V -50
+KPX Atilde W -45
+KPX Atilde Y -40
+KPX Atilde y -15
+KPX Atilde Yacute -40
+KPX Atilde yacute -15
+KPX Atilde ydieresis -15
+KPX Atilde Ydieresis -40
+KPX Atilde Ygrave -40
+KPX Atilde ygrave -15
+KPX Atilde uni1EF4 -40
+KPX Atilde uni1EF5 -15
+KPX Atilde uni1EF6 -40
+KPX Atilde uni1EF7 -15
+KPX Atilde uni1EF8 -40
+KPX Atilde uni1EF9 -15
+KPX Adieresis T -40
+KPX Adieresis V -50
+KPX Adieresis W -45
+KPX Adieresis Y -40
+KPX Adieresis y -15
+KPX Adieresis Yacute -40
+KPX Adieresis yacute -15
+KPX Adieresis ydieresis -15
+KPX Adieresis Ydieresis -40
+KPX Adieresis Ygrave -40
+KPX Adieresis ygrave -15
+KPX Adieresis uni1EF4 -40
+KPX Adieresis uni1EF5 -15
+KPX Adieresis uni1EF6 -40
+KPX Adieresis uni1EF7 -15
+KPX Adieresis uni1EF8 -40
+KPX Adieresis uni1EF9 -15
+KPX Aring T -40
+KPX Aring V -50
+KPX Aring W -45
+KPX Aring Y -40
+KPX Aring y -15
+KPX Aring Yacute -40
+KPX Aring yacute -15
+KPX Aring ydieresis -15
+KPX Aring Ydieresis -40
+KPX Aring Ygrave -40
+KPX Aring ygrave -15
+KPX Aring uni1EF4 -40
+KPX Aring uni1EF5 -15
+KPX Aring uni1EF6 -40
+KPX Aring uni1EF7 -15
+KPX Aring uni1EF8 -40
+KPX Aring uni1EF9 -15
+KPX Yacute A -40
+KPX Yacute a -20
+KPX Yacute c -25
+KPX Yacute e -25
+KPX Yacute g -25
+KPX Yacute m -20
+KPX Yacute n -20
+KPX Yacute o -25
+KPX Yacute p -20
+KPX Yacute q -25
+KPX Yacute r -20
+KPX Yacute s -25
+KPX Yacute u -20
+KPX Yacute Agrave -40
+KPX Yacute Aacute -40
+KPX Yacute Acircumflex -40
+KPX Yacute Atilde -40
+KPX Yacute Adieresis -40
+KPX Yacute Aring -40
+KPX Yacute agrave -20
+KPX Yacute aacute -20
+KPX Yacute acircumflex -20
+KPX Yacute atilde -20
+KPX Yacute adieresis -20
+KPX Yacute aring -20
+KPX Yacute ae -20
+KPX Yacute ccedilla -25
+KPX Yacute egrave -25
+KPX Yacute eacute -25
+KPX Yacute ecircumflex -25
+KPX Yacute edieresis -25
+KPX Yacute eth -25
+KPX Yacute ntilde -20
+KPX Yacute ograve -25
+KPX Yacute oacute -25
+KPX Yacute ocircumflex -25
+KPX Yacute otilde -25
+KPX Yacute odieresis -25
+KPX Yacute oslash -25
+KPX Yacute ugrave -20
+KPX Yacute uacute -20
+KPX Yacute ucircumflex -20
+KPX Yacute udieresis -20
+KPX Yacute oe -25
+KPX Yacute scaron -25
+KPX Yacute uni1EA0 -40
+KPX Yacute uni1EA1 -20
+KPX Yacute uni1EA2 -40
+KPX Yacute uni1EA3 -20
+KPX Yacute uni1EA4 -40
+KPX Yacute uni1EA5 -20
+KPX Yacute uni1EA6 -40
+KPX Yacute uni1EA7 -20
+KPX Yacute uni1EA8 -40
+KPX Yacute uni1EA9 -20
+KPX Yacute uni1EAA -40
+KPX Yacute uni1EAB -20
+KPX Yacute uni1EAC -40
+KPX Yacute uni1EAD -20
+KPX Yacute uni1EAE -40
+KPX Yacute uni1EAF -20
+KPX Yacute uni1EB0 -40
+KPX Yacute uni1EB1 -20
+KPX Yacute uni1EB2 -40
+KPX Yacute uni1EB3 -20
+KPX Yacute uni1EB4 -40
+KPX Yacute uni1EB5 -20
+KPX Yacute uni1EB6 -40
+KPX Yacute uni1EB7 -20
+KPX Yacute uni1EB9 -25
+KPX Yacute uni1EBB -25
+KPX Yacute uni1EBD -25
+KPX Yacute uni1EBF -25
+KPX Yacute uni1EC1 -25
+KPX Yacute uni1EC3 -25
+KPX Yacute uni1EC5 -25
+KPX Yacute uni1EC7 -25
+KPX Yacute uni1ECD -25
+KPX Yacute uni1ECF -25
+KPX Yacute uni1ED1 -25
+KPX Yacute uni1ED3 -25
+KPX Yacute uni1ED5 -25
+KPX Yacute uni1ED7 -25
+KPX Yacute uni1ED9 -25
+KPX Yacute uni1EDB -25
+KPX Yacute uni1EDD -25
+KPX Yacute uni1EDF -25
+KPX Yacute uni1EE1 -25
+KPX Yacute uni1EE3 -25
+KPX Yacute uni1EE5 -20
+KPX Yacute uni1EE7 -20
+KPX Yacute uni1EE9 -20
+KPX Yacute uni1EEB -20
+KPX Yacute uni1EED -20
+KPX Yacute uni1EEF -20
+KPX Yacute uni1EF1 -20
+KPX Yacute Abreve -40
+KPX Yacute abreve -20
+KPX Yacute cacute -25
+KPX Yacute ccaron -25
+KPX Yacute gbreve -25
+KPX Yacute scedilla -25
+KPX Yacute utilde -20
+KPX Yacute ohorn -25
+KPX Yacute uhorn -20
+KPX Ydieresis A -40
+KPX Ydieresis a -20
+KPX Ydieresis c -25
+KPX Ydieresis e -25
+KPX Ydieresis g -25
+KPX Ydieresis m -20
+KPX Ydieresis n -20
+KPX Ydieresis o -25
+KPX Ydieresis p -20
+KPX Ydieresis q -25
+KPX Ydieresis r -20
+KPX Ydieresis s -25
+KPX Ydieresis u -20
+KPX Ydieresis Agrave -40
+KPX Ydieresis Aacute -40
+KPX Ydieresis Acircumflex -40
+KPX Ydieresis Atilde -40
+KPX Ydieresis Adieresis -40
+KPX Ydieresis Aring -40
+KPX Ydieresis agrave -20
+KPX Ydieresis aacute -20
+KPX Ydieresis acircumflex -20
+KPX Ydieresis atilde -20
+KPX Ydieresis adieresis -20
+KPX Ydieresis aring -20
+KPX Ydieresis ae -20
+KPX Ydieresis ccedilla -25
+KPX Ydieresis egrave -25
+KPX Ydieresis eacute -25
+KPX Ydieresis ecircumflex -25
+KPX Ydieresis edieresis -25
+KPX Ydieresis eth -25
+KPX Ydieresis ntilde -20
+KPX Ydieresis ograve -25
+KPX Ydieresis oacute -25
+KPX Ydieresis ocircumflex -25
+KPX Ydieresis otilde -25
+KPX Ydieresis odieresis -25
+KPX Ydieresis oslash -25
+KPX Ydieresis ugrave -20
+KPX Ydieresis uacute -20
+KPX Ydieresis ucircumflex -20
+KPX Ydieresis udieresis -20
+KPX Ydieresis oe -25
+KPX Ydieresis scaron -25
+KPX Ydieresis uni1EA0 -40
+KPX Ydieresis uni1EA1 -20
+KPX Ydieresis uni1EA2 -40
+KPX Ydieresis uni1EA3 -20
+KPX Ydieresis uni1EA4 -40
+KPX Ydieresis uni1EA5 -20
+KPX Ydieresis uni1EA6 -40
+KPX Ydieresis uni1EA7 -20
+KPX Ydieresis uni1EA8 -40
+KPX Ydieresis uni1EA9 -20
+KPX Ydieresis uni1EAA -40
+KPX Ydieresis uni1EAB -20
+KPX Ydieresis uni1EAC -40
+KPX Ydieresis uni1EAD -20
+KPX Ydieresis uni1EAE -40
+KPX Ydieresis uni1EAF -20
+KPX Ydieresis uni1EB0 -40
+KPX Ydieresis uni1EB1 -20
+KPX Ydieresis uni1EB2 -40
+KPX Ydieresis uni1EB3 -20
+KPX Ydieresis uni1EB4 -40
+KPX Ydieresis uni1EB5 -20
+KPX Ydieresis uni1EB6 -40
+KPX Ydieresis uni1EB7 -20
+KPX Ydieresis uni1EB9 -25
+KPX Ydieresis uni1EBB -25
+KPX Ydieresis uni1EBD -25
+KPX Ydieresis uni1EBF -25
+KPX Ydieresis uni1EC1 -25
+KPX Ydieresis uni1EC3 -25
+KPX Ydieresis uni1EC5 -25
+KPX Ydieresis uni1EC7 -25
+KPX Ydieresis uni1ECD -25
+KPX Ydieresis uni1ECF -25
+KPX Ydieresis uni1ED1 -25
+KPX Ydieresis uni1ED3 -25
+KPX Ydieresis uni1ED5 -25
+KPX Ydieresis uni1ED7 -25
+KPX Ydieresis uni1ED9 -25
+KPX Ydieresis uni1EDB -25
+KPX Ydieresis uni1EDD -25
+KPX Ydieresis uni1EDF -25
+KPX Ydieresis uni1EE1 -25
+KPX Ydieresis uni1EE3 -25
+KPX Ydieresis uni1EE5 -20
+KPX Ydieresis uni1EE7 -20
+KPX Ydieresis uni1EE9 -20
+KPX Ydieresis uni1EEB -20
+KPX Ydieresis uni1EED -20
+KPX Ydieresis uni1EEF -20
+KPX Ydieresis uni1EF1 -20
+KPX Ydieresis Abreve -40
+KPX Ydieresis abreve -20
+KPX Ydieresis cacute -25
+KPX Ydieresis ccaron -25
+KPX Ydieresis gbreve -25
+KPX Ydieresis scedilla -25
+KPX Ydieresis utilde -20
+KPX Ydieresis ohorn -25
+KPX Ydieresis uhorn -20
+KPX uni0E40 uni0E02 -30
+KPX uni0E40 uni0E03 -30
+KPX uni0E40 uni0E08 -20
+KPX uni0E40 uni0E0A -30
+KPX uni0E40 uni0E0B -30
+KPX uni0E40 uni0E11 -30
+KPX uni0E40 uni0E23 -25
+KPX uni0E40 uni0E27 -20
+KPX uni0E41 uni0E02 -30
+KPX uni0E41 uni0E03 -30
+KPX uni0E41 uni0E08 -20
+KPX uni0E41 uni0E0A -30
+KPX uni0E41 uni0E0B -30
+KPX uni0E41 uni0E11 -20
+KPX uni0E41 uni0E23 -25
+KPX uni0E41 uni0E27 -20
+KPX uni0E42 uni0E02 -30
+KPX uni0E42 uni0E03 -30
+KPX uni0E42 uni0E08 -20
+KPX uni0E42 uni0E0A -30
+KPX uni0E42 uni0E0B -30
+KPX uni0E42 uni0E11 -30
+KPX uni0E42 uni0E23 -25
+KPX uni0E42 uni0E27 -20
+KPX uni0E43 uni0E02 -30
+KPX uni0E43 uni0E03 -30
+KPX uni0E43 uni0E08 -20
+KPX uni0E43 uni0E0A -30
+KPX uni0E43 uni0E0B -30
+KPX uni0E43 uni0E11 -30
+KPX uni0E43 uni0E23 -25
+KPX uni0E43 uni0E27 -20
+KPX uni0E44 uni0E02 -30
+KPX uni0E44 uni0E03 -30
+KPX uni0E44 uni0E08 -20
+KPX uni0E44 uni0E0A -30
+KPX uni0E44 uni0E0B -30
+KPX uni0E44 uni0E11 -30
+KPX uni0E44 uni0E23 -25
+KPX uni0E44 uni0E27 -20
+KPX uni1EA0 T -40
+KPX uni1EA0 V -50
+KPX uni1EA0 W -45
+KPX uni1EA0 Y -40
+KPX uni1EA0 y -15
+KPX uni1EA0 Yacute -40
+KPX uni1EA0 yacute -15
+KPX uni1EA0 ydieresis -15
+KPX uni1EA0 Ydieresis -40
+KPX uni1EA0 Ygrave -40
+KPX uni1EA0 ygrave -15
+KPX uni1EA0 uni1EF4 -40
+KPX uni1EA0 uni1EF5 -15
+KPX uni1EA0 uni1EF6 -40
+KPX uni1EA0 uni1EF7 -15
+KPX uni1EA0 uni1EF8 -40
+KPX uni1EA0 uni1EF9 -15
+KPX uni1EA2 T -40
+KPX uni1EA2 V -50
+KPX uni1EA2 W -45
+KPX uni1EA2 Y -40
+KPX uni1EA2 y -15
+KPX uni1EA2 Yacute -40
+KPX uni1EA2 yacute -15
+KPX uni1EA2 ydieresis -15
+KPX uni1EA2 Ydieresis -40
+KPX uni1EA2 Ygrave -40
+KPX uni1EA2 ygrave -15
+KPX uni1EA2 uni1EF4 -40
+KPX uni1EA2 uni1EF5 -15
+KPX uni1EA2 uni1EF6 -40
+KPX uni1EA2 uni1EF7 -15
+KPX uni1EA2 uni1EF8 -40
+KPX uni1EA2 uni1EF9 -15
+KPX uni1EA4 T -40
+KPX uni1EA4 V -50
+KPX uni1EA4 W -45
+KPX uni1EA4 Y -40
+KPX uni1EA4 y -15
+KPX uni1EA4 Yacute -40
+KPX uni1EA4 yacute -15
+KPX uni1EA4 ydieresis -15
+KPX uni1EA4 Ydieresis -40
+KPX uni1EA4 Ygrave -40
+KPX uni1EA4 ygrave -15
+KPX uni1EA4 uni1EF4 -40
+KPX uni1EA4 uni1EF5 -15
+KPX uni1EA4 uni1EF6 -40
+KPX uni1EA4 uni1EF7 -15
+KPX uni1EA4 uni1EF8 -40
+KPX uni1EA4 uni1EF9 -15
+KPX uni1EA6 T -40
+KPX uni1EA6 V -50
+KPX uni1EA6 W -45
+KPX uni1EA6 Y -40
+KPX uni1EA6 y -15
+KPX uni1EA6 Yacute -40
+KPX uni1EA6 yacute -15
+KPX uni1EA6 ydieresis -15
+KPX uni1EA6 Ydieresis -40
+KPX uni1EA6 Ygrave -40
+KPX uni1EA6 ygrave -15
+KPX uni1EA6 uni1EF4 -40
+KPX uni1EA6 uni1EF5 -15
+KPX uni1EA6 uni1EF6 -40
+KPX uni1EA6 uni1EF7 -15
+KPX uni1EA6 uni1EF8 -40
+KPX uni1EA6 uni1EF9 -15
+KPX uni1EA8 T -40
+KPX uni1EA8 V -50
+KPX uni1EA8 W -45
+KPX uni1EA8 Y -40
+KPX uni1EA8 y -15
+KPX uni1EA8 Yacute -40
+KPX uni1EA8 yacute -15
+KPX uni1EA8 ydieresis -15
+KPX uni1EA8 Ydieresis -40
+KPX uni1EA8 Ygrave -40
+KPX uni1EA8 ygrave -15
+KPX uni1EA8 uni1EF4 -40
+KPX uni1EA8 uni1EF5 -15
+KPX uni1EA8 uni1EF6 -40
+KPX uni1EA8 uni1EF7 -15
+KPX uni1EA8 uni1EF8 -40
+KPX uni1EA8 uni1EF9 -15
+KPX uni1EAA T -40
+KPX uni1EAA V -50
+KPX uni1EAA W -45
+KPX uni1EAA Y -40
+KPX uni1EAA y -15
+KPX uni1EAA Yacute -40
+KPX uni1EAA yacute -15
+KPX uni1EAA ydieresis -15
+KPX uni1EAA Ydieresis -40
+KPX uni1EAA Ygrave -40
+KPX uni1EAA ygrave -15
+KPX uni1EAA uni1EF4 -40
+KPX uni1EAA uni1EF5 -15
+KPX uni1EAA uni1EF6 -40
+KPX uni1EAA uni1EF7 -15
+KPX uni1EAA uni1EF8 -40
+KPX uni1EAA uni1EF9 -15
+KPX uni1EAC T -40
+KPX uni1EAC V -50
+KPX uni1EAC W -45
+KPX uni1EAC Y -40
+KPX uni1EAC y -15
+KPX uni1EAC Yacute -40
+KPX uni1EAC yacute -15
+KPX uni1EAC ydieresis -15
+KPX uni1EAC Ydieresis -40
+KPX uni1EAC Ygrave -40
+KPX uni1EAC ygrave -15
+KPX uni1EAC uni1EF4 -40
+KPX uni1EAC uni1EF5 -15
+KPX uni1EAC uni1EF6 -40
+KPX uni1EAC uni1EF7 -15
+KPX uni1EAC uni1EF8 -40
+KPX uni1EAC uni1EF9 -15
+KPX uni1EAE T -40
+KPX uni1EAE V -50
+KPX uni1EAE W -45
+KPX uni1EAE Y -40
+KPX uni1EAE y -15
+KPX uni1EAE Yacute -40
+KPX uni1EAE yacute -15
+KPX uni1EAE ydieresis -15
+KPX uni1EAE Ydieresis -40
+KPX uni1EAE Ygrave -40
+KPX uni1EAE ygrave -15
+KPX uni1EAE uni1EF4 -40
+KPX uni1EAE uni1EF5 -15
+KPX uni1EAE uni1EF6 -40
+KPX uni1EAE uni1EF7 -15
+KPX uni1EAE uni1EF8 -40
+KPX uni1EAE uni1EF9 -15
+KPX uni1EB0 T -40
+KPX uni1EB0 V -50
+KPX uni1EB0 W -45
+KPX uni1EB0 Y -40
+KPX uni1EB0 y -15
+KPX uni1EB0 Yacute -40
+KPX uni1EB0 yacute -15
+KPX uni1EB0 ydieresis -15
+KPX uni1EB0 Ydieresis -40
+KPX uni1EB0 Ygrave -40
+KPX uni1EB0 ygrave -15
+KPX uni1EB0 uni1EF4 -40
+KPX uni1EB0 uni1EF5 -15
+KPX uni1EB0 uni1EF6 -40
+KPX uni1EB0 uni1EF7 -15
+KPX uni1EB0 uni1EF8 -40
+KPX uni1EB0 uni1EF9 -15
+KPX uni1EB2 T -40
+KPX uni1EB2 V -50
+KPX uni1EB2 W -45
+KPX uni1EB2 Y -40
+KPX uni1EB2 y -15
+KPX uni1EB2 Yacute -40
+KPX uni1EB2 yacute -15
+KPX uni1EB2 ydieresis -15
+KPX uni1EB2 Ydieresis -40
+KPX uni1EB2 Ygrave -40
+KPX uni1EB2 ygrave -15
+KPX uni1EB2 uni1EF4 -40
+KPX uni1EB2 uni1EF5 -15
+KPX uni1EB2 uni1EF6 -40
+KPX uni1EB2 uni1EF7 -15
+KPX uni1EB2 uni1EF8 -40
+KPX uni1EB2 uni1EF9 -15
+KPX uni1EB4 T -40
+KPX uni1EB4 V -50
+KPX uni1EB4 W -45
+KPX uni1EB4 Y -40
+KPX uni1EB4 y -15
+KPX uni1EB4 Yacute -40
+KPX uni1EB4 yacute -15
+KPX uni1EB4 ydieresis -15
+KPX uni1EB4 Ydieresis -40
+KPX uni1EB4 Ygrave -40
+KPX uni1EB4 ygrave -15
+KPX uni1EB4 uni1EF4 -40
+KPX uni1EB4 uni1EF5 -15
+KPX uni1EB4 uni1EF6 -40
+KPX uni1EB4 uni1EF7 -15
+KPX uni1EB4 uni1EF8 -40
+KPX uni1EB4 uni1EF9 -15
+KPX uni1EB6 T -40
+KPX uni1EB6 V -50
+KPX uni1EB6 W -45
+KPX uni1EB6 Y -40
+KPX uni1EB6 y -15
+KPX uni1EB6 Yacute -40
+KPX uni1EB6 yacute -15
+KPX uni1EB6 ydieresis -15
+KPX uni1EB6 Ydieresis -40
+KPX uni1EB6 Ygrave -40
+KPX uni1EB6 ygrave -15
+KPX uni1EB6 uni1EF4 -40
+KPX uni1EB6 uni1EF5 -15
+KPX uni1EB6 uni1EF6 -40
+KPX uni1EB6 uni1EF7 -15
+KPX uni1EB6 uni1EF8 -40
+KPX uni1EB6 uni1EF9 -15
+KPX Ygrave A -40
+KPX Ygrave a -20
+KPX Ygrave c -25
+KPX Ygrave e -25
+KPX Ygrave g -25
+KPX Ygrave m -20
+KPX Ygrave n -20
+KPX Ygrave o -25
+KPX Ygrave p -20
+KPX Ygrave q -25
+KPX Ygrave r -20
+KPX Ygrave s -25
+KPX Ygrave u -20
+KPX Ygrave Agrave -40
+KPX Ygrave Aacute -40
+KPX Ygrave Acircumflex -40
+KPX Ygrave Atilde -40
+KPX Ygrave Adieresis -40
+KPX Ygrave Aring -40
+KPX Ygrave agrave -20
+KPX Ygrave aacute -20
+KPX Ygrave acircumflex -20
+KPX Ygrave atilde -20
+KPX Ygrave adieresis -20
+KPX Ygrave aring -20
+KPX Ygrave ae -20
+KPX Ygrave ccedilla -25
+KPX Ygrave egrave -25
+KPX Ygrave eacute -25
+KPX Ygrave ecircumflex -25
+KPX Ygrave edieresis -25
+KPX Ygrave eth -25
+KPX Ygrave ntilde -20
+KPX Ygrave ograve -25
+KPX Ygrave oacute -25
+KPX Ygrave ocircumflex -25
+KPX Ygrave otilde -25
+KPX Ygrave odieresis -25
+KPX Ygrave oslash -25
+KPX Ygrave ugrave -20
+KPX Ygrave uacute -20
+KPX Ygrave ucircumflex -20
+KPX Ygrave udieresis -20
+KPX Ygrave oe -25
+KPX Ygrave scaron -25
+KPX Ygrave uni1EA0 -40
+KPX Ygrave uni1EA1 -20
+KPX Ygrave uni1EA2 -40
+KPX Ygrave uni1EA3 -20
+KPX Ygrave uni1EA4 -40
+KPX Ygrave uni1EA5 -20
+KPX Ygrave uni1EA6 -40
+KPX Ygrave uni1EA7 -20
+KPX Ygrave uni1EA8 -40
+KPX Ygrave uni1EA9 -20
+KPX Ygrave uni1EAA -40
+KPX Ygrave uni1EAB -20
+KPX Ygrave uni1EAC -40
+KPX Ygrave uni1EAD -20
+KPX Ygrave uni1EAE -40
+KPX Ygrave uni1EAF -20
+KPX Ygrave uni1EB0 -40
+KPX Ygrave uni1EB1 -20
+KPX Ygrave uni1EB2 -40
+KPX Ygrave uni1EB3 -20
+KPX Ygrave uni1EB4 -40
+KPX Ygrave uni1EB5 -20
+KPX Ygrave uni1EB6 -40
+KPX Ygrave uni1EB7 -20
+KPX Ygrave uni1EB9 -25
+KPX Ygrave uni1EBB -25
+KPX Ygrave uni1EBD -25
+KPX Ygrave uni1EBF -25
+KPX Ygrave uni1EC1 -25
+KPX Ygrave uni1EC3 -25
+KPX Ygrave uni1EC5 -25
+KPX Ygrave uni1EC7 -25
+KPX Ygrave uni1ECD -25
+KPX Ygrave uni1ECF -25
+KPX Ygrave uni1ED1 -25
+KPX Ygrave uni1ED3 -25
+KPX Ygrave uni1ED5 -25
+KPX Ygrave uni1ED7 -25
+KPX Ygrave uni1ED9 -25
+KPX Ygrave uni1EDB -25
+KPX Ygrave uni1EDD -25
+KPX Ygrave uni1EDF -25
+KPX Ygrave uni1EE1 -25
+KPX Ygrave uni1EE3 -25
+KPX Ygrave uni1EE5 -20
+KPX Ygrave uni1EE7 -20
+KPX Ygrave uni1EE9 -20
+KPX Ygrave uni1EEB -20
+KPX Ygrave uni1EED -20
+KPX Ygrave uni1EEF -20
+KPX Ygrave uni1EF1 -20
+KPX Ygrave Abreve -40
+KPX Ygrave abreve -20
+KPX Ygrave cacute -25
+KPX Ygrave ccaron -25
+KPX Ygrave gbreve -25
+KPX Ygrave scedilla -25
+KPX Ygrave utilde -20
+KPX Ygrave ohorn -25
+KPX Ygrave uhorn -20
+KPX uni1EF4 A -40
+KPX uni1EF4 a -20
+KPX uni1EF4 c -25
+KPX uni1EF4 e -25
+KPX uni1EF4 g -25
+KPX uni1EF4 m -20
+KPX uni1EF4 n -20
+KPX uni1EF4 o -25
+KPX uni1EF4 p -20
+KPX uni1EF4 q -25
+KPX uni1EF4 r -20
+KPX uni1EF4 s -25
+KPX uni1EF4 u -20
+KPX uni1EF4 Agrave -40
+KPX uni1EF4 Aacute -40
+KPX uni1EF4 Acircumflex -40
+KPX uni1EF4 Atilde -40
+KPX uni1EF4 Adieresis -40
+KPX uni1EF4 Aring -40
+KPX uni1EF4 agrave -20
+KPX uni1EF4 aacute -20
+KPX uni1EF4 acircumflex -20
+KPX uni1EF4 atilde -20
+KPX uni1EF4 adieresis -20
+KPX uni1EF4 aring -20
+KPX uni1EF4 ae -20
+KPX uni1EF4 ccedilla -25
+KPX uni1EF4 egrave -25
+KPX uni1EF4 eacute -25
+KPX uni1EF4 ecircumflex -25
+KPX uni1EF4 edieresis -25
+KPX uni1EF4 eth -25
+KPX uni1EF4 ntilde -20
+KPX uni1EF4 ograve -25
+KPX uni1EF4 oacute -25
+KPX uni1EF4 ocircumflex -25
+KPX uni1EF4 otilde -25
+KPX uni1EF4 odieresis -25
+KPX uni1EF4 oslash -25
+KPX uni1EF4 ugrave -20
+KPX uni1EF4 uacute -20
+KPX uni1EF4 ucircumflex -20
+KPX uni1EF4 udieresis -20
+KPX uni1EF4 oe -25
+KPX uni1EF4 scaron -25
+KPX uni1EF4 uni1EA0 -40
+KPX uni1EF4 uni1EA1 -20
+KPX uni1EF4 uni1EA2 -40
+KPX uni1EF4 uni1EA3 -20
+KPX uni1EF4 uni1EA4 -40
+KPX uni1EF4 uni1EA5 -20
+KPX uni1EF4 uni1EA6 -40
+KPX uni1EF4 uni1EA7 -20
+KPX uni1EF4 uni1EA8 -40
+KPX uni1EF4 uni1EA9 -20
+KPX uni1EF4 uni1EAA -40
+KPX uni1EF4 uni1EAB -20
+KPX uni1EF4 uni1EAC -40
+KPX uni1EF4 uni1EAD -20
+KPX uni1EF4 uni1EAE -40
+KPX uni1EF4 uni1EAF -20
+KPX uni1EF4 uni1EB0 -40
+KPX uni1EF4 uni1EB1 -20
+KPX uni1EF4 uni1EB2 -40
+KPX uni1EF4 uni1EB3 -20
+KPX uni1EF4 uni1EB4 -40
+KPX uni1EF4 uni1EB5 -20
+KPX uni1EF4 uni1EB6 -40
+KPX uni1EF4 uni1EB7 -20
+KPX uni1EF4 uni1EB9 -25
+KPX uni1EF4 uni1EBB -25
+KPX uni1EF4 uni1EBD -25
+KPX uni1EF4 uni1EBF -25
+KPX uni1EF4 uni1EC1 -25
+KPX uni1EF4 uni1EC3 -25
+KPX uni1EF4 uni1EC5 -25
+KPX uni1EF4 uni1EC7 -25
+KPX uni1EF4 uni1ECD -25
+KPX uni1EF4 uni1ECF -25
+KPX uni1EF4 uni1ED1 -25
+KPX uni1EF4 uni1ED3 -25
+KPX uni1EF4 uni1ED5 -25
+KPX uni1EF4 uni1ED7 -25
+KPX uni1EF4 uni1ED9 -25
+KPX uni1EF4 uni1EDB -25
+KPX uni1EF4 uni1EDD -25
+KPX uni1EF4 uni1EDF -25
+KPX uni1EF4 uni1EE1 -25
+KPX uni1EF4 uni1EE3 -25
+KPX uni1EF4 uni1EE5 -20
+KPX uni1EF4 uni1EE7 -20
+KPX uni1EF4 uni1EE9 -20
+KPX uni1EF4 uni1EEB -20
+KPX uni1EF4 uni1EED -20
+KPX uni1EF4 uni1EEF -20
+KPX uni1EF4 uni1EF1 -20
+KPX uni1EF4 Abreve -40
+KPX uni1EF4 abreve -20
+KPX uni1EF4 cacute -25
+KPX uni1EF4 ccaron -25
+KPX uni1EF4 gbreve -25
+KPX uni1EF4 scedilla -25
+KPX uni1EF4 utilde -20
+KPX uni1EF4 ohorn -25
+KPX uni1EF4 uhorn -20
+KPX uni1EF6 A -40
+KPX uni1EF6 a -20
+KPX uni1EF6 c -25
+KPX uni1EF6 e -25
+KPX uni1EF6 g -25
+KPX uni1EF6 m -20
+KPX uni1EF6 n -20
+KPX uni1EF6 o -25
+KPX uni1EF6 p -20
+KPX uni1EF6 q -25
+KPX uni1EF6 r -20
+KPX uni1EF6 s -25
+KPX uni1EF6 u -20
+KPX uni1EF6 Agrave -40
+KPX uni1EF6 Aacute -40
+KPX uni1EF6 Acircumflex -40
+KPX uni1EF6 Atilde -40
+KPX uni1EF6 Adieresis -40
+KPX uni1EF6 Aring -40
+KPX uni1EF6 agrave -20
+KPX uni1EF6 aacute -20
+KPX uni1EF6 acircumflex -20
+KPX uni1EF6 atilde -20
+KPX uni1EF6 adieresis -20
+KPX uni1EF6 aring -20
+KPX uni1EF6 ae -20
+KPX uni1EF6 ccedilla -25
+KPX uni1EF6 egrave -25
+KPX uni1EF6 eacute -25
+KPX uni1EF6 ecircumflex -25
+KPX uni1EF6 edieresis -25
+KPX uni1EF6 eth -25
+KPX uni1EF6 ntilde -20
+KPX uni1EF6 ograve -25
+KPX uni1EF6 oacute -25
+KPX uni1EF6 ocircumflex -25
+KPX uni1EF6 otilde -25
+KPX uni1EF6 odieresis -25
+KPX uni1EF6 oslash -25
+KPX uni1EF6 ugrave -20
+KPX uni1EF6 uacute -20
+KPX uni1EF6 ucircumflex -20
+KPX uni1EF6 udieresis -20
+KPX uni1EF6 oe -25
+KPX uni1EF6 scaron -25
+KPX uni1EF6 uni1EA0 -40
+KPX uni1EF6 uni1EA1 -20
+KPX uni1EF6 uni1EA2 -40
+KPX uni1EF6 uni1EA3 -20
+KPX uni1EF6 uni1EA4 -40
+KPX uni1EF6 uni1EA5 -20
+KPX uni1EF6 uni1EA6 -40
+KPX uni1EF6 uni1EA7 -20
+KPX uni1EF6 uni1EA8 -40
+KPX uni1EF6 uni1EA9 -20
+KPX uni1EF6 uni1EAA -40
+KPX uni1EF6 uni1EAB -20
+KPX uni1EF6 uni1EAC -40
+KPX uni1EF6 uni1EAD -20
+KPX uni1EF6 uni1EAE -40
+KPX uni1EF6 uni1EAF -20
+KPX uni1EF6 uni1EB0 -40
+KPX uni1EF6 uni1EB1 -20
+KPX uni1EF6 uni1EB2 -40
+KPX uni1EF6 uni1EB3 -20
+KPX uni1EF6 uni1EB4 -40
+KPX uni1EF6 uni1EB5 -20
+KPX uni1EF6 uni1EB6 -40
+KPX uni1EF6 uni1EB7 -20
+KPX uni1EF6 uni1EB9 -25
+KPX uni1EF6 uni1EBB -25
+KPX uni1EF6 uni1EBD -25
+KPX uni1EF6 uni1EBF -25
+KPX uni1EF6 uni1EC1 -25
+KPX uni1EF6 uni1EC3 -25
+KPX uni1EF6 uni1EC5 -25
+KPX uni1EF6 uni1EC7 -25
+KPX uni1EF6 uni1ECD -25
+KPX uni1EF6 uni1ECF -25
+KPX uni1EF6 uni1ED1 -25
+KPX uni1EF6 uni1ED3 -25
+KPX uni1EF6 uni1ED5 -25
+KPX uni1EF6 uni1ED7 -25
+KPX uni1EF6 uni1ED9 -25
+KPX uni1EF6 uni1EDB -25
+KPX uni1EF6 uni1EDD -25
+KPX uni1EF6 uni1EDF -25
+KPX uni1EF6 uni1EE1 -25
+KPX uni1EF6 uni1EE3 -25
+KPX uni1EF6 uni1EE5 -20
+KPX uni1EF6 uni1EE7 -20
+KPX uni1EF6 uni1EE9 -20
+KPX uni1EF6 uni1EEB -20
+KPX uni1EF6 uni1EED -20
+KPX uni1EF6 uni1EEF -20
+KPX uni1EF6 uni1EF1 -20
+KPX uni1EF6 Abreve -40
+KPX uni1EF6 abreve -20
+KPX uni1EF6 cacute -25
+KPX uni1EF6 ccaron -25
+KPX uni1EF6 gbreve -25
+KPX uni1EF6 scedilla -25
+KPX uni1EF6 utilde -20
+KPX uni1EF6 ohorn -25
+KPX uni1EF6 uhorn -20
+KPX uni1EF8 A -40
+KPX uni1EF8 a -20
+KPX uni1EF8 c -25
+KPX uni1EF8 e -25
+KPX uni1EF8 g -25
+KPX uni1EF8 m -20
+KPX uni1EF8 n -20
+KPX uni1EF8 o -25
+KPX uni1EF8 p -20
+KPX uni1EF8 q -25
+KPX uni1EF8 r -20
+KPX uni1EF8 s -25
+KPX uni1EF8 u -20
+KPX uni1EF8 Agrave -40
+KPX uni1EF8 Aacute -40
+KPX uni1EF8 Acircumflex -40
+KPX uni1EF8 Atilde -40
+KPX uni1EF8 Adieresis -40
+KPX uni1EF8 Aring -40
+KPX uni1EF8 agrave -20
+KPX uni1EF8 aacute -20
+KPX uni1EF8 acircumflex -20
+KPX uni1EF8 atilde -20
+KPX uni1EF8 adieresis -20
+KPX uni1EF8 aring -20
+KPX uni1EF8 ae -20
+KPX uni1EF8 ccedilla -25
+KPX uni1EF8 egrave -25
+KPX uni1EF8 eacute -25
+KPX uni1EF8 ecircumflex -25
+KPX uni1EF8 edieresis -25
+KPX uni1EF8 eth -25
+KPX uni1EF8 ntilde -20
+KPX uni1EF8 ograve -25
+KPX uni1EF8 oacute -25
+KPX uni1EF8 ocircumflex -25
+KPX uni1EF8 otilde -25
+KPX uni1EF8 odieresis -25
+KPX uni1EF8 oslash -25
+KPX uni1EF8 ugrave -20
+KPX uni1EF8 uacute -20
+KPX uni1EF8 ucircumflex -20
+KPX uni1EF8 udieresis -20
+KPX uni1EF8 oe -25
+KPX uni1EF8 scaron -25
+KPX uni1EF8 uni1EA0 -40
+KPX uni1EF8 uni1EA1 -20
+KPX uni1EF8 uni1EA2 -40
+KPX uni1EF8 uni1EA3 -20
+KPX uni1EF8 uni1EA4 -40
+KPX uni1EF8 uni1EA5 -20
+KPX uni1EF8 uni1EA6 -40
+KPX uni1EF8 uni1EA7 -20
+KPX uni1EF8 uni1EA8 -40
+KPX uni1EF8 uni1EA9 -20
+KPX uni1EF8 uni1EAA -40
+KPX uni1EF8 uni1EAB -20
+KPX uni1EF8 uni1EAC -40
+KPX uni1EF8 uni1EAD -20
+KPX uni1EF8 uni1EAE -40
+KPX uni1EF8 uni1EAF -20
+KPX uni1EF8 uni1EB0 -40
+KPX uni1EF8 uni1EB1 -20
+KPX uni1EF8 uni1EB2 -40
+KPX uni1EF8 uni1EB3 -20
+KPX uni1EF8 uni1EB4 -40
+KPX uni1EF8 uni1EB5 -20
+KPX uni1EF8 uni1EB6 -40
+KPX uni1EF8 uni1EB7 -20
+KPX uni1EF8 uni1EB9 -25
+KPX uni1EF8 uni1EBB -25
+KPX uni1EF8 uni1EBD -25
+KPX uni1EF8 uni1EBF -25
+KPX uni1EF8 uni1EC1 -25
+KPX uni1EF8 uni1EC3 -25
+KPX uni1EF8 uni1EC5 -25
+KPX uni1EF8 uni1EC7 -25
+KPX uni1EF8 uni1ECD -25
+KPX uni1EF8 uni1ECF -25
+KPX uni1EF8 uni1ED1 -25
+KPX uni1EF8 uni1ED3 -25
+KPX uni1EF8 uni1ED5 -25
+KPX uni1EF8 uni1ED7 -25
+KPX uni1EF8 uni1ED9 -25
+KPX uni1EF8 uni1EDB -25
+KPX uni1EF8 uni1EDD -25
+KPX uni1EF8 uni1EDF -25
+KPX uni1EF8 uni1EE1 -25
+KPX uni1EF8 uni1EE3 -25
+KPX uni1EF8 uni1EE5 -20
+KPX uni1EF8 uni1EE7 -20
+KPX uni1EF8 uni1EE9 -20
+KPX uni1EF8 uni1EEB -20
+KPX uni1EF8 uni1EED -20
+KPX uni1EF8 uni1EEF -20
+KPX uni1EF8 uni1EF1 -20
+KPX uni1EF8 Abreve -40
+KPX uni1EF8 abreve -20
+KPX uni1EF8 cacute -25
+KPX uni1EF8 ccaron -25
+KPX uni1EF8 gbreve -25
+KPX uni1EF8 scedilla -25
+KPX uni1EF8 utilde -20
+KPX uni1EF8 ohorn -25
+KPX uni1EF8 uhorn -20
+KPX Abreve T -40
+KPX Abreve V -50
+KPX Abreve W -45
+KPX Abreve Y -40
+KPX Abreve y -15
+KPX Abreve Yacute -40
+KPX Abreve yacute -15
+KPX Abreve ydieresis -15
+KPX Abreve Ydieresis -40
+KPX Abreve Ygrave -40
+KPX Abreve ygrave -15
+KPX Abreve uni1EF4 -40
+KPX Abreve uni1EF5 -15
+KPX Abreve uni1EF6 -40
+KPX Abreve uni1EF7 -15
+KPX Abreve uni1EF8 -40
+KPX Abreve uni1EF9 -15
+EndKernPairs
+EndKernData
+EndFontMetrics

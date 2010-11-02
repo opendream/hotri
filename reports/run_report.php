@@ -134,7 +134,7 @@
     $rpt->table($table);
     exit;
   }
-  if ($format == 'xls') {
+  else if ($format == 'xls' || $format == 'pdf') {
     include_once('../classes/ExcelTable.php');
     $table = new ExcelTable;
     
@@ -152,8 +152,9 @@
     $breaker = count($columns);
     $objPHPExcel->setActiveSheetIndex(0);
     $objPHPExcel->getActiveSheet()->getDefaultStyle()->getFont()->setName('Tahoma');
-    $objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
-$objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+    //$objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+    $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+    //$objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(TRUE);
     
     $rpt->preloadTable($table);
     $key_row = 0;
@@ -203,11 +204,20 @@ $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_
       $key_row++;
     } while ($row = $rpt->getTableRow($table));
     
-    header('Content-Type: application/vnd.ms-excel');
-    header('Content-Disposition: attachment;filename="' . $rpt->type() . '.xls"');
-    header('Cache-Control: max-age=0');
+    if ($format == 'xls') {
+      header('Content-Type: application/vnd.ms-excel');
+      header('Content-Disposition: attachment;filename="' . $rpt->type() . '.xls"');
+      header('Cache-Control: max-age=0');
 
-    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+    }
+    else {
+      header('Content-Type: application/pdf');
+      header('Content-Disposition: attachment;filename="' . $rpt->type() . '.pdf"');
+      header('Cache-Control: max-age=0');
+      
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'PDF');
+    }
     $objWriter->save('php://output');
 
     exit;

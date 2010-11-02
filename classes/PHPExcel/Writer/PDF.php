@@ -272,7 +272,9 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 		$pdf->AddPage();
 
 		// Set the appropriate font
-		$pdf->SetFont($this->_font);
+	  $pdf->SetFont('th-sarabun');
+		//$pdf->SetFont($this->_font);
+		
 		$pdf->writeHTML($html);
 
 		// Document info

@@ -584,11 +584,17 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 					}
 				}
 			}
+			
+			// Convert to percentage
+			$totalSizes = 0;
+			foreach ($autoSizes as $columnIndex => $width) {
+			  $totalSizes += $width;
+			}
 
 			// adjust column widths
 			foreach ($autoSizes as $columnIndex => $width) {
 				if ($width == -1) $width = $this->getDefaultColumnDimension()->getWidth();
-				$this->getColumnDimension($columnIndex)->setWidth($width);
+				$this->getColumnDimension($columnIndex)->setWidth(($width * 100 / $totalSizes) . '%');
 			}
 		}
 
