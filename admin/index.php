@@ -14,7 +14,7 @@
 
 ?>
 
-<h1><img src="../images/admin.png" border="0" width="30" height="30" align="top"> <?php echo $loc->getText("indexHdr");?></h1>
+<h1><img src="../images/admin.png" border="0" width="30" height="30" align="top" /> <?php echo $loc->getText("indexHdr");?></h1>
 <?php echo $loc->getText("indexDesc");?>
 <br><br><br><br><br>
 

@@ -8,17 +8,18 @@ td.nav li {
 }
 
 td.nav li:hover {
-	background-color: #fff;
+	background-color: #999080;
 }
 
 	td.nav li a:hover {
 		text-decoration: none;
 	}
 	td.nav li a:link, td.nav li a:visited {
-		color: #4F4E57;
+		color: #FFFF99;
 	}
 	td.nav li.active {
-		color: #f03030;
+		color: #fff;
+		background-color: #999080;
 	}
 
 td.nav li.active li {
@@ -27,6 +28,10 @@ td.nav li.active li {
 	list-style-position: inside;
 	list-style-type: square;
 	padding: 5px 0;
+}
+
+td.nav li.active li:hover {
+	background-color: #999080;
 }
 
 td.nav {width: 15%;}
@@ -63,7 +68,7 @@ td.tab2, td.tab1 {
 
 /*search*/
 legend.collapsible {
-  color: #4C83AF;
+  color: #FFFF99;
 }
 
 /*footer*/
@@ -95,7 +100,7 @@ table.primary {
 	border-collapse: collapse;
 }
 
-td.primary {
+td.primary, td.alt1 {
 	border-bottom: 1px dotted #ccc;
 	border-width: 0 0 1px;
 }
@@ -117,7 +122,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-	background-color: #FFFFDF;
+	/*background-color: #FFFFDF;*/
 }
 
 input.button, input.navbutton {

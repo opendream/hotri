@@ -53,7 +53,11 @@ td.title {
 
 .library-info td.title {
 	height: auto;
-	color: #ccc;
+	color: #333;
+}
+
+a.library-name:link, a.library-name:visited {
+	color: #333;
 }
 
 /*top menu*/
@@ -63,7 +67,7 @@ td.tab2, td.tab1 {
 
 /*search*/
 legend.collapsible {
-  color: #4C83AF;
+  color: #0000AA;
 }
 
 /*footer*/
@@ -95,7 +99,7 @@ table.primary {
 	border-collapse: collapse;
 }
 
-td.primary {
+td.primary, td.alt1 {
 	border-bottom: 1px dotted #ccc;
 	border-width: 0 0 1px;
 }
@@ -117,7 +121,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-	background-color: #FFFFDF;
+	/*background-color: #FFFFDF;*/
 }
 
 input.button, input.navbutton {

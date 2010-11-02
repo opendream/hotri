@@ -23,10 +23,10 @@ if (OBIB_CHARSET != "") { ?>
 <style type="text/css">
   <?php include("../css/style.php");?>
 </style>
-<?php    
+<?php
   if (!isset($_SESSION["active_theme"])) {
     require_once("../shared/theme.php");
-    get_active_theme();
+    $_SESSION["active_theme"] = get_active_theme();
   }
   if (strcmp($_SESSION["active_theme"], "") != 0) {
     echo '<link href="../themes/'. $_SESSION["active_theme"] .'/style.css" rel="stylesheet" type="text/css" media="screen" />';

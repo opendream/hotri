@@ -39,13 +39,17 @@ while ($row = $bl->fetch()) {
   $rows[] = $row;
 }
 if (count($rows) < 1) {
-  echo "<tr><td colspan=\"7\">" . $loc->getText('bulkReportAllCovered') . "</td></tr>";
+  echo "<tr><td colspan=\"7\" class=\"primary\">" . $loc->getText('bulkReportAllCovered') . "</td></tr>";
 }
 
 foreach ($rows as $row) {
-  echo "<tr><td>{$row['bibid']}</td><td>{$row['title']}</td>" .
-   "<td><a href=\"../catalog/biblio_edit.php?bibid={$row['bibid']}\">" . $loc->getText('edit') . "</a></td>" .
-   "</tr>";
+  echo "<tr>".
+       "  <td class=\"primary center\">{$row['bibid']}</td>".
+       "  <td class=\"primary\">{$row['title']}</td>".
+       "  <td class=\"primary\">".
+       "    <a href=\"../catalog/biblio_edit.php?bibid={$row['bibid']}\">" . $loc->getText('edit') . "</a>".
+       "  </td>".
+       "</tr>";
 }
 ?>
 </table>
@@ -110,19 +114,31 @@ while ($row = $bl->fetch()) {
   $rows[] = $row;
 }
 if (count($rows) < 1) {
-  echo "<tr><td colspan=\"7\">" . $loc->getText('bulkReportNoItem') . "</td></tr>";
+  echo "<tr><td colspan=\"7\" class=\"primary\">" . $loc->getText('bulkReportNoItem') . "</td></tr>";
 }
 
 foreach ($rows as $row) {
   $bibid = $bl->getExistBiblio($row['isbn']);
   $status = $bibid > 0 ? "yes":"no";
-  echo "<tr><td>{$row['isbn']}</td><td>{$row['hits']}</td><td>{$row['created']}</td><td><a href=\"../catalog/biblio_new.php?isbn={$row['isbn']}&hits={$row['hits']}\">" . $loc->getText('add') . "</a></td>" .
-   "<td><a href=\"?del={$row['isbn']}&type=manual\" onclick=\"return confirm('" . $loc->getText('bulkReportConfirmRemoveISBN', array('isbn' => $row['isbn'])) . "')\">" . $loc->getText ('remove') . "</a></td>" .
-   ($bibid < 1 ? "<td>&nbsp;</td>":"<td><a href=\"../catalog/biblio_copy_new_form.php?bibid={$bibid}&isbn={$row['isbn']}&hits={$row['hits']}\">copy</a></td>") . 
-   "<td>$status</td></tr>";
+  echo "<tr>".
+       "  <td class=\"primary\">{$row['isbn']}</td>".
+       "  <td class=\"primary center\">{$row['hits']}</td>".
+       "  <td class=\"primary\">{$row['created']}</td>".
+       "  <td class=\"primary\"><a href=\"../catalog/biblio_new.php?isbn={$row['isbn']}&hits={$row['hits']}\">" . $loc->getText('add') . "</a></td>".
+       "  <td class=\"primary\">".
+       "    <a href=\"?del={$row['isbn']}&type=manual\" onclick=\"return confirm('" . $loc->getText('bulkReportConfirmRemoveISBN', array('isbn' => $row['isbn'])) . "')\">" . $loc->getText ('remove') . "</a>".
+       "  </td>".
+       ($bibid < 1 ?
+       "  <td class=\"primary\">&nbsp;</td>" :
+       "  <td class=\"primary\">".
+       "    <a href=\"../catalog/biblio_copy_new_form.php?bibid={$bibid}&isbn={$row['isbn']}&hits={$row['hits']}\">copy</a>".
+       "  </td>") .
+       "  <td class=\"primary\">$status</td>".
+       "</tr>";
 }
 ?>
 </table>
+
 <?php
 // Paging link
 if ($p > 1) $prev = "<a href=\"?type=manual&page=".($p-1)."\">Previous</a>";

@@ -128,3 +128,7 @@ td.nav li.active {
 td.nav li.active li {
 	background-color: #ccc;
 }
+
+.center {
+	text-align: center;
+}
