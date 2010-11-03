@@ -213,7 +213,7 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 	 * @param 	string 		$pFileName
 	 * @throws 	Exception
 	 */
-	public function save($pFilename = null) {
+	public function save($pFilename = null, $title = '') {
 		// garbage collect
 		$this->_phpExcel->garbageCollect();
 
@@ -235,6 +235,9 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 		// Generate HTML
 		$html = '';
 		//$html .= $this->generateHTMLHeader(false);
+		if (!empty($title)) {
+		  $html .= '<h1 align="center">' . $title . '</h1>';
+		}
 		$html .= $this->generateSheetData();
 		//$html .= $this->generateHTMLFooter();
 
@@ -272,7 +275,22 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
 		$pdf->AddPage();
 
 		// Set the appropriate font
-	  $pdf->SetFont('th-sarabun');
+		require_once("../classes/Settings.php");
+		require_once("../classes/SettingsQuery.php");
+		$setQ = new SettingsQuery();
+    $setQ->connect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $setQ->execSelect();
+    if ($setQ->errorOccurred()) {
+      $setQ->close();
+      displayErrorPage($setQ);
+    }
+    $set = $setQ->fetchRow();
+    
+		$pdf->setFont($set->getFontNormal());
 		//$pdf->SetFont($this->_font);
 		
 		$pdf->writeHTML($html);

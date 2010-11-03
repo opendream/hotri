@@ -9,7 +9,12 @@ require_once('../classes/MemberQuery.php');
 class Layout_overdue {
   var $sets;
   function render($rpt) {
-    $this->sets = Lay::getFonts();
+    //$this->sets = Lay::getFonts();
+    $this->sets = array(
+      'fontNormal' => 'Garuda',
+      'fontBold' => 'Garuda-Bold',
+      'fontOblique' => 'Garuda-Oblique',
+    );
     list($rpt, $errs) = $rpt->variant_el(array('order_by'=>'member_bcode'));
     if (!empty($errs)) {
       Fatal::internalError('Unexpected report error');

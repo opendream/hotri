@@ -174,6 +174,14 @@
       <?php echo H($mbr->getEmail());?>
     </td>
   </tr>
+  <tr>
+    <td class="primary" valign="top">
+      <?php echo $loc->getText("mbrViewLastActDate"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php echo $loc->getText("mbrFormattedDate", array('date' => $mbr->getLastActDate()));?>
+    </td>
+  </tr>
 <?php
   foreach ($memberFieldsDm as $name => $title) {
     if (($value = $mbr->getCustom($name))) {

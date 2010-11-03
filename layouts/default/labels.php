@@ -15,7 +15,12 @@ class Layout_labels {
   }
   function init($params) {
     $this->p = $params;
-    $this->sets = Lay::getFonts();
+    //$this->sets = Lay::getFonts();
+    $this->sets = array(
+      'fontNormal' => 'Garuda',
+      'fontBold' => 'Garuda-Bold',
+      'fontOblique' => 'Garuda-Oblique',
+    );
   }
   function render($rpt) {
     $lay = new Lay('A4');

@@ -122,7 +122,7 @@
       '../shared/layout.php?rpt=Report&name='.U($l['name']));
   }
   Nav::node('results/list', $loc->getText('Print list'),
-    '../shared/layout.php?rpt=Report&name=list');
+    '../reports/run_report.php?type=previous&rpt___format=pdf');
   Nav::node('reportcriteria', $navLoc->getText('reportsCriteria'),
     '../reports/report_criteria.php?type='.U($rpt->type()));
   
@@ -190,10 +190,15 @@
         
         if ($key_row === 0) {
           // Emphasize cell as header row
+          
           $styles->getFont()->setBold(TRUE);
           $styles->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-          $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
-          
+          if ($format == 'xls') {
+            $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
+          }
+          else {
+            $styles->getFill()->getStartColor()->setARGB('FFCCCCCC');
+          }
           $objPHPExcel->getActiveSheet()->setCellValue($column_name, $loc->getText($val));
         }
        else {
@@ -218,8 +223,8 @@
       
       $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'PDF');
     }
-    $objWriter->save('php://output');
-
+    $objWriter->save('php://output', $loc->getText($rpt->title()));
+    
     exit;
   }
   

@@ -90,6 +90,32 @@ $trans["mbrsearchStatus"]         = "\$text='สถานะ:';";
 $trans["mbrActive"]               = "\$text='ปกติ';";
 $trans["mbrInactive"]             = "\$text='ระงับ';";
 $trans["mbrAutoBarcode"]          = "\$text='ใช้เลขที่สมาชิกอัตโนมัติ';";
+$trans["mbrViewLastActDate"]   = "\$text='ใช้งานล่าสุดเมื่อ:';";
+$trans["mbrFormattedDate"]      = <<<INNERHTML
+
+\$this_date = explode('-', date('D-j-m-Y-H:i', strtotime('%date%')));
+\$thDay = array(
+  'Sun' => 'อาทิตย์',
+  'Mon' => 'จันทร์',
+  'Tue' => 'อังคาร',
+  'Wed' => 'พุธ',
+  'Thu' => 'พฤหัส',
+  'Fri' => 'ศุกร์',
+  'Sat' => 'เสาร์',
+);
+\$thMonth = array(
+  1 => 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
+  'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
+\$thMonthLong = array(
+  1 => 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+  'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+  'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
+  
+
+  
+\$text= \$this_date[1] . ' ' . \$thMonthLong[0+\$this_date[2]] . ' ' . (543 + \$this_date[3]) . ' - ' . \$this_date[4];
+
+INNERHTML;
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php

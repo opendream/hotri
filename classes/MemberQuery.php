@@ -137,6 +137,7 @@ class MemberQuery extends Query {
     $mbr->setEmail($array["email"]);
     $mbr->setClassification($array["classification"]);
     $mbr->setStatus($array["is_active"]);
+    $mbr->setLastActDate($array["last_activity_dt"]);
     $mbr->_custom = $this->getCustomFields($array['mbrid']);
     return $mbr;
   }

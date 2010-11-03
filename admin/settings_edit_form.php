@@ -63,8 +63,6 @@
     $postVars["charset"] = $set->getCharset();
     $postVars["htmlLangAttr"] = $set->getHtmlLangAttr();
     $postVars["fontNormal"] = $set->getFontNormal();
-    $postVars["fontBold"] = $set->getFontBold();
-    $postVars["fontOblique"] = $set->getFontOblique();
     $postVars["inactiveMemberAfterDays"] = $set->getInactiveMemberAfterDays();
     
     $setQ->close();
@@ -86,8 +84,20 @@
       }
       
       sort($opts);
-      
+      $fontName = '';
       foreach ($opts as $val) {
+        // Ignore related fonts ( [font-name]b/i/bi )
+        if ($fontName != $val) {
+          if (empty($fontName)) {
+            $fontName = $val;
+          }
+          else if ($fontName != substr($val, 0, strlen($fontName))) {
+            $fontName = $val;
+          }
+          else if (in_array(substr($val, strlen($fontName)), array('b','i','bi'))) {
+            continue;
+          }
+        }
         $options .= "<option value=\"{$val}\" " . ($val == $postVars[$name] ? 'selected="selected"' : '') . ">{$val}</option>\n";
       }
     }
@@ -264,22 +274,6 @@
     </td>
     <td valign="top" class="primary">
       <?php echo getFontSelections('fontNormal', $postVars) ?>
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="true" class="primary">
-      <?php echo $loc->getText("admin_settingsFontBold"); ?>
-    </td>
-    <td valign="top" class="primary">
-      <?php echo getFontSelections('fontBold', $postVars) ?>
-    </td>
-  </tr>
-  <tr>
-    <td nowrap="true" class="primary">
-      <?php echo $loc->getText("admin_settingsFontOblique"); ?>
-    </td>
-    <td valign="top" class="primary">
-      <?php echo getFontSelections('fontOblique', $postVars) ?>
     </td>
   </tr>
   <tr>

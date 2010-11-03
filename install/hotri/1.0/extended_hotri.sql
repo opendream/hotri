@@ -1,11 +1,13 @@
 -- This file must be executed after core database & samples installed
 ALTER TABLE %prfx%biblio ADD COLUMN has_cover char(1) DEFAULT 'N';
 ALTER TABLE %prfx%member ADD COLUMN is_active char(1) DEFAULT 'Y';
-ALTER TABLE %prfx%member ADD COLUMN last_activity_dt datetime DEFAULT '0000-00-00 00:00:00';
+ALTER TABLE %prfx%member ADD COLUMN last_activity_dt datetime NOT NULL;
 
-ALTER TABLE %prfx%settings ADD COLUMN font_normal varchar(20) DEFAULT 'Garuda';
-ALTER TABLE %prfx%settings ADD COLUMN font_bold varchar(20) DEFAULT 'Garuda-Bold';
-ALTER TABLE %prfx%settings ADD COLUMN font_oblique varchar(20) DEFAULT 'Garuda-Oblique';
+-- Fixed issue about alter table not update current_timestamp
+-- so update all existing members' last activity date with UPDATE statement
+UPDATE %prfx%member SET last_activity_dt=NOW();
+
+ALTER TABLE %prfx%settings ADD COLUMN font_normal varchar(20) DEFAULT 'th-sarabun';
 ALTER TABLE %prfx%settings ADD COLUMN inactive_member_after_days smallint(6) DEFAULT 90;
 
 

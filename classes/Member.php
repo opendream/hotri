@@ -34,6 +34,7 @@ class Member {
   var $_status = "Y";
   var $_statusError = "";
   var $_custom = array();
+  var $_lastActivityDate = "0000-00-00 00:00:00";
   
 
   /****************************************************************************
@@ -144,6 +145,9 @@ class Member {
   function getStatusError() {
     return $this->_statusError;
   }
+  function getLastActDate() {
+    return $this->_lastActivityDate;
+  }
 
   /****************************************************************************
    * Setter methods for all fields
@@ -202,6 +206,9 @@ class Member {
   }
   function setStatusError($value) {
     $this->_statusError = trim($value);
+  }
+  function setLastActDate($value) {
+    $this->_lastActivityDate = date('Y-m-d H:i:s', strtotime($value));
   }
 }
 

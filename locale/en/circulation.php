@@ -90,6 +90,8 @@ $trans["mbrsearchStatus"]         = "\$text='Status:';";
 $trans["mbrActive"]               = "\$text='active';";
 $trans["mbrInactive"]             = "\$text='inactive';";
 $trans["mbrAutoBarcode"]          = "\$text='use auto barcode';";
+$trans["mbrViewLastActDate"]   = "\$text='Last activity:';";
+$trans["mbrFormattedDate"]      = "\$text=date('j F Y - H:i', strtotime('%date%'));";
 
 #****************************************************************************
 #*  Translation text for page mbr_new.php

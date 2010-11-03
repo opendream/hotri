@@ -57,10 +57,6 @@
   $POST['inactiveMemberAfterDays'] = $set->getInactiveMemberAfterDays();
   $set->setFontNormal($_POST["fontNormal"]);
   $_POST["fontNormal"] = $set->getFontNormal();
-  $set->setFontBold($_POST["fontBold"]);
-  $_POST["fontBold"] = $set->getFontBold();
-  $set->setFontOblique($_POST["fontOblique"]);
-  $_POST["fontOblique"] = $set->getFontOblique();
 
   if (!$set->validateData()) {
     $pageErrors["sessionTimeout"] = $set->getSessionTimeoutError();

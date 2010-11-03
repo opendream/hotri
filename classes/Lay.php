@@ -31,7 +31,12 @@ class Lay_Word {
   var $display;
   var $p;
   function paramTypes() {
-    $fontsets = Lay::getFonts();
+    //$fontsets = Lay::getFonts();
+    $fontsets = array(
+      'fontNormal' => 'Garuda',
+      'fontBold' => 'Garuda-Bold',
+      'fontOblique' => 'Garuda-Oblique',
+    );
     return array(
       array('font-name', 'font-name', $fontsets['fontNormal']),
       array('font-size', 'font-size', 12),
@@ -653,7 +658,13 @@ class Lay {
     $this->display = new UFPDF($paper, $orientation);
     $this->current = new Lay_Top_Container($this->display);
 
-    $fontsets = Lay::getFonts();
+    //$fontsets = Lay::getFonts();
+    $fontsets = array(
+      'fontNormal' => 'Garuda',
+      'fontBold' => 'Garuda-Bold',
+      'fontOblique' => 'Garuda-Oblique',
+    );
+    
     $this->fonts = array(array($fontsets['fontNormal'], 12));
   }
   function container($name, $params=array()) {
