@@ -66,8 +66,8 @@ class SettingsQuery extends Query {
     $set->setHtmlLangAttr($array["html_lang_attr"]);
     $set->setInactiveMemberAfterDays($array["inactive_member_after_days"]);
     $set->setFontNormal($array["font_normal"]);
-    //$set->setFontBold($array["font_bold"]);
-    //$set->setFontOblique($array["font_oblique"]);
+    $set->setFontBold($array["font_bold"]);
+    $set->setFontOblique($array["font_oblique"]);
 
     return $set;
   }

@@ -119,7 +119,7 @@
       $title = $l['name'];
     }
     Nav::node('results/'.$l['name'], $loc->getText($title),
-      '../shared/layout.php?rpt=Report&name='.U($l['name']));
+      '../reports/run_report.php?type=previous&rpt___format='.U($l['name']));
   }
   Nav::node('results/list', $loc->getText('Print list'),
     '../reports/run_report.php?type=previous&rpt___format=pdf');
@@ -134,7 +134,7 @@
     $rpt->table($table);
     exit;
   }
-  else if ($format == 'xls' || $format == 'pdf') {
+  else if ($format == 'xls' || $format == 'pdf' || $format == 'labels') {
     include_once('../classes/ExcelTable.php');
     $table = new ExcelTable;
     
@@ -156,6 +156,10 @@
     $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
     //$objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(TRUE);
     
+    if ($format == 'labels') {
+      $objPHPExcel->getActiveSheet()->setShowGridlines(false);
+    }
+    
     $rpt->preloadTable($table);
     $key_row = 0;
     
@@ -164,7 +168,14 @@
     $row = $table->getData();
     
     // Set autosize to columns.
-    for ($i = 0; $i < count($row); $i++) {
+    $cols = count($row);
+    $colstart = 0;
+    if ($format == 'labels') {
+      $cols -= 2;
+      $colstart = 1;
+      $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
+    }
+    for ($i = $colstart; $i < $cols; $i++) {
       $objPHPExcel->getActiveSheet()->getColumnDimension(
               $columns[floor(($i + 1) / $breaker)] 
               . $columns[($i + 1) % $breaker])
@@ -172,6 +183,17 @@
     }
     
     do {
+      if ($format == 'labels') {
+        if ($key_row === 0) {
+          $row = $rpt->getTableRow($table);
+        }
+        $row[4] = $row[4] . "\n" . $row[5] . "\n" . $row[6];
+        $row[3] = preg_replace("/ /", "\n", $row[3]);
+        unset($row[0], $row[1], $row[5], $row[6]);
+        
+        $row = array($row[3], $row[2], $row[4]);
+      }
+      
       foreach ($row as $key_col => $val) {
         $column_name = $columns[floor(($key_col + 1) / $breaker)] 
               . $columns[($key_col + 1) % $breaker] . ($key_row + 1);
@@ -182,28 +204,45 @@
         //$styles->getAlignment()->setShrinkToFit(TRUE);
         
         // Borders
-        $borders = $styles->getBorders();
-        $borders->getTop()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-        $borders->getBottom()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-        $borders->getLeft()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-        $borders->getRight()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+        if ($format != 'labels') {
+          $borders = $styles->getBorders();
+          $borders->getTop()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+          $borders->getBottom()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+          $borders->getLeft()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+          $borders->getRight()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
         
-        if ($key_row === 0) {
-          // Emphasize cell as header row
-          
-          $styles->getFont()->setBold(TRUE);
-          $styles->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-          if ($format == 'xls') {
-            $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
+          if ($key_row === 0) {
+            // Emphasize cell as header row
+            
+            $styles->getFont()->setBold(TRUE);
+            $styles->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+            if ($format == 'xls') {
+              $styles->getFill()->getStartColor()->setARGB('FFFFDD00');
+            }
+            else {
+              $styles->getFill()->getStartColor()->setARGB('FFCCCCCC');
+            }
+            $objPHPExcel->getActiveSheet()->setCellValue($column_name, $loc->getText($val));
           }
           else {
-            $styles->getFill()->getStartColor()->setARGB('FFCCCCCC');
+            $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
           }
-          $objPHPExcel->getActiveSheet()->setCellValue($column_name, $loc->getText($val));
         }
-       else {
-        $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
-       }
+        else {
+          switch ($key_col) {
+            case 1:
+              $objPHPExcel->getActiveSheet()->setCellValue($column_name, '<span style="text-align:center;"><span style="font-family:free3of9x; font-size:20pt;">*' . $val . '*</span><br />' . $val . '</span>');
+              break;
+            case 2:
+              $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val . "\n");
+              break;
+            case 0:
+              $styles->getFont()->setBold(TRUE);
+              $styles->getFont()->setSize(18);
+            default:
+              $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
+          }
+        }
       }
       
       $key_row++;
