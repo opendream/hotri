@@ -150,7 +150,7 @@ $trans["headerTodaysDate"]         = "\$text='เวลาปัจจุบั�
 // execute thai date statements
 $trans["headerDateFormat"]         = <<<INNERHTML
 
-\$this_date = explode('-', date('D-d-m-Y'));
+\$this_date = explode('-', date('D-j-m-Y'));
 \$thDay = array(
   'Sun' => 'อาทิตย์',
   'Mon' => 'จันทร์',
