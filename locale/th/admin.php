@@ -206,10 +206,9 @@ $trans["admin_settingsBlockCheckouts"]                 = "\$text = 'มีค่
 $trans["admin_settingsLocale"]                 = "\$text = 'ภาษา:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'ชุดอักขระ HTML:';";
 $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'ค่าภาษาในแท็ก HTML:';";
-$trans["admin_settingsFontNormal"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ทั่วไป):';";
-$trans["admin_settingsFontBold"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ตัวหนา):';";
-$trans["admin_settingsFontOblique"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร (ตัวเอียง):';";
 $trans["admin_settingsInactiveDays"]             = "\$text = 'ปรับปรุงกลุ่มสมาชิกที่ไม่ได้ใช้งานทุกๆ:';";
+$trans["admin_settingsFontNormal"]                  = "\$text = 'ฟอนต์สำหรับพิมพ์เอกสาร PDF:';";
+$trans["admin_settingsFontSize"]                  = "\$text = 'ขนาดของฟอนต์:';";
 $trans["Max. hold length:"]                              = "\$text = 'ระยะเวลาสูงสุดในการจอง:';";
 $trans["Add new member classificaiton"]       = "\$text = 'เพิ่มกลุ่มสมาชิก';";
 

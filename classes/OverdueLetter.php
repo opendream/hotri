@@ -10,6 +10,7 @@ class OverDueLetter {
     $pdf->SetMargins(56.7, 56.7);
     $pdf->setPrintHeader(false);
     $pdf->setPrintFooter(false);
+    $pdf->setTitle($title);
     $pdf->AddPage();
 
     // Set the appropriate font

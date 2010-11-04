@@ -207,9 +207,10 @@ $trans["admin_settingsLocale"]                 = "\$text = 'Locale:';";
 $trans["admin_settingsHTMLChar"]                 = "\$text = 'HTML Charset:';";
 $trans["admin_settingsHTMLTagLangAttr"]                 = "\$text = 'HTML Tag Lang Attribute:';";
 $trans["admin_settingsInactiveDays"]             = "\$text = 'Auto update inactive members in:';";
-$trans["admin_settingsFontNormal"]                  = "\$text = 'Print Fonts (Normal):';";
-$trans["admin_settingsFontBold"]                  = "\$text = 'Print Fonts (Bold):';";
-$trans["admin_settingsFontOblique"]                  = "\$text = 'Print Fonts (Oblique):';";
+$trans["admin_settingsFontNormal"]                  = "\$text = 'Print Fonts:';";
+$trans["admin_settingsFontSize"]                  = "\$text = 'Print Fonts Size:';";
+$trans["Max. hold length:"]                              = "\$text = 'Max. hold length:';";
+$trans["Add new member classificaiton"]       = "\$text = 'Add new member classificaiton';";
 
 #****************************************************************************
 #*  Translation text for all staff pages

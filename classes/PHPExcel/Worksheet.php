@@ -594,7 +594,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			// adjust column widths
 			foreach ($autoSizes as $columnIndex => $width) {
 				if ($width == -1) $width = $this->getDefaultColumnDimension()->getWidth();
-				$this->getColumnDimension($columnIndex)->setWidth(($width * 100 / $totalSizes) . '%');
+				$this->getColumnDimension($columnIndex)->setWidth( (($width / $totalSizes) * 90) . '%');
 			}
 		}
 

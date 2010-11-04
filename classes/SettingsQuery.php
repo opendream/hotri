@@ -66,8 +66,7 @@ class SettingsQuery extends Query {
     $set->setHtmlLangAttr($array["html_lang_attr"]);
     $set->setInactiveMemberAfterDays($array["inactive_member_after_days"]);
     $set->setFontNormal($array["font_normal"]);
-    $set->setFontBold($array["font_bold"]);
-    $set->setFontOblique($array["font_oblique"]);
+    $set->setFontSize($array["font_size"]);
 
     return $set;
   }
@@ -89,7 +88,7 @@ class SettingsQuery extends Query {
                         . "block_checkouts_when_fines_due=%Q, "
                         . "hold_max_days=%N, "
                         . "locale=%Q, charset=%Q, html_lang_attr=%Q, "
-                        . "font_normal=%Q, font_bold=%Q, font_oblique=%Q, inactive_member_after_days=%Q",
+                        . "font_normal=%Q, font_size=%Q, inactive_member_after_days=%Q",
                         $set->getLibraryName(), $set->getLibraryImageUrl(),
                         $set->isUseImageSet() ? "Y" : "N",
                         $set->getLibraryHours(), $set->getLibraryPhone(),
@@ -100,7 +99,7 @@ class SettingsQuery extends Query {
                         $set->getHoldMaxDays(),
                         $set->getLocale(), $set->getCharset(),
                         $set->getHtmlLangAttr(),
-                        $set->getFontNormal(), $set->getFontBold(), $set->getFontOblique(), $set->getInactiveMemberAfterDays());
+                        $set->getFontNormal(), $set->getFontSize(), $set->getInactiveMemberAfterDays());
 
     return $this->_query($sql, "Error updating library settings information");
   }

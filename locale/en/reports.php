@@ -183,6 +183,19 @@ $trans["days_late"]                = "\$text = 'Days Late';";
 $trans["due_back_dt"]              = "\$text = 'Due Back';";
 $trans["checkoutCount"]            = "\$text = 'Checkout Count';";
 
+$trans["reportDateMonth01"]   = "\$text = 'January';";
+$trans["reportDateMonth02"]   = "\$text = 'February';";
+$trans["reportDateMonth03"]   = "\$text = 'March';";
+$trans["reportDateMonth04"]   = "\$text = 'April';";
+$trans["reportDateMonth05"]   = "\$text = 'May';";
+$trans["reportDateMonth06"]   = "\$text = 'June';";
+$trans["reportDateMonth07"]   = "\$text = 'July';";
+$trans["reportDateMonth08"]   = "\$text = 'August';";
+$trans["reportDateMonth09"]   = "\$text = 'September';";
+$trans["reportDateMonth10"]   = "\$text = 'October';";
+$trans["reportDateMonth11"]   = "\$text = 'November';";
+$trans["reportDateMonth12"]   = "\$text = 'December';";
+
 $trans["Barcode"] = "\$text = 'Barcode';";
 $trans["Title"]       = "\$text = 'Title';";
 $trans["Barcode Starts With"] = "\$text = 'Barcode Starts With';";
@@ -228,6 +241,7 @@ $trans["Hold Date"]                    = "\$text = 'Hold Date';";
 $trans["Member Barcode"]       = "\$text = 'Member Barcode';";
 
 $trans['rptFormattedDate']      = "\$text = date('j M Y', strtotime('%date%'));";
+$trans['rptFormattedShortDate'] = "\$text = date('j F Y', strtotime('%date%'));";
 $trans['rptLetterDear']              = "\$text = 'Dear %lastName% %firstName%:';";
 $trans['rptLetterDetails']          = "\$text = 'Our records show that the following library items are checked out under your name and are past due.  Please return them as soon as possible and pay any late fees due.';";
 $trans['rptLetterFooter']           = "\$text = 'Sincerely,<br />The library staff at ' . OBIB_LIBRARY_NAME;";

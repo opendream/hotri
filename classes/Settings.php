@@ -33,8 +33,7 @@ class Settings {
   var $_charset = "";
   var $_htmlLangAttr = "";
   var $_fontNormal = "";
-  var $_fontBold = "";
-  var $_fontOblique = "";
+  var $_fontSize = 11;
   var $_inactiveMemberAfterDays = 90;
   var $_inactiveMemberAfterDaysError = "";
 
@@ -173,11 +172,8 @@ class Settings {
   function getFontNormal() {
     return $this->_fontNormal;
   }
-  function getFontBold() {
-    return $this->_fontBold;
-  }
-  function getFontOblique() {
-    return $this->_fontOblique;
+  function getFontSize() {
+    return $this->_fontSize;
   }
 
   /****************************************************************************
@@ -273,11 +269,8 @@ class Settings {
   function setFontNormal($value) {
     $this->_fontNormal = trim($value);
   }
-  function setFontBold($value) {
-    $this->_fontBold = trim($value);
-  }
-  function setFontOblique($value) {
-    $this->_fontOblique = trim($value);
+  function setFontSize($value) {
+    $this->_fontSize = 0 + $value;
   }
 }
 

@@ -854,7 +854,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 				$this->_assembleCSS($this->_cssStyles['table']) : '';
 
 			if ($this->_isPdf && $pSheet->getShowGridLines()) {
-				$html .= '    <table border="1" cellpadding="0" id="sheet' . $sheetIndex . '" cellspacing="0" style="' . $style . '">' . "\r\n";
+				$html .= '    <table border="1" cellpadding="2" id="sheet' . $sheetIndex . '" cellspacing="0" style="' . $style . '">' . "\r\n";
 			} else {
 				$html .= '    <table border="0" cellpadding="0" id="sheet' . $sheetIndex . '" cellspacing="0" style="' . $style . '">' . "\r\n";
 			}

@@ -63,6 +63,7 @@
     $postVars["charset"] = $set->getCharset();
     $postVars["htmlLangAttr"] = $set->getHtmlLangAttr();
     $postVars["fontNormal"] = $set->getFontNormal();
+    $postVars["fontSize"] = $set->getFontSize();
     $postVars["inactiveMemberAfterDays"] = $set->getInactiveMemberAfterDays();
     
     $setQ->close();
@@ -274,6 +275,14 @@
     </td>
     <td valign="top" class="primary">
       <?php echo getFontSelections('fontNormal', $postVars) ?>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap="true" class="primary">
+      <?php echo $loc->getText("admin_settingsFontSize"); ?>
+    </td>
+    <td valign="top" class="primary">
+      <?php echo printInputText('fontSize', 2, 2, $postVars, $pageErrors) ?> <?php echo $loc->getText("pt"); ?>
     </td>
   </tr>
   <tr>

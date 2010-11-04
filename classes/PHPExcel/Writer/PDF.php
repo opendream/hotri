@@ -290,7 +290,7 @@ class PHPExcel_Writer_PDF extends PHPExcel_Writer_HTML implements PHPExcel_Write
     }
     $set = $setQ->fetchRow();
     
-		$pdf->setFont($set->getFontNormal());
+		$pdf->setFont($set->getFontNormal(), '', $set->getFontSize());
 		//$pdf->SetFont($this->_font);
 		
 		$pdf->writeHTML($html);

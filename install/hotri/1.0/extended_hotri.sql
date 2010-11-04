@@ -8,6 +8,7 @@ ALTER TABLE %prfx%member ADD COLUMN last_activity_dt datetime NOT NULL;
 UPDATE %prfx%member SET last_activity_dt=NOW();
 
 ALTER TABLE %prfx%settings ADD COLUMN font_normal varchar(20) DEFAULT 'th-sarabun';
+ALTER TABLE %prfx%settings ADD COLUMN font_size tinyint(3) DEFAULT 14;
 ALTER TABLE %prfx%settings ADD COLUMN inactive_member_after_days smallint(6) DEFAULT 90;
 
 

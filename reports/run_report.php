@@ -7,6 +7,8 @@
 
   require_once("../classes/Report.php");
   require_once("../classes/Table.php");
+  require_once("../classes/Settings.php");
+	require_once("../classes/SettingsQuery.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE, "reports");
   $navLoc = new Localize(OBIB_LOCALE, 'navbars');
@@ -126,6 +128,19 @@
   Nav::node('reportcriteria', $navLoc->getText('reportsCriteria'),
     '../reports/report_criteria.php?type='.U($rpt->type()));
   
+	$setQ = new SettingsQuery();
+  $setQ->connect();
+  if ($setQ->errorOccurred()) {
+    $setQ->close();
+    displayErrorPage($setQ);
+  }
+  $setQ->execSelect();
+  if ($setQ->errorOccurred()) {
+    $setQ->close();
+    displayErrorPage($setQ);
+  }
+  $set = $setQ->fetchRow();
+  
   if ($format == 'csv') {
     include_once('../classes/CsvTable.php');
     $table = new CsvTable;
@@ -150,17 +165,17 @@
     $row = $table->getData();
     //$row = $rpt->getTableRow($table)
     $row_header = <<<INNERHTML
-<th style="width: 50%"><u>{$loc->getText($row[5])}</u></th>
-          <th style="width: 26%"><u>{$loc->getText($row[6])}</u></th>
-          <th style="width: 12%"><u>{$loc->getText($row[10])}</u></th>
-          <th style="width: 12%; text-align: right;"><u>{$loc->getText($row[11])}</u></th>
+<th style="width: 40%"><u>{$loc->getText($row[5])}</u></th>
+          <th style="width: 23%"><u>{$loc->getText($row[6])}</u></th>
+          <th style="width: 22%"><u>{$loc->getText($row[10])}</u></th>
+          <th style="width: 15%; text-align: right;"><u>{$loc->getText($row[11])}</u></th>
 INNERHTML;
     
     $html = '';
     $letters = array();
     $overdue_list = '';
     $mbrid = NULL;
-    $oldmbr = NULL;
+    $oldmbrid = NULL;
     require_once('../classes/MemberQuery.php');
     $mbrQ = new MemberQuery;
     
@@ -172,27 +187,28 @@ INNERHTML;
       
       $mbr = $mbrQ->get(0 + array_pop($row));
       $mbrid = $mbr->getMbrid();
-      if (!isset($oldmbr)) {
-        $oldmbr = $mbrid;
+      if (!isset($oldmbrid)) {
+        $oldmbrid = $mbrid;
       }
-      else if ($mbrid != $oldmbr) {
-        $oldmbr = $mbrid;
-        
-        $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
+      else if ($mbrid != $oldmbrid) {
+        $oldmbr = $mbrQ->get($oldmbrid);
+        $letters[] = getHtmlLetter($oldmbr, $row_header, $overdue_list);
         $overdue_list = '';
+        $oldmbrid = $mbrid;
       }
       
       $overdue_list .= <<<INNERHTML
         <tr>
-          <td style="width: 50%">$row[0]</td>
-          <td style="width: 26%">$row[1]</td>
-          <td style="width: 12%">{$loc->getText('rptFormattedShortDate', array('date' => $row[2]))}</td>
-          <td style="width: 12%; text-align: right;">$row[3]</td>
+          <td style="width: 40%">$row[0]</td>
+          <td style="width: 23%">$row[1]</td>
+          <td style="width: 22%">{$loc->getText('rptFormattedShortDate', array('date' => $row[2]))}</td>
+          <td style="width: 15%; text-align: right;">$row[3]</td>
         </tr>
 
 INNERHTML;
     }
     // flush remain letter
+    $mbr = $mbrQ->get($oldmbrid);
     $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
     
     $html = implode("\n<tcpdf method=\"AddPage\" />\n", $letters);
@@ -203,7 +219,7 @@ INNERHTML;
     header('Content-Type: application/pdf');
     header('Content-Disposition: attachment;filename="' . $rpt->type() . '.pdf"');
     header('Cache-Control: max-age=0');
-    echo $letter->output($html);
+    echo $letter->output($html, $title);
     die();
   }
   else if ($format == 'xls' || $format == 'pdf' || $format == 'labels') {
@@ -230,13 +246,16 @@ INNERHTML;
     if ($format == 'labels') {
       $cols -= 2;
       $colstart = 1;
-      $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
     }
     for ($i = $colstart; $i < $cols; $i++) {
       $objPHPExcel->getActiveSheet()->getColumnDimension(
               $columns[floor(($i + 1) / $breaker)] 
               . $columns[($i + 1) % $breaker])
               ->setAutoSize(TRUE);
+    }
+    if ($format == 'labels') {
+      $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(FALSE);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth($set->getFontSize() + 10);
     }
     
     do {
@@ -258,6 +277,7 @@ INNERHTML;
         // Initialize cell styles
         $styles = $objPHPExcel->getActiveSheet()->getStyle($column_name);
         $styles->getAlignment()->setWrapText(TRUE);
+        $styles->getAlignment()->setIndent(1);
         //$styles->getAlignment()->setShrinkToFit(TRUE);
         
         // Borders
@@ -295,7 +315,7 @@ INNERHTML;
               break;
             case 0:
               $styles->getFont()->setBold(TRUE);
-              $styles->getFont()->setSize(18);
+              $styles->getFont()->setSize(7 + $set->getFontSize());
             default:
               $objPHPExcel->getActiveSheet()->setCellValue($column_name, $val);
           }
@@ -368,7 +388,7 @@ INNERHTML;
   
 
 function initializePHPExcel() {
-  global $columns, $breaker;
+  global $columns, $breaker, $set, $rpt;
   date_default_timezone_set('Asia/Bangkok');
   require_once '../classes/PHPExcel.php';
   
@@ -386,11 +406,13 @@ function initializePHPExcel() {
   $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
   //$objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(TRUE);
   
+  $objPHPExcel->getDefaultStyle()->getFont()->setSize($set->getFontSize()); 
+  $objPHPExcel->getProperties()->setTitle($rpt->title());
   return $objPHPExcel;  
 }
 
 function getHtmlLetter($mbr, $header, $list) {
-  global $loc;
+  global $loc, $set;
   
   $td_style = ' style="width: 33%; word-wrap: word-break;" ';
   $merge_style = ' style="width; 99%; word-wrap: word-break;" ';
@@ -398,7 +420,7 @@ function getHtmlLetter($mbr, $header, $list) {
   $date = $loc->getText('rptFormattedDate', array('date' => date('Y-m-d')));
   
   return <<<INNERHTML
-<table style="width: 100%">
+<table style="width: 100%; font-size:{$set->getFontSize()}pt">
   <tr>
     <td $td_style></td>
     <td $td_style></td>
