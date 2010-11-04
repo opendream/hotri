@@ -127,6 +127,13 @@
     '../reports/run_report.php?type=previous&rpt___format=pdf');
   Nav::node('reportcriteria', $navLoc->getText('reportsCriteria'),
     '../reports/report_criteria.php?type='.U($rpt->type()));
+
+  if ($rpt->count() == 0) {
+    include('../shared/header.php');
+    echo $loc->getText("reportsResultNotFound");
+    require_once("../shared/footer.php");
+    exit();
+  }
   
 	$setQ = new SettingsQuery();
   $setQ->connect();
@@ -212,7 +219,6 @@ INNERHTML;
       $mbr = $mbrQ->get($oldmbrid);
       $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
     }
-    
     $html = implode("\n<tcpdf method=\"AddPage\" />\n", $letters);
     
     // Load pdf class, then convert html to pdf file
@@ -350,12 +356,6 @@ INNERHTML;
 
   if (isset($_REQUEST["msg"]) && !empty($_REQUEST["msg"])) {
     echo "<font class=\"error\">".H($_REQUEST["msg"])."</font><br><br>";
-  }
-
-  if ($rpt->count() == 0) {
-    echo $loc->getText("reportsResultNotFound");
-    require_once("../shared/footer.php");
-    exit();
   }
 
   echo '<p>'.$loc->getText('reportsResultFound', array('results' => $rpt->count())) . '</p>';
