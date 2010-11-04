@@ -15,7 +15,7 @@ require_once("../shared/common.php");
   <li>ดาวน์โหลดเอกสารต้นแบบ</li>
   <li>เปิดด้วยโปรแกรมจัดการเอกสาร เช่น Microsoft Office หรือ OpenOffice หรือโปรแกรมอื่นๆ ที่จัดการเอกสาร CSV ได้</li>
   <li>เพิ่มข้อมูลรายการทรัพยากรสารสนเทศทั้งแต่แถวที่ 2 ของตารางเป็นต้นไป มีข้อมูลเช่น ISBN<font color="red">*</font>, ชื่อผู้แต่ง<font color="red">*</font>, ชื่อเรื่อง<font color="red">*</font> ฯลฯ (หมายเหตุ: จำเป็นต้องกรอกข้อมูล 3 คอลัมน์แรกของแต่ละแถว)</li>
-<!--  <li>Column 'Book cover filename' require filename link to cover image in <? echo COVER_PATH; ?> directory.</li>-->
+<!--  <li>Column 'Book cover filename' require filename link to cover image in <?php echo COVER_PATH; ?> directory.</li>-->
   <li>ห้ามแก้ไขข้อมูลแถวแรกสุดในเอกสารต้นแบบโดยเด็ดขาด เพื่อหลีกเลี่ยงข้อผิดพลาดในการอัพโหลดเอกสาร</li>
   <li>บันทึกเอกสาร และอัพโหลดไฟล์เอกสารในหน้า "นำเข้าจากไฟล์ CSV" (งานลงรายการทรัพยากรสารสนเทศ > นำเข้าจากไฟล์ CSV)</li>
 </ul>

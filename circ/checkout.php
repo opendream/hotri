@@ -21,6 +21,9 @@
   require_once("../functions/formatFuncs.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
+  
+  
+  $foundError = false;
 
   #****************************************************************************
   #*  Checking for post or get vars.  Go back to form if none found.
@@ -38,6 +41,11 @@
   $mbrQ->connect();
   $mbr = $mbrQ->get($mbrid);
   $mbrClassification = $mbr->getClassification();
+  
+  if (strcmp($mbr->getStatus(), "N") == 0) {
+    $foundError = TRUE;
+    $pageErrors["barcodeNmbr"] = $loc->getText("checkoutErr9");
+  }
 
   if(isset($_POST["renewal"])) {
       $renewal = true;
@@ -100,7 +108,6 @@
   #****************************************************************************
   #*  Edit results
   #****************************************************************************
-  $foundError = false;
   if ($copyQ->getRowCount() == 0) {
     $foundError = true;
     $pageErrors["barcodeNmbr"] = $loc->getText("checkoutErr2");

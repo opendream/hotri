@@ -179,7 +179,7 @@ $trans["biblio_status_dm.description"] = "\$text = 'สถานะ';";
 $trans["settings.library_name"]    = "\$text = 'ชื่อห้องสมุด';";
 $trans["settings.library_hours"]   = "\$text = 'เวลาเปิดปิด';";
 $trans["settings.library_phone"]   = "\$text = 'หมายเลขโทรศัพท์';";
-$trans["days_late"]                = "\$text = 'เกินเวลามากี่วัน';";
+$trans["days_late"]                = "\$text = 'เกินกำหนด (วัน)';";
 $trans["due_back_dt"]              = "\$text = 'วันที่คืน';";
 $trans["checkoutCount"]            = "\$text = 'จำนวนครั้งที่ถูกยืม';";
 
@@ -239,4 +239,60 @@ $trans["Checkout Date"]           = "\$text = 'วันที่ยืม';";
 $trans["Due Date"]                     = "\$text = 'กำหนดคืน';";
 $trans["Hold Date"]                    = "\$text = 'วันที่จอง';";
 $trans["Member Barcode"]       = "\$text = 'หมายเลขสมาชิก';";
+
+$trans['rptFormattedDate']      = <<<INNERHTML
+
+\$this_date = explode('-', date('D-j-m-Y', strtotime('%date%')));
+\$thDay = array(
+  'Sun' => 'อาทิตย์',
+  'Mon' => 'จันทร์',
+  'Tue' => 'อังคาร',
+  'Wed' => 'พุธ',
+  'Thu' => 'พฤหัส',
+  'Fri' => 'ศุกร์',
+  'Sat' => 'เสาร์',
+);
+\$thMonth = array(
+  1 => 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
+  'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
+\$thMonthLong = array(
+  1 => 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+  'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+  'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
+  
+
+  
+\$text= \$this_date[1] . ' ' . \$thMonthLong[0+\$this_date[2]] . ' ' . (543 + \$this_date[3]);
+
+INNERHTML;
+
+$trans['rptFormattedShortDate']      = <<<INNERHTML
+
+\$this_date = explode('-', date('D-j-m-Y', strtotime('%date%')));
+\$thDay = array(
+  'Sun' => 'อาทิตย์',
+  'Mon' => 'จันทร์',
+  'Tue' => 'อังคาร',
+  'Wed' => 'พุธ',
+  'Thu' => 'พฤหัส',
+  'Fri' => 'ศุกร์',
+  'Sat' => 'เสาร์',
+);
+\$thMonth = array(
+  1 => 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
+  'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
+\$thMonthLong = array(
+  1 => 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+  'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+  'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
+  
+
+  
+\$text= \$this_date[1] . ' ' . \$thMonth[0+\$this_date[2]] . ' ' . (543 + \$this_date[3]);
+
+INNERHTML;
+
+$trans['rptLetterDear']              = "\$text = 'เรียนคุณ %lastName% %firstName%';";
+$trans['rptLetterDetails']          = "\$text = 'เราพบว่าทรัพยากรห้องสมุดที่ท่านยืมออกไปดังรายการต่อไปนี้ เกินกำหนดเวลาคืนแล้ว โปรดส่งคืนทางห้องสมุดและชำระค่าปรับให้ครบถ้วน: ';";
+$trans['rptLetterFooter']           = "\$text = 'ขอแสดงความนับถือ<br />เจ้าหน้าที่ห้องสมุด ' . OBIB_LIBRARY_NAME;";
 ?>

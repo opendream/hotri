@@ -50,7 +50,7 @@
 ?>
 <h1><?php echo $navbar->getText("lookup_hosts"); ?></h1>
 <h5 id="updateMsg"><font class="error"><?php echo $updateMsg; ?></font></h5>
-<form method="post" action="<? echo $_SERVER['SCRIPT_NAME']; if (0 + $_GET['id'] > 0) { echo '?id=' . (0 + $_GET['id']); } ?>">
+<form method="post" action="<?php echo $_SERVER['SCRIPT_NAME']; if (0 + $_GET['id'] > 0) { echo '?id=' . (0 + $_GET['id']); } ?>">
 <table class="primary">
   <tr>
     <th align="left" colspan="2" valign="top">

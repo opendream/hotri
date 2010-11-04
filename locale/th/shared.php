@@ -78,25 +78,25 @@ $trans["biblioSearchLast"]         = "\$text = 'หน้าสุดท้า�
 $trans["biblioSearchPrev"]         = "\$text = 'ก่อนหน้านี้';";
 $trans["biblioSearchNext"]         = "\$text = 'หน้าถัดไป';";
 $trans["biblioSearchResultTxt"]    = "if (%items% == 1) {
-                                        \$text = '%items% ผลการสืบค้น.';
+                                        \$text = 'พบข้อมูล %items% รายการ';
                                       } else {
-                                        \$text = '%items% ผลการสืบค้น';
+                                        \$text = 'พบข้อมูล %items% รายการ';
                                       }";
-$trans["biblioSearchauthor"]       = "\$text = ' sorted by author';";
-$trans["biblioSearchtitle"]        = "\$text = ' sorted by title';";
-$trans["biblioSearchSortByAuthor"] = "\$text = 'sort by author';";
-$trans["biblioSearchSortByTitle"]  = "\$text = 'sort by title';";
-$trans["biblioSearchTitle"]        = "\$text = 'Title';";
-$trans["biblioSearchAuthor"]       = "\$text = 'Author';";
-$trans["biblioSearchMaterial"]     = "\$text = 'Material';";
-$trans["biblioSearchCollection"]   = "\$text = 'Collection';";
-$trans["biblioSearchCall"]         = "\$text = 'Call Number';";
-$trans["biblioSearchCopyBCode"]    = "\$text = 'Copy Barcode';";
-$trans["biblioSearchCopyStatus"]   = "\$text = 'Status';";
-$trans["biblioSearchNoCopies"]     = "\$text = 'No copies are available.';";
-$trans["biblioSearchHold"]         = "\$text = 'hold';";
-$trans["biblioSearchOutIn"]        = "\$text = 'check out/in';";
-$trans["biblioSearchDetail"]       = "\$text = 'Show detailed Bibliography information';";
+$trans["biblioSearchauthor"]       = "\$text = ' เรียงตามชื่อผู้แต่ง';";
+$trans["biblioSearchtitle"]        = "\$text = ' เรียงตามชื่อเรื่อง';";
+$trans["biblioSearchSortByAuthor"] = "\$text = 'เรียงตามชื่อผู้แต่ง';";
+$trans["biblioSearchSortByTitle"]  = "\$text = 'เรียงตามชื่เรื่อง';";
+$trans["biblioSearchTitle"]        = "\$text = 'ชื่อเรื่อง';";
+$trans["biblioSearchAuthor"]       = "\$text = 'ผู้แต่ง';";
+$trans["biblioSearchMaterial"]     = "\$text = 'ชนิด';";
+$trans["biblioSearchCollection"]   = "\$text = 'สถานที่จัดเก็บ';";
+$trans["biblioSearchCall"]         = "\$text = 'เลขเรียกหนังสือ';";
+$trans["biblioSearchCopyBCode"]    = "\$text = 'รหัสบาร์โค้ด';";
+$trans["biblioSearchCopyStatus"]   = "\$text = 'สถานะ';";
+$trans["biblioSearchNoCopies"]     = "\$text = 'ไม่มีสำเนาของหนังสือเล่มนี้ในระบบ';";
+$trans["biblioSearchHold"]         = "\$text = 'จอง';";
+$trans["biblioSearchOutIn"]        = "\$text = 'ยืม / คืน';";
+$trans["biblioSearchDetail"]       = "\$text = 'ดูรายละเอียดบรรณานุกรม';";
 $trans["biblioSearchBCode2Chk"]    = "\$text = 'Barcode to Check Out or Check In Form';";
 $trans["biblioSearchBCode2Hold"]   = "\$text = 'Barcode to Hold Form';";
 

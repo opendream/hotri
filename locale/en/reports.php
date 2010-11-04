@@ -226,4 +226,9 @@ $trans["Checkout Date"]           = "\$text = 'Checkout Date';";
 $trans["Due Date"]                     = "\$text = 'Due Date';";
 $trans["Hold Date"]                    = "\$text = 'Hold Date';";
 $trans["Member Barcode"]       = "\$text = 'Member Barcode';";
+
+$trans['rptFormattedDate']      = "\$text = date('j M Y', strtotime('%date%'));";
+$trans['rptLetterDear']              = "\$text = 'Dear %lastName% %firstName%:';";
+$trans['rptLetterDetails']          = "\$text = 'Our records show that the following library items are checked out under your name and are past due.  Please return them as soon as possible and pay any late fees due.';";
+$trans['rptLetterFooter']           = "\$text = 'Sincerely,<br />The library staff at ' . OBIB_LIBRARY_NAME;";
 ?>

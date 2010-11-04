@@ -134,27 +134,84 @@
     $rpt->table($table);
     exit;
   }
+  else if ($format == 'overdue') {
+    // Generate letters, group by member
+    include_once('../classes/ExcelTable.php');
+    $table = new ExcelTable;
+    
+    list($rpt, $errs) = $rpt->variant_el(array('order_by'=>'member_bcode'));
+    if (!empty($errs)) {
+      die('Unexpected report error');
+    }
+    $rpt->preloadTable($table);
+    $table->start();
+    
+    // result header
+    $row = $table->getData();
+    //$row = $rpt->getTableRow($table)
+    $row_header = <<<INNERHTML
+<th style="width: 50%"><u>{$loc->getText($row[5])}</u></th>
+          <th style="width: 26%"><u>{$loc->getText($row[6])}</u></th>
+          <th style="width: 12%"><u>{$loc->getText($row[10])}</u></th>
+          <th style="width: 12%; text-align: right;"><u>{$loc->getText($row[11])}</u></th>
+INNERHTML;
+    
+    $html = '';
+    $letters = array();
+    $overdue_list = '';
+    $mbrid = NULL;
+    $oldmbr = NULL;
+    require_once('../classes/MemberQuery.php');
+    $mbrQ = new MemberQuery;
+    
+    while ($row = $rpt->getTableRow($table)) {
+      $row = array(
+        $row[5], $row[6], $row[10], $row[11], // title, author, due date, days late
+        $row[2], // mbrid, used for grouping letter & would be hidden
+      );
+      
+      $mbr = $mbrQ->get(0 + array_pop($row));
+      $mbrid = $mbr->getMbrid();
+      if (!isset($oldmbr)) {
+        $oldmbr = $mbrid;
+      }
+      else if ($mbrid != $oldmbr) {
+        $oldmbr = $mbrid;
+        
+        $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
+        $overdue_list = '';
+      }
+      
+      $overdue_list .= <<<INNERHTML
+        <tr>
+          <td style="width: 50%">$row[0]</td>
+          <td style="width: 26%">$row[1]</td>
+          <td style="width: 12%">{$loc->getText('rptFormattedShortDate', array('date' => $row[2]))}</td>
+          <td style="width: 12%; text-align: right;">$row[3]</td>
+        </tr>
+
+INNERHTML;
+    }
+    // flush remain letter
+    $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
+    
+    $html = implode("\n<tcpdf method=\"AddPage\" />\n", $letters);
+    
+    // Load pdf class, then convert html to pdf file
+    require_once('../classes/OverdueLetter.php');
+    $letter = new OverdueLetter();
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment;filename="' . $rpt->type() . '.pdf"');
+    header('Cache-Control: max-age=0');
+    echo $letter->output($html);
+    die();
+  }
   else if ($format == 'xls' || $format == 'pdf' || $format == 'labels') {
     include_once('../classes/ExcelTable.php');
     $table = new ExcelTable;
     
     // Load phpExcel
-    date_default_timezone_set('Asia/Bangkok');
-    require_once '../classes/PHPExcel.php';
-    
-    $objPHPExcel = new PHPExcel();
-    
-    $columns = array(
-      '',   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
-      'I',  'J',  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 
-      'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-    );
-    $breaker = count($columns);
-    $objPHPExcel->setActiveSheetIndex(0);
-    $objPHPExcel->getActiveSheet()->getDefaultStyle()->getFont()->setName('Tahoma');
-    //$objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
-    $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
-    //$objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(TRUE);
+    $objPHPExcel = initializePHPExcel();
     
     if ($format == 'labels') {
       $objPHPExcel->getActiveSheet()->setShowGridlines(false);
@@ -308,4 +365,72 @@
   }
 
   include('../shared/footer.php');
+  
+
+function initializePHPExcel() {
+  global $columns, $breaker;
+  date_default_timezone_set('Asia/Bangkok');
+  require_once '../classes/PHPExcel.php';
+  
+  $objPHPExcel = new PHPExcel();
+  
+  $columns = array(
+    '',   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
+    'I',  'J',  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 
+    'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+  );
+  $breaker = count($columns);
+  $objPHPExcel->setActiveSheetIndex(0);
+  $objPHPExcel->getActiveSheet()->getDefaultStyle()->getFont()->setName('Tahoma');
+  //$objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+  $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+  //$objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(TRUE);
+  
+  return $objPHPExcel;  
+}
+
+function getHtmlLetter($mbr, $header, $list) {
+  global $loc;
+  
+  $td_style = ' style="width: 33%; word-wrap: word-break;" ';
+  $merge_style = ' style="width; 99%; word-wrap: word-break;" ';
+  $address = str_replace("\n", "<br />", $mbr->getAddress());
+  $date = $loc->getText('rptFormattedDate', array('date' => date('Y-m-d')));
+  
+  return <<<INNERHTML
+<table style="width: 100%">
+  <tr>
+    <td $td_style></td>
+    <td $td_style></td>
+    <td $td_style>$address<br /></td>
+  </tr>
+  <tr>
+    <td $td_style></td>
+    <td $td_style>$date<br /></td>
+    <td $td_style></td>
+  </tr>
+  <tr>
+    <td $merge_style colspan="3">{$loc->getText('rptLetterDear', array('firstName' => $mbr->getFirstName(), 'lastName' => $mbr->getLastName()))}<br /></td>
+  </tr>
+  <tr>
+    <td $merge_style colspan="3">{$loc->getText('rptLetterDetails')}<br />
+      <br />
+      <table>
+        <tr>
+          $header
+        </tr>
+$list
+      </table>
+      <br />
+    </td>
+  </tr>
+  <tr>
+    <td $td_style></td>
+    <td $td_style>{$loc->getText('rptLetterFooter')}<br />
+    </td>
+    <td $td_style></td>
+  </tr>
+</table>
+INNERHTML;
+}
 ?>

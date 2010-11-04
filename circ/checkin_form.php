@@ -59,15 +59,15 @@ function checkin(massCheckinFlg)
     if (isset($_GET['mbrid']) and $_GET['mbrid']) {
       $memberQ = new MemberQuery;
       $mbr = $memberQ->get($_GET['mbrid']);
-      echo '<p>';
-      echo $loc->getText("Checked in %barcode% for %fname% %lname%.", array(
+      echo '<p><font class="error">';
+      echo $loc->getText("checkinDone1", array(
         'barcode'=>$_GET['barcode'],
         'fname'=>$mbr->getFirstName(),
         'lname'=>$mbr->getLastName(),
       ));
-      echo '</p>';
+      echo '</font></p>';
     } else {
-      echo '<p>'.$loc->getText("Checked in %barcode%.", array('barcode'=>$_GET['barcode'])).'</p>';
+      echo '<p><font class="error">'.$loc->getText("checkinDone2", array('barcode'=>$_GET['barcode'])).'</font></p>';
     }
   }
 ?>

@@ -12,6 +12,7 @@
   require_once("../classes/BiblioHold.php");
   require_once("../classes/BiblioHoldQuery.php");
   require_once("../classes/BiblioCopyQuery.php");
+  require_once('../classes/MemberQuery.php');
   require_once("../functions/errorFuncs.php");
   require_once("../functions/formatFuncs.php");
   require_once("../classes/Localize.php");
@@ -32,6 +33,19 @@
   #****************************************************************************
   if (!ctypeAlnum($barcode)) {
     $pageErrors["holdBarcodeNmbr"] = $loc->getText("placeHoldErr1");
+    $postVars["holdBarcodeNmbr"] = $barcode;
+    $_SESSION["postVars"] = $postVars;
+    $_SESSION["pageErrors"] = $pageErrors;
+    header("Location: ../circ/mbr_view.php?mbrid=".U($mbrid));
+    exit();
+  }
+  
+  $mbrQ = new MemberQuery;
+  $mbrQ->connect();
+  $mbr = $mbrQ->get($mbrid);
+  if (strcmp($mbr->getStatus(), "N") == 0) {
+    $foundError = TRUE;
+    $pageErrors["holdBarcodeNmbr"] = $loc->getText("checkoutErr9");
     $postVars["holdBarcodeNmbr"] = $barcode;
     $_SESSION["postVars"] = $postVars;
     $_SESSION["pageErrors"] = $pageErrors;
@@ -106,7 +120,6 @@
   }
   $holdQ->close();
   
-  require_once('../classes/MemberQuery.php');
   $mbrQ = new MemberQuery;
   $mbrQ->connect();
   $mbrQ->updateActivity($mbrid);

@@ -67,6 +67,11 @@
     $foundError = true;
     $pageErrors["barcodeNmbr"] = $loc->getText("shelvingCartErr2");
   }
+  
+  if ($copy->getStatusCd() != OBIB_STATUS_OUT) {
+    $foundError = true;
+    $pageErrors["barcodeNmbr"] = $loc->getText("shelvingCartErr3");
+  }
 
   if ($foundError == true) {
     $postVars["barcodeNmbr"] = $barcode;

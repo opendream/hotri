@@ -166,12 +166,14 @@ $trans["checkoutErr5"]            = "\$text='Bibliography with barcode number %b
 $trans["checkoutErr6"]            = "\$text='Member has reached the checkout limit for the specified bibliography\'s material type.';";
 $trans["checkoutErr7"]            = "\$text='Bibliography with barcode number %barcode% has reached the member\'s renewal limit.';";
 $trans["checkoutErr8"]            = "\$text='Bibliography with barcode number %barcode% can not be renew as it is already late.';";
+$trans["checkoutErr9"]            = "\$text='This member was inactive, cannot check out, renew or hold any copies.';";
 
 #****************************************************************************
 #*  Translation text for page shelving_cart.php
 #****************************************************************************
 $trans["shelvingCartErr1"]        = "\$text='Barcode number must be all alphanumeric.';";
 $trans["shelvingCartErr2"]        = "\$text='No bibliography was found with that barcode number.';";
+$trans["shelvingCartErr3"]        = "\$text='This copy is not checked out yet.';";
 $trans["shelvingCartTrans"]       = "\$text='Late fee (barcode=%barcode%)';";
 
 #****************************************************************************
@@ -188,6 +190,8 @@ $trans["checkinFormColHdr2"]      = "\$text='Barcode';";
 $trans["checkinFormColHdr3"]      = "\$text='Title';";
 $trans["checkinFormColHdr4"]      = "\$text='Author';";
 $trans["checkinFormEmptyCart"]    = "\$text='No bibliographies are currently in shelving cart status.';";
+$trans["checkinDone1"]                  = "\$text='Checked in %barcode% for %fname% %lname%.';";
+$trans["checkinDone2"]                  = "\$text='Checked in %barcode%.';";
 
 #****************************************************************************
 #*  Translation text for page checkin.php
