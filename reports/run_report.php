@@ -208,8 +208,10 @@ INNERHTML;
 INNERHTML;
     }
     // flush remain letter
-    $mbr = $mbrQ->get($oldmbrid);
-    $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
+    if (!empty($overdue_list)) {
+      $mbr = $mbrQ->get($oldmbrid);
+      $letters[] = getHtmlLetter($mbr, $row_header, $overdue_list);
+    }
     
     $html = implode("\n<tcpdf method=\"AddPage\" />\n", $letters);
     
