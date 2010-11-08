@@ -4,7 +4,7 @@ values (
   ,'../images/logo.png'
   ,'N'
   ,'จันทร์-ศุกร์'
-  ,'111-222-3333'
+  ,'0-2123-4567'
   ,null
   ,'../opac/index.php'
   ,20
