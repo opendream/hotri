@@ -12,8 +12,22 @@
   $customFields = $dmQ->getAssoc('member_fields_dm');
   $dmQ->close();
 
-  // The code that is called to handle this box is in script/search.js file
-  $barcode_help = '<input type="checkbox" id="chk_auto_barcode" name="chk_auto_barcode" value="1" /> '.
+  // Get & show the latest BarcodeNumber.
+  require_once("../shared/common.php");
+  require_once("../classes/Query.php");
+
+  $barcode = "0";
+  $sql = "SELECT MAX(barcode_nmbr) AS bn FROM member"; 
+  $q = new Query(); 
+  $q->connect();
+  $rows = $q->exec($sql);
+  if (count($rows) > 0) {
+    $barcode = $rows[0]["bn"];
+  }
+  $q->close();
+  $barcode_help = $loc->getText("mbrLatestBarcode") .": ". $barcode ." <br />";
+  // The code that is called to handle this box is in script/search.js file.
+  $barcode_help .= '<input type="checkbox" id="chk_auto_barcode" name="chk_auto_barcode" value="1" /> '.
                   $loc->getText("mbrAutoBarcode");
 
   $fields = array(

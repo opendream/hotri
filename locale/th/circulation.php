@@ -90,6 +90,7 @@ $trans["mbrsearchStatus"]         = "\$text='สถานะ:';";
 $trans["mbrActive"]               = "\$text='ปกติ';";
 $trans["mbrInactive"]             = "\$text='ระงับ';";
 $trans["mbrAutoBarcode"]          = "\$text='ใช้เลขที่สมาชิกอัตโนมัติ';";
+$trans["mbrLatestBarcode"]        = "\$text='เลขที่สมาชิกล่าสุด';";
 $trans["mbrViewLastActDate"]   = "\$text='ใช้งานล่าสุดเมื่อ:';";
 $trans["mbrFormattedDate"]      = <<<INNERHTML
 
