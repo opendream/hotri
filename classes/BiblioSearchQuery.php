@@ -182,8 +182,11 @@ class BiblioSearchQuery extends Query {
         if (strcmp($criteria, "WHERE ") > 0) {
           $k_exp = "expression_". $number;
           $v_exp = $_POST[$k_exp];
-          if ($v_exp == "not") {
-            $v_exp = " AND NOT ";
+
+          // Insert 'NOT' into the query string in next steps.
+          if (strcmp($v_exp, "not") == 0) {
+            $v_exp = " AND ";
+            $tmp_v_exp = "not";
           }
         }
 
@@ -191,37 +194,67 @@ class BiblioSearchQuery extends Query {
           $criteria .= strtoupper($v_exp) ." ";
         }
 
+        // Make a query string.
         if (strcmp($v_col, "title") == 0) {
-           $criteria .= "biblio.title LIKE '%". $v_txt ."%' ";
+          if (strcmp($tmp_v_exp, "not") == 0) {
+            $criteria .= "NOT biblio.title LIKE '%". $v_txt ."%' ";
+          } else {
+            $criteria .= "biblio.title LIKE '%". $v_txt ."%' ";
+          }
         }
         elseif (strcmp($v_col, "author") == 0) {
           $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ".
                    "AND biblio_field.tag='700' ".
                    "AND (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') ";
 
-          $str = "biblio.author LIKE '%". $v_txt ."%' OR ".
-                 "biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
-                 "biblio_field.field_data LIKE '%". $v_txt ."%'";
+          if (strcmp($tmp_v_exp, "not") == 0) {
+            $str = "NOT biblio.author LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio_field.field_data LIKE '%". $v_txt ."%'";
+          } else {
+            $str = "biblio.author LIKE '%". $v_txt ."%' OR ".
+                   "biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
+                   "biblio_field.field_data LIKE '%". $v_txt ."%'";
+          }
           $criteria .= "(". $str .") ";
         }
         elseif (strcmp($v_col, "subject") == 0) {
-          $str = "biblio.topic1 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.topic2 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.topic3 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.topic4 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.topic5 LIKE '%". $v_txt ."%'";
+          if (strcmp($tmp_v_exp, "not") == 0) {
+            $str = "NOT biblio.topic1 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.topic2 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.topic3 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.topic4 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.topic5 LIKE '%". $v_txt ."%'";
+          } else {
+            $str = "biblio.topic1 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.topic2 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.topic3 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.topic4 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.topic5 LIKE '%". $v_txt ."%'";
+          }
           $criteria .= "(". $str .") ";
         }
         elseif (strcmp($v_col, "isbn") == 0) {
           $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
                    . "AND biblio_field.tag='20' "
                    . "AND biblio_field.subfield_cd='a' ";
-          $criteria .= "biblio_field.field_data LIKE '%". $v_txt ."%' ";
+
+          if (strcmp($tmp_v_exp, "not") == 0) {
+            $criteria .= "NOT biblio_field.field_data LIKE '%". $v_txt ."%' ";
+          } else {
+            $criteria .= "biblio_field.field_data LIKE '%". $v_txt ."%' ";
+          }
         }
         elseif (strcmp($v_col, "call_nmbr") == 0) {
-          $str = "biblio.call_nmbr1 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.call_nmbr2 LIKE '%". $v_txt ."%' OR ".
-                 "biblio.call_nmbr3 LIKE '%". $v_txt ."%'";
+          if (strcmp($tmp_v_exp, "not") == 0) {
+            $str = "NOT biblio.call_nmbr1 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.call_nmbr2 LIKE '%". $v_txt ."%' OR ".
+                   "NOT biblio.call_nmbr3 LIKE '%". $v_txt ."%'";
+          } else {
+            $str = "biblio.call_nmbr1 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.call_nmbr2 LIKE '%". $v_txt ."%' OR ".
+                   "biblio.call_nmbr3 LIKE '%". $v_txt ."%'";
+          }
           $criteria .= "(". $str .") ";
         }
       }
