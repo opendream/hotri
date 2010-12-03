@@ -185,7 +185,7 @@ require_once("../functions/openUrl.php");
       <?php echo $loc->getText("biblioViewTble1Hdr"); ?>:
     </th>
   </tr>
-  <tr>	
+  <tr>  
     <td nowrap="true" class="primary" valign="top">
       <?php echo $loc->getText("biblioViewMaterialType"); ?>:
     </td>
@@ -272,12 +272,21 @@ require_once("../functions/openUrl.php");
 <table class="primary">
   <tr>
     <th align="left" nowrap="yes">
-      <?php echo $loc->getText("biblioViewPictureHeader"); ?>
-    </th>
+      <strong><?php echo $loc->getText("biblioViewPictureHeader"); ?></strong>
+    </td>
+<?php
+  if ($tab != "opac") {
+?>
+    <td align="right">
+      <a href="../catalog/biblio_cover_del.php?bibid=<?php echo HURL($bibid);?>" onclick="javascript: return confirm('<?php echo htmlspecialchars($loc->getText('Are you sure to remove this picture?'), ENT_QUOTES); ?>');"><?php echo $loc->getText('Remove') ?></a>
+    </td>
+<?php
+  }
+?>
   </tr>
   <tr>
-    <td valign="top" class="primary">
-      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $filepath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
+    <td valign="top" <?php echo $tab != "opac" ? 'colspan="2"' : ''; ?> class="primary">
+      <a href="<?php echo $filepath ?>" title="<?php echo $title ?>" target="_blank"><img src="<?php echo $thumbpath ?>" border="0" title="<?php echo $title ?>" alt="<?php echo $title ?>" /></a>
     </td>
   </tr>
 </table>

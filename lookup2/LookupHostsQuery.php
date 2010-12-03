@@ -15,7 +15,7 @@ class lookupHostQuery extends Query {
     return $this->_query($sql, "Error accessing the host table.");
   }
   function execSelectAll() {
-    $sql = "select * from `lookup_hosts` ORDER BY seq";
+    $sql = "select * from `lookup_hosts` ORDER BY active,seq";
     return $this->_query($sql, "Error accessing the host table.");
   }
   function execSelectOne($host_id) {

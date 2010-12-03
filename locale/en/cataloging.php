@@ -249,13 +249,13 @@ $trans["lookup_pubLoc"]          = "\$text = 'Place of Publication';";
 $trans["lookup_pubDate"]         = "\$text = 'Date of Publication';";
 $trans["lookup_andOpt"]          = "\$text = 'AND (optional)';";
 $trans["lookup_search"]          = "\$text = 'Search';";
-$trans["lookup_repository"]		   = "\$text = 'Repository';";
+$trans["lookup_repository"]      = "\$text = 'Repository';";
 $trans["lookup_yazSetupFailed"]  = "\$text = 'YAZ setup failed for host: !';";
 $trans["lookup_badQuery"]        = "\$text = 'Bad Query';";
 $trans["lookup_patience"]        = "\$text = 'Please be patient. this may take a while.';";
 $trans["lookup_resetInstr"]      = "\$text = 'After 30 secs. Press F5 to try again.';";
-$trans["lookup_goBack"]  	       = "\$text = 'Go Back';";
-$trans["lookup_abandon"]  	     = "\$text = 'Stop Search';";
+$trans["lookup_goBack"]          = "\$text = 'Go Back';";
+$trans["lookup_abandon"]         = "\$text = 'Stop Search';";
 $trans["lookup_yazError"]        = "\$text = 'Lookup YAZ Error: ';";
 $trans["lookup_nothingFound"]    = "\$text = 'Nothing found for ';";
 $trans["lookup_tooManyHits"]     = "\$text = 'Too many hits to display, ';";
@@ -288,6 +288,8 @@ $trans["CSVLabel"]                                  = "\$text='Choose CSV file (
 #****************************************************************************
 
 $trans["Defaults:"]                 = "\$text = 'Defaults:';";
+$trans["Are you sure to remove this picture?"]  = "\$text = 'Are you sure to remove this picture?';";
+$trans["Remove this picture"]  = "\$text = 'Remove this picture';";
 $trans["No bibliography picture?"]  = "\$text = 'No bibliography picture?';";
 $trans["search for this one"]            = "\$text = 'search for this one';";
 $trans["coverLookupWait"]              = "\$text = 'Now searching, please wait..';";
@@ -297,4 +299,6 @@ $trans["Found"]                                  = "\$text = 'Found';";
 $trans["Save"]                                     = "\$text = 'Save';";
 $trans["Cancel"]                                  = "\$text = 'Cancel';";
 $trans["coverLookupSelect"]            = "\$text = 'Use this image for bibliography picture';";
+$trans["This biblio's cover image has been removed."] = "\$text = 'This biblio\'s cover image has been removed.';";
+
 ?>

@@ -43,6 +43,8 @@ $trans["sharedDelete"]             = "\$text = 'Delete';";
 #****************************************************************************
 #*  Translation text for page biblio_view.php
 #****************************************************************************
+$trans["Are you sure to remove this picture?"]  = "\$text = 'Are you sure to remove this picture?';";
+$trans["Remove"]  = "\$text = 'Remove';";
 $trans["biblioViewTble1Hdr"]       = "\$text = 'Bibliography Information';";
 $trans["biblioViewMaterialType"]   = "\$text = 'Material Type';";
 $trans["biblioViewCollection"]     = "\$text = 'Collection';";

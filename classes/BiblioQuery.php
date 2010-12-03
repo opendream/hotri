@@ -208,6 +208,14 @@ class BiblioQuery extends Query {
     $result = $this->_conn->fetchRow();
     return $result == false ? false : $result['bibid'];
   }
+  
+  function deleteCoverImage($bibid) {
+    $sql = $this->mkSQL("delete from biblio_field where bibid=%N and tag='902' and subfield_cd='a' ", $bibid);
+    if (!$this->_query($sql, $this->_loc->getText("usmarcSubfldDmQueryErr1"))) {
+      return false;
+    }
+    return true;
+  }
 
 
   /****************************************************************************
@@ -271,7 +279,7 @@ class BiblioQuery extends Query {
     // inserting biblio row
     $biblioFlds = $biblio->getBiblioFields();
 
-    $bibfields = array();	// fields in biblio table
+    $bibfields = array(); // fields in biblio table
     foreach ($this->_fieldsInBiblio as $key => $name) {
       if (array_key_exists($key, $biblioFlds) and $biblioFlds[$key]->getFieldid() == '') {
         $bibfields[$name] = $biblioFlds[$key]->getFieldData();

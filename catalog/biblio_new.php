@@ -44,7 +44,7 @@ if (!isset($_REQUEST['posted'])) {
       $msg = $loc->getText("biblioNewSuccess");
       $params = empty($_GET['hits']) ? '' : 'hits='. $_GET['hits'] .'&';
       $params .= empty($_GET['isbn']) ? '' : 'isbn='. $_GET['isbn'] .'&';
-      $params .= "bibid=". $bibi ."&msg=". $msg;
+      $params .= "bibid=". $bibid ."&msg=". $msg;
       header("Location: ../catalog/biblio_copy_new_form.php?". $params);
   exit();
     }

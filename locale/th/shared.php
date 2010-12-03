@@ -44,6 +44,8 @@ $trans["sharedDelete"]             = "\$text = 'ลบ';";
 #****************************************************************************
 #*  Translation text for page biblio_view.php
 #****************************************************************************
+$trans["Are you sure to remove this picture?"]  = "\$text = 'ยืนยันการลบภาพนี้ใช่หรือไม่?';";
+$trans["Remove"]  = "\$text = 'ลบภาพออก';";
 $trans["biblioViewTble1Hdr"]       = "\$text = 'รายการบรรณานุกรม';";
 $trans["biblioViewMaterialType"]   = "\$text = 'ประเภททรัพยากรสารสนเทศ';";
 $trans["biblioViewCollection"]     = "\$text = 'สถานที่จัดเก็บ';";
@@ -184,7 +186,7 @@ $trans["headerReports"]            = "\$text='รายงาน';";
 #****************************************************************************
 #*  Translation text for page footer.php
 #****************************************************************************
-$trans["footerLibraryHome"]        = "\$text='	หน้าหลักห้องสมุด';";
+$trans["footerLibraryHome"]        = "\$text='  หน้าหลักห้องสมุด';";
 $trans["footerOPAC"]               = "\$text='สืบค้น';";
 $trans["footerHelp"]               = "\$text='แนะนำการใช้งาน';";
 $trans["footerPoweredBy"]          = "\$text='พัฒนาเพิ่มเติมโดย นายประสิทธิชัย เลิศรัตนเคหกาล จาก OpenBiblio รุ่น';";
