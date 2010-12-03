@@ -21,7 +21,7 @@
    * Modified from ryan@wonko.com.
    ****************************************************************************
    */
-  set_magic_quotes_runtime(0);
+  ini_set('set_magic_quotes_runtime', 0);
 
   if (get_magic_quotes_gpc()) {
     function magicSlashes($element) {
@@ -42,10 +42,10 @@
   error_reporting(E_ALL ^ E_NOTICE);
 
   /* Work around PHP's braindead include_path stuff. */
-	function REL($sf, $if) {
-		return dirname($sf)."/".$if;
-	}
-	
+  function REL($sf, $if) {
+    return dirname($sf)."/".$if;
+  }
+  
   # Escaping shorthands
   function H($s) {
     return htmlspecialchars($s, ENT_QUOTES);
@@ -76,7 +76,7 @@
   
   # Compatibility
   $phpver = explode('.', PHP_VERSION);
-  if (!function_exists('mysql_real_escape_string')) {		# PHP < 4.3.0
+  if (!function_exists('mysql_real_escape_string')) {   # PHP < 4.3.0
     function mysql_real_escape_string($s, $link) {
       return mysql_escape_string($s);
     }
@@ -206,33 +206,33 @@
   ## plugin Support
   ###################################################################
   function getPlugIns($wanted) {
-		clearstatcache();
-		$lists = array();
-  	if (is_dir('../plugins')) {
-			//echo "Plugin Dir found: <br />";
-  	  ## find all plugin directories
-			if ($dirHndl = opendir('../plugins')) {
-		    # look at all plugin dirs
-		    while (false !== ($plug = readdir($dirHndl))) {
-		      if (($plug == '.') || ($plug == '..')) continue;
-  	      //echo "plugin => $plug<br />";
-  	      $plugPath = "../plugins/$plug";
-  	      if (is_dir($plugPath)) {
-						if ($filHndl = opendir($plugPath)) {
-		    			while (false !== ($file = readdir($filHndl))) {
-		    			  if (($file == '.') || ($file == '..')) continue;
-  	      			//echo "file => $file<br />";
-  	      			if ($file == $wanted) $list[] = "../plugins/$plugPath/$file";
-  	      		}
-  	      		closedir($filHndl);
-						}
-					}
-  		  }
-  		  closedir($dirHndl);
-			}
-		}
-		return $list;
-	}
+    clearstatcache();
+    $lists = array();
+    if (is_dir('../plugins')) {
+      //echo "Plugin Dir found: <br />";
+      ## find all plugin directories
+      if ($dirHndl = opendir('../plugins')) {
+        # look at all plugin dirs
+        while (false !== ($plug = readdir($dirHndl))) {
+          if (($plug == '.') || ($plug == '..')) continue;
+          //echo "plugin => $plug<br />";
+          $plugPath = "../plugins/$plug";
+          if (is_dir($plugPath)) {
+            if ($filHndl = opendir($plugPath)) {
+              while (false !== ($file = readdir($filHndl))) {
+                if (($file == '.') || ($file == '..')) continue;
+                //echo "file => $file<br />";
+                if ($file == $wanted) $list[] = "../plugins/$plugPath/$file";
+              }
+              closedir($filHndl);
+            }
+          }
+        }
+        closedir($dirHndl);
+      }
+    }
+    return $list;
+  }
 
   #******************************************************
   #  Utility functions
