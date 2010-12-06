@@ -17,6 +17,10 @@
   
   $barcode = $_GET["barcode"];
   
+  if (isset($_SESSION['feeMsg'])) {
+    echo '<p><font class="error">'.$_SESSION['feeMsg'].'</font></p>';
+    unset($_SESSION['feeMsg']);
+  }
 ?>
 <h1><?php echo $loc->getText("holdMessageHdr"); ?></h1>
 <?php echo $loc->getText("holdMessageMsg1",array("barcode"=>$barcode)); ?>

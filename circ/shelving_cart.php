@@ -54,9 +54,12 @@
     $copyQ->close();
     displayErrorPage($copyQ);
   }
-  if (!$copy = $copyQ->queryByBarcode($barcode)) {
+  if (is_bool($copy = $copyQ->queryByBarcode($barcode))) {
     $copyQ->close();
-    displayErrorPage($copyQ);
+    $pageErrors["barcodeNmbr"] = $loc->getText("shelvingCartErr2");
+    $_SESSION["pageErrors"] = $pageErrors;
+    header("Location: ../circ/checkin_form.php");
+    exit();
   }
 
   #****************************************************************************
@@ -178,6 +181,22 @@
         $transQ->close();
         displayErrorPage($transQ);
       }
+      
+      $balance = $transQ->getBalance($mbrid);
+      if ($transQ->errorOccurred()) {
+        $transQ->close();
+        displayErrorPage($transQ);
+      }
+      
+      // Set fee message
+      if (OBIB_LOCALE == 'th') {
+        $balText = number_format($fee, 2) . ' บาท';
+      }
+      else {
+        $balText = moneyFormat($fee,2);
+      }
+      $_SESSION['feeMsg'] = "<font class=\"error\">".$loc->getText("mbrViewBalMsg2",array("fee"=>$balText))."</font><br><br>";
+      
       $transQ->close();
     }
     

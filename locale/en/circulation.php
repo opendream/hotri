@@ -151,7 +151,8 @@ $trans["mbrViewHoldHdr7"]         = "\$text='Status';";
 $trans["mbrViewHoldHdr8"]         = "\$text='Due Back';";
 $trans["mbrViewNoHolds"]          = "\$text='No bibliographies are currently on hold.';";
 $trans["mbrViewBalMsg"]           = "\$text='Note: Member has an outstanding account balance of %bal%.';";
-$trans["mbrPrintCheckouts"]	      = "\$text='print checkouts';";
+$trans["mbrViewBalMsg2"]          = "\$text = 'Note: this bibliography has %fee% late fee.';";
+$trans["mbrPrintCheckouts"]       = "\$text='print checkouts';";
 $trans["mbrViewDel"]              = "\$text='del';";
 $trans["mbrViewStatus"]           = "\$text='Status:';";
 

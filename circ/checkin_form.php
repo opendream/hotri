@@ -70,6 +70,10 @@ function checkin(massCheckinFlg)
       echo '<p><font class="error">'.$loc->getText("checkinDone2", array('barcode'=>$_GET['barcode'])).'</font></p>';
     }
   }
+  if (isset($_SESSION['feeMsg'])) {
+    echo '<p><font class="error">'.$_SESSION['feeMsg'].'</font></p>';
+    unset($_SESSION['feeMsg']);
+  }
 ?>
 
 <form name="barcodesearch" method="POST" action="../circ/shelving_cart.php">
