@@ -316,6 +316,12 @@ select {
   font-family: <?php echo H(OBIB_PRIMARY_FONT_FACE);?>;
   color: <?php echo H(OBIB_PRIMARY_FONT_COLOR);?>;
 }
+ {}
+td.primary.form-required, td.primary.form-optional { padding-left: 14px; }
+td.primary.form-required { background: url(../images/required-star.png) no-repeat; }
+td.primary.form-required sup { display: none; }
+
+tr.biblio-late td { color: red; font-weight: bold; background: #ffccbb; border-color: white; }
 
 /*ul.nav_main { list-style-type: none; padding-left: 0; margin-left: 0; }
 li.nav_selected:before { white-space: pre-wrap; content: "\bb  " }

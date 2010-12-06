@@ -21,9 +21,11 @@
   } else {
     $tab = "cataloging";
   }
+  
+  $isOpac = $tab == "opac";
 
   $nav = "view";
-  if ($tab != "opac") {
+  if (!$isOpac) {
     require_once("../shared/logincheck.php");
   }
   require_once("../classes/Biblio.php");
@@ -213,7 +215,7 @@ require_once("../functions/openUrl.php");
   </tr>
   <tr>
     <td class="primary" valign="top">
-      <?php printUsmarcText(245,"a",$marcTags, $marcSubflds, FALSE);?>:
+      <?php printUsmarcText(245,"a",$marcTags, $marcSubflds, FALSE, $isOpac);?>:
     </td>
     <td valign="top" class="primary">
       <?php if (isset($biblioFlds["245a"])) echo H($biblioFlds["245a"]->getFieldData());?>
@@ -221,7 +223,7 @@ require_once("../functions/openUrl.php");
   </tr>
   <tr>
     <td class="primary" valign="top">
-      <?php printUsmarcText(245,"b",$marcTags, $marcSubflds, FALSE);?>:
+      <?php printUsmarcText(245,"b",$marcTags, $marcSubflds, FALSE, $isOpac);?>:
     </td>
     <td valign="top" class="primary">
       <?php if (isset($biblioFlds["245b"])) echo H($biblioFlds["245b"]->getFieldData());?>
@@ -229,7 +231,7 @@ require_once("../functions/openUrl.php");
   </tr>
   <tr>
     <td class="primary" valign="top">
-      <?php printUsmarcText(100,"a",$marcTags, $marcSubflds, FALSE);?>:
+      <?php printUsmarcText(100,"a",$marcTags, $marcSubflds, FALSE, $isOpac);?>:
     </td>
     <td valign="top" class="primary">
       <?php if (isset($biblioFlds["100a"])) echo H($biblioFlds["100a"]->getFieldData());?>
@@ -237,7 +239,7 @@ require_once("../functions/openUrl.php");
   </tr>
   <tr>
     <td nowrap="true" class="primary" valign="top">
-      <?php printUsmarcText(245,"c",$marcTags, $marcSubflds, FALSE);?>:
+      <?php printUsmarcText(245,"c",$marcTags, $marcSubflds, FALSE, $isOpac);?>:
     </td>
     <td valign="top" class="primary">
       <?php if (isset($biblioFlds["245c"])) echo H($biblioFlds["245c"]->getFieldData());?>
@@ -416,7 +418,7 @@ require_once("../functions/openUrl.php");
   ?>
         <tr>
           <td valign="top" class="primary">
-            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, TRUE);?>:
+            <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, TRUE, $isOpac);?>:
           </td>
           <td valign="top" class="primary"><?php echo H($field->getFieldData()); ?></td>
         </tr>      

@@ -54,16 +54,22 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
       $error = $pageErrors[$formIndex];
   }
 
-
-  echo "<tr><td class=\"primary\" valign=\"top\">\n";
   if ($required) {
+    echo "<tr><td class=\"primary form-required\" valign=\"top\">\n";
     echo "<sup>*</sup> ";
+  }
+  else {
+    echo "<tr><td class=\"primary form-optional\" valign=\"top\">\n";
   }
   if (($showTagDesc) 
     && (isset($marcTags[$tag]))
     && (isset($marcSubflds[$arrayIndex]))){
-    echo H($marcTags[$tag]->getDescription());
-    echo " (".H($marcSubflds[$arrayIndex]->getDescription()).")";
+    $descr = $marcSubflds[$arrayIndex]->getDescription();
+    $subfieldSet = explode(' ', $descr, 2);
+    echo $subfieldSet[0] . ' ' . H($marcTags[$tag]->getDescription());
+    echo ' - ' . $subfieldSet[1];
+    //echo H($marcTags[$tag]->getDescription());
+    //echo " (".H($marcSubflds[$arrayIndex]->getDescription()).")";
   } elseif (isset($marcSubflds[$arrayIndex])){
     echo H($marcSubflds[$arrayIndex]->getDescription());
   }

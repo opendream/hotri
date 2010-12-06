@@ -12,16 +12,26 @@
  * @access public
  *********************************************************************************
  */
-function printUsmarcText($tag,$subfieldCd,&$marcTags,&$marcSubflds,$showTagDesc){
+function printUsmarcText($tag,$subfieldCd,&$marcTags,&$marcSubflds,$showTagDesc, $opac = TRUE){
   $arrayIndex = sprintf("%03d",$tag).$subfieldCd;
 
+  $descr = $marcSubflds[$arrayIndex]->getDescription();
+  $subfieldSet = explode(' ', $descr, 2);
   if (($showTagDesc) 
     && (isset($marcTags[$tag]))
     && (isset($marcSubflds[$arrayIndex]))){
+    if (!$opac) {
+      echo $subfieldSet[0] . ' ';
+    }
     echo H($marcTags[$tag]->getDescription());
-    echo " (".H($marcSubflds[$arrayIndex]->getDescription()).")";
+    echo ' - ' . $subfieldSet[1];
+    //echo H($marcTags[$tag]->getDescription());
+    //echo " (".H($marcSubflds[$arrayIndex]->getDescription()).")";
   } elseif (isset($marcSubflds[$arrayIndex])){
-    echo H($marcSubflds[$arrayIndex]->getDescription());
+    if (!$opac) {
+      echo $subfieldSet[0] . ' ';
+    }
+    echo $subfieldSet[1];
   }
 }
 

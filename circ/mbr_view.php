@@ -389,7 +389,7 @@ function hideDueDate() {
   } else {
     while ($biblio = $biblioQ->fetchRow()) {
 ?>
-  <tr>
+  <tr<?php echo $biblio->getDaysLate() > 0 ? ' class="biblio-late"' : ''; ?>>
     <td class="primary" valign="top" nowrap="yes">
       <?php echo H($biblio->getStatusBeginDt());?>
     </td>

@@ -61,7 +61,7 @@
     </td>
   </tr>
   <tr>
-    <td nowrap="true" class="primary">
+    <td nowrap="true" class="primary form-required">
       <sup>*</sup> <?php echo $loc->getText("biblioFieldsMaterialTyp"); ?>:
     </td>
     <td valign="top" class="primary">
@@ -95,10 +95,10 @@
   }
   echo "</select>\n";
 ?>
-	  </td>
+    </td>
   </tr>
   <tr>
-    <td nowrap="true" class="primary">
+    <td nowrap="true" class="primary form-required">
       <sup>*</sup> <?php echo $loc->getText("biblioFieldsCollection"); ?>:
     </td>
     <td valign="top" class="primary">
@@ -106,7 +106,7 @@
     </td>
   </tr>
   <tr>
-    <td nowrap="true" class="primary" valign="top">
+    <td nowrap="true" class="primary form-required" valign="top">
       <sup>*</sup> <?php echo $loc->getText("biblioFieldsCallNmbr"); ?>:
     </td>
     <td valign="top" class="primary">
