@@ -45,6 +45,71 @@ class BiblioSearchQuery extends Query {
   function getPageCount() {
     return $this->_pageCount;
   }
+  
+  function searchTag($tag, $words, $page, $opacFlg=true) {
+    # Reset stats
+    $this->_rowNmbr = 0;
+    $this->_currentRowNmbr = 0;
+    $this->_currentPageNmbr = $page;
+    $this->_rowCount = 0;
+    $this->_pageCount = 0;
+    
+    $field = substr($tag, 0, 3);
+    
+    # Setting SQL join clause
+    $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
+
+    # Setting SQL where clause
+    $criteria = "";
+    
+    $join .= $this->mkSQL("LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid 
+    AND biblio_field.tag=%Q", $field);
+    
+    if ($field == '650') {
+      $sqlword = $this->mkSQL("%Q", $words);
+      $criteria = " WHERE topic1=$sqlword OR topic2=$sqlword OR topic3=$sqlword OR topic4=$sqlword OR topic5=$sqlword ";
+    }
+    else if ($field == '100') {
+      $criteria = $this->mkSQL(" WHERE author=%Q ", $words);
+    }
+    else {
+      $criteria = $this->mkSQL(" WHERE biblio_field.field_data=%Q ", $words);
+    }
+    
+    # Setting count query
+    $sqlcount = "SELECT COUNT(*) AS rowcount ";
+    $sqlcount = $sqlcount.$join;
+    $sqlcount = $sqlcount.$criteria;
+    
+    # Setting query that will return all the data
+    $sql = "SELECT biblio.*, ";
+    $sql .= "biblio_copy.copyid, ";
+    $sql .= "biblio_copy.barcode_nmbr, ";
+    $sql .= "biblio_copy.status_cd, ";
+    $sql .= "biblio_copy.due_back_dt, ";
+    $sql .= "biblio_copy.mbrid ";
+    $sql .= $join;
+    $sql .= $criteria;
+    $sql .= "ORDER BY title ";
+    
+    # Setting limit so we can page through the results
+    $offset = ($page - 1) * $this->_itemsPerPage;
+    $limit = $this->_itemsPerPage;
+    $sql .= $this->mkSQL("LIMIT %N, %N", $offset, $limit);
+
+    # Running row count SQL statement
+    if (!$this->_query($sqlcount, $this->_loc->getText("biblioSearchQueryErr1"))) {
+      return false;
+    }
+
+    # Calculate stats based on row count
+    $array = $this->_conn->fetchRow();
+    $this->_rowCount = $array["rowcount"];
+    $this->_pageCount = ceil($this->_rowCount / $this->_itemsPerPage);
+
+    # Running search SQL statement
+    return $this->_query($sql, $this->_loc->getText("biblioSearchQueryErr2"));
+  }
 
   /****************************************************************************
    * Executes a query

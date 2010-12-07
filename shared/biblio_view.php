@@ -234,7 +234,12 @@ require_once("../functions/openUrl.php");
       <?php printUsmarcText(100,"a",$marcTags, $marcSubflds, FALSE, $isOpac);?>:
     </td>
     <td valign="top" class="primary">
-      <?php if (isset($biblioFlds["100a"])) echo H($biblioFlds["100a"]->getFieldData());?>
+      <?php 
+      if (isset($biblioFlds["100a"])) {
+        $val = H($biblioFlds["100a"]->getFieldData());
+        echo '<a href="../shared/biblio_search.php?tag=100a&words=' . $val . '">' . $val . '</a>';
+      }
+      ?>
     </td>
   </tr>
   <tr>
@@ -420,7 +425,17 @@ require_once("../functions/openUrl.php");
           <td valign="top" class="primary">
             <?php printUsmarcText($field->getTag(),$field->getSubfieldCd(),$marcTags, $marcSubflds, TRUE, $isOpac);?>:
           </td>
-          <td valign="top" class="primary"><?php echo H($field->getFieldData()); ?></td>
+          <td valign="top" class="primary">
+            <?php
+            $val = H($field->getFieldData()); 
+            if (in_array(substr($key, 0, 1), array('1', '4', '6', '7'))) {
+              echo '<a href="../shared/biblio_search.php?tag=' . $key . '&words=' . $val . '">' . $val . '</a>';
+            }
+            else {
+              echo $val;
+            }
+            ?>
+          </td>
         </tr>      
   <?php
       }

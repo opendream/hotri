@@ -9,7 +9,7 @@
   #****************************************************************************
   #*  Checking for post vars.  Go back to form if none found.
   #****************************************************************************
-  if (count($_POST) == 0) {
+  if (count($_POST) == 0 && empty($_GET['tag'])) {
     header("Location: ../catalog/index.php");
     exit();
   }
@@ -107,34 +107,44 @@
   } else {
     $currentPageNmbr = 1;
   }
-  $searchType = $_POST["searchType"];
-  $sortBy = $_POST["sortBy"];
-  if ($sortBy == "default") {
-    if ($searchType == "author") {
-      $sortBy = "author";
+  
+  if (!empty($_POST['searchType'])) {
+    $searchType = $_POST["searchType"];
+    $sortBy = $_POST["sortBy"];
+    if ($sortBy == "default") {
+      if ($searchType == "author") {
+        $sortBy = "author";
+      } else {
+        $sortBy = "title";
+      }
+    }
+    $searchText = trim($_POST["searchText"]);
+    # remove redundant whitespace
+    $searchText = preg_replace("/[[:space:]]+/i", " ", $searchText);
+    if ($searchType == "barcodeNmbr") {
+      $sType = OBIB_SEARCH_BARCODE;
+      $words[] = $searchText;
     } else {
-      $sortBy = "title";
+      $words = explodeQuoted($searchText);
+      if ($searchType == "author") {
+        $sType = OBIB_SEARCH_AUTHOR;
+      } elseif ($searchType == "subject") {
+        $sType = OBIB_SEARCH_SUBJECT;
+      } elseif ($searchType == "isbn") {
+        $sType = OBIB_SEARCH_ISBN;
+      } elseif ($searchType == "advanced") {
+        $sType = OBIB_ADVANCED_SEARCH;
+        $words = $_POST;
+      } else {
+        $sType = OBIB_SEARCH_TITLE;
+      }
     }
   }
-  $searchText = trim($_POST["searchText"]);
-  # remove redundant whitespace
-  $searchText = preg_replace("/[[:space:]]+/i", " ", $searchText);
-  if ($searchType == "barcodeNmbr") {
-    $sType = OBIB_SEARCH_BARCODE;
-    $words[] = $searchText;
-  } else {
-    $words = explodeQuoted($searchText);
-    if ($searchType == "author") {
-      $sType = OBIB_SEARCH_AUTHOR;
-    } elseif ($searchType == "subject") {
-      $sType = OBIB_SEARCH_SUBJECT;
-    } elseif ($searchType == "isbn") {
-      $sType = OBIB_SEARCH_ISBN;
-    } elseif ($searchType == "advanced") {
-      $sType = OBIB_ADVANCED_SEARCH;
-      $words = $_POST;
-    } else {
-      $sType = OBIB_SEARCH_TITLE;
+  else if (isset($_GET['tag'])) {
+    $sortBy = 'title';
+    $words = $_GET['words'];
+    if (empty($words)) {
+      $words = '';
     }
   }
 
@@ -154,9 +164,20 @@
   } else {
     $opacFlg = false;
   }
-  if (!$biblioQ->search($sType, $words, $currentPageNmbr, $sortBy, $opacFlg)) {
-    $biblioQ->close();
-    displayErrorPage($biblioQ);
+  if (!empty($searchType)) {
+    if (!$biblioQ->search($sType, $words, $currentPageNmbr, $sortBy, $opacFlg)) {
+      $biblioQ->close();
+      displayErrorPage($biblioQ);
+    }
+  }
+  else if (isset($_GET['tag'])) {
+    if (!$biblioQ->searchTag($_GET['tag'], $words, $currentPageNmbr, $opacFlg)) {
+      $biblioQ->close();
+      displayErrorPage($biblioQ);
+    }
+  }
+  else {
+    exit();
   }
 
   #**************************************************************************
@@ -197,7 +218,7 @@ function changePage(page,sort)
 <!--**************************************************************************
     *  Form used by javascript to post back to this page
     ************************************************************************** -->
-<form name="changePageForm" method="POST" action="../shared/biblio_search.php">
+<form name="changePageForm" method="POST" action="../shared/biblio_search.php<?php echo isset($_GET['tag']) ? '?tag=' . $_GET['tag'] . '&words=' . $_GET['words'] : ''?>">
   <input type="hidden" name="searchType" value="<?php echo H($_POST["searchType"]);?>">
   <input type="hidden" name="searchText" value="<?php echo H($_POST["searchText"]);?>">
   <input type="hidden" name="sortBy" value="<?php echo H($_POST["sortBy"]);?>">
@@ -292,7 +313,12 @@ function changePage(page,sort)
         </tr>
         <tr>
           <td class="noborder" valign="top"><b><?php echo $loc->getText("biblioSearchAuthor"); ?>:</b></td>
-          <td class="noborder" colspan="3"><?php if ($biblio->getAuthor() != "") echo H($biblio->getAuthor());?></td>
+          <td class="noborder" colspan="3"><?php 
+          if ($biblio->getAuthor() != "") {
+            $val = H($biblio->getAuthor());
+            echo '<a href="../shared/biblio_search.php?tag=100a&words=' . $val . '">' . $val . '</a>';
+          }
+          ?></td>
         </tr>
         <tr>
           <td class="noborder" valign="top"><font class="small"><b><?php echo $loc->getText("biblioSearchMaterial"); ?>:</b></font></td>
