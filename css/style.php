@@ -358,3 +358,4 @@ table.resultshead td {
 }
 table.results td.primary { border-top: none; }
 td.picture { width: 120px; }
+.Z3988 { display: none; }

@@ -127,7 +127,7 @@ $doc_pubplace = '';
 $doc_pubyear = '';
 $doc_isbn = '';
 
-if (isset($biblioFlds["245aa"])) 
+if (isset($biblioFlds["245a"])) 
   $doc_title = $biblioFlds["245a"]->getFieldData();
 if (isset($biblioFlds["245b"])) 
   $doc_title .= ' : ' . $biblioFlds["245b"]->getFieldData();
@@ -147,6 +147,14 @@ if (isset($biblioFlds["260c"]))
 if (isset($biblioFlds["020a"])) 
   $doc_isbn = trim($biblioFlds["020a"]->getFieldData());
 
+// Edition
+if (isset($biblioFlds["0822"])) 
+  $doc_edition = trim($biblioFlds["0822"]->getFieldData());
+  
+// Short Title
+if (isset($biblioFlds["247a"])) 
+  $doc_stitle = trim($biblioFlds["247a"]->getFieldData());
+
 if (strpos($doc_author, ',')) {
   $author_ex = explode(',', $doc_author);
   $doc_author_fname = trim($author_ex[1]);
@@ -159,7 +167,8 @@ else {
 }
 
 $Document->fields = array(
-  'DocType' => 3, // Book, other types read in openUrl.php
+  'Id' => md5($bibid . $doc_title),
+  'DocType' => 2, // Book, other types read in openUrl.php
   'DocTitle' => $doc_title,
   'JournalTitle' => false,
   'BookTitle' => $doc_title,
@@ -168,19 +177,27 @@ $Document->fields = array(
   'ISBN' => $doc_isbn,
   'StartPage' => false,
   'EndPage' => false,
-  'DocYear' => $doc_pubyear
+  'DocYear' => $doc_pubyear,
+  'DocEdition' => $doc_edition,
+  'ShortTitle' => $doc_stitle,
 );
 
 $People[]->fields = array(
   'DocRelationship' => 0,
   'FirstName' => $doc_author_fname,
-  'LastName' => $doc_author_lname
+  'LastName' => $doc_author_lname,
+);
+
+$People[]->fields = array(
+  'DocRelationship' => 0,
+  'FirstName' => $doc_author_fname,
+  'LastName' => $doc_author_lname,
 );
 
 require_once("../functions/openUrl.php");
 
 ?>
-<span class="Z3988" title="<?php print OpenURL($Document, $People) ?>">Content of your choice goes here</span>
+<span class="Z3988" title="<?php print OpenURL($Document, $People) ?>">OpenURL</span>
 <table class="primary">
   <tr>
     <th align="left" colspan="2" nowrap="yes">
