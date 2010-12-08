@@ -42,6 +42,16 @@
  </li>
 <?php } ?>
 
+<?php if ($nav == "credits") { ?>
+ <li class="active">
+   <?php echo $navLoc->getText("homeCreditsLink");?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../home/credits.php" class="alt1"><?php echo $navLoc->getText("homeCreditsLink");?></a>
+ </li>
+<?php } ?>
+
  <li>
    <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navLoc->getText("help");?></a>
  </li>

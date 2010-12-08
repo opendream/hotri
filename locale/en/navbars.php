@@ -46,6 +46,7 @@ $trans["help"]                     = "\$text = 'Help';";
 #****************************************************************************
 $trans["homeHomeLink"]             = "\$text = 'Home';";
 $trans["homeLicenseLink"]          = "\$text = 'License';";
+$trans["homeCreditsLink"]           = "\$text = 'Credits';";
 
 #****************************************************************************
 #*  Translation text for page admin.php
