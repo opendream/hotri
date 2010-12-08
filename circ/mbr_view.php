@@ -79,21 +79,17 @@
     displayErrorPage($acctQ);
   }
   $acctQ->close();
-  $balMsg = "";
-  if ($balance > 0 && $balance >= $mbrMaxFines[$mbr->getClassification()]) {
-    if (OBIB_LOCALE == 'th') {
-      $balText = number_format($balance, 2) . ' บาท';
-    }
-    else {
-      $balText = moneyFormat($balance,2);
-    }
-    $balMsg = "<font class=\"error\">".$loc->getText("mbrViewBalMsg",array("bal"=>$balText))."</font><br><br>";
-  }
-
+  
   #**************************************************************************
   #*  Show member information
   #**************************************************************************
   require_once("../shared/header.php");
+  
+  $balMsg = "";
+  if ($balance > 0 && $balance >= $mbrMaxFines[$mbr->getClassification()]) {
+    $balText = moneyFormat($balance, 2);
+    $balMsg = "<font class=\"error\">".$loc->getText("mbrViewBalMsg",array("bal"=>$balText))."</font><br><br>";
+  }
 ?>
 
 <?php echo $balMsg ?>

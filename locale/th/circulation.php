@@ -283,6 +283,7 @@ $trans["mbrAccountHdr3"]          = "\$text='ประเภท';";
 $trans["mbrAccountHdr4"]          = "\$text='รายละเอียด';";
 $trans["mbrAccountHdr5"]          = "\$text='จำนวน';";
 $trans["mbrAccountHdr6"]          = "\$text='รวมค่าปรับทั้งหมด';";
+$trans["mbrAccountLink"]           = "\$text='ดูรายการค่าปรับของสมาชิกท่านนี้';";
 
 #****************************************************************************
 #*  Translation text for page mbr_transaction.php

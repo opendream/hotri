@@ -259,6 +259,7 @@ $trans["mbrAccountHdr3"]          = "\$text='Trans Type';";
 $trans["mbrAccountHdr4"]          = "\$text='Description';";
 $trans["mbrAccountHdr5"]          = "\$text='Amount';";
 $trans["mbrAccountHdr6"]          = "\$text='Balance';";
+$trans["mbrAccountLink"]           = "\$text='view transaction of this member';";
 
 #****************************************************************************
 #*  Translation text for page mbr_transaction.php

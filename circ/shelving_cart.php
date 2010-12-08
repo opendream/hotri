@@ -182,12 +182,6 @@
         displayErrorPage($transQ);
       }
       
-      $balance = $transQ->getBalance($mbrid);
-      if ($transQ->errorOccurred()) {
-        $transQ->close();
-        displayErrorPage($transQ);
-      }
-      
       // Set fee message
       if (OBIB_LOCALE == 'th') {
         $balText = number_format($fee, 2) . ' บาท';
@@ -195,7 +189,7 @@
       else {
         $balText = moneyFormat($fee,2);
       }
-      $_SESSION['feeMsg'] = "<font class=\"error\">".$loc->getText("mbrViewBalMsg2",array("fee"=>$balText))."</font><br><br>";
+      $_SESSION['feeMsg'] = "<font class=\"error\">".$loc->getText("mbrViewBalMsg2",array("fee"=>$balText))." <a href=\"../circ/mbr_account.php?mbrid=" . $saveMbrid . "&reset=Y\">" . $loc->getText('mbrAccountLink') . "</a></font><br><br>";
       
       $transQ->close();
     }
