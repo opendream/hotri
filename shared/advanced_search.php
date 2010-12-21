@@ -36,6 +36,10 @@
 
       <table class="table_advanced_search_2">
         <tr>
+          <td class="label"><?php echo $loc->getText("advsPublishedYear") ?>:</td>
+          <td><input type="text" name="publishedYear" /></td>
+        </tr>
+        <tr>
           <td class="label"><?php echo $loc->getText("advsMaterialType"); ?>:</td>
           <td><?php echo form_biblio_material_types($loc); ?></td>
         </tr>
