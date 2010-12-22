@@ -133,10 +133,10 @@ class BiblioSearchQuery extends Query {
     $this->_rowCount = 0;
     $this->_pageCount = 0;
 
-    # Setting SQL join clause
+    # Setting SQL's 'JOIN' clause
     $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
 
-    # Setting SQL where clause
+    # Setting SQL's 'WHERE' clause
     $criteria = "";
     if ((sizeof($words) == 0) || ($words[0] == "" && !is_array($words))) {
       if ($opacFlg) $criteria = "WHERE opac_flg = 'Y' ";
@@ -228,7 +228,7 @@ class BiblioSearchQuery extends Query {
     foreach ($_POST as $k => $v) {
       $v = sanitize_input($v);
       if ($v == "") {
-        continue; // Skip when the input string is empty
+        continue; // Skip, if the input string is empty
       }
 
       // Get values from dynamic INPUT fields
@@ -324,7 +324,18 @@ class BiblioSearchQuery extends Query {
         }
       }
 
-      // Other static SELECT fields
+      // Other static SELECT fields (PublishedYear, MaterialType, CollectionType)
+      elseif (preg_match("/^publishedYear$/", $k)) {
+        if ($v != "") {
+          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
+                   . "AND biblio_field.tag='260' "
+                   . "AND biblio_field.subfield_cd='c' ";
+          if (strcmp($criteria, "WHERE ") > 0) {
+            $criteria .= "AND ";
+          }
+          $criteria .= "biblio_field.field_data = '". $v ."' ";
+        }
+      }
       elseif (preg_match("/^materialCd$/", $k)) {
         if ($v != "") {
           if (strcmp($criteria, "WHERE ") > 0) {

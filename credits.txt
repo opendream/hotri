@@ -1,10 +1,18 @@
+ซอฟต์แวร์นี้พัฒนาต่อจากโปรแกรม OpenBiblio version 0.6.1 database version 0.6.0 โดย Dave Stevens  (สงวนลิขสิทธิ์ © 2002-2005 ) ซึ่งอยู่ภายใต้ลิขสิทธิ์ GNU General Public License 
+
+ทีมพัฒนาประกอบด้วย:
+
+* การพัฒนาโปรแกรมเพิ่มเติม โดย โอเพ่นดรีม (http://opendream.co.th)
+* การพัฒนาภาษาไทย โดย คุณประสิทธิ์ชัย เลิศรัตนเคหกาล
+* การกำหนดความต้องการของโปรแกรมและแนะนำการใช้งาน โดย ฝ่ายบริการความรู้ทางวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (STKS) สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช.) 
+
 Fonts: 
- Free 3 of 9 Fonts by Matthew Welch (1997)
+* Free 3 of 9 Fonts by Matthew Welch (1997)
 
 Frameworks:
- CloudFusion - http://getcloudfusion.com
- License: Simplified BSD License - http://opensource.org/licenses/bsd-license.php
+* CloudFusion - http://getcloudfusion.com
+* License: Simplified BSD License - http://opensource.org/licenses/bsd-license.php
 
 OpenURL features:
- function from Zotero > OpenURL COinS support
- http://www.zotero.org/support/dev/making_coins
+* function from Zotero > OpenURL COinS support
+* http://www.zotero.org/support/dev/making_coins

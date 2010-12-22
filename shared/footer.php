@@ -24,8 +24,6 @@
       <br><br>
         <a href="http://obiblio.sourceforge.net/"><img src="../images/powered_by_openbiblio.gif" width="125" height="44" border="0"></a>
       <br><br>
-      <?php echo $headerLoc->getText("footerPoweredBy"); ?> <?php echo H(OBIB_CODE_VERSION);?>
-      <?php echo $headerLoc->getText("footerDatabaseVersion"); ?> <?php echo H(OBIB_DB_VERSION);?><br>
       <?php echo $headerLoc->getText("footerCopyright"); ?> &copy; 2002-2005 Dave Stevens<br>
       <?php echo $headerLoc->getText("footerUnderThe"); ?>
       <a href="../shared/copying.html"><?php echo $headerLoc->getText("footerGPL"); ?></a>
