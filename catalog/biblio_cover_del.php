@@ -52,6 +52,10 @@
   
   $biblioQ->close();
   
-  header('Location: ../shared/biblio_view.php?bibid=' . U($bibid)."&msg=".U($loc->gettext("This biblio's cover image has been removed.")));
-  
+  if ($_GET['redirect'] == 'edit') {
+    header("Location: ../catalog/biblio_edit.php?bibid=" . U($bibid)."&msg=".U($loc->gettext("This biblio's cover image has been removed.")));
+  }
+  else {
+    header('Location: ../shared/biblio_view.php?bibid=' . U($bibid)."&msg=".U($loc->gettext("This biblio's cover image has been removed.")));
+  }
   

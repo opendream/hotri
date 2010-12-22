@@ -25,7 +25,7 @@ class BiblioCoverQuery extends Query {
 
     // Remove trail data from ISBN
     $isbn = explode(' ', $isbn);
-    $isbn = $isbn[0];
+    $isbn = preg_replace("/[^x0-9]+/", '', $isbn[0]);
     
     try {
       $pas = new AmazonPAS();

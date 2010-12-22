@@ -298,7 +298,7 @@ $trans["coverLookupISBNInvalid"]   = "\$text = 'ISBN format not valid.';";
 $trans["Found"]                                  = "\$text = 'Found';";
 $trans["Save"]                                     = "\$text = 'Save';";
 $trans["Cancel"]                                  = "\$text = 'Cancel';";
-$trans["coverLookupSelect"]            = "\$text = 'Use this image for bibliography picture';";
+$trans["coverLookupSelect"]            = "\$text = 'Use this image (leave unchecked to cancel).';";
 $trans["This biblio's cover image has been removed."] = "\$text = 'This biblio\'s cover image has been removed.';";
 
 ?>

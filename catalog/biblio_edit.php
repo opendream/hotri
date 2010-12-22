@@ -10,6 +10,7 @@ $nav = "edit";
 
 require_once("../classes/Localize.php");
 $loc = new Localize(OBIB_LOCALE,$tab);
+$shareloc = new Localize(OBIB_LOCALE, 'shared');
 
 if (!isset($_REQUEST['posted'])) {
   require_once("../shared/logincheck.php");
@@ -157,6 +158,13 @@ function showForm($postVars, $pageErrors=array()) {
 
   $cancelLocation = "../shared/biblio_view.php?bibid=".$postVars["bibid"];
   $headerWording="Edit";
+  
+  if (isset($_GET["msg"])) {
+    $msg = "<font class=\"error\">".H($_GET["msg"])."</font><br><br>";
+  } else {
+    $msg = "";
+  }
+  echo $msg;
 ?>
   <script language="JavaScript">
     <!--

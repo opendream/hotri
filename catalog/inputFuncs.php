@@ -100,6 +100,8 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
       else {
         echo "<div class=\"error\">File does not exists.</div>";
       }
+      global $shareloc;
+      echo " <a href=\"../catalog/biblio_cover_del.php?bibid=" . HURL($_REQUEST['bibid']) ."&redirect=edit\" onclick=\"javascript: return confirm('" . htmlspecialchars($shareloc->getText('Are you sure to remove this picture?'), ENT_QUOTES) . "');\">" . $shareloc->getText('Remove') . "</a>";
     }
   }
   if ($error != "") {

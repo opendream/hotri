@@ -24,7 +24,7 @@ $(document).ready(function() {
         }
         else {
           img_look = data;
-          $('#lookup_field').html('<?php echo $loc->getText('Found'); ?>: <br><img src="' + data + '"><br><a href="#" onclick="saveLook();return false;"><?php echo $loc->getText('Save'); ?></a> | <a href="#lookup_anchor" onclick="cancelLook(); return false;"><?php echo $loc->getText('Cancel'); ?></a>');
+          saveLook();
         }
       });
     }
@@ -42,7 +42,7 @@ $(document).ready(function() {
   };
   saveLook = function(data) {
     if ($('#values020a').val() != '') {
-      $('#lookup_field').html('<img src="' + img_look + '"><br><input type="checkbox" name="uselookup" value="yes" checked="checked"> <?php echo $loc->getText('coverLookupSelect'); ?>');
+      $('#lookup_field').html('<?php echo $loc->getText('Found'); ?>: <br><img src="' + img_look + '"><br><input type="checkbox" name="uselookup" value="yes" checked="checked" onchange="cancelLook();"> <?php echo $loc->getText('coverLookupSelect'); ?>');
     }
   };
   
