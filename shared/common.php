@@ -238,7 +238,9 @@
   #  Utility functions
   #******************************************************
   function sanitize_input($input) {
-    $input = preg_replace("/[[:space:]]+/i", " ", trim($input));
-    return preg_replace("/'/", "", $input);
+    $output = preg_replace("/[[:space:]]+/i", " ", trim($input));
+    $output = preg_replace("/'/", "", $output);
+    $output = preg_replace("/\\\\/", "", $output);
+    return $output;
   }
 ?>
