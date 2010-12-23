@@ -111,7 +111,11 @@ $trans["advsMaterialType"]         = "\$text = 'ประเภททรัพ�
 $trans["advsCollectionType"]       = "\$text = 'สถานที่จัดเก็บทรัพยากรสารสนเทศ';";
 $trans["advsSearch"]               = "\$text = 'ค้นหา';";
 $trans["advsClear"]                = "\$text = 'ล้างเงื่อนไข';";
-$trans["advsPublishedYear"]                = "\$text = 'ปีที่ตีพิมพ์';";
+$trans["advsPublishedYear"]          = "\$text = 'ปีที่ตีพิมพ์';";
+$trans["advsLanguage"]                = "\$text = 'ภาษา';";
+$trans["optThai"]                = "\$text = 'ไทย';";
+$trans["optEnglish"]                = "\$text = 'อังกฤษ';";
+$trans["optFrench"]                = "\$text = 'ฝรั่งเศส';";
 $trans["cancel"]                   = "\$text = 'ยกเลิก';";
 $trans["or"]                       = "\$text = 'หรือ';";
 $trans["any"]                      = "\$text = 'ทุกประเภท';";
