@@ -42,7 +42,7 @@ $(document).ready(function() {
   };
   saveLook = function(data) {
     if ($('#values020a').val() != '') {
-      $('#lookup_field').html('<?php echo $loc->getText('Found'); ?>: <br><img src="' + img_look + '"><br><input type="checkbox" name="uselookup" value="yes" checked="checked" onchange="cancelLook();"> <?php echo $loc->getText('coverLookupSelect'); ?>');
+      $('#lookup_field').html('<?php echo $loc->getText('Found'); ?>: <br><img src="' + img_look + '"><br><input type="checkbox" id="uselookup" name="uselookup" value="yes" checked="checked" onchange="cancelLook();"> <label for="uselookup"><?php echo $loc->getText('coverLookupSelect'); ?></label>');
     }
   };
   
