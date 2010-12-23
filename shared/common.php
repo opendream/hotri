@@ -161,6 +161,10 @@
     $image_mime = $image_info['mime'];
     // get image extension
     $ext = image_type_to_extension($image_info[2]);
+    if ($ext == "jpeg") {
+      $ext = "jpg";
+    }
+
     // combine thumbpath
     $paths[] = 'thumb_'.$filename.$ext;
     $thumbpath = implode('/', $paths);
