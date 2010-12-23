@@ -133,10 +133,10 @@ class BiblioSearchQuery extends Query {
     $this->_rowCount = 0;
     $this->_pageCount = 0;
 
-    # Setting SQL's 'JOIN' clause
+    # Setting SQL join clause
     $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
 
-    # Setting SQL's 'WHERE' clause
+    # Setting SQL where clause
     $criteria = "";
     if ((sizeof($words) == 0) || ($words[0] == "" && !is_array($words))) {
       if ($opacFlg) $criteria = "WHERE opac_flg = 'Y' ";
@@ -179,7 +179,7 @@ class BiblioSearchQuery extends Query {
     }
 
     # Setting count query
-    $sqlcount = "SELECT COUNT(*) AS rowcount ";
+    $sqlcount = "SELECT COUNT(DISTINCT(biblio.bibid)) AS rowcount ";
     $sqlcount = $sqlcount.$join;
     $sqlcount = $sqlcount.$criteria;
 
@@ -192,6 +192,9 @@ class BiblioSearchQuery extends Query {
     $sql .= "biblio_copy.mbrid ";
     $sql .= $join;
     $sql .= $criteria;
+    if (!strrpos($sql, "GROUP BY")) {
+      $sql .= " GROUP BY biblio.bibid ";
+    }
     $sql .= $this->mkSQL("ORDER BY %C ", $sortBy);
 
     # Setting limit so we can page through the results
@@ -224,6 +227,8 @@ class BiblioSearchQuery extends Query {
    */
   function _getAdvancedSearchSQLStatement(&$words) {
     $join = "";
+    $multiple_join = 0;
+    $has_OR = false;
     $criteria = "WHERE ";
     foreach ($_POST as $k => $v) {
       $v = sanitize_input($v);
@@ -248,11 +253,19 @@ class BiblioSearchQuery extends Query {
           $k_exp = "expression_". $number;
           $v_exp = $_POST[$k_exp];
 
+          // Special variable is used to apply 'HAVING' clause
+          if (strcmp($v_exp, "or") == 0) {
+            $has_OR = true;
+          }
+
           // Insert 'NOT' into the query string in next steps.
           if (strcmp($v_exp, "not") == 0) {
             $v_exp = " AND ";
             $tmp_v_exp = "not";
           }
+        } else { // The first one with an expression
+          $k_exp = "expression_". $number;
+          $v_exp = $_POST[$k_exp];
         }
 
         if (strcmp($v_exp, "") > 0) {
@@ -268,20 +281,28 @@ class BiblioSearchQuery extends Query {
           }
         }
         elseif (strcmp($v_col, "author") == 0) {
-          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ".
-                   "AND biblio_field.tag='700' ".
-                   "AND (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') ";
+          if (empty($join)) {
+            $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ";
+          }
 
           if (strcmp($tmp_v_exp, "not") == 0) {
             $str = "NOT biblio.author LIKE '%". $v_txt ."%' OR ".
                    "NOT biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
-                   "NOT biblio_field.field_data LIKE '%". $v_txt ."%'";
+                   "NOT ".
+                   "  biblio_field.tag='700' AND ".
+                   "    (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') AND ".
+                   "    biblio_field.field_data LIKE '%". $v_txt ."%'";
           } else {
             $str = "biblio.author LIKE '%". $v_txt ."%' OR ".
                    "biblio.responsibility_stmt LIKE '%". $v_txt ."%' OR ".
-                   "biblio_field.field_data LIKE '%". $v_txt ."%'";
+                   "(biblio_field.tag='700' AND ".
+                   "  (biblio_field.subfield_cd='a' OR biblio_field.subfield_cd='b') AND ".
+                   "  biblio_field.field_data LIKE '%". $v_txt ."%')";
           }
           $criteria .= "(". $str .") ";
+
+          // Special variable is used to apply 'HAVING' clause
+          $multiple_join++;
         }
         elseif (strcmp($v_col, "subject") == 0) {
           if (strcmp($tmp_v_exp, "not") == 0) {
@@ -300,15 +321,24 @@ class BiblioSearchQuery extends Query {
           $criteria .= "(". $str .") ";
         }
         elseif (strcmp($v_col, "isbn") == 0) {
-          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
-                   . "AND biblio_field.tag='20' "
-                   . "AND biblio_field.subfield_cd='a' ";
+          if (empty($join)) {
+            $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ";
+          }
 
           if (strcmp($tmp_v_exp, "not") == 0) {
-            $criteria .= "NOT biblio_field.field_data LIKE '%". $v_txt ."%' ";
+            $str = "NOT ".
+                   "  biblio_field.tag='20' AND ".
+                   "  biblio_field.subfield_cd='a' AND ".
+                   "  biblio_field.field_data LIKE '%". $v_txt ."%'";
           } else {
-            $criteria .= "biblio_field.field_data LIKE '%". $v_txt ."%' ";
+            $str = "biblio_field.tag='20' AND ".
+                   "biblio_field.subfield_cd='a' AND ".
+                   "biblio_field.field_data LIKE '%". $v_txt ."%'";
           }
+          $criteria .= "(". $str .") ";
+
+          // Special variable is used to apply 'HAVING' clause
+          $multiple_join++;
         }
         elseif (strcmp($v_col, "call_nmbr") == 0) {
           if (strcmp($tmp_v_exp, "not") == 0) {
@@ -324,33 +354,58 @@ class BiblioSearchQuery extends Query {
         }
       }
 
-      // Other static SELECT fields (PublishedYear, MaterialType, CollectionType)
-      elseif (preg_match("/^publishedYear$/", $k)) {
-        if ($v != "") {
-          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid "
-                   . "AND biblio_field.tag='260' "
-                   . "AND biblio_field.subfield_cd='c' ";
-          if (strcmp($criteria, "WHERE ") > 0) {
+      // Other static fields (PublishedYear, Language, MaterialType, CollectionType)
+      elseif (preg_match("/^language$/", $k)) {
+        if (empty($join)) {
+          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ";
+        }
+
+        if (strcmp($criteria, "WHERE ") > 0) {
+          if ($multiple_join > 0) {
+            $criteria .= "OR ";
+            $has_OR = true;
+          } else {
             $criteria .= "AND ";
           }
-          $criteria .= "biblio_field.field_data = '". $v ."' ";
         }
+        $criteria .= "(biblio_field.tag='041' ".
+                     "AND biblio_field.subfield_cd='a' ".
+                     "AND biblio_field.field_data='". $v ."') ";
+
+        // Special variable is used to apply 'HAVING' clause
+        $multiple_join++;
+      }
+      elseif (preg_match("/^publishedYear$/", $k)) {
+        if (empty($join)) {
+          $join .= "LEFT JOIN biblio_field ON biblio_field.bibid=biblio.bibid ";
+        }
+
+        if (strcmp($criteria, "WHERE ") > 0) {
+          if ($multiple_join > 0) {
+            $criteria .= "OR ";
+            $has_OR = true;
+          } else {
+            $criteria .= "AND ";
+          }
+        }
+        $criteria .= "(biblio_field.tag='260' ".
+                     "AND biblio_field.subfield_cd='c' ".
+                     "AND biblio_field.field_data='". $v ."') ";
+
+        // Special variable is used to apply 'HAVING' clause
+        $multiple_join++;
       }
       elseif (preg_match("/^materialCd$/", $k)) {
-        if ($v != "") {
-          if (strcmp($criteria, "WHERE ") > 0) {
-            $criteria .= "AND ";
-          }
-          $criteria .= "biblio.material_cd = '". $v ."' ";
+        if (strcmp($criteria, "WHERE ") > 0) {
+          $criteria .= "AND ";
         }
+        $criteria .= "biblio.material_cd='". $v ."' ";
       }
       elseif (preg_match("/^collectionCd$/", $k)) {
-        if ($v != "") {
-          if (strcmp($criteria, "WHERE ") > 0) {
-            $criteria .= "AND ";
-          }
-          $criteria .= "biblio.collection_cd = '". $v ."' ";
+        if (strcmp($criteria, "WHERE ") > 0) {
+          $criteria .= "AND ";
         }
+        $criteria .= "biblio.collection_cd='". $v ."' ";
       }
     }
 
@@ -358,7 +413,12 @@ class BiblioSearchQuery extends Query {
     if (strcmp($criteria, "WHERE ") == 0) {
       $criteria = "WHERE 1 ";
     }
-      
+
+    // Intersect the result
+    if ($multiple_join > 1 && $has_OR) {
+      $criteria .= " GROUP BY biblio.bibid HAVING COUNT(biblio.bibid) > 1 ";
+    }
+
     // Remove redundant whitespace
     $criteria = preg_replace("/[[:space:]]+/i", " ", $criteria);
 

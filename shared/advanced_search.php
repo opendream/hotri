@@ -3,7 +3,11 @@
   require_once("../shared/forms.php");
   require_once("../functions/inputFuncs.php");
 
-  $tab = "opac";
+  $nav = "search";
+  if ($tab != "opac") {
+    require_once("../shared/logincheck.php");
+  }
+
   $lookup = "N";
   if (isset($_GET["lookup"])) {
     $lookup = "Y";
@@ -38,6 +42,17 @@
         <tr>
           <td class="label"><?php echo $loc->getText("advsPublishedYear") ?>:</td>
           <td><input type="text" name="publishedYear" /></td>
+        </tr>
+        <tr>
+          <td class="label"><?php echo $loc->getText("advsLanguage") ?>:</td>
+          <td>
+            <select name="language">
+              <option value=""><?php echo $loc->getText("any"); ?></option>
+              <option value="tha"><?php echo $loc->getText("optThai"); ?></option>
+              <option value="eng"><?php echo $loc->getText("optEnglish"); ?></option>
+              <option value="fra"><?php echo $loc->getText("optFrench"); ?></option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td class="label"><?php echo $loc->getText("advsMaterialType"); ?>:</td>
