@@ -59,7 +59,7 @@ class BiblioField {
           $isbn = $fieldData['isbn'];
           require_once("BiblioCoverQuery.php");
           $cq = new BiblioCoverQuery();
-          $path = $cq->lookup($isbn);
+          $path = $cq->lookup($isbn, "large");
           if (!$path) {
             $this->_fieldDataError = $loc->getText("biblioFieldErrorCoverLookupFailed");
             $valid = false;

@@ -5,7 +5,7 @@ require_once('Query.php');
 
 class BiblioCoverQuery extends Query {
   var $_lastError;
-  function lookup($isbn) {
+  function lookup($isbn, $type = "medium") {
     // Hide warnings on results in safe mode
     //error_reporting(0);
     // Lookup amazon first
@@ -37,6 +37,12 @@ class BiblioCoverQuery extends Query {
       if (isset($response->body->Error)) {
         $this->_lastError = $response->body->Error->Code . ': ' . $response->body->Error->Message;
         return false;
+      }
+
+      if ($type == "large") {
+        if (!empty($response->body->Items->Item->LargeImage)) {
+          return ''.$response->body->Items->Item->LargeImage->URL;
+        }
       }
       
       if (!empty($response->body->Items->Item->MediumImage)) {
@@ -139,13 +145,9 @@ class BiblioCoverQuery extends Query {
       break;
     }
     
-    // Scale size to height 160px.
-    $resize_width = floor($img_info[0] * ( 160 / $img_info[1] ));
-    $resize_height = 160;
-    
     $src = $create_func($path_tmp);
-    $dst = imagecreatetruecolor($resize_width, $resize_height);
-    imagecopyresampled($dst, $src, 0, 0, 0, 0, $resize_width, $resize_height, $img_info[0], $img_info[1]);
+    $dst = imagecreatetruecolor($img_info[0], $img_info[1]);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $img_info[0], $img_info[1], $img_info[0], $img_info[1]);
     $file_saved = $output_func($dst, $path_local);
     imagedestroy($src);
     imagedestroy($dst);
