@@ -87,7 +87,7 @@ $trans["biblioSearchResultTxt"]    = "if (%items% == 1) {
 $trans["biblioSearchauthor"]       = "\$text = ' เรียงตามชื่อผู้แต่ง';";
 $trans["biblioSearchtitle"]        = "\$text = ' เรียงตามชื่อเรื่อง';";
 $trans["biblioSearchSortByAuthor"] = "\$text = 'เรียงตามชื่อผู้แต่ง';";
-$trans["biblioSearchSortByTitle"]  = "\$text = 'เรียงตามชื่เรื่อง';";
+$trans["biblioSearchSortByTitle"]  = "\$text = 'เรียงตามชื่อเรื่อง';";
 $trans["biblioSearchTitle"]        = "\$text = 'ชื่อเรื่อง';";
 $trans["biblioSearchAuthor"]       = "\$text = 'ผู้แต่ง';";
 $trans["biblioSearchMaterial"]     = "\$text = 'ชนิด';";
