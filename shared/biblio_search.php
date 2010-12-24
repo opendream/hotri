@@ -231,15 +231,15 @@ function changePage(page,sort)
     *  Printing result stats and page nav
     ************************************************************************** -->
 <?php 
-  echo $loc->getText("biblioSearchResultTxt",array("items"=>$biblioQ->getRowCount()));
-  if ($biblioQ->getRowCount() > 1) {
+  echo $loc->getText("biblioSearchResultTxt", array("items" => $biblioQ->getRowCount()));
+  /*if ($biblioQ->getRowCount() > 1) {
     echo $loc->getText("biblioSearch".$sortBy);
     if ($sortBy == "author") {
       echo "(<a href=\"javascript:changePage(".$currentPageNmbr.",'title')\">".$loc->getText("biblioSearchSortByTitle")."</a>).";
     } else {
       echo "(<a href=\"javascript:changePage(".$currentPageNmbr.",'author')\">".$loc->getText("biblioSearchSortByAuthor")."</a>).";
     }
-  }
+  }*/
 ?>
 <br />
 <?php printResultPages($loc, $currentPageNmbr, $biblioQ->getPageCount(), $sortBy); ?><br>
