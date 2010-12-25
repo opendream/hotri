@@ -132,3 +132,7 @@ td.nav li.active li {
 .center {
 	text-align: center;
 }
+
+.box {
+    margin: 20px 0;
+}

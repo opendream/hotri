@@ -286,6 +286,12 @@ $trans["mbrPrintCheckoutsHdr3"]   = "\$text='Card Number:';";
 $trans["mbrPrintCheckoutsHdr4"]   = "\$text='Classification:';";
 $trans["mbrPrintCloseWindow"]     = "\$text='Close Window';";
 
+#****************************************************************************
+#*  Translation text for page csv_import.php, csv_export.php
+#****************************************************************************
+$trans["Export"]              = "\$text='Export';";
+$trans["CSVImportHeader"]     = "\$text='Import member list from CSV file';";
+$trans["CSVExportHeader"]     = "\$text='Export member list to CSV file';";
 
 # Error message
 $trans["Card number is required."]  = "\$text = 'Card number is required.';";

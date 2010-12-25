@@ -390,6 +390,16 @@ $trans["adminTheme_preview_GNU"]           = "\$text = 'GNU General Public Licen
 #*  Translation text for page theme_use.php
 #****************************************************************************
 
+#****************************************************************************
+#*  Translation text for page import_export.php
+#****************************************************************************
+
+$trans["adminImport"]           = "\$text = 'นำเข้า';";
+$trans["adminExport"]           = "\$text = 'ส่งออก';";
+$trans["import_member_csv"]         = "\$text = 'นำเข้ารายการสมาชิกจากไฟล์ CSV';";
+$trans["export_member_csv"]         = "\$text = 'ส่งออกรายการสมาชิกเป็นไฟล์ CSV';";
+$trans["import_bibliography_csv"]   = "\$text = 'นำเข้ารายการบรรณานุกรมจากไฟล์ CSV';";
+$trans["export_bibliography_csv"]   = "\$text = 'ส่งออกรายการบรรณานุกรมเป็นไฟล์ CSV';";
 
 #****************************************************************************
 #*  Translation text for page lookupOptsForm.php

@@ -1,6 +1,6 @@
 <?php
 $tab = "cataloging";
-$nav = "CsvImport";
+$nav = "csv_import";
 $helpPage = "CsvImport";
 $cancelLocation = "../catalog/index.php";
 require_once("../shared/common.php");
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
   
   // Report.
   echo <<<INNERHTML
-<h1>{$loc->getText('CSVImport')}</h1>
+<h1>{$loc->getText('CSVImportHeader')}</h1>
 
 INNERHTML;
 
@@ -43,7 +43,7 @@ INNERHTML;
 }
 else {
   echo <<<INNERHTML
-<h1>{$loc->getText('CSVImport')}</h1>
+<h1>{$loc->getText('CSVImportHeader')}</h1>
 <p>{$loc->getText('CSVImportSizeLimitNotes')}</p>
 <form method="post" enctype="multipart/form-data" action="{$_SERVER["SCRIPT_NAME"]}">
   <label for="upload"><p>{$loc->getText('CSVLabel')}</p></label>

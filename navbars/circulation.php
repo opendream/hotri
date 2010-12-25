@@ -137,6 +137,26 @@
  </li>
 <?php } ?>
 
+<?php if ($nav == "csv_import") { ?>
+ <li class="active">
+   <?php echo $navloc->getText("CSVImport"); ?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../circ/csv_import.php" class="alt1"><?php echo $navloc->getText("CSVImport"); ?></a>
+ </li>
+<?php } ?>
+
+<?php if ($nav == "csv_export") { ?>
+ <li class="active">
+   <?php echo $navloc->getText("CSVExport"); ?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../circ/csv_export.php" class="alt1"><?php echo $navloc->getText("CSVExport"); ?></a>
+ </li>
+<?php } ?>
+
  <li>
    <a href="javascript:popSecondary('../shared/help.php<?php if (isset($helpPage)) echo "?page=".H(addslashes(U($helpPage))); ?>')"><?php echo $navloc->getText("help"); ?></a>
  </li>

@@ -324,7 +324,7 @@
 		include_once($list[$x]);
 	}
 	?>
-<?php if ($nav == 'CsvImport') : ?>
+<?php if ($nav == 'csv_import') : ?>
  <li class="active">
    <?php echo $navLoc->getText("CSVImport");?>
  </li>
@@ -333,6 +333,17 @@
    <a href="../catalog/csv_import.php" class="alt1"><?php echo $navLoc->getText("CSVImport");?></a>
  </li>
 <?php endif; ?>
+
+<?php if ($nav == "csv_export") { ?>
+ <li class="active">
+   <?php echo $navLoc->getText("CSVExport");?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../catalog/csv_export.php" class="alt1"><?php echo $navLoc->getText("CSVExport");?></a>
+ </li>
+<?php } ?>
+
 <?php if ($nav == "upload_usmarc") { ?>
  <li class="active">
    <?php echo $navLoc->getText("Upload Marc Data");?>

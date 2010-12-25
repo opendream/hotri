@@ -8,7 +8,6 @@
   $ret = "";
   $sql = "SELECT MAX(barcode_nmbr) AS bn FROM member"; 
   $q = new Query(); 
-  $q->connect();
   $rows = $q->exec($sql);
   if (count($rows) > 0) {
     $bn = $rows[0]["bn"];

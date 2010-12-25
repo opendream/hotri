@@ -136,6 +136,16 @@
  </li>
 <?php } ?>
 
+<?php if ($nav == "import_export") { ?>
+ <li class="active">
+   <?php echo $navLoc->getText("adminImportExport");?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../admin/import_export.php" class="alt1"><?php echo $navLoc->getText("adminImportExport");?></a>
+ </li>
+<?php } ?>
+
 <!--
 < ?php if ($nav == "translation") { ?>
  &raquo; < ?php echo $navLoc->getText("adminTranslation");?><br>

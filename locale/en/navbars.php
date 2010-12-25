@@ -60,6 +60,7 @@ $trans["adminCheckoutPriv"]     = "\$text = 'Checkout Privs';";
 $trans["Cover Lookup Options"]  = "\$text = 'Cover Lookup Options';";
 $trans["adminThemes"]              = "\$text = 'Themes';";
 $trans["adminTranslation"]         = "\$text = 'Translation';";
+$trans["adminImportExport"]        = "\$text = 'Import / Export';";
 
 #****************************************************************************
 #*  Translation text for page cataloging.php
@@ -80,7 +81,8 @@ $trans["catalogHolds"]             = "\$text = 'Hold Requests';";
 $trans["catalogDelete"]            = "\$text = 'Delete';";
 $trans["catalogBibNewLike"]        = "\$text = 'New Like';";
 $trans["catalogBibNew"]            = "\$text = 'New Bibliography';";
-$trans["CSVImport"]                               = "\$text = 'Import from CSV';";
+$trans["CSVImport"]                = "\$text = 'Import from CSV file';";
+$trans["CSVExport"]                = "\$text = 'Export to CSV file';";
 $trans["Upload Marc Data"]         = "\$text = 'Upload Marc Data';";
 
 #****************************************************************************
