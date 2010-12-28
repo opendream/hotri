@@ -23,6 +23,9 @@
     <li>
       <a href="/catalog/csv_import.php"><?php echo $loc->getText("import_bibliography_csv"); ?></a>
     </li>
+    <li>
+      <a href="/catalog/upload_usmarc_form.php"><?php echo $loc->getText("import_bibliography_marc"); ?></a>
+    </li>
   </ul>
 </div>
 
@@ -30,10 +33,14 @@
   <h1><?php echo $loc->getText("adminExport");?></h1>
   <ul>
     <li>
-      <a href="/circ/csv_export.php"><?php echo $loc->getText("export_member_csv"); ?></a>
-    </li>
-    <li>
-      <a href="/catalog/csv_export.php"><?php echo $loc->getText("export_bibliography_csv"); ?></a>
+      <form name="form_csv_export" method="POST" action="/shared/csv_export.php">
+        <script type="text/javascript">
+          function submit() {
+            document.form_csv_export.submit();
+          }
+        </script>
+        <a href="javascript:submit()"><?php echo $loc->getText("export_library_data_csv"); ?></a>
+      </form>
     </li>
   </ul>
 </div>

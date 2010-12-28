@@ -334,16 +334,6 @@
  </li>
 <?php endif; ?>
 
-<?php if ($nav == "csv_export") { ?>
- <li class="active">
-   <?php echo $navLoc->getText("CSVExport");?>
- </li>
-<?php } else { ?>
- <li>
-   <a href="../catalog/csv_export.php" class="alt1"><?php echo $navLoc->getText("CSVExport");?></a>
- </li>
-<?php } ?>
-
 <?php if ($nav == "upload_usmarc") { ?>
  <li class="active">
    <?php echo $navLoc->getText("Upload Marc Data");?>

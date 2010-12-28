@@ -397,9 +397,9 @@ $trans["adminTheme_preview_GNU"]           = "\$text = 'GNU General Public Licen
 $trans["adminImport"]               = "\$text = 'Import';";
 $trans["adminExport"]               = "\$text = 'Export';";
 $trans["import_member_csv"]         = "\$text = 'Import member list from CSV file';";
-$trans["export_member_csv"]         = "\$text = 'Export member list to CSV file';";
 $trans["import_bibliography_csv"]   = "\$text = 'Import bibliography list from CSV file';";
-$trans["export_bibliography_csv"]   = "\$text = 'Export bibliography list to CSV file';";
+$trans["import_bibliography_marc"]  = "\$text = 'Import bibliography list from MARC file';";
+$trans["export_library_data_csv"]   = "\$text = 'Export all library data to CSV file';";
 
 #****************************************************************************
 #*  Translation text for page lookupOptsForm.php

@@ -84,7 +84,6 @@ $trans["catalogDelete"]            = "\$text = 'ลบรายการ';";
 $trans["catalogBibNewLike"]        = "\$text = 'คัดลอกรายการบรรณานุกรม';";
 $trans["catalogBibNew"]            = "\$text = 'เพิ่มรายการบรรณานุกรม';";
 $trans["CSVImport"]                  = "\$text = 'นำเข้าจากไฟล์ CSV';";
-$trans["CSVExport"]                  = "\$text = 'ส่งออกเป็นไฟล์ CSV';";
 $trans["Upload Marc Data"]         = "\$text = 'นำเข้ารายการ Marc ';";
 
 #****************************************************************************
