@@ -1,0 +1,7 @@
+"mbrid","barcode_nmbr","create_dt","last_change_dt","last_change_userid","last_name","first_name","address","home_phone","work_phone","email","classification","is_active","last_activity_dt"
+"1","101","2010-11-29 10:26:56","2010-11-29 10:26:56","1","Cat","Huckle","101 1st Street
+BusyTown,IA 12345","111-222-3333",,"me@mydomain.name","2","Y","2010-11-29 10:26:57"
+"2","102","2010-11-29 10:26:56","2010-11-29 10:26:56","1","Baggins","Bilbo","Hole 1, 1st Street
+The Shire, IA 12345","111-222-3333",,"me@mydomain.name","1","Y","2010-11-29 10:26:57"
+"3","103","2010-11-29 10:26:56","2010-11-29 10:26:56","1","Baggins","Frodo","Hole 2, 1st Street
+The Shire, IA 12345","111-222-3333",,"me@mydomain.name","1","Y","2010-11-29 10:26:57"

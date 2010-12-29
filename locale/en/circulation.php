@@ -287,9 +287,13 @@ $trans["mbrPrintCheckoutsHdr4"]   = "\$text='Classification:';";
 $trans["mbrPrintCloseWindow"]     = "\$text='Close Window';";
 
 #****************************************************************************
-#*  Translation text for page csv_import.php, csv_export.php
+#*  Translation text for page csv_import.php
 #****************************************************************************
 $trans["CSVImportHeader"]     = "\$text='Import member list from CSV file';";
+$trans["mbrCannotOpenFile"]   = "\$text='Cannot open file';";
+$trans["mbrCannotUploadFile"] = "\$text='Cannot upload file';";
+$trans["mbrImportCompleted"]  = "\$text='Members have been imported';";
+
 
 # Error message
 $trans["Card number is required."]  = "\$text = 'Card number is required.';";

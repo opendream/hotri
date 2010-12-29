@@ -250,7 +250,6 @@ $trans["CSVerrorAtRecord"]       = "\$text = 'มีข้อผิดพลา�
 $trans["CSVerrors"]              = "\$text = 'ผิดพลาด';";
 $trans["CSVerror"]               = "\$text = 'ผิดพลาด';";
 $trans["CSVwarning"]             = "\$text = 'ถูกเตือน';";
-$trans["UploadFile"]             = "\$text = 'ไฟล์อัพโหลด';";
 $trans["Defaults"]               = "\$text = 'ระบุ';";
 $trans["CSVshowAllFiles"]        = "\$text = 'Show all records (disable on large files)';";
 $trans["CSVcopyDescription"]     = "\$text = 'Text for descriptions of item copies';";
