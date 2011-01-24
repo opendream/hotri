@@ -29,6 +29,7 @@ switch ($_GET['type']) {
 $bl = new BulkLookupQuery();
 
 // Paging
+$total = $bl->countQueue('cover_list');
 $limit = 50;
 if (0 + $_GET['page'] < 1 || ($p-1) * $limit >= $total) $p = 1;
 else $p = 0 + $_GET['page'];
@@ -55,7 +56,6 @@ foreach ($rows as $row) {
 </table>
 <?php
 // Paging link
-$total = $bl->countQueue('cover_list');
 if ($p > 1) $prev = "<a href=\"?type=cover&page=".($p-1)."\">Previous</a>";
 if ($p * $limit < $total) $next = "<a href=\"?type=cover&page=".($p+1)."\">Next</a>";
 
