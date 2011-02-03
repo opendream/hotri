@@ -74,6 +74,7 @@ $(document).ready(function() {
         }
     });
 
+    // This event is called in the 'circ/mbr_fields.php'
     $("input#chk_auto_barcode").change(function(e) {
         self = this;
         if ($(this).is(":checked")) {
@@ -90,6 +91,9 @@ $(document).ready(function() {
             });
         }
     });
+
+    // This block is hidden by default. Use to check the JavaScript enabled.
+    $("div#mbrbc-check-js").show();
 
     /**
      * Working on page loads ----------------------------------------------------
