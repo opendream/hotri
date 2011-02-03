@@ -43,7 +43,7 @@ $trans["circSuspend"]             = "\$text = 'ระงับชั่วคร
 $trans["circPermanentlyDelete"]   = "\$text = 'ลบถาวร';";
 $trans["circLogout"]              = "\$text = 'ออกจากระบบ';";
 $trans["circAdd"]                 = "\$text = 'เพิ่ม';";
-$trans["mbrDupBarcode"]           = "\$text = 'รหัสบาร์โค้ด, %barcode%, ปัจจุบันถูกใช้';";
+$trans["mbrDupBarcode"]           = "\$text = 'รหัสบาร์โค้ด %barcode% ถูกใช้ไปแล้ว';";
 
 #****************************************************************************
 #*  Translation text for page index.php

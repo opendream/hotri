@@ -175,9 +175,9 @@ class MemberQuery extends Query {
    ****************************************************************************
    */
   function DupBarcode($barcode, $mbrid=0) {
-    $sql = $this->mkSQL("select count(*) as num from member "
-                        . "where barcode_nmbr = %Q",
-                        $barcode);
+    $sql = $this->mkSQL("select count(mbrid) as num from member "
+                        . "where barcode_nmbr = %Q and mbrid != %Q",
+                        $barcode, $mbrid);
     $rows = $this->exec($sql);
     if (count($rows) != 1) {
       Fatal::internalError('Bad number of rows');
