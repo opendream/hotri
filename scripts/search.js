@@ -86,6 +86,7 @@ $(document).ready(function() {
                     var loc = new Locale();
                     alert(loc.ErrorGetAutoBarcode);
                     $(self).removeAttr("checked");
+                    $('#mbrbc-check-js').hide();
                     $("#barcodeNmbr").focus();
                 }
             });
