@@ -255,41 +255,16 @@ function changePage(page,sort)
     </th>
   </tr>
   <?php
-    $priorBibid = 0;
-    while ($biblio = $biblioQ->fetchRow()) {
-      if ($biblio->getBibid() == $priorBibid) {
-        if ($biblio->getBarcodeNmbr() != "") {
-          #************************************
-          #* print copy line only
-          #************************************
-          ?>
-          <tr>
-            <td nowrap="true" class="primary" valign="top" align="center"><font class="small">
-              <?php echo H($biblioQ->getCurrentRowNmbr());?>.
-            </font></td>
-            
-            <td class="primary">&nbsp;</td>
-            <td class="primary" ><font class="small"><b><?php echo $loc->getText("biblioSearchCopyBCode"); ?></b>: <?php echo H($biblio->getBarcodeNmbr());?>
-              <?php if ($lookup == 'Y') { ?>
-                <a href="javascript:returnLookup('barcodesearch','barcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchOutIn"); ?></a> | <a href="javascript:returnLookup('holdForm','holdBarcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchHold"); ?></a>
-              <?php } ?>
-            </font></td>
-            <td class="primary" ><font class="small"><b><?php echo $loc->getText("biblioSearchCopyStatus"); ?></b>: <?php echo H($biblioStatusDm[$biblio->getStatusCd()]);?></font></td>
-          </tr>
-          <?php 
-        }
-      } else {
-        $priorBibid = $biblio->getBibid();
-
+    // Show bibliographies
+    while ($biblio = $biblioQ->fetchRow()) { // START WHILE 1
   ?>
-
   <tr>
-    <td nowrap="true" class="primary" valign="top" align="center" rowspan="2">
+    <td nowrap="true" class="primary" valign="top" align="center">
       <?php echo H($biblioQ->getCurrentRowNmbr());?>.<br />
       <a href="../shared/biblio_view.php?bibid=<?php echo HURL($biblio->getBibid());?>&amp;tab=<?php echo HURL($tab);?>">
       <img src="../images/<?php echo HURL($materialImageFiles[$biblio->getMaterialCd()]);?>" width="20" height="20" border="0" align="bottom" alt="<?php echo H($materialTypeDm[$biblio->getMaterialCd()]);?>"></a>
     </td>
-    <td nowrap="true" class="primary picture" valign="top" align="center" rowspan="2">
+    <td nowrap="true" class="primary picture" valign="top" align="center">
       <?php
       $bfq = new BiblioFieldQuery();
       $bfq->execSelect($biblio->getBibid(), '902a');
@@ -335,25 +310,53 @@ function changePage(page,sort)
       </table>
     </td>
   </tr>
+
   <?php
-    if ($biblio->getBarcodeNmbr() != "") {
-      ?>
-      <tr>
-        <td class="primary"><font class="small"><b><?php echo $loc->getText("biblioSearchCopyBCode"); ?></b>: <?php echo H($biblio->getBarcodeNmbr());?>
-          <?php if ($lookup == 'Y') { ?>
-            <a href="javascript:returnLookup('barcodesearch','barcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchOutIn"); ?></a> | <a href="javascript:returnLookup('holdForm','holdBarcodeNmbr','<?php echo H(addslashes($biblio->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchHold"); ?></a>
-          <?php } ?>
-        </font></td>
-        <td class="primary" ><font class="small"><b><?php echo $loc->getText("biblioSearchCopyStatus"); ?></b>: <?php echo H($biblioStatusDm[$biblio->getStatusCd()]);?></font></td>
-      </tr>
-    <?php } else { ?>
-      <tr>
-         <td class="primary" colspan="2" ><font class="small"><?php echo $loc->getText("biblioSearchNoCopies"); ?></font></td>
-      </tr>
-    <?php 
+    // Show bibliography copies
+    require_once('../classes/BiblioCopyQuery.php');
+    $copyQ = new BiblioCopyQuery();
+    $copyQ->connect();
+    if ($copyQ->errorOccurred()) {
+      $copyQ->close();
+      displayErrorPage($copyQ);
     }
-      }
+    if (!$copy = $copyQ->execSelect($biblio->getBibid())) {
+      $copyQ->close();
+      displayErrorPage($copyQ);
     }
+
+    if ($copyQ->getRowCount() == 0) { // START IFELSE 2
+  ?>
+    <tr>
+      <td class="primary" colspan="2">&nbsp;</td>
+      <td class="primary" colspan="2">
+        <font class="small"><?php echo $loc->getText("biblioSearchNoCopies"); ?></font>
+      </td>
+    </tr>
+  <?php
+    } else {
+      while ($copy = $copyQ->fetchCopy()) { // START WHILE 2
+  ?>
+    <tr>
+      <td class="primary" colspan="2">&nbsp;</td>
+      <td class="primary">
+        <font class="small">
+          <b><?php echo $loc->getText('biblioSearchCopyBCode'); ?>:</b>
+          <?php echo $copy->getBarcodeNmbr(); ?>
+        </font>
+      </td>
+      <td class="primary" >
+        <font class="small">
+          <b><?php echo $loc->getText("biblioSearchCopyStatus"); ?>:</b>
+          <?php echo H($biblioStatusDm[$copy->getStatusCd()]); ?>
+        </font>
+      </td>
+    </tr>
+  <?php
+      } // END WHILE 2
+    } // END IFELSE 2
+
+    } // END WHILE 1
     $biblioQ->close();
   ?>
   </table><br>

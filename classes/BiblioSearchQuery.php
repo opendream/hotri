@@ -134,11 +134,7 @@ class BiblioSearchQuery extends Query {
     $this->_pageCount = 0;
 
     # Setting SQL join clause
-    if ($type == OBIB_ADVANCED_SEARCH) {
-      $join = "FROM biblio ";
-    } else {
-      $join = "FROM biblio LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
-    }
+    $join = "FROM biblio ";
 
     # Setting SQL where clause
     $criteria = "";
@@ -147,6 +143,7 @@ class BiblioSearchQuery extends Query {
     }
     else {
       if ($type == OBIB_SEARCH_BARCODE) {
+        $join .= "LEFT JOIN biblio_copy ON biblio.bibid=biblio_copy.bibid ";
         $criteria = $this->_getCriteria(array("biblio_copy.barcode_nmbr"), $words);
       }
       elseif ($type == OBIB_SEARCH_AUTHOR) {
@@ -189,14 +186,6 @@ class BiblioSearchQuery extends Query {
 
     # Setting query that will return all the data
     $sql = "SELECT biblio.* ";
-    if ($type != OBIB_ADVANCED_SEARCH) {
-      $sql .= ", ";
-      $sql .= "biblio_copy.copyid, ";
-      $sql .= "biblio_copy.barcode_nmbr, ";
-      $sql .= "biblio_copy.status_cd, ";
-      $sql .= "biblio_copy.due_back_dt, ";
-      $sql .= "biblio_copy.mbrid ";
-    }
     $sql .= $join;
     $sql .= $criteria;
     if (!strrpos($sql, "GROUP BY")) {
