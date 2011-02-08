@@ -1,5 +1,8 @@
 Prerequisite:
-- PHP 5.1 and up. (PHP 5.3 supported)
+- PHP 5.1 and up. (PHP 5.3 is now supported)
+-- php5-mysql
+-- php5-gd
+-- php5-curl
 - MySQL 5 and up.
 - For online search / ISBN lookup, they require: 
   * YAZ library 3.0.52 (setup instructions in [base_directory]/prerequisites/yaz-3.0.52/README)
