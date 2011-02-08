@@ -76,16 +76,16 @@ $(document).ready(function() {
 
     // This event is called in the 'circ/mbr_fields.php'
     $("input#chk_auto_barcode").change(function(e) {
-        self = this;
+        _this = this;
         if ($(this).is(":checked")) {
-            $.get("/circ/mbr_get_barcode.php", function(data) {
+            $.get("/circ/mbr_get_barcode.php", {}, function(data) {
                 if (data != "") {
                     $("#barcodeNmbr").val(data);
                     $("#lastName").focus();
                 } else {
                     var loc = new Locale();
                     alert(loc.ErrorGetAutoBarcode);
-                    $(self).removeAttr("checked");
+                    $(_this).removeAttr("checked");
                     $('#mbrbc-check-js').hide();
                     $("#barcodeNmbr").focus();
                 }
@@ -100,7 +100,7 @@ $(document).ready(function() {
      * Working on page loads ----------------------------------------------------
      */
 
-    $("fieldset.collapsible").collapse({closed: true, callback: change_legend_icon});
+    $("fieldset.collapsible").collapse({'closed': true, 'callback': change_legend_icon});
     change_legend_icon();
 
 
