@@ -36,12 +36,12 @@
   $thumbpath =  '../' . COVER_PATH . '/' . 'thumb_' . $imgname;
   
   if (file_exists($imgpath)) {
-    chown($imgpath,666); // Windows platform compatibility, 666 is for "Nobody"
+    chmod($imgpath, 666); // Windows platform compatibility, 666 is for "Nobody"
     unlink($imgpath); 
   }
   
   if (file_exists($thumbpath)) {
-    chown($thumbpath,666);
+    chmod($thumbpath, 666);
     unlink($thumbpath); 
   }
   
