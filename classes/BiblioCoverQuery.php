@@ -157,12 +157,15 @@ class BiblioCoverQuery extends Query {
     
     // Save to field
     if (0 + $bibid > 0) {
-      if( !$this->_query("INSERT INTO biblio_field 
-       (bibid, tag, ind1_cd, ind2_cd, subfield_cd, field_data) 
-       VALUES (" . (0 + $bibid) . ", 902, 'N', 'N', 'a', '$name');", false) ) {
+      $q = $this->_query("INSERT INTO biblio_field ".
+                         "(bibid, tag, ind1_cd, ind2_cd, subfield_cd, field_data) ".
+                         "VALUES (" . (0 + $bibid) . ", 902, 'N', 'N', 'a', '$name');", false);
+      if (!$q) {
         unlink($path_local);
         return false;
       }
+      
+      $this->_query("UPDATE biblio SET has_cover='Y' WHERE bibid='". $bibid ."';");
     }
     else {
       return $name; // bibid = 0 then return filename for save to db later
@@ -174,7 +177,7 @@ class BiblioCoverQuery extends Query {
     // Now support YAZ only
     $query = '@attr 1=7 ' . $isbn;
     $conn = yaz_connect($server['host'], 
-     array('user'=>$server['user'], 'password'=>$server['pw']));
+                        array('user'=>$server['user'], 'password'=>$server['pw']));
     
     if (!$conn) return false;
     yaz_database($conn, $server['db']);

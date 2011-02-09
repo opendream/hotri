@@ -86,6 +86,7 @@ function postVarsToBiblio($post) {
   $biblio->setCallNmbr3($post["callNmbr3"]);
   $biblio->setLastChangeUserid($_SESSION["userid"]);
   $biblio->setOpacFlg(isset($post["opacFlg"]));
+
   $indexes = $post["indexes"];
   foreach($indexes as $index) {
     $value = $post["values"][$index];
@@ -93,6 +94,7 @@ function postVarsToBiblio($post) {
     $tag = $post["tags"][$index];
     $subfieldCd = $post["subfieldCds"][$index];
     $requiredFlg = $post["requiredFlgs"][$index];
+
     $biblioFld = new BiblioField();
     $biblioFld->setBibid($post['bibid']);
     $biblioFld->setFieldid($fieldid);
@@ -100,6 +102,7 @@ function postVarsToBiblio($post) {
     $biblioFld->setSubfieldCd($subfieldCd);
     $biblioFld->setIsRequired($requiredFlg);
     $biblioFld->setFieldData($value);
+
     $biblio->addBiblioField($index,$biblioFld);
   }
   return $biblio;

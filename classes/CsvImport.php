@@ -31,8 +31,8 @@ class CsvImport {
     // Make sure first row must have no changes. (Missing header issue)
     $s = fgets($fp);
     $arr = $this->_string2Array($s, $fp);
-    $required_header = array('ISBN', 'ชื่อผู้แต่ง', 'ชื่อเรื่อง', 'ชื่อเรื่องย่อย', 'ผู้รับผิดชอบ',
-     'Call Number', 'Call Number (2)', 'สถานที่พิมพ์', 'สำนักพิมพ์', 'ปีที่พิมพ์',);
+    $required_header = array('isbn', 'author', 'title', 'title_remainder', 'responsibility_stmt',
+           'call_nmbr1', 'call_nmbr2', 'publication_place', 'publisher_name', 'publication_date');
     $i = 0;
     if (is_array($arr)) {
       foreach ($arr as $field) {
@@ -122,7 +122,7 @@ class CsvImport {
       $quote_count = preg_match_all('/\"/', $str, $matches);
     }
     
-    $data = explode("\t", $str);
+    $data = explode(",", $str);
     
     foreach ($data as $i => $val) {
       // Strip all unescaped quotes, they should always be ("...") pattern
@@ -139,7 +139,7 @@ class CsvImport {
     
     // Map data with real marc fields
     $header = array('020a', '100a', '245a', '245b', '245c', '050a', '050b', 
-      '260a', '260b', '260c', );
+                    '260a', '260b', '260c');
       
     $data = @array_combine($header, $data);
     
@@ -174,21 +174,34 @@ class CsvImportQuery extends Query {
   }
   
   function _formatResults(&$data) {
-    
     switch ($this->_getCallNumberType()) {
       case 'loc':
       default: // Now support loc first.
         $data['callNmbr1'] = $data['050a'];
         $data['callNmbr2'] = $data['050b'];
         break;
-      
     }
-    $data['collectionCd'] = $this->_getDefaultCollection();
-    $data['materialCd'] = $data['collectionCd'];
+    if (empty($_POST['collectionCd'])) {
+      $data['collectionCd'] = $this->_getDefaultCollection();
+    } else {
+      $data['collectionCd'] = $_POST['collectionCd'];
+    }
+    if (empty($_POST['materialCd'])) {
+      $data['materialCd'] = $this->_getDefaultMaterial();
+    } else {
+      $data['materialCd'] = $_POST['materialCd'];
+    }
+    $data['opac'] = $_POST['opac'];
   }
   
   function _getDefaultCollection() {
     $this->_query("SELECT code FROM collection_dm WHERE default_flg='Y'", false);
+    $array = $this->_conn->fetchRow();
+    return $array === false ? '' : $array['code'];
+  }
+  
+  function _getDefaultMaterial() {
+    $this->_query("SELECT code FROM material_type_dm WHERE default_flg='Y'", false);
     $array = $this->_conn->fetchRow();
     return $array === false ? '' : $array['code'];
   }
