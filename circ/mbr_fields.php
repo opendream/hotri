@@ -26,11 +26,8 @@
   }
   $q->close();
   $barcode_help = $loc->getText("mbrLatestBarcode") .": ". $barcode ." <br />";
-  // The code that is called to handle this box is in script/search.js file.
-  $barcode_help .= '<div id="mbrbc-check-js" style="display:none;">'.
-                     '<input type="checkbox" id="chk_auto_barcode" name="chk_auto_barcode" value="1" /> '.
-                     $loc->getText("mbrAutoBarcode").
-                   '</div>';
+  $barcode_help .= '<input type="checkbox" id="chk_auto_barcode" name="chk_auto_barcode" value="1" /> '.
+                     $loc->getText("mbrAutoBarcode");
 
   $fields = array(
     "mbrFldsClassify" => inputField('select', "classification", $mbr->getClassification(), NULL, $mbrClassifyDm),

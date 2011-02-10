@@ -93,8 +93,31 @@ $(document).ready(function() {
         }
     });
 
-    // This block is hidden by default. Use to check the JavaScript enabled.
-    $("div#mbrbc-check-js").show();
+    // This event is called in the 'catalog/biblio_bulk_delete.php'
+    $('input#biblio-bulk-delete').click(function(e) {
+        $('div#message').hide();
+        $('div#form-select-biblio').hide();
+        $('div#pagination').hide();
+
+        var el_lis = '';
+        var chks = $('input[name*="chk-"]');
+        for (var i = 0; i < chks.length; i++) {
+            if (chks[i].checked) {
+                el_lis += '<li>';
+                el_lis += $(chks[i]).parent().parent().children().eq(1).children().eq(0).html();
+                author = jQuery.trim($(chks[i]).parent().parent().children().eq(2).html());
+                if (author != "") {
+                    el_lis += ' ('+ author +')';
+                }
+                el_lis += '</li>';
+            }
+        }
+        var el_ul = $('ul#list-deleted-items'); 
+        el_ul.html(el_lis);
+
+        var el_confirm = $('div#form-confirm');
+        el_confirm.show();
+    });
 
     /**
      * Working on page loads ----------------------------------------------------

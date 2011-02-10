@@ -191,7 +191,8 @@ class CsvImportQuery extends Query {
     } else {
       $data['materialCd'] = $_POST['materialCd'];
     }
-    $data['opac'] = $_POST['opac'];
+
+    $data['opac'] = $_POST['opac'] == 'Y' ? true : false;
   }
   
   function _getDefaultCollection() {
@@ -221,8 +222,9 @@ class CsvImportQuery extends Query {
     $biblio->setCollectionCd($post["collectionCd"]);
     $biblio->setCallNmbr1($post["callNmbr1"]);
     $biblio->setLastChangeUserid($_SESSION["userid"]);
-    $biblio->setOpacFlg(true);
-    unset($post['callNmbr1'], $post['callNmbr2'], $post['callNmbr3'], $post['collectionCd'], $post['materialCd']);
+    $biblio->setOpacFlg($post["opac"]);
+    unset($post['callNmbr1'], $post['callNmbr2'], $post['callNmbr3'],
+          $post['collectionCd'], $post['materialCd'], $post["opac"]);
     $post['020a'] = $this->verifyISBN($post['020a']);
     $title_trail = substr($post['245a'], strlen($post['245a']) - 1);
 

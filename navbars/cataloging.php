@@ -318,12 +318,24 @@
    <a href="../catalog/biblio_new.php" class="alt1"><?php echo $navLoc->getText("catalogBibNew");?></a>
  </li>
 <?php } ?>
+
+<?php if ($nav == "bulk_delete") { ?>
+ <li class="active">
+   <?php echo $navLoc->getText("catalogBibBulkDelete"); ?>
+ </li>
+<?php } else { ?>
+ <li>
+   <a href="../catalog/biblio_bulk_delete.php" class="alt1"><?php echo $navLoc->getText("catalogBibBulkDelete");?></a>
+ </li>
+<?php } ?>
+
 <?php
 	$list = getPlugIns('cataloging.nav');
 	for ($x=0; $x<count($list); $x++) {
 		include_once($list[$x]);
 	}
-	?>
+?>
+
 <?php if ($nav == 'csv_import') : ?>
  <li class="active">
    <?php echo $navLoc->getText("CSVImport");?>
