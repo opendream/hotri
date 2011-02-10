@@ -83,8 +83,9 @@ $trans["catalogHolds"]             = "\$text = 'รายการจอง';";
 $trans["catalogDelete"]            = "\$text = 'ลบรายการ';";
 $trans["catalogBibNewLike"]        = "\$text = 'คัดลอกรายการบรรณานุกรม';";
 $trans["catalogBibNew"]            = "\$text = 'เพิ่มรายการบรรณานุกรม';";
+$trans["catalogBibBulkDelete"]  = "\$text = 'ลบหลายบรรณานุกรม';";
 $trans["CSVImport"]                  = "\$text = 'นำเข้าจากไฟล์ CSV';";
-$trans["Upload Marc Data"]         = "\$text = 'นำเข้ารายการ Marc ';";
+$trans["Upload Marc Data"]         = "\$text = 'นำเข้ารายการ MARC';";
 
 #****************************************************************************
 #*  Translation text for page reports.php

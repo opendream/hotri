@@ -81,8 +81,9 @@ $trans["catalogHolds"]             = "\$text = 'Hold Requests';";
 $trans["catalogDelete"]            = "\$text = 'Delete';";
 $trans["catalogBibNewLike"]        = "\$text = 'New Like';";
 $trans["catalogBibNew"]            = "\$text = 'New Bibliography';";
+$trans["catalogBibBulkDelete"]   = "\$text = 'Bulk Delete Bibliographies';";
 $trans["CSVImport"]                = "\$text = 'Import from CSV file';";
-$trans["Upload Marc Data"]         = "\$text = 'Upload Marc Data';";
+$trans["Upload Marc Data"]         = "\$text = 'Upload MARC Data';";
 
 #****************************************************************************
 #*  Translation text for page reports.php

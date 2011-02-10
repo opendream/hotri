@@ -40,6 +40,11 @@ setlocale(LC_MONETARY, 'th_TH.UTF-8'); // For change currency symbol
 #****************************************************************************
 $trans["sharedCancel"]             = "\$text = 'ยกเลิก';";
 $trans["sharedDelete"]             = "\$text = 'ลบ';";
+$trans["sharedComfirmDelete"]    = "\$text = 'ยืนยันการลบ';";
+$trans["sharedDeleteWarning"]    = "\$text = 'การเปลี่ยนแปลงนี้ไม่สามารถเรียกกลับคืนได้ คุณแน่ใจหรือไม่?';";
+$trans["sharedRecordIsDeleted"]    = "\$text = 'รายการถูกลบเสร็จสิ้น';";
+$trans["sharedRecordsAreDeleted"]    = "\$text = 'รายการถูกลบเสร็จสิ้น';";
+$trans["sharedListOfDeletedItems"]    = "\$text = 'รายการที่กำลังจะถูกลบ';";
 
 #****************************************************************************
 #*  Translation text for page biblio_view.php

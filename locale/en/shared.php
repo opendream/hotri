@@ -39,6 +39,11 @@
 #****************************************************************************
 $trans["sharedCancel"]             = "\$text = 'Cancel';";
 $trans["sharedDelete"]             = "\$text = 'Delete';";
+$trans["sharedComfirmDelete"]    = "\$text = 'Yes, delete all selected items';";
+$trans["sharedDeleteWarning"]    = "\$text = 'This action cannot be undone. Are you sure?';";
+$trans["sharedRecordIsDelete"]    = "\$text = 'record is deleted.';";
+$trans["sharedRecordsAreDeleted"]    = "\$text = 'records are deleted.';";
+$trans["sharedListOfDeletedItems"]    = "\$text = 'List of the items will be deleted';";
 
 #****************************************************************************
 #*  Translation text for page biblio_view.php
