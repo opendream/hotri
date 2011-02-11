@@ -68,9 +68,9 @@ $(document).ready(function() {
         e.preventDefault();
         var url = window.location.href;
         if (url.match(/opac/)) {
-            window.location = "/opac/index.php";
+            window.location = "../opac/index.php";
         } else if (url.match(/catalog/)) {
-            window.location = "/catalog/index.php";
+            window.location = "../catalog/index.php";
         }
     });
 
@@ -78,7 +78,7 @@ $(document).ready(function() {
     $("input#chk_auto_barcode").change(function(e) {
         _this = this;
         if ($(this).is(":checked")) {
-            $.get("/circ/mbr_get_barcode.php", {}, function(data) {
+            $.get("../circ/mbr_get_barcode.php", {}, function(data) {
                 if (data != "") {
                     $("#barcodeNmbr").val(data);
                     $("#lastName").focus();
