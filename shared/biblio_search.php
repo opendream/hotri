@@ -339,16 +339,25 @@ function changePage(page,sort)
   ?>
     <tr>
       <td class="primary" colspan="2">&nbsp;</td>
-      <td class="primary">
+      <td class="primary" colspan="2">
         <font class="small">
-          <b><?php echo $loc->getText('biblioSearchCopyBCode'); ?>:</b>
-          <?php echo $copy->getBarcodeNmbr(); ?>
-        </font>
-      </td>
-      <td class="primary" >
-        <font class="small">
-          <b><?php echo $loc->getText("biblioSearchCopyStatus"); ?>:</b>
-          <?php echo H($biblioStatusDm[$copy->getStatusCd()]); ?>
+          <span style="padding:0px 5px;">
+            <b><?php echo $loc->getText('biblioSearchCopyBCode'); ?>:</b>
+            <?php echo $copy->getBarcodeNmbr(); ?>
+          </span>
+
+          <span style="padding:0px 5px;">
+            <?php if ($lookup == 'Y') { ?>
+              <a href="javascript:returnLookup('barcodesearch','barcodeNmbr','<?php echo H(addslashes($copy->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchOutIn"); ?></a> | <a href="javascript:returnLookup('holdForm','holdBarcodeNmbr','<?php echo H(addslashes($copy->getBarcodeNmbr()));?>')"><?php echo $loc->getText("biblioSearchHold"); ?></a>
+            <?php } else { ?>
+              &nbsp;
+            <?php } ?>
+          </span>
+
+          <span style="padding:0px 5px;">
+            <b><?php echo $loc->getText("biblioSearchCopyStatus"); ?>:</b>
+            <?php echo H($biblioStatusDm[$copy->getStatusCd()]); ?>
+          </span>
         </font>
       </td>
     </tr>
