@@ -15,14 +15,17 @@ if (!isset($_REQUEST['posted'])) {
   require_once("../shared/logincheck.php");
 
   $param = array('opacFlg'=>'CHECKED');
-  // Receive get parameter for ISBN.
-  if (!empty($_GET['isbn'])) 
+  if (!empty($_GET['isbn'])) {
     $param['values']['020a'] = $_GET['isbn'];
-  
+  }
   showForm($param);
 } else {
-  if ($_POST['uselookup'] == 'yes') $_POST['values']['902a'] = array('uselookup'=>true, 'isbn'=>$_POST['values']['020a']);
-  else if (!empty($_FILES["values"]["tmp_name"]["902a"])) $_POST["values"]["902a"] = $_FILES["values"];
+  if ($_POST['uselookup'] == 'yes') {
+    $_POST['values']['902a'] = array('uselookup'=>true, 'isbn'=>$_POST['values']['020a']);
+  } elseif (!empty($_FILES["values"]["tmp_name"]["902a"])) {
+    $_POST["values"]["902a"] = $_FILES["values"];
+  }
+
   $postVars = $_POST;
   if ($_REQUEST['posted'] == 'media_change') {
     require_once("../shared/logincheck.php");
@@ -150,5 +153,3 @@ function showForm($postVars, $pageErrors=array()) {
   include("../catalog/biblio_fields.php");
   include("../shared/footer.php");
 }
-
-?>

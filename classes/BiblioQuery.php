@@ -384,8 +384,8 @@ class BiblioQuery extends Query {
         } else {
           $sql = $this->mkSQL("delete from biblio_field "
                                 . "where bibid=%N and fieldid=%N ",
-                                $value->getBibid(), $value->getFieldid());
-        }          
+                                $bibid, $value->getFieldid());
+        }
       } elseif ($value->getFieldid() == "") {
         // new value
         $sql = $this->mkSQL("insert into biblio_field "
@@ -397,7 +397,7 @@ class BiblioQuery extends Query {
         // existing value
         $sql = $this->mkSQL("update biblio_field set field_data = %Q "
                             . "where bibid=%N and fieldid=%N ",
-                            $value->getFieldData(), $value->getBibid(),
+                            $value->getFieldData(), $bibid,
                             $value->getFieldid());
       }
     

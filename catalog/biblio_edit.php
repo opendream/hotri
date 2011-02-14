@@ -10,7 +10,6 @@ $nav = "edit";
 
 require_once("../classes/Localize.php");
 $loc = new Localize(OBIB_LOCALE,$tab);
-$shareloc = new Localize(OBIB_LOCALE, 'shared');
 
 if (!isset($_REQUEST['posted'])) {
   require_once("../shared/logincheck.php");

@@ -25,6 +25,10 @@ define("OBIB_FILE_CNTRL", "2");
  *********************************************************************************
  */
 function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors,&$marcTags,&$marcSubflds,$showTagDesc,$cntrlType,$occur=""){
+
+  require_once("../classes/Localize.php");
+  $shareloc = new Localize(OBIB_LOCALE, "shared");
+
   $arrayIndex = sprintf("%03d",$tag).$subfieldCd;
   $formIndex = $arrayIndex.$occur;
   $size = 40;
@@ -95,12 +99,11 @@ function printUsmarcInputText($tag,$subfieldCd,$required,&$postVars,&$pageErrors
       $filepath = "../" . COVER_PATH . "/$value";
       $thumbpath = make_thumbnail($filepath, array('height' => 120));
       if (file_exists($thumbpath)) {
-        echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$alt\" /></a>";
+        echo "<br /><a href=\"$filepath\" title=\"$title\" target=\"_blank\"><img src=\"$thumbpath\" border=\"0\" title=\"$title\" alt=\"$title\" /></a>";
       }
       else {
         echo "<div class=\"error\">File does not exists.</div>";
       }
-      global $shareloc;
       echo " <a href=\"../catalog/biblio_cover_del.php?bibid=" . HURL($_REQUEST['bibid']) ."&redirect=edit\" onclick=\"javascript: return confirm('" . htmlspecialchars($shareloc->getText('Are you sure to remove this picture?'), ENT_QUOTES) . "');\">" . $shareloc->getText('Remove') . "</a>";
     }
   }
