@@ -29,5 +29,5 @@ create table %prfx%theme (
   ,border_width tinyint not null
   ,table_padding tinyint not null
 )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

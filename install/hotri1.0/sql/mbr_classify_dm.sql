@@ -5,5 +5,5 @@ create table %prfx%mbr_classify_dm (
   ,default_flg char(1) not null
   ,max_fines decimal(4,2) not null
 )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

@@ -4,4 +4,5 @@ create table %prfx%member_fields_dm (
   description char(32) NOT NULL,
   default_flg char(1) NOT NULL,
   PRIMARY KEY (code)
-) TYPE=MyISAM;
+) TYPE=MyISAM DEFAULT CHARSET=utf8
+;

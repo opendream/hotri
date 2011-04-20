@@ -5,4 +5,5 @@ create table %prfx%member_fields (
   data text NOT NULL,
   PRIMARY KEY (mbrid, code),
   INDEX code_index (code)
-) TYPE=MyISAM;
+) TYPE=MyISAM DEFAULT CHARSET=utf8
+;

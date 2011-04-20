@@ -15,5 +15,5 @@ create table %prfx%staff (
   ,catalog_flg char(1) not null
   ,reports_flg char(1) not null
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

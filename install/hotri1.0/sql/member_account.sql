@@ -9,5 +9,5 @@ create table %prfx%member_account (
   ,description varchar(128) null
   ,primary key(mbrid,transid)
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

@@ -5,5 +5,5 @@ create table %prfx%material_type_dm (
   ,default_flg char(1) not null
   ,image_file varchar(128) null
 )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

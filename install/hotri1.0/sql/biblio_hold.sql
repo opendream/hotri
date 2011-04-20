@@ -8,5 +8,5 @@ create table %prfx%biblio_hold (
   ,index mbr_index (mbrid)
   ,primary key(bibid,copyid,holdid)
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;
