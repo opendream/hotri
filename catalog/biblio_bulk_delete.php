@@ -100,7 +100,7 @@
     <tr>
       <td><input type="checkbox" name="chk-<?php echo $biblio['bibid']; ?>" /></td>
       <td>
-        <a href="/shared/biblio_view.php?bibid=<?php echo $biblio['bibid']; ?>"><?php echo $biblio['title']; ?></a>
+        <a href="<?php echo DOCUMENT_ROOT; ?>shared/biblio_view.php?bibid=<?php echo $biblio['bibid']; ?>"><?php echo $biblio['title']; ?></a>
       </td>
       <td>
         <?php echo $biblio['author']; ?>
@@ -131,7 +131,7 @@
     <input type="hidden" name="action_delete" value="true" />
     <input type="submit" value="<?php echo $locsh->getText("sharedComfirmDelete"); ?>" class="button" />
     <?php echo $locsh->getText("or"); ?>
-    <a href="/catalog/biblio_bulk_delete.php"><?php echo $locsh->getText("cancel"); ?></a>
+    <a href="<?php echo DOCUMENT_ROOT; ?>catalog/biblio_bulk_delete.php"><?php echo $locsh->getText("cancel"); ?></a>
   </div>
   </form>
 <?php

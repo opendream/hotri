@@ -81,7 +81,7 @@
 
 <h1><?php echo $loc->getText("CSVImportHeader"); ?></h1>
 
-<form method="post" enctype="multipart/form-data" action="/circ/csv_import.php">
+<form method="post" enctype="multipart/form-data" action="<?php echo DOCUMENT_ROOT; ?>circ/csv_import.php">
   <div>
     <label for="upload"><?php echo $locCatalog->getText("CSVLabel"); ?></label>
   </div>
