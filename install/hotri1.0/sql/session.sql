@@ -4,5 +4,5 @@ create table %prfx%session (
   ,last_updated_dt datetime not null
   ,token integer(5) not null
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

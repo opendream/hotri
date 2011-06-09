@@ -1,3 +1,18 @@
+ความต้องการเบื้องต้น
+- PHP รุ่น 5.1 ขึ้นไป
+-- php5-mysql
+-- php5-gd
+-- php5-curl
+- MySQL รุ่น 5 ขึ้นไป
+- ในกรณีที่ต้องการใช้งานการค้นหาออนไลน์/การค้นหา ISBN จำเป็นจะต้องมี
+  * YAZ รุ่น 3.0.52 ขึ้นไ
+  * crontab หรือโปรแกรมที่เทียบเท่า
+- ในกรณีที่ต้องการใช้งานการค้นหาปกห้องสือจาก Amazon จะเป็นจะต้องมี
+  * AWS Key
+  * AWS Secret Key
+  * AWS Account ID
+ข้อมูลทั้งสามส่วนสามารถรับได้ที่ Amazon Web Service http://aws.amazon.com หากมีบัญชีผู้ใช้ Amazon แล้วสามารถเข้าไปดูค่าเหล่านี้ได้จากใน 'Personal Information'
+
 Prerequisite:
 - PHP 5.1 and up. (PHP 5.3 is now supported)
 -- php5-mysql

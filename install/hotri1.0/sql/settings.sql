@@ -18,5 +18,5 @@ create table %prfx%settings (
   ,charset varchar(20) null
   ,html_lang_attr varchar(8) null
 )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

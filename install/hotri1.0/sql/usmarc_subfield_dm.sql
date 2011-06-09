@@ -5,5 +5,5 @@ CREATE TABLE %prfx%usmarc_subfield_dm (
   ,description varchar(80) NOT NULL
   ,repeatable_flg char(1) NOT NULL
   ,PRIMARY KEY  (tag,subfield_cd)
-)  TYPE=MyISAM
+)  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

@@ -7,5 +7,5 @@ CREATE TABLE %prfx%usmarc_tag_dm (
   ,ind2_description varchar(80) NOT NULL
   ,repeatable_flg char(1) NOT NULL
   ,PRIMARY KEY  (block_nmbr,tag)
-)  TYPE=MyISAM
+)  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

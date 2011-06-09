@@ -13,5 +13,5 @@ create table %prfx%member (
   ,email varchar(128) null
   ,classification smallint not null
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

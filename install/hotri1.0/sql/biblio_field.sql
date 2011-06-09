@@ -9,5 +9,5 @@ create table %prfx%biblio_field (
   ,field_data text null
   ,primary key(bibid,fieldid)
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

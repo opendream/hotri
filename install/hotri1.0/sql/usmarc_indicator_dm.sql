@@ -5,5 +5,5 @@ CREATE TABLE %prfx%usmarc_indicator_dm (
   ,indicator_cd char(1) NOT NULL
   ,description varchar(80) NOT NULL
   ,PRIMARY KEY  (tag,indicator_nmbr,indicator_cd)
-)  TYPE=MyISAM
+)  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;

@@ -10,5 +10,5 @@ create table %prfx%biblio_status_hist (
   ,index mbr_index (mbrid)
   ,index copy_index (bibid,copyid)
   )
-  TYPE=MyISAM
+  TYPE=MyISAM DEFAULT CHARSET=utf8
 ;
